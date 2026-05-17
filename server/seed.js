@@ -120,7 +120,7 @@ async function seed() {
         await MenuItem.deleteMany({});
         console.log('🗑️  Cleared existing menu items');
 
-        // Insert new items
+        // Insert new menu items
         const result = await MenuItem.insertMany(menuItems);
         console.log(`🌱 Seeded ${result.length} menu items into MongoDB`);
 
@@ -133,6 +133,53 @@ async function seed() {
         Object.entries(categories).forEach(([cat, count]) => {
             console.log(`   ${cat}: ${count} items`);
         });
+
+        // ----------------------------------------------------
+        // SEED DUMMY TRANSACTIONS & ORDERS FOR AUDIT TESTING
+        // ----------------------------------------------------
+        const Order = require('./models/Order');
+        const Transaction = require('./models/Transaction');
+
+        await Order.deleteMany({});
+        await Transaction.deleteMany({});
+        console.log('🗑️  Cleared existing orders and transactions');
+
+        const dummyOrders = [
+            {
+                orderNumber: 'AKP-58291',
+                items: [{ name: 'Royal Heritage Thali', price: 450, quantity: 2 }],
+                itemTotal: 900,
+                tax: 45,
+                totalAmount: 945,
+                status: 'delivered',
+                paymentMethod: 'upi'
+            },
+            {
+                orderNumber: 'AKP-19432',
+                items: [{ name: 'Mutton Rassa Thali', price: 520, quantity: 1 }],
+                itemTotal: 520,
+                tax: 26,
+                totalAmount: 546,
+                status: 'placed',
+                paymentMethod: 'card'
+            }
+        ];
+
+        for (const o of dummyOrders) {
+            const order = new Order(o);
+            await order.save();
+
+            const txn = new Transaction({
+                orderNumber: order.orderNumber,
+                amount: order.totalAmount,
+                type: 'order_placed',
+                paymentMethod: order.paymentMethod,
+                status: 'success',
+                auditDetails: 'Dummy transaction for API testing'
+            });
+            await txn.save();
+        }
+        console.log(`🌱 Seeded ${dummyOrders.length} dummy orders and transactions for audit testing`);
 
         process.exit(0);
     } catch (error) {
