@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Track Your Feast | Akshaypatra</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@600;700&amp;family=Plus+Jakarta+Sans:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #fcf9f2; /* surface-cream */
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "secondary-fixed-dim": "#f1be65",
+                      "on-background": "#1c1c18",
+                      "on-secondary-fixed-variant": "#5f4100",
+                      "on-tertiary-container": "#ffc8bb",
+                      "tertiary-fixed": "#ffdad2",
+                      "on-tertiary-fixed": "#3d0700",
+                      "error-container": "#ffdad6",
+                      "on-error-container": "#93000a",
+                      "surface-bright": "#fcf9f2",
+                      "primary-fixed-dim": "#ffb59c",
+                      "primary-container": "#a63500",
+                      "surface-cream": "#fcf9f2",
+                      "accent-gold": "#feb71a",
+                      "secondary-fixed": "#ffdeaa",
+                      "surface": "#fcf9f2",
+                      "primary-fixed": "#ffdbcf",
+                      "on-primary-container": "#ffc9b7",
+                      "tertiary-fixed-dim": "#ffb4a3",
+                      "on-surface-variant": "#58423a",
+                      "surface-variant": "#e5e2db",
+                      "tertiary": "#7d2611",
+                      "primary": "#7e2600",
+                      "deep-earth": "#31312c",
+                      "on-error": "#ffffff",
+                      "on-tertiary": "#ffffff",
+                      "secondary": "#7d5700",
+                      "surface-container": "#f0eee7",
+                      "background": "#fcf9f2",
+                      "secondary-container": "#fec96f",
+                      "on-tertiary-fixed-variant": "#812913",
+                      "inverse-surface": "#31312c",
+                      "on-secondary-container": "#775300",
+                      "outline": "#8c7168",
+                      "outline-variant": "#e0c0b5",
+                      "on-secondary": "#ffffff",
+                      "inverse-on-surface": "#f3f0ea",
+                      "on-primary": "#ffffff",
+                      "on-primary-fixed-variant": "#822800",
+                      "on-surface": "#1c1c18",
+                      "surface-dim": "#dcdad3",
+                      "surface-container-highest": "#e5e2db",
+                      "surface-container-lowest": "#ffffff",
+                      "surface-container-high": "#ebe8e1",
+                      "surface-tint": "#a93702",
+                      "inverse-primary": "#ffb59c",
+                      "tertiary-container": "#9d3d26",
+                      "spice-red": "#be543c",
+                      "on-primary-fixed": "#380c00",
+                      "error": "#ba1a1a",
+                      "on-secondary-fixed": "#271900",
+                      "surface-container-low": "#f6f3ec"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "base": "8px",
+                      "margin-mobile": "16px",
+                      "xs": "4px",
+                      "margin-desktop": "80px",
+                      "md": "24px",
+                      "xl": "64px",
+                      "sm": "12px",
+                      "lg": "40px",
+                      "gutter": "16px"
+              },
+              "fontFamily": {
+                      "headline-lg": ["Noto Serif"],
+                      "body-md": ["Plus Jakarta Sans"],
+                      "label-sm": ["Plus Jakarta Sans"],
+                      "body-lg": ["Plus Jakarta Sans"],
+                      "label-md": ["Plus Jakarta Sans"],
+                      "headline-xl": ["Noto Serif"],
+                      "headline-md": ["Noto Serif"]
+              },
+              "fontSize": {
+                      "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                      "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "700"}],
+                      "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                      "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+                      "headline-xl": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}]
+              }
+            },
+          },
+        }
+    </script>
+</head>
+<body class="bg-surface">
+<!-- TopAppBar -->
+<nav class="bg-surface dark:bg-surface-dim sticky top-0 w-full z-50 border-b border-outline-variant dark:border-outline shadow-sm">
+<div class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-4 mx-auto max-w-7xl">
+<div class="font-headline-lg text-headline-lg text-primary dark:text-primary-fixed uppercase tracking-tight">Akshaypatra</div>
+<div class="hidden md:flex gap-lg items-center">
+<a class="text-on-surface-variant dark:text-on-surface hover:text-primary dark:hover:text-primary-fixed transition-colors font-body-md text-body-md" href="../akshaypatra_web_menu_expanded/code.html"> Menu </a>
+<a class="text-on-surface-variant dark:text-on-surface hover:text-primary dark:hover:text-primary-fixed transition-colors font-body-md text-body-md" href="../akshaypatra_web_heritage_story_refined/code.html"> Heritage Story </a>
+<a class="text-on-surface-variant dark:text-on-surface hover:text-primary dark:hover:text-primary-fixed transition-colors font-body-md text-body-md" href="../akshaypatra_web_spice_circle_rewards_exclusive/code.html"> Specials </a>
+<a class="text-on-surface-variant dark:text-on-surface hover:text-primary dark:hover:text-primary-fixed transition-colors font-body-md text-body-md" href="../akshaypatra_web_sustainability_showcase/code.html"> Catering </a>
+<a class="text-primary dark:text-primary-fixed font-bold border-b-2 border-primary dark:border-primary-fixed pb-1 font-body-md text-body-md" href="../akshaypatra_web_user_dashboard_refined/code.html"> Account </a>
+</div>
+<a href="../akshaypatra_web_menu_expanded/code.html" class="bg-primary text-on-primary px-6 py-2 rounded-full font-label-md text-label-md hover:bg-primary-container transition-all active:scale-95 no-underline">
+                Order Now
+            </a>
+</div>
+</nav>
+<main class="max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop py-lg">
+<!-- Header Section -->
+<div class="mb-lg">
+<h1 class="font-headline-xl text-headline-xl text-on-background mb-base">Tracking Your Feast</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Order #AKP-99281 • From our Wagholi (Pune) Kitchen</p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- Tracking Column -->
+<div class="lg:col-span-7 space-y-gutter">
+<!-- Real-time Status Tracker -->
+<div class="bg-surface-container-lowest rounded-xl p-md shadow-sm border border-outline-variant">
+<div class="flex items-center justify-between mb-lg">
+<div>
+<h2 class="font-headline-md text-headline-md text-on-background">On the way!</h2>
+<p class="font-body-md text-body-md text-secondary font-bold">Estimated delivery: 12:45 PM</p>
+</div>
+<div class="bg-secondary-container text-on-secondary-container px-4 py-2 rounded-full font-label-md text-label-md">
+                            PREPARING
+                        </div>
+</div>
+<div class="relative flex justify-between items-start pt-base">
+<!-- Progress Line -->
+<div class="absolute top-[22px] left-0 w-full h-1 bg-surface-container-highest -z-0">
+<div class="h-full bg-secondary w-2/3"></div>
+</div>
+<!-- Step 1 -->
+<div class="flex flex-col items-center gap-base relative z-10 w-1/4">
+<div class="w-10 h-10 rounded-full bg-secondary text-on-secondary flex items-center justify-center">
+<span class="material-symbols-outlined" data-weight="fill">check_circle</span>
+</div>
+<span class="font-label-md text-label-md text-on-surface text-center">Order Placed</span>
+</div>
+<!-- Step 2 -->
+<div class="flex flex-col items-center gap-base relative z-10 w-1/4">
+<div class="w-10 h-10 rounded-full bg-secondary text-on-secondary flex items-center justify-center">
+<span class="material-symbols-outlined" data-weight="fill">restaurant</span>
+</div>
+<span class="font-label-md text-label-md text-on-surface text-center">Preparing</span>
+</div>
+<!-- Step 3 -->
+<div class="flex flex-col items-center gap-base relative z-10 w-1/4">
+<div class="w-10 h-10 rounded-full bg-secondary-container text-on-secondary-container border-2 border-secondary flex items-center justify-center">
+<span class="material-symbols-outlined">delivery_dining</span>
+</div>
+<span class="font-label-md text-label-md text-on-surface-variant text-center">Out for Delivery</span>
+</div>
+<!-- Step 4 -->
+<div class="flex flex-col items-center gap-base relative z-10 w-1/4">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest text-on-surface-variant flex items-center justify-center">
+<span class="material-symbols-outlined">home</span>
+</div>
+<span class="font-label-md text-label-md text-on-surface-variant text-center">Delivered</span>
+</div>
+</div>
+</div>
+<!-- Bento Details Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<!-- Order Summary -->
+<div class="bg-surface-container-low rounded-xl p-md border border-outline-variant">
+<div class="flex items-center gap-sm mb-md">
+<span class="material-symbols-outlined text-primary">receipt_long</span>
+<h3 class="font-headline-md text-headline-md text-on-background">Order Summary</h3>
+</div>
+<ul class="space-y-sm mb-md">
+<li class="flex justify-between font-body-md text-body-md text-on-surface">
+<span>Puran Poli (2 pcs)</span>
+<span class="font-bold">₹180</span>
+</li>
+<li class="flex justify-between font-body-md text-body-md text-on-surface">
+<span>Mutton Rassa Thali</span>
+<span class="font-bold">₹450</span>
+</li>
+<li class="flex justify-between font-body-md text-body-md text-on-surface">
+<span>Solkadhi</span>
+<span class="font-bold">₹60</span>
+</li>
+</ul>
+<div class="border-t border-outline-variant pt-sm flex justify-between">
+<span class="font-label-md text-label-md text-on-surface">Total</span>
+<span class="font-headline-md text-headline-md text-primary">₹690</span>
+</div>
+</div>
+<!-- Delivery Partner -->
+<div class="bg-surface-container-low rounded-xl p-md border border-outline-variant flex flex-col justify-between">
+<div>
+<div class="flex items-center gap-sm mb-md">
+<span class="material-symbols-outlined text-secondary">person</span>
+<h3 class="font-headline-md text-headline-md text-on-background">Your Valet</h3>
+</div>
+<div class="flex items-center gap-md mb-md">
+<div class="w-16 h-16 rounded-full overflow-hidden border-2 border-secondary">
+<img alt="Delivery Partner" data-alt="A warm, professional portrait of a delivery valet wearing a clean company uniform. The background is a soft, out-of-focus street scene during the day with warm, natural sunlight. The image has a friendly and trustworthy feel, consistent with a high-end service aesthetic, using warm tones and clear details." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAV2djAVBocligNdeTY9_h7_QuLnIkXzqM-1hzHQ5Acg9wQeNmAc4YNrlHOfW4Kv1Y6jtchhF8BTKwxTS251x_tz1_KnP_9jATCog3aNKG4qpfRdTmHI2GrGVk2XNZXx-Szuik1q93q4DxJCkIA-3_octQn4ocRm5BqSNLiaRpZESgWoAFj5LelnV_co8x6acfecfRXQgRlEESv4t23lSCJT9_1DbmLlV2qMZxOazJIwv12BxvgDDpiTwZlkVCJKqgQURgVHmmuPw"/>
+</div>
+<div>
+<p class="font-headline-md text-headline-md text-on-background">Sanjay M.</p>
+<p class="font-label-md text-label-md text-on-surface-variant flex items-center gap-xs">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span> 4.9 Rating
+                                    </p>
+</div>
+</div>
+</div>
+<button class="w-full h-12 border-2 border-tertiary text-tertiary rounded-lg font-label-md text-label-md hover:bg-tertiary-fixed-dim transition-colors flex items-center justify-center gap-sm active:scale-95">
+<span class="material-symbols-outlined">call</span> Call Sanjay
+                        </button>
+</div>
+</div>
+<!-- Help Section -->
+<div class="bg-deep-earth text-surface-cream rounded-xl p-md">
+<div class="flex flex-col md:flex-row justify-between items-center gap-md">
+<div>
+<h3 class="font-headline-md text-headline-md text-accent-gold mb-xs">Need help with your order?</h3>
+<p class="font-body-md text-body-md opacity-80">Our support team is available for any queries.</p>
+</div>
+<div class="flex gap-sm">
+<button class="bg-surface-cream text-deep-earth px-6 py-3 rounded-lg font-label-md text-label-md hover:bg-opacity-90 transition-all">Chat Now</button>
+<button class="border border-surface-cream text-surface-cream px-6 py-3 rounded-lg font-label-md text-label-md hover:bg-surface-cream hover:text-deep-earth transition-all">View FAQs</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Map Column -->
+<div class="lg:col-span-5 h-[400px] lg:h-auto min-h-[500px] relative rounded-xl overflow-hidden border border-outline-variant shadow-sm">
+<div class="absolute inset-0 bg-surface-container-highest">
+<img alt="Map" class="w-full h-full object-cover grayscale opacity-40" data-alt="A detailed, modern architectural map view of the Wagholi (Pune) district in Pune, styled with a sophisticated minimalist aesthetic. The map uses a cream and terracotta color palette to match the Heritage Hearth brand identity. A prominent delivery route is highlighted with a soft glowing line, and elegant custom icons mark the restaurant and delivery destinations. The lighting is soft and ambient." data-location="Wagholi (Pune)" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCB8oen6qqku4aBLMsMUxd6Q7M01goVaTvHbs58w3RP-VWSjsNczSUboGRlg66wLa4ntt0T-W0oFvZUKNwLBydpth5TVFrS-qcwRH0UaFR2kKsttWEzdzaNNu29K3aczgi_KvRwYnlowIH3LZrocVpQFL3TKmPlp4INfz9ycdBLBhRJ26J9CUK1XPJOByabpbRwJ6Fbrj_5x-8MIZpYA-cwBY9LrQR9Ye5TIf6y-j2gtYk5oZBszWsaatOzf_WbbkeznE9EVE9JaQ"/>
+<!-- Map Overlays -->
+<div class="absolute inset-0 p-md flex flex-col justify-between pointer-events-none">
+<div class="bg-white/90 backdrop-blur-md p-sm rounded-lg shadow-sm border border-outline-variant w-fit pointer-events-auto">
+<div class="flex items-center gap-sm">
+<div class="w-2 h-2 rounded-full bg-secondary animate-pulse"></div>
+<p class="font-label-md text-label-md text-on-surface">Picking up from Wagholi (Pune) Kitchen</p>
+</div>
+</div>
+<div class="bg-primary p-md rounded-xl shadow-lg pointer-events-auto">
+<p class="font-label-sm text-label-sm text-on-primary-container uppercase tracking-wider mb-xs">Destination</p>
+<h4 class="font-headline-md text-headline-md text-white mb-base">Kumar Sahawas, Pashan</h4>
+<div class="flex items-center gap-sm text-surface-cream opacity-80 font-body-md text-body-md">
+<span class="material-symbols-outlined">schedule</span>
+<span>~12 mins away</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-deep-earth dark:bg-surface-container-lowest w-full py-xl mt-xl">
+<div class="flex flex-col md:flex-row justify-between items-center w-full px-margin-mobile md:px-margin-desktop mx-auto max-w-7xl gap-md">
+<div class="font-headline-md text-headline-md text-accent-gold">Akshaypatra</div>
+<div class="flex flex-wrap justify-center gap-lg">
+<a class="text-surface-variant dark:text-on-surface-variant hover:text-white dark:hover:text-primary transition-colors font-label-md text-label-md" href="#">Privacy</a>
+<a class="text-surface-variant dark:text-on-surface-variant hover:text-white dark:hover:text-primary transition-colors font-label-md text-label-md" href="#">Terms</a>
+<a class="text-surface-variant dark:text-on-surface-variant hover:text-white dark:hover:text-primary transition-colors font-label-md text-label-md" href="../akshaypatra_web_sustainability_showcase/code.html"> Sustainability </a>
+<a class="text-surface-variant dark:text-on-surface-variant hover:text-white dark:hover:text-primary transition-colors font-label-md text-label-md" href="#">Our Kitchens</a>
+</div>
+<div class="font-label-md text-label-md text-surface-cream dark:text-deep-earth opacity-60">
+                © 2024 Akshaypatra. Honoring Maharashtrian Culinary Traditions.
+            </div>
+</div>
+</footer>
+</body></html>

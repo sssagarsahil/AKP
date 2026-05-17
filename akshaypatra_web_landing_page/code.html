@@ -1,0 +1,391 @@
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;600;700&amp;family=Plus+Jakarta+Sans:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+  </style>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+                  "tertiary-fixed-dim": "#ffb4a3",
+                  "deep-earth": "#31312c",
+                  "on-secondary-fixed": "#271900",
+                  "tertiary": "#7d2611",
+                  "primary-fixed": "#ffdbcf",
+                  "on-surface-variant": "#58423a",
+                  "on-secondary-fixed-variant": "#5f4100",
+                  "surface-container-high": "#ebe8e1",
+                  "on-error-container": "#93000a",
+                  "surface-container-highest": "#e5e2db",
+                  "surface-container-low": "#f6f3ec",
+                  "on-tertiary-fixed": "#3d0700",
+                  "background": "#fcf9f2",
+                  "surface-variant": "#e5e2db",
+                  "inverse-on-surface": "#f3f0ea",
+                  "surface": "#fcf9f2",
+                  "secondary-fixed-dim": "#f1be65",
+                  "primary": "#7e2600",
+                  "primary-container": "#a63500",
+                  "tertiary-container": "#9d3d26",
+                  "primary-fixed-dim": "#ffb59c",
+                  "surface-cream": "#fcf9f2",
+                  "on-secondary": "#ffffff",
+                  "on-surface": "#1c1c18",
+                  "on-background": "#1c1c18",
+                  "tertiary-fixed": "#ffdad2",
+                  "surface-container": "#f0eee7",
+                  "error-container": "#ffdad6",
+                  "spice-red": "#be543c",
+                  "on-primary-fixed-variant": "#822800",
+                  "outline-variant": "#e0c0b5",
+                  "outline": "#8c7168",
+                  "secondary-fixed": "#ffdeaa",
+                  "accent-gold": "#feb71a",
+                  "on-primary-container": "#ffc9b7",
+                  "on-primary": "#ffffff",
+                  "surface-bright": "#fcf9f2",
+                  "on-secondary-container": "#775300",
+                  "inverse-primary": "#ffb59c",
+                  "secondary-container": "#fec96f",
+                  "surface-tint": "#a93702",
+                  "surface-dim": "#dcdad3",
+                  "error": "#ba1a1a",
+                  "on-tertiary-fixed-variant": "#812913",
+                  "secondary": "#7d5700",
+                  "on-tertiary": "#ffffff",
+                  "on-tertiary-container": "#ffc8bb",
+                  "on-primary-fixed": "#380c00",
+                  "surface-container-lowest": "#ffffff",
+                  "inverse-surface": "#31312c",
+                  "on-error": "#ffffff"
+          },
+          "borderRadius": {
+                  "DEFAULT": "0.25rem",
+                  "lg": "0.5rem",
+                  "xl": "0.75rem",
+                  "full": "9999px"
+          },
+          "spacing": {
+                  "margin-mobile": "16px",
+                  "xl": "64px",
+                  "base": "8px",
+                  "md": "24px",
+                  "lg": "40px",
+                  "sm": "12px",
+                  "margin-desktop": "80px",
+                  "gutter": "16px",
+                  "xs": "4px"
+          },
+          "fontFamily": {
+                  "headline-xl": ["Noto Serif"],
+                  "headline-md": ["Noto Serif"],
+                  "body-md": ["Plus Jakarta Sans"],
+                  "label-sm": ["Plus Jakarta Sans"],
+                  "label-md": ["Plus Jakarta Sans"],
+                  "headline-lg": ["Noto Serif"],
+                  "body-lg": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+                  "headline-xl": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                  "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                  "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                  "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "700"}],
+                  "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+                  "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                  "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
+          }
+        },
+      },
+    }
+  </script>
+</head>
+<body class="bg-surface-cream text-on-surface selection:bg-secondary-container">
+<!-- Top Navigation Shell -->
+<nav class="bg-surface-bright dark:bg-surface-dim shadow-sm w-full top-0 sticky flex justify-between items-center h-16 px-margin-mobile md:px-margin-desktop z-50">
+<div class="flex items-center gap-base cursor-pointer active:scale-95">
+<img alt="Akshaypatra Logo" class="h-8 w-auto md:h-10" src="https://www.gstatic.com/labs-code/stitch/stitch-placeholder-300x300.svg"/>
+<span class="font-headline-lg text-headline-lg text-spice-red dark:text-primary-fixed-dim leading-none">Akshaypatra</span>
+</div>
+<!-- Desktop Nav Links -->
+<div class="hidden md:flex items-center gap-lg">
+<a class="font-label-md text-label-md text-primary font-bold transition-colors" href="../akshaypatra_web_menu_expanded/code.html"> Menu </a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:bg-surface-container-high transition-colors px-3 py-1 rounded-full" href="../akshaypatra_web_heritage_story_refined/code.html"> Heritage Story </a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:bg-surface-container-high transition-colors px-3 py-1 rounded-full" href="../akshaypatra_web_spice_circle_rewards_exclusive/code.html"> Specials </a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:bg-surface-container-high transition-colors px-3 py-1 rounded-full" href="../akshaypatra_web_sustainability_showcase/code.html"> Catering </a>
+</div>
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer" data-icon="search">search</span>
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center overflow-hidden border border-outline-variant">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+</div>
+</div>
+</nav>
+<main>
+<!-- Hero Section -->
+<section class="relative h-[870px] w-full overflow-hidden">
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover" data-alt="A luxurious top-down professional shot of a traditional Maharashtrian Thali served on a large copper plate. The composition features various steel bowls filled with colorful authentic dishes like spicy curries, fragrant basmati rice, crispy papad, and fresh chutneys. Warm, golden side-lighting creates a cozy communal atmosphere, highlighting the steam and rich textures of the food. The overall aesthetic is elegant and heritage-focused, using a palette of deep earth tones and vibrant spice reds." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCB-sRTls3e4z4GcKbCM_xvOMy_qS72Vuz6W0C5qvlcj8ORs3pbg_zgwd2hZ2tSrbxsyy46JMKl4_qejBjl0pDAIQhdLL9nR1rbZlXCQFuD8aOfoEXCTuKleTe_ezeo1sRBbW8IzSaObEDckMfPTh9F9ggNdzEAqk1AHeVEdeyimf8ExpLClLowb5PdmGYnVJu4ZKOKOHIJFaCjWF9GkFr4-MqUsE1iJ1O7_Ahg1WTqTHQF65LyJEvsK18J2vGpdTMqP1_vXh7bDw"/>
+<div class="absolute inset-0 bg-gradient-to-r from-on-surface/70 via-on-surface/40 to-transparent"></div>
+</div>
+<div class="relative z-10 h-full flex flex-col justify-center px-margin-mobile md:px-margin-desktop text-surface-bright">
+<h1 class="font-headline-xl text-[48px] md:text-[72px] leading-tight max-w-2xl mb-md">
+          A Legacy of <span class="text-secondary-fixed">Authentic</span> Flavors.
+        </h1>
+<p class="font-body-lg text-body-lg max-w-lg mb-lg opacity-90">
+          From the heart of Wagholi (Pune), Akshaypatra brings you the timeless traditions of Maharashtrian cuisine, crafted with love and aged recipes.
+        </p>
+<div class="flex flex-col sm:flex-row gap-gutter">
+<button class="h-14 px-md bg-primary text-on-primary rounded-full font-label-md text-label-md flex items-center justify-center gap-base shadow-lg hover:bg-primary-container transition-all active:scale-95">
+            Book a Thali <span class="material-symbols-outlined" data-icon="restaurant">restaurant</span>
+</button>
+<button class="h-14 px-md border-2 border-surface-bright text-surface-bright rounded-full font-label-md text-label-md flex items-center justify-center gap-base hover:bg-surface-bright/10 transition-all">
+            Explore Menu
+          </button>
+</div>
+</div>
+</section>
+<!-- Heritage Story Section - Bento Layout -->
+<section class="py-xl px-margin-mobile md:px-margin-desktop bg-surface-container-low">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter items-center">
+<div class="md:col-span-5 order-2 md:order-1">
+<div class="relative rounded-xl overflow-hidden aspect-[4/5] shadow-lg">
+<img class="w-full h-full object-cover" data-alt="A cinematic, low-angle shot of a chef's hands expertly tempering spices in a heavy iron kadai. Wisps of steam and sparks from mustard seeds create a sense of movement and professional craft. The lighting is focused and dramatic, emphasizing the dark, rich textures of the kitchen environment. The color palette emphasizes deep earth tones and glowing ambers, conveying a mood of authentic, traditional culinary excellence." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCr5rRmuzpmBbgxHRQg-AuKBfqBU7jVaKVoYjEzo18AOSG_prIOoDLFes5oMG579J0IBzE6FyMZCmg6A4MsicZWiD2gABKY-mMHJEicsiPKz3Xp04lC9KcDTO_fPbdRwmhxUNucbnvjXqnqwtXVtRov-loY75JJu9CrhD7vXy2nFkBCRA6FJruiuSUN0_FOvUQlwpHigbgihRZJvYi0ilkfv8hTvCcA8DB8kF2sYhAIX82jfoTYsLIFrTth7P1nXWHXaEj2kvVolQ"/>
+</div>
+</div>
+<div class="md:col-span-7 md:pl-lg order-1 md:order-2">
+<div class="inline-block px-3 py-1 bg-secondary-container text-on-secondary-container rounded-full text-label-sm font-label-sm mb-base uppercase tracking-wider">Our Legacy</div>
+<h2 class="font-headline-lg text-headline-lg text-primary mb-md">Preserving the Hearth of Maharashtra</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-md leading-relaxed">
+            Akshaypatra isn't just a restaurant; it's a living archive of flavors that have graced Maharashtrian households for generations. Our journey began in the vibrant streets of Wagholi (Pune), fueled by a singular mission: to protect the purity of home-cooked excellence.
+          </p>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-lg leading-relaxed">
+            Every spice is hand-pounded, every grain is carefully selected, and every Thali is a curated narrative of our cultural wealth.
+          </p>
+<div class="grid grid-cols-2 gap-md">
+<div class="flex flex-col border-l-4 border-spice-red pl-md">
+<span class="font-headline-md text-headline-md text-spice-red">30+</span>
+<span class="font-label-md text-label-md opacity-70">Years of Heritage</span>
+</div>
+<div class="flex flex-col border-l-4 border-accent-gold pl-md">
+<span class="font-headline-md text-headline-md text-accent-gold">50+</span>
+<span class="font-label-md text-label-md opacity-70">Original Recipes</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Today's Specials - Horizontal Scroll -->
+<section class="py-xl bg-surface">
+<div class="px-margin-mobile md:px-margin-desktop mb-lg flex justify-between items-end">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-primary mb-xs">Today's Specials</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Freshly prepared treasures from our kitchen</p>
+</div>
+<button class="hidden md:flex items-center gap-xs text-spice-red font-label-md hover:underline">
+          View All <span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+<div class="flex overflow-x-auto pb-lg px-margin-mobile md:px-margin-desktop gap-gutter no-scrollbar snap-x">
+<!-- Item 1 -->
+<div class="min-w-[280px] md:min-w-[400px] snap-start">
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm border border-outline-variant hover:shadow-lg transition-all group">
+<div class="h-56 relative overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A close-up, vibrant photograph of a spicy Maharashtrian Misal Pav. The Misal is topped with crunchy farsan, chopped onions, and fresh coriander, served in a traditional metal bowl. A side of soft, buttered pav rolls and a lemon wedge are arranged artistically. The lighting is bright and natural, emphasizing the rich red curry and fresh ingredients, set against a warm cream background that reflects a high-end modern culinary style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDEci2fRNjXZ1p4av7y64m3WEQ3kG1dcMNlMX1t5KtoalTKB8KXAUb8RlL3Dm8vfjg3zGeIQ9B6VCIWQqNhpY6QtbsAMXn8lRgQdzDObDuK0LH0CGP6Nv2CDaaIDXBPiNlOs-mPkyWxVkI5ajelX6ZnCK1oq-nGZTRsJiYAyKY6yJ6dNZBcou89aMqow0v_875dhRa86r4a6xu2XEMRp6KBU2PYX22VdpfIqowJ8YEV2jdezA_tWuPa1JRK2YrciX9OeqDO5Qav7Q"/>
+<div class="absolute top-4 left-4 bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full text-label-sm font-label-sm">Best Seller</div>
+</div>
+<div class="p-md">
+<div class="flex justify-between items-start mb-xs">
+<h3 class="font-headline-md text-headline-md text-on-surface">Misal Pav</h3>
+<span class="font-label-md text-label-md text-primary">₹180</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-md line-clamp-2">
+                Spiced sprouted lentil curry topped with crunchy farsan, served with buttery pav.
+              </p>
+<button class="w-full h-12 rounded-lg border border-primary text-primary font-label-md hover:bg-primary hover:text-on-primary transition-colors">Add to Thali</button>
+</div>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="min-w-[280px] md:min-w-[400px] snap-start">
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm border border-outline-variant hover:shadow-lg transition-all group">
+<div class="h-56 relative overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A beautifully plated traditional Puran Poli, a sweet Indian flatbread, glazed with golden melted ghee. The shot is high-angle and minimalist, showcasing the thin, delicate layers and the warm yellow hue of the bread. The background is a clean, neutral stone surface with a few scattered cardamom pods for artistic effect. Soft, diffused lighting highlights the sheen of the ghee and the artisan quality of the dish, embodying a premium culinary experience." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAlNiD9lDGa4_Dxswy4qESJAl6wqM9M25HAQWSc57g2YGrEix1aIaQ2rPo9efgz1AEH7qiq3mEy2nt4hXuhCFvitPYC8DJXyMr2eIOsKzuftrrPtysUOEKa6gXIv0emwtg2WUASNRhlRAPKKxvgDPN5e6cg8DKZ5jvUsnT0ROXvbqMQsRgWzfhrXMLXpFAFQW3rxBtxkq-zXo-QlogWjaTyazu_M6KNKWq9FiwXtaGSx3eep_ej1NIJ5bBhHKn5pKYzXx44OZxWig"/>
+</div>
+<div class="p-md">
+<div class="flex justify-between items-start mb-xs">
+<h3 class="font-headline-md text-headline-md text-on-surface">Puran Poli</h3>
+<span class="font-label-md text-label-md text-primary">₹120</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-md line-clamp-2">
+                Traditional sweet flatbread stuffed with chana dal and jaggery, topped with pure ghee.
+              </p>
+<button class="w-full h-12 rounded-lg border border-primary text-primary font-label-md hover:bg-primary hover:text-on-primary transition-colors">Add to Thali</button>
+</div>
+</div>
+</div>
+<!-- Item 3 -->
+<div class="min-w-[280px] md:min-w-[400px] snap-start">
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm border border-outline-variant hover:shadow-lg transition-all group">
+<div class="h-56 relative overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A vibrant bowl of Kanda Bhaji, crispy onion fritters, served with a side of spicy green mint chutney. The fritters are golden-brown and perfectly textured, arranged in a handcrafted ceramic bowl. The scene is lit with warm, natural sunlight, casting soft shadows and highlighting the crunch. The aesthetic is communal and inviting, using warm spices colors to evoke a sense of home and heritage." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD0lV1BChgAmWxbQP78krdsuKzCMKfGXEwQWA-b0vYQZiOpmyBnx5AC9Ta8WsjOy7epOZKvO10AnjTEj1ToEcn-DOiimgsmvMwq_dgw3OYoGaMp7A2l4Op50o3-9EETBGmgV3GptppjWU2L38MweqAa5w0VNwIPk8i6F4ilfSr90tz8hkpBKR54KtdBMcZ2mBYOgWtbtCcFcQDC3kKdIV_PQvHe9k6jBE8bv30Sz26PiFgtCXgT1PqLYU1Av9wNQIqRjLKcPH-4Cg"/>
+</div>
+<div class="p-md">
+<div class="flex justify-between items-start mb-xs">
+<h3 class="font-headline-md text-headline-md text-on-surface">Kanda Bhaji</h3>
+<span class="font-label-md text-label-md text-primary">₹90</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-md line-clamp-2">
+                Crispy hand-cut onion fritters seasoned with our secret heritage spice blend.
+              </p>
+<button class="w-full h-12 rounded-lg border border-primary text-primary font-label-md hover:bg-primary hover:text-on-primary transition-colors">Add to Thali</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Catering Services Section -->
+<section class="py-xl px-margin-mobile md:px-margin-desktop bg-deep-earth text-surface-bright">
+<div class="max-w-4xl mx-auto text-center mb-xl">
+<h2 class="font-headline-lg text-headline-lg mb-md">Catering Your Celebrations</h2>
+<p class="font-body-lg text-body-lg opacity-80">
+          Bring the authentic soul of Akshaypatra to your private events. From intimate family gatherings to grand weddings, we curate experiences that linger in the memory.
+        </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-lg">
+<div class="flex flex-col items-center text-center p-md bg-white/5 rounded-xl border border-white/10">
+<div class="w-16 h-16 rounded-full bg-primary-container flex items-center justify-center mb-md">
+<span class="material-symbols-outlined text-on-primary-container" data-icon="groups">groups</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-xs">Family Gatherings</h3>
+<p class="font-body-md text-body-md opacity-70">Customizable menus for groups of 20 to 100.</p>
+</div>
+<div class="flex flex-col items-center text-center p-md bg-white/5 rounded-xl border border-white/10">
+<div class="w-16 h-16 rounded-full bg-accent-gold flex items-center justify-center mb-md">
+<span class="material-symbols-outlined text-deep-earth" data-icon="celebration">celebration</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-xs">Corporate Events</h3>
+<p class="font-body-md text-body-md opacity-70">Premium thali boxes and professional service for your team.</p>
+</div>
+<div class="flex flex-col items-center text-center p-md bg-white/5 rounded-xl border border-white/10">
+<div class="w-16 h-16 rounded-full bg-spice-red flex items-center justify-center mb-md">
+<span class="material-symbols-outlined text-on-primary" data-icon="favorite">favorite</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-xs">Weddings</h3>
+<p class="font-body-md text-body-md opacity-70">A grand spread of Maharashtrian classics for your big day.</p>
+</div>
+</div>
+<div class="mt-xl text-center">
+<button class="h-14 px-lg bg-accent-gold text-on-secondary-fixed rounded-full font-label-md text-label-md shadow-lg hover:scale-105 transition-transform">
+          Enquire Now
+        </button>
+</div>
+</section>
+<!-- Map/Location Section -->
+<section class="py-xl px-margin-mobile md:px-margin-desktop bg-surface">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-lg bg-surface-container rounded-3xl overflow-hidden shadow-sm">
+<div class="p-lg md:p-xl flex flex-col justify-center">
+<h2 class="font-headline-lg text-headline-lg text-primary mb-md">Visit Our Kitchen</h2>
+<div class="space-y-md">
+<div class="flex gap-md">
+<span class="material-symbols-outlined text-spice-red" data-icon="location_on">location_on</span>
+<div>
+<p class="font-label-md text-label-md text-on-surface">Address</p>
+<p class="font-body-md text-body-md text-on-surface-variant">Shop No. 12, Heritage Plaza, Wagholi (Pune) - 411038</p>
+</div>
+</div>
+<div class="flex gap-md">
+<span class="material-symbols-outlined text-spice-red" data-icon="schedule">schedule</span>
+<div>
+<p class="font-label-md text-label-md text-on-surface">Opening Hours</p>
+<p class="font-body-md text-body-md text-on-surface-variant">Tue - Sun: 11:30 AM - 10:30 PM</p>
+</div>
+</div>
+</div>
+<button class="mt-lg h-12 w-fit px-md border-2 border-primary text-primary rounded-full font-label-md hover:bg-primary hover:text-on-primary transition-all">Get Directions</button>
+</div>
+<div class="h-80 md:h-auto min-h-[400px]">
+<img class="w-full h-full object-cover" data-alt="A high-quality illustrative map view of the Wagholi (Pune) area in Pune, India, designed with a custom heritage-themed color palette. The map uses warm creams, spice reds, and earthy greens to highlight landmarks and streets. The visual style is clean and professional, resembling a bespoke digital interface for a luxury brand. The map is presented in a modern light-mode aesthetic, with soft drop shadows and elegant typography for labels." data-location="Pune, India" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCXYKsAojtKnLdhzhjkpAWVjrVB0AZWd3zE-CxJDcDPFObBWzKPLFOaaummfgou2-NtmL-AMqSygfkwwt6-_rPCItCnbVOP9RhVAPgucOpeRPJwq_ggcF6wrpuw6hVJaTnLy-cNH3rshIJylkM7VyC5ydG7wrkBF66cza1LLmQ4Y8DRYpv1HahMk1iqjC4LGabSNa9hUH2jN5sPJ3EspImZNHZKG8-4G06AN32P-fNqw-hVSUqBJRCbXpX4nD6PhvBcsFgHuZicQA"/>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="pt-xl pb-24 bg-surface-container-highest px-margin-mobile md:px-margin-desktop">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-xl border-b border-outline-variant pb-xl mb-lg">
+<div class="col-span-1 md:col-span-1">
+<div class="flex items-center gap-base mb-md">
+<img alt="Akshaypatra Logo" class="h-8 w-auto" src="https://www.gstatic.com/labs-code/stitch/stitch-placeholder-300x300.svg"/>
+<span class="font-headline-md text-headline-md text-spice-red block">Akshaypatra</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant opacity-80">
+          Continuing the tradition of authentic Maharashtrian culinary art since 1994.
+        </p>
+</div>
+<div>
+<h4 class="font-label-md text-label-md text-on-surface uppercase tracking-widest mb-md">Quick Links</h4>
+<ul class="space-y-base font-body-md text-body-md text-on-surface-variant">
+<li><a class="hover:text-primary" href="../akshaypatra_web_heritage_story_refined/code.html"> Our Story </a></li>
+<li><a class="hover:text-primary" href="../akshaypatra_web_spice_circle_rewards_exclusive/code.html"> Today's Specials </a></li>
+<li><a class="hover:text-primary" href="../akshaypatra_web_checkout/code.html"> Thali Guide </a></li>
+<li><a class="hover:text-primary" href="../akshaypatra_web_sustainability_showcase/code.html"> Catering </a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-label-md text-label-md text-on-surface uppercase tracking-widest mb-md">Support</h4>
+<ul class="space-y-base font-body-md text-body-md text-on-surface-variant">
+<li><a class="hover:text-primary" href="#">Privacy Policy</a></li>
+<li><a class="hover:text-primary" href="#">Terms of Service</a></li>
+<li><a class="hover:text-primary" href="#">Contact Us</a></li>
+<li><a class="hover:text-primary" href="#">Gift Cards</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-label-md text-label-md text-on-surface uppercase tracking-widest mb-md">Newsletter</h4>
+<p class="font-body-md text-body-md text-on-surface-variant mb-md">Join our circle for seasonal recipes and stories.</p>
+<div class="flex">
+<input class="h-12 bg-surface rounded-l-lg border-none focus:ring-1 focus:ring-primary w-full text-body-md" placeholder="Your email" type="email"/>
+<button class="h-12 px-md bg-primary text-on-primary rounded-r-lg font-label-md">Join</button>
+</div>
+</div>
+</div>
+<div class="flex flex-col md:flex-row justify-between items-center opacity-60 font-label-sm text-label-sm">
+<p>© 2024 Akshaypatra. All rights reserved.</p>
+<div class="flex gap-md mt-md md:mt-0">
+<span class="material-symbols-outlined cursor-pointer hover:text-primary" data-icon="facebook">social_leaderboard</span>
+<span class="material-symbols-outlined cursor-pointer hover:text-primary" data-icon="instagram">infrared</span>
+<span class="material-symbols-outlined cursor-pointer hover:text-primary" data-icon="twitter">filter</span>
+</div>
+</div>
+</footer>
+<!-- Bottom Nav Shell (Mobile Only) -->
+<div class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-safe bg-surface-container-lowest shadow-[0_-2px_10px_rgba(0,0,0,0.05)] h-20">
+<div class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-full px-5 py-1 transition-all duration-300 ease-in-out">
+<span class="material-symbols-outlined" data-icon="restaurant_menu">restaurant_menu</span>
+<span class="font-label-md text-label-md">Menu</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container transition-all duration-300 ease-in-out">
+<span class="material-symbols-outlined" data-icon="speed">speed</span>
+<span class="font-label-md text-label-md">My Thali</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container transition-all duration-300 ease-in-out">
+<span class="material-symbols-outlined" data-icon="receipt_long">receipt_long</span>
+<span class="font-label-md text-label-md">Orders</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container transition-all duration-300 ease-in-out">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-label-md text-label-md">Profile</span>
+</div>
+</div>
+<!-- FAB (Contextual for Menu) -->
+<button class="fixed bottom-24 right-4 md:bottom-8 md:right-8 w-16 h-16 bg-primary text-on-primary rounded-2xl shadow-xl flex items-center justify-center z-40 active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-[32px]" data-icon="shopping_basket" data-weight="fill" style="font-variation-settings: 'FILL' 1;">shopping_basket</span>
+</button>
+</body></html>

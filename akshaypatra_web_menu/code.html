@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Akshaypatra | Menu</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@600;700&amp;family=Plus+Jakarta+Sans:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Insert Tailwind Config -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary-fixed-dim": "#ffb4a3",
+                    "deep-earth": "#31312c",
+                    "on-secondary-fixed": "#271900",
+                    "tertiary": "#7d2611",
+                    "primary-fixed": "#ffdbcf",
+                    "on-surface-variant": "#58423a",
+                    "on-secondary-fixed-variant": "#5f4100",
+                    "surface-container-high": "#ebe8e1",
+                    "on-error-container": "#93000a",
+                    "surface-container-highest": "#e5e2db",
+                    "surface-container-low": "#f6f3ec",
+                    "on-tertiary-fixed": "#3d0700",
+                    "background": "#fcf9f2",
+                    "surface-variant": "#e5e2db",
+                    "inverse-on-surface": "#f3f0ea",
+                    "surface": "#fcf9f2",
+                    "secondary-fixed-dim": "#f1be65",
+                    "primary": "#7e2600",
+                    "primary-container": "#a63500",
+                    "tertiary-container": "#9d3d26",
+                    "primary-fixed-dim": "#ffb59c",
+                    "surface-cream": "#fcf9f2",
+                    "on-secondary": "#ffffff",
+                    "on-surface": "#1c1c18",
+                    "on-background": "#1c1c18",
+                    "tertiary-fixed": "#ffdad2",
+                    "surface-container": "#f0eee7",
+                    "error-container": "#ffdad6",
+                    "spice-red": "#be543c",
+                    "on-primary-fixed-variant": "#822800",
+                    "outline-variant": "#e0c0b5",
+                    "outline": "#8c7168",
+                    "secondary-fixed": "#ffdeaa",
+                    "accent-gold": "#feb71a",
+                    "on-primary-container": "#ffc9b7",
+                    "on-primary": "#ffffff",
+                    "surface-bright": "#fcf9f2",
+                    "on-secondary-container": "#775300",
+                    "inverse-primary": "#ffb59c",
+                    "secondary-container": "#fec96f",
+                    "surface-tint": "#a93702",
+                    "surface-dim": "#dcdad3",
+                    "error": "#ba1a1a",
+                    "on-tertiary-fixed-variant": "#812913",
+                    "secondary": "#7d5700",
+                    "on-tertiary": "#ffffff",
+                    "on-tertiary-container": "#ffc8bb",
+                    "on-primary-fixed": "#380c00",
+                    "surface-container-lowest": "#ffffff",
+                    "inverse-surface": "#31312c",
+                    "on-error": "#ffffff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-mobile": "16px",
+                    "xl": "64px",
+                    "base": "8px",
+                    "md": "24px",
+                    "lg": "40px",
+                    "sm": "12px",
+                    "margin-desktop": "80px",
+                    "gutter": "16px",
+                    "xs": "4px"
+            },
+            "fontFamily": {
+                    "headline-xl": ["Noto Serif"],
+                    "headline-md": ["Noto Serif"],
+                    "body-md": ["Plus Jakarta Sans"],
+                    "label-sm": ["Plus Jakarta Sans"],
+                    "label-md": ["Plus Jakarta Sans"],
+                    "headline-lg": ["Noto Serif"],
+                    "body-lg": ["Plus Jakarta Sans"]
+            },
+            "fontSize": {
+                    "headline-xl": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "700"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .scrollbar-hide::-webkit-scrollbar { display: none; }
+        .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="bg-surface-bright text-on-surface font-body-md overflow-x-hidden">
+<!-- TopAppBar -->
+<header class="bg-surface-bright dark:bg-surface-dim shadow-sm w-full top-0 sticky z-50 flex justify-between items-center h-16 px-margin-mobile md:px-margin-desktop">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary cursor-pointer active:scale-95">menu</span>
+<div class="flex items-center gap-2">
+<img alt="Akshaypatra Logo" class="h-8 w-auto object-contain" src="https://www.gstatic.com/labs-code/stitch/stitch-placeholder-300x300.svg"/>
+<h1 class="font-headline-lg text-headline-lg text-spice-red">Akshaypatra</h1>
+</div>
+</div>
+<div class="flex items-center gap-md">
+<div class="hidden md:flex items-center gap-lg">
+<a class="text-primary font-bold transition-colors" href="../akshaypatra_web_menu_expanded/code.html"> Menu </a>
+<a class="text-on-surface-variant hover:bg-surface-container-high transition-colors px-2 py-1 rounded" href="#">My Thali</a>
+<a class="text-on-surface-variant hover:bg-surface-container-high transition-colors px-2 py-1 rounded" href="#">Orders</a>
+</div>
+<div class="w-10 h-10 rounded-full overflow-hidden border border-outline-variant cursor-pointer active:scale-95">
+<img alt="User profile" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCZvii-RfbCF8uoQxp4A2mmB7UQbtU8QYeBnOEDLh5U0aovMRV9wusNjdbwEB0JjYe_rs8gwCrpWZi7R5j0xdBe0x2ixzVRwlH-JeYRc11sjtQLEzI0K7q9jLL_IAZ5OlDRCw3mfdRSxDbUraWLLnUg_bvC5B9AQdF1IMd9XRABxPA0L5EnTeM0jzetCyijiQ6d6yHCqzvRNOCEobRc_jdTWGjtIUB20XEfR_4jLQOVfbF0vCS7Eq9JTY4MWSvsZavw69hGBAe9cA"/>
+</div>
+</div>
+</header>
+<!-- Main Content Layout -->
+<main class="flex flex-col md:flex-row w-full min-h-screen pt-4">
+<!-- Sidebar Navigation (Desktop) -->
+<aside class="hidden md:flex flex-col w-64 h-[calc(100vh-4rem)] sticky top-16 px-margin-desktop py-lg overflow-y-auto border-r border-outline-variant/30">
+<nav class="space-y-sm">
+<p class="font-label-sm text-label-sm text-on-surface-variant px-md uppercase tracking-wider mb-2">Categories</p>
+<button class="w-full flex items-center gap-3 px-md py-3 bg-primary-fixed text-on-primary-fixed-variant font-bold rounded-lg transition-all duration-200">
+<span class="material-symbols-outlined">restaurant_menu</span>
+<span class="font-label-md text-label-md">Misal</span>
+</button>
+<button class="w-full flex items-center gap-3 px-md py-3 text-on-surface hover:bg-surface-container-high rounded-lg transition-all duration-200">
+<span class="material-symbols-outlined">grid_view</span>
+<span class="font-label-md text-label-md">Thalis</span>
+</button>
+<button class="w-full flex items-center gap-3 px-md py-3 text-on-surface hover:bg-surface-container-high rounded-lg transition-all duration-200">
+<span class="material-symbols-outlined">fastfood</span>
+<span class="font-label-md text-label-md">Snacks</span>
+</button>
+<button class="w-full flex items-center gap-3 px-md py-3 text-on-surface hover:bg-surface-container-high rounded-lg transition-all duration-200">
+<span class="material-symbols-outlined">icecream</span>
+<span class="font-label-md text-label-md">Sweets</span>
+</button>
+<div class="pt-lg">
+<p class="font-label-sm text-label-sm text-on-surface-variant px-md uppercase tracking-wider mb-2">Others</p>
+<button class="w-full flex items-center gap-3 px-md py-3 text-on-surface hover:bg-surface-container-high rounded-lg transition-all duration-200">
+<span class="material-symbols-outlined">stars</span>
+<span class="font-label-md text-label-md">Specialties</span>
+</button>
+</div>
+</nav>
+</aside>
+<!-- Menu Canvas -->
+<section class="flex-1 px-margin-mobile md:px-lg pb-xl">
+<div class="mb-lg">
+<h2 class="font-headline-xl text-headline-xl text-on-surface mb-2">Akshaypatra</h2>
+<div class="flex items-center gap-sm text-on-surface-variant font-body-md">
+<span class="material-symbols-outlined text-accent-gold" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-bold text-on-surface">4.8</span>
+<span>•</span>
+<span>30-40 mins</span>
+<span>•</span>
+<span class="text-spice-red">Pune Heritage Favorite</span>
+</div>
+</div>
+<!-- Mobile Category Scroll -->
+<div class="md:hidden flex gap-sm overflow-x-auto scrollbar-hide mb-lg pb-2">
+<button class="whitespace-nowrap px-md py-2 bg-secondary-container text-on-secondary-container rounded-full font-label-md">Misal</button>
+<button class="whitespace-nowrap px-md py-2 bg-surface-container-highest text-on-surface-variant rounded-full font-label-md">Thalis</button>
+<button class="whitespace-nowrap px-md py-2 bg-surface-container-highest text-on-surface-variant rounded-full font-label-md">Snacks</button>
+<button class="whitespace-nowrap px-md py-2 bg-surface-container-highest text-on-surface-variant rounded-full font-label-md">Sweets</button>
+</div>
+<!-- Menu Grid (Bento Style) -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-gutter">
+<!-- Large Item (Bento Hero) -->
+<article class="col-span-1 lg:col-span-2 relative group overflow-hidden rounded-xl bg-surface-container-lowest shadow-sm border border-outline-variant/30 flex flex-col md:flex-row">
+<div class="md:w-3/5 h-64 md:h-80 overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="A vibrant and steaming plate of authentic Maharashtrian Misal Pav, topped with crunchy farsan, fresh chopped onions, and a wedge of lime. The shot is a high-quality food photograph with soft, directional natural light emphasizing the rich, spicy red gravy. The background is a clean, modern wooden table consistent with the Akshaypatra warm spice-inspired color palette." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD9TR0buBJsypOXJzFJor-IWVYNbD4H5SHJNmFNzGwe5hczrJSkT-HOD-jI_0caB1bT8ImXsmR-D_68zGm179R1Tx71H7NOAwty1pGk8FdVPiZLl3vvbbrCQJzRQtGr8BL5Az_MMmofnbDvwn3bIkIKKS2vA3sgH4e0YtB14rEhB8Y4SyveRB5qhKhkycREVsiKxjSBYS_Rn7x6LhI27B7Z3kGOz39r67QWDGx69456zuJ8qroICVy_CYn-jLkq3RB7w-mQUQwlnw"/>
+</div>
+<div class="md:w-2/5 p-lg flex flex-col justify-center">
+<div class="flex justify-between items-start mb-2">
+<span class="bg-secondary-container text-on-secondary-container px-2 py-0.5 rounded text-label-sm uppercase tracking-tighter">Best Seller</span>
+<div class="flex gap-1">
+<span class="material-symbols-outlined text-spice-red text-md" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+<span class="material-symbols-outlined text-spice-red text-md" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+<span class="material-symbols-outlined text-outline-variant text-md">local_fire_department</span>
+</div>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-2">Signature Akshaypatra Misal</h3>
+<p class="text-on-surface-variant font-body-md mb-md leading-relaxed">Our award-winning spicy sprout curry topped with savory farsan, served with buttery pav and lemon.</p>
+<div class="flex items-center justify-between mt-auto">
+<span class="font-headline-md text-headline-md text-primary">₹145</span>
+<button class="h-14 px-md bg-primary text-on-primary rounded-xl font-label-md flex items-center gap-2 active:scale-95 transition-all shadow-sm hover:shadow-lg">
+<span class="material-symbols-outlined">add_shopping_cart</span>
+                                Add to Order
+                            </button>
+</div>
+</div>
+</article>
+<!-- Regular Item 1 -->
+<article class="bg-surface-container-lowest p-md rounded-xl shadow-sm border border-outline-variant/30 group">
+<div class="aspect-[16/9] w-full overflow-hidden rounded-lg mb-md">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="A grand Maharashtrian Puran Poli Thali presented on a traditional brass plate. The thali includes soft puran polis, katachi amti, rice, bhaji, and a variety of chutneys. The lighting is warm and communal, capturing the tactile textures of the food. The style is modern traditionalist with rich brown and golden tones reflecting the brand's heritage roots." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCQWhwP62YmIiPOMIiaaGFyV2cwXPA1ZMvOz7Lq5-X4O38LIqL4jNtI6Rdhg5D0_2IcSIuNYtGeuQZN5Uv0i_ekwHCq0HHLkSObsQf8wq7xjn4GG3rL1ufU8tavyp-shFCmAQXY651W44n_zraaChKtTE_SM_dZnDTHEv6cpzAoqZO0QOrpGvSwBmehmz8Cafcv5by-yqVjJRxeiG_7_0ykImlQuY6G70G1wshM6KdeSwPJ0YC4YYzi3a1Z46kQtvP7-GYIzZBX8g"/>
+</div>
+<div class="flex justify-between items-start mb-1">
+<h4 class="font-headline-md text-[20px] text-on-surface">Puran Poli Thali</h4>
+<span class="material-symbols-outlined text-green-700 text-sm">lens</span>
+</div>
+<p class="text-on-surface-variant font-label-md mb-md h-12 overflow-hidden">Festive platter with handmade sweet lentils flatbread, amti, and seasonal veg.</p>
+<div class="flex items-center justify-between">
+<span class="font-headline-md text-headline-md text-on-surface">₹320</span>
+<button class="h-12 px-sm border-2 border-tertiary text-tertiary rounded-lg font-label-md hover:bg-tertiary hover:text-white transition-colors flex items-center gap-2">
+                            Add +
+                        </button>
+</div>
+</article>
+<!-- Regular Item 2 -->
+<article class="bg-surface-container-lowest p-md rounded-xl shadow-sm border border-outline-variant/30 group">
+<div class="aspect-[16/9] w-full overflow-hidden rounded-lg mb-md">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="A plate of golden-brown Batata Vada served with spicy green chili and dry garlic chutney. The focus is on the crispy exterior and soft potato filling. Soft ambient shadows provide a sense of depth on a cream-colored surface. The composition is clean and premium, emphasizing the handcrafted nature of the snack." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCbaOQyUWh1Gx9dxZx8BRPCyi7TrqYpsqKnCRUM6K6RV92KqbeC_UE4cBERdnQTSwije5IT4nhgTd642DJqtJw62KAgZKjUS4up1iMOUl8TC531pzKhYK5jQU896DWcRVHhTfViPwDxC6RPaPtXujcAFCD03xWtV2oTVwPGaBkeFUi9CBgXghjyQJXGBFl5lb-VS3Ck4h8adkUm6L8s-u_L11VfiqUGbBpeymMAprChAoApU6aIUEkRUrwceQatm-nyywxxFou3Dw"/>
+</div>
+<div class="flex justify-between items-start mb-1">
+<h4 class="font-headline-md text-[20px] text-on-surface">Batata Vada (2 pcs)</h4>
+<div class="flex gap-1">
+<span class="material-symbols-outlined text-spice-red text-sm" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+<span class="material-symbols-outlined text-outline-variant text-sm">local_fire_department</span>
+</div>
+</div>
+<p class="text-on-surface-variant font-label-md mb-md h-12 overflow-hidden">Crispy spiced potato fritters served with our heritage garlic chutney.</p>
+<div class="flex items-center justify-between">
+<span class="font-headline-md text-headline-md text-on-surface">₹80</span>
+<button class="h-12 px-sm border-2 border-tertiary text-tertiary rounded-lg font-label-md hover:bg-tertiary hover:text-white transition-colors flex items-center gap-2">
+                            Add +
+                        </button>
+</div>
+</article>
+<!-- Regular Item 3 -->
+<article class="bg-surface-container-lowest p-md rounded-xl shadow-sm border border-outline-variant/30 group">
+<div class="aspect-[16/9] w-full overflow-hidden rounded-lg mb-md">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="A stack of delicious Thalipeeth, a multi-grain savory pancake, served with a dollop of fresh white butter on top. The image captures the coarse texture of the flatbread and the melting butter. Background is a warm-toned ceramic plate, creating a tactile and authentic feel. High-key lighting creates a bright and fresh modern UI look." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDfxpaQEykmsQ4QG2LZDFIau_yw2DLkhJi4Fw56RF9SRed6q5rXvPYtFxrmF8LgBwZUnHgwTvLBUcgEuOSbZzFMhmrn-im1ORRGFraVcj93tUXL-qqI5BXUckR2_LWvQAHSVuy0OvPOPtjEgQji7LcyIrLAbpk32dgOyzIe4f8pYGKmG36S57QV3UJXapPK0Jf1ZQyYAMfRVrvsVFJVQ6JYAedD9CELjrxGvFgCpJL2a8yPsa545Ddl4930bWdrAhtHuoFZc7-LTA"/>
+</div>
+<div class="flex justify-between items-start mb-1">
+<h4 class="font-headline-md text-[20px] text-on-surface">Multi-Grain Thalipeeth</h4>
+<span class="material-symbols-outlined text-green-700 text-sm">lens</span>
+</div>
+<p class="text-on-surface-variant font-label-md mb-md h-12 overflow-hidden">Wholesome multi-grain pancake served with fresh white butter and curd.</p>
+<div class="flex items-center justify-between">
+<span class="font-headline-md text-headline-md text-on-surface">₹110</span>
+<button class="h-12 px-sm border-2 border-tertiary text-tertiary rounded-lg font-label-md hover:bg-tertiary hover:text-white transition-colors flex items-center gap-2">
+                            Add +
+                        </button>
+</div>
+</article>
+<!-- Regular Item 4 -->
+<article class="bg-surface-container-lowest p-md rounded-xl shadow-sm border border-outline-variant/30 group">
+<div class="aspect-[16/9] w-full overflow-hidden rounded-lg mb-md">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="A dessert bowl of creamy Shrikhand garnished with saffron strands and slivered pistachios. The lighting is soft and elegant, highlighting the smooth, velvety texture of the yogurt-based sweet. The color palette is composed of creamy whites, vibrant yellows, and earthy greens, fitting the modern traditionalist aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAX9RcZ6GX9TbFkKYOs77gKmbuFVAqOj4AA-dd4AiXzxkP_iepdDaZQ34bePFuzrZJEOC3YflAWTVTHWYdFdvM87sdY4AIp85uMd47vjp2CyKTIJ1J4Z_TljBR3wW8Nm3uaVbq9adw4RniYEPm51MdC5x6G5Siiou998yPOMPeLlR9Wc6NJn8eWN83B-BmgdO-jFCyR87TschnOU0aD5y0XE6RccJTb-8YNTIrkWcuZxpxtE7bxlxzjGPCl7xOQyDSSoYXVTqxY6A"/>
+</div>
+<div class="flex justify-between items-start mb-1">
+<h4 class="font-headline-md text-[20px] text-on-surface">Kesar Shrikhand</h4>
+<span class="bg-secondary-container text-on-secondary-container px-2 py-0.5 rounded text-[10px] uppercase">Sweet</span>
+</div>
+<p class="text-on-surface-variant font-label-md mb-md h-12 overflow-hidden">Creamy strained yogurt infused with premium saffron and pistachios.</p>
+<div class="flex items-center justify-between">
+<span class="font-headline-md text-headline-md text-on-surface">₹95</span>
+<button class="h-12 px-sm border-2 border-tertiary text-tertiary rounded-lg font-label-md hover:bg-tertiary hover:text-white transition-colors flex items-center gap-2">
+                            Add +
+                        </button>
+</div>
+</article>
+</div>
+</section>
+<!-- Persistent Order Summary Sidebar -->
+<aside class="hidden xl:flex flex-col w-96 h-[calc(100vh-4rem)] sticky top-16 bg-surface-container-low border-l border-outline-variant/30 p-lg">
+<h3 class="font-headline-md text-headline-md text-on-surface mb-lg">Order Summary</h3>
+<div class="flex-1 overflow-y-auto space-y-md">
+<!-- Order Item -->
+<div class="flex items-start gap-4">
+<div class="flex flex-col items-center gap-1 bg-surface-container-highest rounded-lg p-1 w-10">
+<button class="material-symbols-outlined text-primary text-sm">add</button>
+<span class="font-label-md">1</span>
+<button class="material-symbols-outlined text-on-surface-variant text-sm">remove</button>
+</div>
+<div class="flex-1">
+<p class="font-label-md text-on-surface">Signature Akshaypatra Misal</p>
+<p class="text-label-sm text-on-surface-variant">Extra Pav (2 pcs)</p>
+</div>
+<p class="font-label-md text-on-surface">₹145</p>
+</div>
+<div class="flex items-start gap-4">
+<div class="flex flex-col items-center gap-1 bg-surface-container-highest rounded-lg p-1 w-10">
+<button class="material-symbols-outlined text-primary text-sm">add</button>
+<span class="font-label-md">2</span>
+<button class="material-symbols-outlined text-on-surface-variant text-sm">remove</button>
+</div>
+<div class="flex-1">
+<p class="font-label-md text-on-surface">Batata Vada (2 pcs)</p>
+<p class="text-label-sm text-on-surface-variant">Standard</p>
+</div>
+<p class="font-label-md text-on-surface">₹160</p>
+</div>
+</div>
+<!-- Totals -->
+<div class="border-t border-outline-variant pt-lg mt-lg space-y-sm">
+<div class="flex justify-between text-on-surface-variant font-body-md">
+<span>Subtotal</span>
+<span>₹305.00</span>
+</div>
+<div class="flex justify-between text-on-surface-variant font-body-md">
+<span>Taxes &amp; Fee</span>
+<span>₹42.00</span>
+</div>
+<div class="flex justify-between text-on-surface font-bold text-headline-md pt-sm">
+<span>Total</span>
+<span class="text-spice-red">₹347.00</span>
+</div>
+<button class="w-full h-14 bg-primary text-on-primary rounded-xl font-bold flex items-center justify-center gap-3 mt-lg shadow-lg active:scale-95 transition-all">
+                    Checkout Now
+                    <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+<p class="text-center text-label-sm text-on-surface-variant mt-2">Earn 35 Akshaypatra Points with this order</p>
+</div>
+</aside>
+</main>
+<!-- BottomNavBar (Mobile) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-safe bg-surface-container-lowest dark:bg-deep-earth shadow-[0_-2px_10px_rgba(0,0,0,0.05)] h-20">
+<a class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-full px-5 py-1 transition-all duration-300 ease-in-out" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">restaurant_menu</span>
+<span class="font-label-md text-label-md">Menu</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant transition-all duration-300 ease-in-out" href="#">
+<span class="material-symbols-outlined">speed</span>
+<span class="font-label-md text-label-md">My Thali</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant transition-all duration-300 ease-in-out" href="#">
+<span class="material-symbols-outlined">receipt_long</span>
+<span class="font-label-md text-label-md">Orders</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant transition-all duration-300 ease-in-out" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-md text-label-md">Profile</span>
+</a>
+</nav>
+<!-- Floating Action Button (Mobile Cart) -->
+<button class="md:hidden fixed bottom-24 right-margin-mobile z-50 h-16 w-16 bg-primary text-on-primary rounded-full shadow-lg flex items-center justify-center active:scale-90 transition-all">
+<span class="material-symbols-outlined text-[32px]">shopping_basket</span>
+<span class="absolute -top-1 -right-1 bg-accent-gold text-on-secondary-fixed w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold border-2 border-surface-bright">3</span>
+</button>
+<footer class="bg-surface-container-highest py-lg px-margin-mobile md:px-margin-desktop text-center border-t border-outline-variant/30">
+<p class="font-label-md text-on-surface-variant">© 2024 Akshaypatra. All rights reserved.</p>
+</footer>
+</body></html>

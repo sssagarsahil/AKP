@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;600;700&amp;family=Plus+Jakarta+Sans:wght@400;600;700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+                  "outline": "#8c7168",
+                  "deep-earth": "#31312c",
+                  "tertiary": "#7d2611",
+                  "background": "#fcf9f2",
+                  "primary-fixed": "#ffdbcf",
+                  "surface-container": "#f0eee7",
+                  "secondary-fixed-dim": "#f1be65",
+                  "on-error-container": "#93000a",
+                  "inverse-surface": "#31312c",
+                  "on-secondary-fixed": "#271900",
+                  "on-tertiary-container": "#ffc8bb",
+                  "inverse-on-surface": "#f3f0ea",
+                  "secondary-container": "#fec96f",
+                  "primary": "#7e2600",
+                  "outline-variant": "#e0c0b5",
+                  "tertiary-fixed-dim": "#ffb4a3",
+                  "primary-fixed-dim": "#ffb59c",
+                  "on-surface": "#1c1c18",
+                  "on-secondary-container": "#775300",
+                  "secondary": "#7d5700",
+                  "error-container": "#ffdad6",
+                  "surface": "#fcf9f2",
+                  "on-error": "#ffffff",
+                  "tertiary-container": "#9d3d26",
+                  "primary-container": "#a63500",
+                  "on-primary": "#ffffff",
+                  "on-tertiary-fixed-variant": "#812913",
+                  "on-secondary": "#ffffff",
+                  "surface-variant": "#e5e2db",
+                  "on-primary-fixed": "#380c00",
+                  "on-background": "#1c1c18",
+                  "on-primary-fixed-variant": "#822800",
+                  "accent-gold": "#feb71a",
+                  "on-tertiary-fixed": "#3d0700",
+                  "surface-container-high": "#ebe8e1",
+                  "on-primary-container": "#ffc9b7",
+                  "on-tertiary": "#ffffff",
+                  "surface-cream": "#fcf9f2",
+                  "inverse-primary": "#ffb59c",
+                  "surface-tint": "#a93702",
+                  "on-surface-variant": "#58423a",
+                  "tertiary-fixed": "#ffdad2",
+                  "spice-red": "#be543c",
+                  "surface-dim": "#dcdad3",
+                  "on-secondary-fixed-variant": "#5f4100",
+                  "surface-container-lowest": "#ffffff",
+                  "surface-container-highest": "#e5e2db",
+                  "surface-bright": "#fcf9f2",
+                  "error": "#ba1a1a",
+                  "secondary-fixed": "#ffdeaa",
+                  "surface-container-low": "#f6f3ec"
+          },
+          "borderRadius": {
+                  "DEFAULT": "0.25rem",
+                  "lg": "0.5rem",
+                  "xl": "0.75rem",
+                  "full": "9999px"
+          },
+          "spacing": {
+                  "md": "24px",
+                  "margin-desktop": "80px",
+                  "sm": "12px",
+                  "xs": "4px",
+                  "xl": "64px",
+                  "margin-mobile": "16px",
+                  "lg": "40px",
+                  "gutter": "16px",
+                  "base": "8px"
+          },
+          "fontFamily": {
+                  "headline-xl": ["Noto Serif"],
+                  "label-sm": ["Plus Jakarta Sans"],
+                  "headline-md": ["Noto Serif"],
+                  "body-md": ["Plus Jakarta Sans"],
+                  "label-md": ["Plus Jakarta Sans"],
+                  "headline-lg": ["Noto Serif"],
+                  "body-lg": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+                  "headline-xl": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                  "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "700"}],
+                  "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                  "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                  "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+                  "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                  "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    .scrollbar-hide::-webkit-scrollbar { display: none; }
+    .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+  </style>
+</head>
+<body class="bg-surface font-body-md text-on-surface">
+<!-- TopNavBar -->
+<header class="sticky top-0 w-full z-50 bg-surface dark:bg-surface-dim border-b border-outline-variant dark:border-outline shadow-sm">
+<div class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-4 mx-auto max-w-7xl">
+<div class="font-headline-lg text-headline-lg text-primary dark:text-primary-fixed uppercase tracking-tight">Akshaypatra</div>
+<nav class="hidden md:flex items-center gap-lg">
+<a class="text-on-surface-variant dark:text-on-surface hover:text-primary dark:hover:text-primary-fixed transition-colors font-body-md text-body-md" href="../akshaypatra_web_menu_expanded/code.html"> Menu </a>
+<a class="text-on-surface-variant dark:text-on-surface hover:text-primary dark:hover:text-primary-fixed transition-colors font-body-md text-body-md" href="../akshaypatra_web_heritage_story_refined/code.html"> Heritage Story </a>
+<a class="text-on-surface-variant dark:text-on-surface hover:text-primary dark:hover:text-primary-fixed transition-colors font-body-md text-body-md" href="../akshaypatra_web_spice_circle_rewards_exclusive/code.html"> Specials </a>
+<a class="text-on-surface-variant dark:text-on-surface hover:text-primary dark:hover:text-primary-fixed transition-colors font-body-md text-body-md" href="../akshaypatra_web_sustainability_showcase/code.html"> Catering </a>
+<a class="text-primary dark:text-primary-fixed font-bold border-b-2 border-primary dark:border-primary-fixed pb-1 font-body-md text-body-md" href="../akshaypatra_web_user_dashboard_refined/code.html"> Account </a>
+</nav>
+<div class="flex items-center gap-md">
+<div class="relative hidden lg:block w-64">
+<input class="w-full bg-surface-container-low border-none rounded-full px-md py-2 text-label-md focus:ring-2 focus:ring-primary" placeholder="Search rewards..." type="text"/>
+<span class="material-symbols-outlined absolute right-3 top-2 text-on-surface-variant">search</span>
+</div>
+<a href="../akshaypatra_web_menu_expanded/code.html" class="bg-primary text-on-primary px-lg py-sm rounded-full font-label-md hover:bg-primary-container hover:text-on-primary-container transition-all scale-95 active:scale-90 no-underline">Order Now</a>
+</div>
+</div>
+</header>
+<main class="max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop py-lg">
+<!-- Hero / Status Section -->
+<section class="grid grid-cols-1 lg:grid-cols-12 gap-md mb-xl">
+<!-- Status Card -->
+<div class="lg:col-span-7 bg-deep-earth rounded-xl p-lg text-surface-cream relative overflow-hidden flex flex-col justify-between min-h-[320px]">
+<div class="relative z-10">
+<div class="flex items-center gap-sm mb-xs">
+<span class="material-symbols-outlined text-accent-gold" style="font-variation-settings: 'FILL' 1;">stars</span>
+<span class="font-label-md uppercase tracking-widest text-secondary-fixed">Spice Circle Elite</span>
+</div>
+<h1 class="font-headline-xl text-headline-xl mb-md">Gold Member Status</h1>
+<p class="font-body-lg text-body-lg max-w-md opacity-90">You're 550 points away from Platinum status and unlocking exclusive heritage workshop access.</p>
+</div>
+<div class="relative z-10 mt-lg">
+<div class="flex justify-between items-end mb-sm">
+<div>
+<span class="text-headline-lg font-headline-lg text-accent-gold">2,450</span>
+<span class="text-label-md ml-xs opacity-80 uppercase">Available Points</span>
+</div>
+<span class="text-label-sm font-label-sm uppercase tracking-tighter opacity-70">Next Tier: 3,000 pts</span>
+</div>
+<div class="h-3 w-full bg-surface-variant/20 rounded-full overflow-hidden">
+<div class="h-full bg-accent-gold w-[81%] rounded-full shadow-[0_0_15px_rgba(254,183,26,0.5)]"></div>
+</div>
+</div>
+<!-- Subtle decorative element -->
+<div class="absolute -right-12 -bottom-12 opacity-10">
+<span class="material-symbols-outlined text-[240px]">temp_preferences_custom</span>
+</div>
+</div>
+<!-- Quick Action Bento -->
+<div class="lg:col-span-5 grid grid-cols-1 gap-md">
+<div class="bg-secondary-container rounded-xl p-md flex items-center justify-between group cursor-pointer hover:shadow-lg transition-all">
+<div>
+<h3 class="font-headline-md text-headline-md text-on-secondary-container">Redeem Rewards</h3>
+<p class="text-on-secondary-container/80 text-body-md">Exchange points for fresh meals</p>
+</div>
+<span class="material-symbols-outlined text-on-secondary-container text-[40px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</div>
+<div class="bg-surface-container-high rounded-xl p-md flex items-center justify-between group cursor-pointer hover:shadow-lg transition-all border border-outline-variant">
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface">Order History</h3>
+<p class="text-on-surface-variant text-body-md">View your recent Maharashtrian feasts</p>
+</div>
+<span class="material-symbols-outlined text-primary text-[40px] group-hover:translate-x-1 transition-transform">receipt_long</span>
+</div>
+</div>
+</section>
+<!-- Exclusive Benefits Grid -->
+<section class="mb-xl">
+<div class="flex items-center justify-between mb-lg">
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Your Exclusive Benefits</h2>
+<a class="text-primary font-label-md hover:underline" href="#">View All Benefits</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-md">
+<!-- Benefit 1 -->
+<div class="bg-surface-container-lowest border border-outline-variant p-md rounded-xl shadow-sm hover:shadow-md transition-all">
+<div class="w-12 h-12 rounded-lg bg-primary-fixed flex items-center justify-center mb-md">
+<span class="material-symbols-outlined text-primary">local_shipping</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-sm">Free Weekend Delivery</h3>
+<p class="text-on-surface-variant text-body-md">Enjoy zero delivery fees on all orders placed between Friday evening and Sunday night.</p>
+</div>
+<!-- Benefit 2 -->
+<div class="bg-surface-container-lowest border border-outline-variant p-md rounded-xl shadow-sm hover:shadow-md transition-all">
+<div class="w-12 h-12 rounded-lg bg-secondary-fixed flex items-center justify-center mb-md">
+<span class="material-symbols-outlined text-secondary">calendar_today</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-sm">Early Festive Access</h3>
+<p class="text-on-surface-variant text-body-md">Get 48-hour priority booking for our limited-edition Ganesh Chaturthi and Diwali specials.</p>
+</div>
+<!-- Benefit 3 -->
+<div class="bg-surface-container-lowest border border-outline-variant p-md rounded-xl shadow-sm hover:shadow-md transition-all">
+<div class="w-12 h-12 rounded-lg bg-tertiary-fixed flex items-center justify-center mb-md">
+<span class="material-symbols-outlined text-tertiary">lunch_dining</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-sm">10% Off Tiffins</h3>
+<p class="text-on-surface-variant text-body-md">Your daily office dabba just got better. Permanent discount on all recurring tiffin subscriptions.</p>
+</div>
+</div>
+</section>
+<!-- Rewards Shop Section -->
+<section class="mb-xl">
+<div class="flex items-center justify-between mb-lg">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Spice Circle Shop</h2>
+<p class="text-on-surface-variant text-body-md">Spend your points on handcrafted delicacies</p>
+</div>
+<div class="flex gap-sm">
+<button class="w-10 h-10 rounded-full border border-outline-variant flex items-center justify-center hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<button class="w-10 h-10 rounded-full border border-outline-variant flex items-center justify-center hover:bg-surface-container transition-colors text-primary">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</div>
+<div class="flex gap-md overflow-x-auto pb-md scrollbar-hide">
+<!-- Reward Card 1 -->
+<div class="min-w-[320px] bg-surface-container-lowest rounded-xl overflow-hidden border border-outline-variant hover:shadow-lg transition-all group">
+<div class="h-48 w-full overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A lush and vibrant Maharashtrian Thali spread on a rustic wooden table. The thali features multiple small copper bowls filled with dal, vegetables, rice, and fresh yogurt. Warm, natural morning sunlight streams across the scene, highlighting the rich textures and deep spice colors. The atmosphere is warm, traditional, and appetizing, reflecting the Akshaypatra brand heritage." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB778Ecqx4j-5oS84s6yefIz0CCY08_LXUNGDqyaiapz64-GNIk2RCk1yUKbw-fUsnUfpo849W1vGO2nqPzvsZNLCA9D7hDg1LfzbJuvQidT1YCexxNpLh-NdKOZSNT-6gCLjcvZ0rDBS-2lOsNVkTE58Vg76lHxeLqntmtU3nprCUZ_7ThK4Ryi5pcAj_u70jR5A9Fcquls82bUtO5P66qJqVO52IRReP-SBSo9PMDy_mBR6bx9hRGXyClOg3zYcmFiIKFfF-2Gw"/>
+</div>
+<div class="p-md">
+<div class="flex justify-between items-start mb-sm">
+<h4 class="font-headline-md text-headline-md">Chef's Special Thali</h4>
+<span class="bg-secondary-container text-on-secondary-container text-label-sm px-sm py-1 rounded-full uppercase">Popular</span>
+</div>
+<p class="text-on-surface-variant text-body-md mb-md">Our signature multi-course meal featuring family heirloom recipes.</p>
+<div class="flex items-center justify-between mt-auto">
+<div class="flex items-center gap-xs">
+<span class="material-symbols-outlined text-accent-gold text-md" style="font-variation-settings: 'FILL' 1;">stars</span>
+<span class="font-bold text-primary">1,200 pts</span>
+</div>
+<button class="bg-surface-container-high text-on-surface px-md py-2 rounded-full font-label-md hover:bg-primary hover:text-on-primary transition-all">Redeem</button>
+</div>
+</div>
+</div>
+<!-- Reward Card 2 -->
+<div class="min-w-[320px] bg-surface-container-lowest rounded-xl overflow-hidden border border-outline-variant hover:shadow-lg transition-all group">
+<div class="h-48 w-full overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A close-up shot of a rustic ceramic bowl filled with vibrant red Misal spice mix. Whole spices like cloves, cinnamon, and dried red chilies are scattered around the bowl on a dark stone surface. The lighting is moody and dramatic, focusing on the rich color and powdery texture of the spice blend. The aesthetic is tactile and artisanal, emphasizing handcrafted quality." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCPUzZ_mIfQoyV3DThWhL2zmvvvK-LYU9d5dqVBA7JtJgw5a66wPljaxadkyN7fcTyIz3CTK_Jw_K1d2-jdF4iC06YphW_OCRAIVjneAat6uCpUft5d01P5NT0861hkrjg7GG8BQHsbs5HQDYfkpaRFxQaR7XbNhcVl80Z1E3iM57w7VmuCWC3QsqPSLzUD3DIIAapBLZCIJwduq_bAXUIaN6jntvau7VHYc7QQLLr122Y5M9t4VChc1xbLvWjNXPVvKh1ZU_I57w"/>
+</div>
+<div class="p-md">
+<div class="flex justify-between items-start mb-sm">
+<h4 class="font-headline-md text-headline-md">Signature Misal Spice Mix</h4>
+</div>
+<p class="text-on-surface-variant text-body-md mb-md">Secret blend of 22 spices for the perfect authentic Misal at home.</p>
+<div class="flex items-center justify-between mt-auto">
+<div class="flex items-center gap-xs">
+<span class="material-symbols-outlined text-accent-gold text-md" style="font-variation-settings: 'FILL' 1;">stars</span>
+<span class="font-bold text-primary">350 pts</span>
+</div>
+<button class="bg-surface-container-high text-on-surface px-md py-2 rounded-full font-label-md hover:bg-primary hover:text-on-primary transition-all">Redeem</button>
+</div>
+</div>
+</div>
+<!-- Reward Card 3 -->
+<div class="min-w-[320px] bg-surface-container-lowest rounded-xl overflow-hidden border border-outline-variant hover:shadow-lg transition-all group">
+<div class="h-48 w-full overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A stack of golden-brown, handmade Puran Poli flatbreads on a traditional bronze plate. The top poli is glistening with melted clarified butter (ghee). The background features a clean, cream-colored linen cloth, creating a bright and high-key modern traditionalist look. The lighting is soft and diffuse, highlighting the delicate layers and the warm, golden glow of the sweet breads." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD00kU8GtJlT0bGuSgpvsyHSygnFJE0THxmNTmVcQrH0za4O8E1JLDDqdzaWNy3HEr1c_Mla9Tjgj6XNkaTkiwdDQg3gUYor-eeVZmgQ-T8Z1xXTMfM8Y4z5MdInTWr_XMJvY5h4jG-Rv-pIn7muS1XfpYFN1e-cpwBs4XIj6fTv-RL9kYsTxgr0ntJvW-gAt6m1eO08yZh6rb1ecqLopRImwIxHE93OR2kqZi7JOfrCfPXxtlgfGQ1oUIZI3lhKLBYjsR-AE3kvA"/>
+</div>
+<div class="p-md">
+<div class="flex justify-between items-start mb-sm">
+<h4 class="font-headline-md text-headline-md">Handmade Puran Poli</h4>
+<span class="bg-secondary-container text-on-secondary-container text-label-sm px-sm py-1 rounded-full uppercase">Chef's Choice</span>
+</div>
+<p class="text-on-surface-variant text-body-md mb-md">Traditional sweet flatbread filled with slow-cooked chana dal and jaggery.</p>
+<div class="flex items-center justify-between mt-auto">
+<div class="flex items-center gap-xs">
+<span class="material-symbols-outlined text-accent-gold text-md" style="font-variation-settings: 'FILL' 1;">stars</span>
+<span class="font-bold text-primary">500 pts</span>
+</div>
+<button class="bg-surface-container-high text-on-surface px-md py-2 rounded-full font-label-md hover:bg-primary hover:text-on-primary transition-all">Redeem</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-xl bg-deep-earth dark:bg-surface-container-lowest">
+<div class="flex flex-col md:flex-row justify-between items-center w-full px-margin-mobile md:px-margin-desktop mx-auto max-w-7xl gap-md">
+<div class="flex flex-col items-center md:items-start gap-sm">
+<div class="font-headline-md text-headline-md text-accent-gold">Akshaypatra</div>
+<p class="text-surface-variant dark:text-on-surface-variant font-label-md text-label-md">© 2024 Akshaypatra. Honoring Maharashtrian Culinary Traditions.</p>
+</div>
+<div class="flex gap-lg">
+<a class="text-surface-variant dark:text-on-surface-variant hover:text-white dark:hover:text-primary transition-colors font-label-md text-label-md" href="#">Privacy</a>
+<a class="text-surface-variant dark:text-on-surface-variant hover:text-white dark:hover:text-primary transition-colors font-label-md text-label-md" href="#">Terms</a>
+<a class="text-surface-variant dark:text-on-surface-variant hover:text-white dark:hover:text-primary transition-colors font-label-md text-label-md" href="../akshaypatra_web_sustainability_showcase/code.html"> Sustainability </a>
+<a class="text-accent-gold underline font-label-md text-label-md" href="#">Our Kitchens</a>
+</div>
+<div class="flex gap-md">
+<button class="w-10 h-10 rounded-full border border-outline-variant flex items-center justify-center text-surface-cream hover:bg-surface-variant/20 transition-all">
+<span class="material-symbols-outlined">public</span>
+</button>
+<button class="w-10 h-10 rounded-full border border-outline-variant flex items-center justify-center text-surface-cream hover:bg-surface-variant/20 transition-all">
+<span class="material-symbols-outlined">mail</span>
+</button>
+</div>
+</div>
+</footer>
+</body></html>

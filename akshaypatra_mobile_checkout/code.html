@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;600;700&amp;family=Plus+Jakarta+Sans:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-surface": "#1c1c18",
+                        "on-error": "#ffffff",
+                        "primary": "#7e2600",
+                        "inverse-on-surface": "#f3f0ea",
+                        "secondary": "#7d5700",
+                        "surface-container": "#f0eee7",
+                        "surface-variant": "#e5e2db",
+                        "deep-earth": "#31312c",
+                        "on-secondary-fixed-variant": "#5f4100",
+                        "spice-red": "#be543c",
+                        "tertiary-fixed": "#ffdad2",
+                        "on-tertiary-fixed-variant": "#812913",
+                        "surface-container-highest": "#e5e2db",
+                        "error": "#ba1a1a",
+                        "on-surface-variant": "#58423a",
+                        "on-background": "#1c1c18",
+                        "primary-fixed-dim": "#ffb59c",
+                        "outline-variant": "#e0c0b5",
+                        "surface-container-lowest": "#ffffff",
+                        "inverse-surface": "#31312c",
+                        "secondary-fixed-dim": "#f1be65",
+                        "background": "#fcf9f2",
+                        "accent-gold": "#feb71a",
+                        "surface-bright": "#fcf9f2",
+                        "surface": "#fcf9f2",
+                        "on-secondary-fixed": "#271900",
+                        "on-tertiary-container": "#ffc8bb",
+                        "on-secondary": "#ffffff",
+                        "primary-fixed": "#ffdbcf",
+                        "on-tertiary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "tertiary": "#7d2611",
+                        "primary-container": "#a63500",
+                        "outline": "#8c7168",
+                        "secondary-fixed": "#ffdeaa",
+                        "on-secondary-container": "#775300",
+                        "on-primary": "#ffffff",
+                        "inverse-primary": "#ffb59c",
+                        "on-primary-container": "#ffc9b7",
+                        "on-primary-fixed": "#380c00",
+                        "surface-tint": "#a93702",
+                        "surface-container-low": "#f6f3ec",
+                        "surface-container-high": "#ebe8e1",
+                        "secondary-container": "#fec96f",
+                        "surface-cream": "#fcf9f2",
+                        "tertiary-container": "#9d3d26",
+                        "tertiary-fixed-dim": "#ffb4a3",
+                        "on-error-container": "#93000a",
+                        "on-primary-fixed-variant": "#822800",
+                        "on-tertiary-fixed": "#3d0700",
+                        "surface-dim": "#dcdad3"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "lg": "40px",
+                        "xs": "4px",
+                        "md": "24px",
+                        "gutter": "16px",
+                        "base": "8px",
+                        "xl": "64px",
+                        "margin-mobile": "16px",
+                        "sm": "12px",
+                        "margin-desktop": "80px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Plus Jakarta Sans"],
+                        "headline-xl": ["Noto Serif"],
+                        "body-lg": ["Plus Jakarta Sans"],
+                        "label-sm": ["Plus Jakarta Sans"],
+                        "headline-lg": ["Noto Serif"],
+                        "label-md": ["Plus Jakarta Sans"],
+                        "headline-md": ["Noto Serif"]
+                    },
+                    "fontSize": {
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "headline-xl": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "700"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                        "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body-md min-h-screen pb-32">
+<!-- TopAppBar -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-margin-mobile h-16 bg-surface shadow-sm">
+<button class="active:scale-95 transition-transform hover:opacity-80 transition-opacity">
+<span class="material-symbols-outlined text-primary">arrow_back</span>
+</button>
+<h1 class="font-headline-md text-headline-md font-bold text-primary">Checkout</h1>
+<div class="w-10 h-10 rounded-full bg-surface-variant flex items-center justify-center">
+<span class="material-symbols-outlined text-on-surface-variant">person</span>
+</div>
+</header>
+<main class="pt-20 px-margin-mobile space-y-base">
+<!-- Delivery Section -->
+<section class="bg-surface-container-low rounded-xl p-md shadow-sm border border-outline-variant/30">
+<div class="flex items-center justify-between mb-sm">
+<h2 class="font-headline-md text-headline-md text-primary">Delivery Address</h2>
+<span class="material-symbols-outlined text-spice-red">location_on</span>
+</div>
+<!-- Toggle Home/Office -->
+<div class="flex p-xs bg-surface-variant rounded-lg mb-md">
+<button class="flex-1 py-2 rounded-md font-label-md text-label-md bg-secondary-container text-on-secondary-container shadow-sm flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[18px]">home</span>
+                    Home
+                </button>
+<button class="flex-1 py-2 rounded-md font-label-md text-label-md text-on-surface-variant flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[18px]">work</span>
+                    Office
+                </button>
+</div>
+<div class="flex flex-col gap-1 border-l-4 border-accent-gold pl-4">
+<p class="font-body-md text-body-md font-bold">Aravind Kelkar</p>
+<p class="font-body-md text-body-md text-on-surface-variant">Flat 402, Heritage Residency, Deccan Gymkhana, Pune - 411004</p>
+<p class="font-label-md text-label-md text-primary mt-2 flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">schedule</span>
+                    Estimated Delivery: 35-45 mins
+                </p>
+</div>
+</section>
+<!-- Order Summary -->
+<section class="bg-surface-container-lowest rounded-xl p-md border border-outline-variant shadow-sm overflow-hidden">
+<h2 class="font-headline-md text-headline-md text-primary mb-md">Order Summary</h2>
+<div class="space-y-md">
+<!-- Item 1 -->
+<div class="flex gap-md">
+<div class="w-20 h-20 rounded-lg overflow-hidden flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="A macro photography shot of a traditional copper bowl filled with vibrant yellow Dal Tadka, garnished with fresh green coriander and a swirl of ghee. The lighting is warm and golden, reminiscent of a sunset in a rustic Indian kitchen. The image captures the steam rising from the hot lentils, emphasizing freshness and authentic heritage hearth cooking styles." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCUIBIB8Wbu8RPo65lbDwZgD3kxRM7KyvLB1eGDrEi1kUgbX2X8wBEaE2wHznSFm2zMhy1o5ejzAzHu28A3kejtw_H4T_UmMCPgnfqJ5GZaIMjZRcmass5GChhp6DvanOyi5Vjnjcwy9s_ZDKmOQz2v5vyPydFfmr3gY5ss_zJGKcwpmij_oEPT0pFlackJff1oIkqZ0Jrb_smpeH7wkBb4JIxMmgQKkGgmVinQSqyorsKNekN5xMESVRW_4r1sdKfbsgdii5Sl4Q"/>
+</div>
+<div class="flex-1">
+<div class="flex justify-between">
+<h3 class="font-body-md text-body-md font-bold">Grandmother's Special Dal</h3>
+<p class="font-label-md text-label-md">₹340</p>
+</div>
+<p class="text-on-surface-variant text-[14px]">Qty: 1</p>
+<p class="text-spice-red text-[12px] italic">Mild spice, extra tempered ghee</p>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="flex gap-md">
+<div class="w-20 h-20 rounded-lg overflow-hidden flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="A beautifully plated serving of fragrant Basmati Pulao, decorated with colorful saffron strands, green peas, and toasted cashew nuts. The scene is set on a traditional woven mat with soft, natural morning light casting gentle shadows. The visual aesthetic is clean and modern yet deeply rooted in communal culinary traditions, featuring warm spice tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAcr2X0RYzLz9D_-mmwugneNgrIk7Pyzh2NOOtfnpCX1Bppdv9l67beHSWcOFotNXYkVo0DDXJnn7NMnnO22KtLXKQPbWUVfekv17lTtGtujPzswwiM7IQodAPtBDG18gkpUK2NeRH2BEyT-vQKqDaeZvtfxht15QwmkKEdeOYNshdgAYlqS5BFtaS-QGNfDBENMTcehfB-qBfUPibVg0qI1ftb7izmp3t-xlEEgxXBcvKiCdPU-tzDFAkfnlbmgOn-3AFdGXBZ6Q"/>
+</div>
+<div class="flex-1">
+<div class="flex justify-between">
+<h3 class="font-body-md text-body-md font-bold">Saffron Pulao</h3>
+<p class="font-label-md text-label-md">₹280</p>
+</div>
+<p class="text-on-surface-variant text-[14px]">Qty: 2</p>
+</div>
+</div>
+</div>
+<hr class="my-md border-outline-variant"/>
+<div class="space-y-sm">
+<div class="flex justify-between text-on-surface-variant">
+<span>Subtotal</span>
+<span>₹900</span>
+</div>
+<div class="flex justify-between text-on-surface-variant">
+<span>Delivery Fee</span>
+<span class="text-secondary font-bold">FREE</span>
+</div>
+<div class="flex justify-between text-on-surface-variant">
+<span>Tax (GST)</span>
+<span>₹45</span>
+</div>
+<div class="flex justify-between font-headline-md text-headline-md text-on-surface pt-2">
+<span>Total Amount</span>
+<span class="text-primary">₹945</span>
+</div>
+</div>
+</section>
+<!-- Payment Method -->
+<section class="bg-surface-container-low rounded-xl p-md shadow-sm border border-outline-variant/30">
+<h2 class="font-headline-md text-headline-md text-primary mb-md">Payment Method</h2>
+<div class="space-y-base">
+<!-- UPI -->
+<label class="flex items-center p-md bg-surface-container-lowest border border-accent-gold rounded-xl cursor-pointer">
+<input checked="" class="w-5 h-5 text-primary border-outline focus:ring-primary" name="payment" type="radio"/>
+<div class="ml-md flex-1 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-spice-red">account_balance_wallet</span>
+<span class="font-label-md text-label-md">UPI (GPay, PhonePe)</span>
+</div>
+<span class="text-[10px] bg-secondary-container px-2 py-0.5 rounded text-on-secondary-container">RECOMMENDED</span>
+</div>
+</label>
+<!-- Card -->
+<label class="flex items-center p-md bg-surface-container-lowest border border-outline-variant rounded-xl cursor-pointer">
+<input class="w-5 h-5 text-primary border-outline focus:ring-primary" name="payment" type="radio"/>
+<div class="ml-md flex items-center gap-3">
+<span class="material-symbols-outlined text-on-surface-variant">credit_card</span>
+<span class="font-label-md text-label-md">Credit / Debit Card</span>
+</div>
+</label>
+<!-- Cash -->
+<label class="flex items-center p-md bg-surface-container-lowest border border-outline-variant rounded-xl cursor-pointer">
+<input class="w-5 h-5 text-primary border-outline focus:ring-primary" name="payment" type="radio"/>
+<div class="ml-md flex items-center gap-3">
+<span class="material-symbols-outlined text-on-surface-variant">payments</span>
+<span class="font-label-md text-label-md">Cash on Delivery</span>
+</div>
+</label>
+</div>
+</section>
+<!-- Safety Trust Banner -->
+<div class="flex items-center justify-center gap-2 py-md opacity-60">
+<span class="material-symbols-outlined text-[18px]">verified_user</span>
+<span class="text-label-sm font-label-sm uppercase tracking-wider">100% Secure Transaction</span>
+</div>
+</main>
+<!-- Fixed Action Bar -->
+<div class="fixed bottom-0 left-0 w-full bg-surface-container-lowest border-t border-outline-variant p-margin-mobile flex flex-col gap-md z-50 shadow-[0_-4px_10px_rgba(0,0,0,0.05)]">
+<div class="flex justify-between items-end">
+<div>
+<p class="text-label-sm font-label-sm text-on-surface-variant">Total to pay</p>
+<p class="font-headline-lg text-headline-lg text-primary">₹945.00</p>
+</div>
+<div class="flex items-center gap-1 text-secondary">
+<span class="material-symbols-outlined text-[18px]">savings</span>
+<span class="font-label-sm text-label-sm">Saved ₹40 today</span>
+</div>
+</div>
+<button class="w-full h-14 bg-primary text-on-primary font-label-md text-label-md rounded-xl flex items-center justify-center gap-2 active:scale-[0.98] transition-transform shadow-lg">
+            Place Order
+            <span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</body></html>
