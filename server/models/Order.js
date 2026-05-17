@@ -1,7 +1,11 @@
 const mongoose = require('mongoose');
 
 const orderSchema = new mongoose.Schema({
-    orderNumber: { type: String, required: true, unique: true },
+    orderNumber: { 
+        type: String, 
+        unique: true, 
+        default: () => 'AKP-' + Math.floor(10000 + Math.random() * 90000) 
+    },
     user: { type: mongoose.Schema.Types.ObjectId, ref: 'User', default: null },
     items: [{
         menuItem: { type: mongoose.Schema.Types.ObjectId, ref: 'MenuItem' },
@@ -32,13 +36,5 @@ const orderSchema = new mongoose.Schema({
     },
     estimatedDelivery: { type: String, default: '35-45 min' },
 }, { timestamps: true });
-
-// Auto-generate order number before saving
-orderSchema.pre('save', function(next) {
-    if (!this.orderNumber) {
-        this.orderNumber = 'AKP-' + Math.floor(10000 + Math.random() * 90000);
-    }
-    next();
-});
 
 module.exports = mongoose.model('Order', orderSchema);
