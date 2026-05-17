@@ -272,12 +272,12 @@
 <p id="bill-total" class="font-headline-md text-headline-md text-primary">₹0.00</p>
 </div>
 <!-- CTA -->
-<button onclick="window.location.href='../akshaypatra_web_order_confirmation/code.html'" class="w-full h-14 bg-primary text-on-primary rounded-xl font-headline-md text-headline-md shadow-lg active:scale-[0.98] transition-transform flex items-center justify-center gap-2 cursor-pointer">
+<button onclick="handlePlaceOrder()" class="w-full h-14 bg-primary text-on-primary rounded-xl font-headline-md text-headline-md shadow-lg active:scale-[0.98] transition-transform flex items-center justify-center gap-2 cursor-pointer">
                             Place Order
                             <span class="material-symbols-outlined">arrow_forward</span>
 </button>
 <p class="text-center font-label-sm text-label-sm text-on-surface-variant flex items-center justify-center gap-1">
-<span class="material-symbols-outlined text-[14px]">verified_user</span>
+                            <span class="material-symbols-outlined text-[14px]">verified_user</span>
                             Secure encrypted checkout
                         </p>
 </div>
@@ -358,5 +358,42 @@ document.addEventListener('DOMContentLoaded', () => {
     taxEl.innerText = '₹' + tax.toFixed(2);
     totalEl.innerText = '₹' + finalTotal.toFixed(2);
 });
+
+async function handlePlaceOrder() {
+    const cart = getCart();
+    if (cart.length === 0) {
+        alert('Your cart is empty!');
+        return;
+    }
+    
+    try {
+        const response = await fetch('/api/orders', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                items: cart,
+                deliveryAddress: {
+                    name: 'Rahul Deshmukh',
+                    address: 'Flat 402, Heritage Residency, Wagholi (Pune) Depot Road, Pune, Maharashtra 411038',
+                    phone: '+91 98765 43210'
+                },
+                paymentMethod: 'upi'
+            })
+        });
+        
+        if (response.ok) {
+            clearCart();
+            window.location.href = '../akshaypatra_web_order_confirmation/code.html';
+        } else {
+            const data = await response.json();
+            alert('Failed to place order: ' + data.error);
+        }
+    } catch (error) {
+        console.error('Error placing order:', error);
+        alert('An error occurred. Please try again.');
+    }
+}
 </script>
 </body></html>
