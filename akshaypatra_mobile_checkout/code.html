@@ -163,7 +163,7 @@
 <!-- Order Summary -->
 <section class="bg-surface-container-lowest rounded-xl p-md border border-outline-variant shadow-sm overflow-hidden">
 <h2 class="font-headline-md text-headline-md text-primary mb-md">Order Summary</h2>
-<div class="space-y-md">
+<div id="cart-items-container" class="space-y-md">
 <!-- Item 1 -->
 <div class="flex gap-md">
 <div class="w-20 h-20 rounded-lg overflow-hidden flex-shrink-0">
@@ -196,7 +196,7 @@
 <div class="space-y-sm">
 <div class="flex justify-between text-on-surface-variant">
 <span>Subtotal</span>
-<span>₹900</span>
+<span id="bill-subtotal">₹900</span>
 </div>
 <div class="flex justify-between text-on-surface-variant">
 <span>Delivery Fee</span>
@@ -204,11 +204,11 @@
 </div>
 <div class="flex justify-between text-on-surface-variant">
 <span>Tax (GST)</span>
-<span>₹45</span>
+<span id="bill-tax">₹45</span>
 </div>
 <div class="flex justify-between font-headline-md text-headline-md text-on-surface pt-2">
 <span>Total Amount</span>
-<span class="text-primary">₹945</span>
+<span id="bill-total" class="text-primary">₹945</span>
 </div>
 </div>
 </section>
@@ -256,7 +256,7 @@
 <div class="flex justify-between items-end">
 <div>
 <p class="text-label-sm font-label-sm text-on-surface-variant">Total to pay</p>
-<p class="font-headline-lg text-headline-lg text-primary">₹945.00</p>
+<p id="footer-total" class="font-headline-lg text-headline-lg text-primary">₹945.00</p>
 </div>
 <div class="flex items-center gap-1 text-secondary">
 <span class="material-symbols-outlined text-[18px]">savings</span>
@@ -270,15 +270,65 @@
 </div>
 <script src="../cart.js"></script>
 <script>
-async function handlePlaceOrder() {
-    let cart = typeof getCart === 'function' ? getCart() : [];
+document.addEventListener('DOMContentLoaded', () => {
+    const container = document.getElementById('cart-items-container');
+    const subtotalEl = document.getElementById('bill-subtotal');
+    const taxEl = document.getElementById('bill-tax');
+    const totalEl = document.getElementById('bill-total');
+    const footerTotalEl = document.getElementById('footer-total');
     
-    // If cart is empty, fallback to the hardcoded mobile items shown on screen to guarantee a successful API call
+    const cart = typeof getCart === 'function' ? getCart() : [];
+    
     if (cart.length === 0) {
-        cart = [
-            { name: "Grandmother's Special Dal", price: 340, quantity: 1, image: "https://lh3.googleusercontent.com/aida-public/AB6AXuCUIBIB8Wbu8RPo65lbDwZgD3kxRM7KyvLB1eGDrEi1kUgbX2X8wBEaE2wHznSFm2zMhy1o5ejzAzHu28A3kejtw_H4T_UmMCPgnfqJ5GZaIMjZRcmass5GChhp6DvanOyi5Vjnjcwy9s_ZDKmOQz2v5vyPydFfmr3gY5ss_zJGKcwpmij_oEPT0pFlackJff1oIkqZ0Jrb_smpeH7wkBb4JIxMmgQKkGgmVinQSqyorsKNekN5xMESVRW_4r1sdKfbsgdii5Sl4Q" },
-            { name: "Saffron Pulao", price: 280, quantity: 2, image: "https://lh3.googleusercontent.com/aida-public/AB6AXuAcr2X0RYzLz9D_-mmwugneNgrIk7Pyzh2NOOtfnpCX1Bppdv9l67beHSWcOFotNXYkVo0DDXJnn7NMnnO22KtLXKQPbWUVfekv17lTtGtujPzswwiM7IQodAPtBDG18gkpUK2NeRH2BEyT-vQKqDaeZvtfxht15QwmkKEdeOYNshdgAYlqS5BFtaS-QGNfDBENMTcehfB-qBfUPibVg0qI1ftb7izmp3t-xlEEgxXBcvKiCdPU-tzDFAkfnlbmgOn-3AFdGXBZ6Q" }
-        ];
+        container.innerHTML = '<p class="text-on-surface-variant italic text-center py-4">Your cart is empty.</p>';
+        subtotalEl.innerText = '₹0.00';
+        taxEl.innerText = '₹0.00';
+        totalEl.innerText = '₹0.00';
+        if (footerTotalEl) footerTotalEl.innerText = '₹0.00';
+        return;
+    }
+    
+    let html = '';
+    let itemTotal = 0;
+    
+    cart.forEach(item => {
+        const itemLineTotal = item.price * item.quantity;
+        itemTotal += itemLineTotal;
+        
+        html += `
+        <div class="flex gap-md">
+            <div class="w-20 h-20 rounded-lg overflow-hidden flex-shrink-0 bg-surface-container">
+                <img class="w-full h-full object-cover" src="${item.image || 'https://www.gstatic.com/labs-code/stitch/stitch-placeholder-300x300.svg'}" alt="${item.name}"/>
+            </div>
+            <div class="flex-1">
+                <div class="flex justify-between">
+                    <h3 class="font-body-md text-body-md font-bold">${item.name}</h3>
+                    <p class="font-label-md text-label-md">₹${itemLineTotal.toFixed(2)}</p>
+                </div>
+                <p class="text-on-surface-variant text-[14px]">Qty: ${item.quantity}</p>
+                ${item.desc ? `<p class="text-spice-red text-[12px] italic">${item.desc}</p>` : ''}
+            </div>
+        </div>
+        `;
+    });
+    
+    container.innerHTML = html;
+    
+    const tax = Math.round(itemTotal * 0.05 * 100) / 100;
+    const finalTotal = itemTotal + tax;
+    
+    subtotalEl.innerText = '₹' + itemTotal.toFixed(2);
+    taxEl.innerText = '₹' + tax.toFixed(2);
+    totalEl.innerText = '₹' + finalTotal.toFixed(2);
+    if (footerTotalEl) footerTotalEl.innerText = '₹' + finalTotal.toFixed(2);
+});
+
+async function handlePlaceOrder() {
+    const cart = typeof getCart === 'function' ? getCart() : [];
+    
+    if (cart.length === 0) {
+        alert('Your cart is empty! Please go back and add some items to your Thali.');
+        return;
     }
     
     try {

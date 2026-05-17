@@ -137,16 +137,16 @@
 <!-- Category Switcher -->
 <div class="sticky top-16 z-40 bg-surface/95 backdrop-blur-md py-4">
 <div class="flex overflow-x-auto hide-scrollbar px-margin-mobile gap-3">
-<button class="whitespace-nowrap px-6 py-2 rounded-full bg-secondary-container text-on-secondary-container font-label-md text-label-md transition-all active:scale-95">
+<button onclick="filterCategory('category-thalis', this)" class="whitespace-nowrap px-6 py-2 rounded-full bg-secondary-container text-on-secondary-container font-label-md text-label-md transition-all active:scale-95 cursor-pointer">
                     Signature Thalis
                 </button>
-<button class="whitespace-nowrap px-6 py-2 rounded-full bg-surface-container-high text-on-surface-variant font-label-md text-label-md hover:bg-surface-variant/50 transition-all active:scale-95">
+<button onclick="filterCategory('category-specials', this)" class="whitespace-nowrap px-6 py-2 rounded-full bg-surface-container-high text-on-surface-variant font-label-md text-label-md hover:bg-surface-variant/50 transition-all active:scale-95 cursor-pointer">
                     Weekend Specials
                 </button>
-<button class="whitespace-nowrap px-6 py-2 rounded-full bg-surface-container-high text-on-surface-variant font-label-md text-label-md hover:bg-surface-variant/50 transition-all active:scale-95">
+<button onclick="filterCategory('category-sides', this)" class="whitespace-nowrap px-6 py-2 rounded-full bg-surface-container-high text-on-surface-variant font-label-md text-label-md hover:bg-surface-variant/50 transition-all active:scale-95 cursor-pointer">
                     Sides
                 </button>
-<button class="whitespace-nowrap px-6 py-2 rounded-full bg-surface-container-high text-on-surface-variant font-label-md text-label-md hover:bg-surface-variant/50 transition-all active:scale-95">
+<button onclick="filterCategory('category-desserts', this)" class="whitespace-nowrap px-6 py-2 rounded-full bg-surface-container-high text-on-surface-variant font-label-md text-label-md hover:bg-surface-variant/50 transition-all active:scale-95 cursor-pointer">
                     Desserts
                 </button>
 </div>
@@ -154,7 +154,7 @@
 <!-- Menu Items List -->
 <section class="px-margin-mobile flex flex-col gap-6 mt-4">
 <!-- Item Card 1 -->
-<div class="bg-surface-container-lowest rounded-xl shadow-sm border border-outline-variant overflow-hidden flex flex-col">
+<div data-category="category-thalis" class="menu-item-card bg-surface-container-lowest rounded-xl shadow-sm border border-outline-variant overflow-hidden flex flex-col">
 <div class="relative aspect-[16/9] w-full">
 <img class="w-full h-full object-cover" data-alt="A vibrant and appetizing Signature Maharaja Thali presented on a traditional silver platter. The thali features an assortment of colorful Indian dishes including rich curries, fragrant saffron rice, freshly made rotis, and cooling raita. The lighting is warm and golden, highlighting the textures and freshness of the ingredients in a modern yet traditional style. The background is a rustic wooden table, adding to the Heritage Hearth brand's tactile and communal aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCHvitphDyiCtUJtHO5YRAKkz_kjQkI9xESchEG7R9qnKLgIxS3M59xMKIjjKRXGypigLXeEmRLRmp6xvjSk9wzGQsF7aZndBugcHyVNc7ssX8LBUDFluU3OKdg-z_xO9D5dY9YIWkt0XD8J9U0kET3xGifAunjMxiUsVYUSu97_T7_sJgFzq6JjZBlmXQBFG0gjC0IAUbJCtA42Gebx47tnmU0wgB-AMxTFFhhH40NZdn-m1C5AvvxCQ1pTu5dU1KovjlUJ6MwXw"/>
 <div class="absolute top-3 right-3 flex flex-col gap-2">
@@ -189,7 +189,7 @@
 </div>
 </div>
 <!-- Item Card 2 -->
-<div class="bg-surface-container-lowest rounded-xl shadow-sm border border-outline-variant overflow-hidden flex flex-col">
+<div data-category="category-thalis" class="menu-item-card bg-surface-container-lowest rounded-xl shadow-sm border border-outline-variant overflow-hidden flex flex-col">
 <div class="relative aspect-[16/9] w-full">
 <img class="w-full h-full object-cover" data-alt="A beautifully plated bowl of Dal Heritage Tadka, featuring slow-cooked lentils tempered with aromatic spices and garnished with fresh cilantro and a swirl of cream. The dish is presented in a handcrafted ceramic bowl sitting on a tactile linen cloth. The lighting is soft and natural, emphasizing the rich, earthy tones of the spice-inspired color palette. The overall mood is warm, nostalgic, and deeply rooted in authentic family recipes." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAx0EtOFD1MMCOJ80CvcCSaUm9RvtC2Gqq91L8uWC624XxYMF1eZocaNay-4mSgueGE-L75HOgmWiBT2KafZH-Aa_j7ibVGSH8Pz-BfVmAAVOl8H3DnRiJMJO4ywMZH5U0inOgcLzzzqZ5IRR6QvSJBZSTQxDhlppTkVxZ-fjv37e99EqqKmO59WIGIlBhFFmEKw_Rb1Zmt4PAZW_Tz_0acA205xRMMUaFbxwyKqLv4fJOwrtakT_hWBs4kd-hl6jbepm7YxW2V-Q"/>
 </div>
@@ -221,7 +221,7 @@
 </div>
 </div>
 <!-- Item Card 3 -->
-<div class="bg-surface-container-lowest rounded-xl shadow-sm border border-outline-variant overflow-hidden flex flex-col">
+<div data-category="category-thalis" class="menu-item-card bg-surface-container-lowest rounded-xl shadow-sm border border-outline-variant overflow-hidden flex flex-col">
 <div class="relative aspect-[16/9] w-full">
 <img class="w-full h-full object-cover" data-alt="Authentic Dum Pukht Paneer Curry served in a copper handi, with thick cubes of fresh paneer soaking in a rich, spicy tomato-based gravy. Glistening with a thin layer of oil on top, reflecting the vibrant spices. The scene is set with atmospheric, low-key lighting that creates deep shadows and highlights the steam rising from the hot dish. This image captures the essence of modern traditionalist culinary craft with its rich textures and deep spice-red color palette." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCoA27LvUzWHul7Zm4ocXHC24IjIvIcsFQpZIGpA274Eh3EjPCcAjZREnFxTNmKcYbcjlV6elLMcGNRCS3k3luT8o_JJytcdSNSUQqeRkTqocLuY2z7Mx0-hBJYx_zZ8Ei6buGfxvmjA1EVJN75ewVeXD3hweAyKWLPy6e7BoXVTWXGQt9QAMagEr8xDdVjPIkWDM2ugkpgqRUDgJ2lGUO53k2_XPZ715m68VEEUce6SahjXxM7Zkgw2YAQ02le-zr7rfZALQ8FqA"/>
 </div>
@@ -248,6 +248,176 @@
                         Fresh malai paneer cubes simmered in a slow-cooked gravy of Guntur chilies and heritage whole spices.
                     </p>
 <button onclick="addToCart({ name: 'Spicy Paneer Dum Pukht', price: 320, quantity: 1, image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCoA27LvUzWHul7Zm4ocXHC24IjIvIcsFQpZIGpA274Eh3EjPCcAjZREnFxTNmKcYbcjlV6elLMcGNRCS3k3luT8o_JJytcdSNSUQqeRkTqocLuY2z7Mx0-hBJYx_zZ8Ei6buGfxvmjA1EVJN75ewVeXD3hweAyKWLPy6e7BoXVTWXGQt9QAMagEr8xDdVjPIkWDM2ugkpgqRUDgJ2lGUO53k2_XPZ715m68VEEUce6SahjXxM7Zkgw2YAQ02le-zr7rfZALQ8FqA' })" class="mt-2 w-full h-14 bg-primary text-on-primary rounded-lg font-label-md text-label-md hover:opacity-90 transition-opacity active:scale-[0.98] flex items-center justify-center gap-2 cursor-pointer">
+<span class="material-symbols-outlined">add_shopping_cart</span>
+                        Add to Cart
+                    </button>
+</div>
+</div>
+<!-- Item Card 4 (Weekend Specials) -->
+<div data-category="category-specials" class="menu-item-card bg-surface-container-lowest rounded-xl shadow-sm border border-outline-variant overflow-hidden flex flex-col hidden">
+<div class="relative aspect-[16/9] w-full">
+<img class="w-full h-full object-cover" data-alt="Clay Pot Biryani" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCOJ1BSeO1dZEekih2i-_vPv3Qbyvx1ud8VQitrk6Z0VILXsli1rzM5sqKVNiUz4rtulDkdEC9tYiPe7mW7m9cc1n6QwiOdbNlchGjNje5wpgxQKY1dmifJF9nztG3UTwRhlGcWN0FxVVBiI35NRMSWK2Z5xpZdX4JzIA4AimS2Dvrfnni8GKC-KlVyoSgm8Tl-LJ4Gb7TqfyGVH1WxsrhnULs6THwMUM2JSiaUz66X9pGT3A5eVJ8zJ5J1EwQ1bP_6MI-Rp78yJA"/>
+<div class="absolute top-3 right-3 flex flex-col gap-2">
+<span class="bg-accent-gold text-on-secondary-fixed px-3 py-1 rounded-full text-label-sm font-label-sm shadow-sm">Weekend Special</span>
+</div>
+</div>
+<div class="p-md flex flex-col gap-3">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface">Heritage Pot Biryani</h3>
+<div class="flex items-center gap-2 mt-1">
+<span class="flex items-center gap-1 text-on-surface-variant text-label-sm font-label-sm">
+<span class="material-symbols-outlined text-[16px] text-green-600" style="font-variation-settings: 'FILL' 1;">circle</span>
+                                    Veg
+                                </span>
+<span class="text-outline-variant">|</span>
+<span class="flex items-center gap-1 text-on-surface-variant text-label-sm font-label-sm">
+<span class="material-symbols-outlined text-[16px] text-spice-red" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+                                    Medium
+                                </span>
+</div>
+</div>
+<span class="font-headline-md text-headline-md text-primary">₹550</span>
+</div>
+<p class="text-on-surface-variant font-body-md text-body-md line-clamp-2">
+                        A slow-cooked masterpiece of aged Basmati and farm-fresh vegetables, sealed in clay with heritage spices.
+                    </p>
+<button onclick="addToCart({ name: 'Heritage Pot Biryani', price: 550, quantity: 1, image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCOJ1BSeO1dZEekih2i-_vPv3Qbyvx1ud8VQitrk6Z0VILXsli1rzM5sqKVNiUz4rtulDkdEC9tYiPe7mW7m9cc1n6QwiOdbNlchGjNje5wpgxQKY1dmifJF9nztG3UTwRhlGcWN0FxVVBiI35NRMSWK2Z5xpZdX4JzIA4AimS2Dvrfnni8GKC-KlVyoSgm8Tl-LJ4Gb7TqfyGVH1WxsrhnULs6THwMUM2JSiaUz66X9pGT3A5eVJ8zJ5J1EwQ1bP_6MI-Rp78yJA' })" class="mt-2 w-full h-14 bg-primary text-on-primary rounded-lg font-label-md text-label-md hover:opacity-90 transition-opacity active:scale-[0.98] flex items-center justify-center gap-2 cursor-pointer">
+<span class="material-symbols-outlined">add_shopping_cart</span>
+                        Add to Cart
+                    </button>
+</div>
+</div>
+<!-- Item Card 5 (Weekend Specials) -->
+<div data-category="category-specials" class="menu-item-card bg-surface-container-lowest rounded-xl shadow-sm border border-outline-variant overflow-hidden flex flex-col hidden">
+<div class="relative aspect-[16/9] w-full">
+<img class="w-full h-full object-cover" data-alt="Farm Harvest Bowl" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCzGoe2EcEVB3VDSVoU9MXhniOr0y_YTijZKMnCQJr4RKUlS_lL5j7DXKH_-hFECgE1dqn4Q_b1jbDesm8zHnarsiCqpfgiS8lTZxRu2q_BvGZ-VcoSxJ1wX91mr7QNsRWHwWBJzR6jFCCSE2ijs4eO3xOWUJyDpxS7PVFDMhEgar1Woi6XJa_J7wn28e48C2btsL4XF2EXO_rlBxIWtKQgTyIUTXCeRBVTmOQth0EyMYe0PjrTv0Q5AMNTftes9VIx82TEZJyTEA"/>
+</div>
+<div class="p-md flex flex-col gap-3">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface">Farm Harvest Bowl</h3>
+<div class="flex items-center gap-2 mt-1">
+<span class="flex items-center gap-1 text-on-surface-variant text-label-sm font-label-sm">
+<span class="material-symbols-outlined text-[16px] text-green-700" style="font-variation-settings: 'FILL' 1;">eco</span>
+                                    Veg
+                                </span>
+</div>
+</div>
+<span class="font-headline-md text-headline-md text-primary">₹320</span>
+</div>
+<p class="text-on-surface-variant font-body-md text-body-md line-clamp-2">
+                        Roasted heirloom root vegetables, spiced ancient grains, and a zesty mint-coriander yogurt dressing.
+                    </p>
+<button onclick="addToCart({ name: 'Farm Harvest Bowl', price: 320, quantity: 1, image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCzGoe2EcEVB3VDSVoU9MXhniOr0y_YTijZKMnCQJr4RKUlS_lL5j7DXKH_-hFECgE1dqn4Q_b1jbDesm8zHnarsiCqpfgiS8lTZxRu2q_BvGZ-VcoSxJ1wX91mr7QNsRWHwWBJzR6jFCCSE2ijs4eO3xOWUJyDpxS7PVFDMhEgar1Woi6XJa_J7wn28e48C2btsL4XF2EXO_rlBxIWtKQgTyIUTXCeRBVTmOQth0EyMYe0PjrTv0Q5AMNTftes9VIx82TEZJyTEA' })" class="mt-2 w-full h-14 bg-primary text-on-primary rounded-lg font-label-md text-label-md hover:opacity-90 transition-opacity active:scale-[0.98] flex items-center justify-center gap-2 cursor-pointer">
+<span class="material-symbols-outlined">add_shopping_cart</span>
+                        Add to Cart
+                    </button>
+</div>
+</div>
+<!-- Item Card 6 (Sides) -->
+<div data-category="category-sides" class="menu-item-card bg-surface-container-lowest rounded-xl shadow-sm border border-outline-variant overflow-hidden flex flex-col hidden">
+<div class="relative aspect-[16/9] w-full">
+<img class="w-full h-full object-cover" data-alt="Craft Samosa Trio" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBC1nmGi4HbaJxdwDVTG3quVd1uauHGU0RZ6ADCfT1i1WUNsstTORKgupT1i8xMwMJXAiXZbqXuez9EEmclgKGLA6zPXuTnEVwVLr4o6hB26Mu4VVQb1ci8B8ratENS0qj_jSNx9HYpw81oOU0sJB_EleTUmNkEUsisbJGBVy9DfWD256gh7GuLZWhC4VzaFR9shVvAIui3rLELA0tZ5efFbgnuuhu3Gna_rWjVV0inAW52Z8ZsFVZn9T-RkYYEGHsnvAb16ZnzMg"/>
+</div>
+<div class="p-md flex flex-col gap-3">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface">Craft Samosa Trio</h3>
+<div class="flex items-center gap-2 mt-1">
+<span class="flex items-center gap-1 text-on-surface-variant text-label-sm font-label-sm">
+<span class="material-symbols-outlined text-[16px] text-green-600" style="font-variation-settings: 'FILL' 1;">circle</span>
+                                    Veg
+                                </span>
+</div>
+</div>
+<span class="font-headline-md text-headline-md text-primary">₹180</span>
+</div>
+<p class="text-on-surface-variant font-body-md text-body-md line-clamp-2">
+                        Hand-folded pastry filled with spiced peas, artisanal paneer, and caramelized onion fillings.
+                    </p>
+<button onclick="addToCart({ name: 'Craft Samosa Trio', price: 180, quantity: 1, image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBC1nmGi4HbaJxdwDVTG3quVd1uauHGU0RZ6ADCfT1i1WUNsstTORKgupT1i8xMwMJXAiXZbqXuez9EEmclgKGLA6zPXuTnEVwVLr4o6hB26Mu4VVQb1ci8B8ratENS0qj_jSNx9HYpw81oOU0sJB_EleTUmNkEUsisbJGBVy9DfWD256gh7GuLZWhC4VzaFR9shVvAIui3rLELA0tZ5efFbgnuuhu3Gna_rWjVV0inAW52Z8ZsFVZn9T-RkYYEGHsnvAb16ZnzMg' })" class="mt-2 w-full h-14 bg-primary text-on-primary rounded-lg font-label-md text-label-md hover:opacity-90 transition-opacity active:scale-[0.98] flex items-center justify-center gap-2 cursor-pointer">
+<span class="material-symbols-outlined">add_shopping_cart</span>
+                        Add to Cart
+                    </button>
+</div>
+</div>
+<!-- Item Card 7 (Dessert) -->
+<div data-category="category-desserts" class="menu-item-card bg-surface-container-lowest rounded-xl shadow-sm border border-outline-variant overflow-hidden flex flex-col hidden">
+<div class="relative aspect-[16/9] w-full">
+<img class="w-full h-full object-cover" data-alt="Saffron Gulab Jamun" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBkKUJ76gZKSNtPXxJX6IqOfanpFWIP-XeF48C_SJiQCBBb9eNYBpNllDcGmS0vwaXLepUWnU7J1FO5pG9KJisMV_bXRn00q9tbyb7rpnQHDUA5nJsz9XNars1glJ7XZPaVD9elIMRN7hAS8H2HAIsUdbei8Bbp39FUwRDsoe3GbAdGE_Evnf781cOMNh_iBJCQUaPmBdyrjimqIpYY1rkkH4LPSIkLAsG619qm34KyNzzlwdzmnQVFh-NXbi1kqGzA85idUlFOcg"/>
+</div>
+<div class="p-md flex flex-col gap-3">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface">Saffron Gulab Jamun</h3>
+<div class="flex items-center gap-2 mt-1">
+<span class="flex items-center gap-1 text-on-surface-variant text-label-sm font-label-sm">
+<span class="material-symbols-outlined text-[16px] text-green-600" style="font-variation-settings: 'FILL' 1;">circle</span>
+                                    Veg
+                                </span>
+</div>
+</div>
+<span class="font-headline-md text-headline-md text-primary">₹140</span>
+</div>
+<p class="text-on-surface-variant font-body-md text-body-md line-clamp-2">
+                        Deep golden spheres glistening in a transparent saffron syrup, garnished with slivers of green pistachios.
+                    </p>
+<button onclick="addToCart({ name: 'Saffron Gulab Jamun', price: 140, quantity: 1, image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBkKUJ76gZKSNtPXxJX6IqOfanpFWIP-XeF48C_SJiQCBBb9eNYBpNllDcGmS0vwaXLepUWnU7J1FO5pG9KJisMV_bXRn00q9tbyb7rpnQHDUA5nJsz9XNars1glJ7XZPaVD9elIMRN7hAS8H2HAIsUdbei8Bbp39FUwRDsoe3GbAdGE_Evnf781cOMNh_iBJCQUaPmBdyrjimqIpYY1rkkH4LPSIkLAsG619qm34KyNzzlwdzmnQVFh-NXbi1kqGzA85idUlFOcg' })" class="mt-2 w-full h-14 bg-primary text-on-primary rounded-lg font-label-md text-label-md hover:opacity-90 transition-opacity active:scale-[0.98] flex items-center justify-center gap-2 cursor-pointer">
+<span class="material-symbols-outlined">add_shopping_cart</span>
+                        Add to Cart
+                    </button>
+</div>
+</div>
+<!-- Item Card 8 (Dessert) -->
+<div data-category="category-desserts" class="menu-item-card bg-surface-container-lowest rounded-xl shadow-sm border border-outline-variant overflow-hidden flex flex-col hidden">
+<div class="relative aspect-[16/9] w-full">
+<img class="w-full h-full object-cover" data-alt="Alphonso Mango Lassi" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBtMubkummGkG72Zx9jYNKUJer8ZU_xXRdqjEzrp3MinO8cnaB9lpVsOJK_Xnvkl6Yie9vm273UYCiqO91DTOZKc35MQ5ib7Vxhkv9It-ULqCtiseTqkZgtRv7gscORDoUBMQ7CEmJL-_7dM2j8I6IkAYmDxgF5xURPXka4BFSbYrX-zFT_49Ij0pg6Aq55LBqIfdazPn5b8N-U-ALNzOscTB8AuD1bK6_UQXfS9GtOrfu9EZRAj2H7PDknYLOsPbabn7UsY_sn-Q"/>
+</div>
+<div class="p-md flex flex-col gap-3">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface">Alphonso Mango Lassi</h3>
+<div class="flex items-center gap-2 mt-1">
+<span class="flex items-center gap-1 text-on-surface-variant text-label-sm font-label-sm">
+<span class="material-symbols-outlined text-[16px] text-green-600" style="font-variation-settings: 'FILL' 1;">circle</span>
+                                    Veg
+                                </span>
+</div>
+</div>
+<span class="font-headline-md text-headline-md text-primary">₹120</span>
+</div>
+<p class="text-on-surface-variant font-body-md text-body-md line-clamp-2">
+                        Creamy Alphonso mango yogurt beverage topped with saffron strands and crushed cardamom.
+                    </p>
+<button onclick="addToCart({ name: 'Alphonso Mango Lassi', price: 120, quantity: 1, image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBtMubkummGkG72Zx9jYNKUJer8ZU_xXRdqjEzrp3MinO8cnaB9lpVsOJK_Xnvkl6Yie9vm273UYCiqO91DTOZKc35MQ5ib7Vxhkv9It-ULqCtiseTqkZgtRv7gscORDoUBMQ7CEmJL-_7dM2j8I6IkAYmDxgF5xURPXka4BFSbYrX-zFT_49Ij0pg6Aq55LBqIfdazPn5b8N-U-ALNzOscTB8AuD1bK6_UQXfS9GtOrfu9EZRAj2H7PDknYLOsPbabn7UsY_sn-Q' })" class="mt-2 w-full h-14 bg-primary text-on-primary rounded-lg font-label-md text-label-md hover:opacity-90 transition-opacity active:scale-[0.98] flex items-center justify-center gap-2 cursor-pointer">
+<span class="material-symbols-outlined">add_shopping_cart</span>
+                        Add to Cart
+                    </button>
+</div>
+</div>
+<!-- Item Card 9 (Dessert) -->
+<div data-category="category-desserts" class="menu-item-card bg-surface-container-lowest rounded-xl shadow-sm border border-outline-variant overflow-hidden flex flex-col hidden">
+<div class="relative aspect-[16/9] w-full">
+<img class="w-full h-full object-cover" data-alt="Cardamom Rice Kheer" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDjTMq7oNBK4BKnfIeYW0EKCNx1vd7jYHcyWV2mnvoW-Uw_Hz5gt-_awyWHP_rE3aioalNhnOG2cfw3fUWjISCMlFFuuyhZ9MdRAbuZLMYbRRr-pClL3wPWWJv1XkeA4X9BwHWBKD7avFqrQ5fKz237DLOFbFbapwSoVDy2KGXkJvgH9KnU0D3KuB2DBqfGryNnQp7p8b-My3oGhWhJnbMPeE4nVs9zt2f7-qmtqRjeydy8nz-_d2ij-P52q-8vrF8z2_-dK1rJSQ"/>
+</div>
+<div class="p-md flex flex-col gap-3">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface">Cardamom Rice Kheer</h3>
+<div class="flex items-center gap-2 mt-1">
+<span class="flex items-center gap-1 text-on-surface-variant text-label-sm font-label-sm">
+<span class="material-symbols-outlined text-[16px] text-green-600" style="font-variation-settings: 'FILL' 1;">circle</span>
+                                    Veg
+                                </span>
+</div>
+</div>
+<span class="font-headline-md text-headline-md text-primary">₹160</span>
+</div>
+<p class="text-on-surface-variant font-body-md text-body-md line-clamp-2">
+                        Creamy milk pudding slow-cooked with Basmati rice, premium saffron, and toasted almonds.
+                    </p>
+<button onclick="addToCart({ name: 'Cardamom Rice Kheer', price: 160, quantity: 1, image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDjTMq7oNBK4BKnfIeYW0EKCNx1vd7jYHcyWV2mnvoW-Uw_Hz5gt-_awyWHP_rE3aioalNhnOG2cfw3fUWjISCMlFFuuyhZ9MdRAbuZLMYbRRr-pClL3wPWWJv1XkeA4X9BwHWBKD7avFqrQ5fKz237DLOFbFbapwSoVDy2KGXkJvgH9KnU0D3KuB2DBqfGryNnQp7p8b-My3oGhWhJnbMPeE4nVs9zt2f7-qmtqRjeydy8nz-_d2ij-P52q-8vrF8z2_-dK1rJSQ' })" class="mt-2 w-full h-14 bg-primary text-on-primary rounded-lg font-label-md text-label-md hover:opacity-90 transition-opacity active:scale-[0.98] flex items-center justify-center gap-2 cursor-pointer">
 <span class="material-symbols-outlined">add_shopping_cart</span>
                         Add to Cart
                     </button>
@@ -293,4 +463,26 @@
 </button>
 </nav>
 <script src="../cart.js"></script>
+<script>
+function filterCategory(category, btnElement) {
+    // 1. Update button styling
+    if (btnElement && btnElement.parentElement) {
+        const buttons = btnElement.parentElement.querySelectorAll('button');
+        buttons.forEach(btn => {
+            btn.className = 'whitespace-nowrap px-6 py-2 rounded-full bg-surface-container-high text-on-surface-variant font-label-md text-label-md hover:bg-surface-variant/50 transition-all active:scale-95 cursor-pointer';
+        });
+        btnElement.className = 'whitespace-nowrap px-6 py-2 rounded-full bg-secondary-container text-on-secondary-container font-label-md text-label-md transition-all active:scale-95 cursor-pointer';
+    }
+
+    // 2. Filter card visibility
+    const cards = document.querySelectorAll('.menu-item-card');
+    cards.forEach(card => {
+        if (card.getAttribute('data-category') === category) {
+            card.classList.remove('hidden');
+        } else {
+            card.classList.add('hidden');
+        }
+    });
+}
+</script>
 </body></html>
