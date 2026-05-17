@@ -127,7 +127,10 @@
 <h1 class="font-headline-lg-mobile text-headline-lg-mobile text-primary tracking-tight">Akshaypatra</h1>
 </div>
 <div class="flex items-center gap-4">
-<span class="material-symbols-outlined text-primary text-[24px]">shopping_cart</span>
+<button onclick="window.location.href='../akshaypatra_mobile_checkout/code.html'" class="cursor-pointer flex items-center relative text-primary">
+<span class="material-symbols-outlined text-[24px]">shopping_cart</span>
+<span id="mobile-cart-badge" class="absolute -top-2 -right-2 bg-spice-red text-white text-[10px] w-5 h-5 rounded-full flex items-center justify-center font-bold hidden">0</span>
+</button>
 </div>
 </header>
 <main class="pb-[80px]">
@@ -139,10 +142,10 @@
 <h2 class="font-headline-xl text-white text-4xl leading-tight">A Legacy of Authentic Flavors</h2>
 <p class="text-white/90 font-body-lg">Wagholi (Pune)'s heart beats in our kitchen. Experience the heritage recipes passed through generations.</p>
 <div class="flex flex-col gap-3 pt-2">
-<button class="h-14 w-full bg-primary text-on-primary rounded-xl font-label-md flex items-center justify-center shadow-lg active:scale-95 transition-transform">
+<button onclick="window.location.href='../akshaypatra_mobile_menu_expanded/code.html'" class="h-14 w-full bg-primary text-on-primary rounded-xl font-label-md flex items-center justify-center shadow-lg active:scale-95 transition-transform cursor-pointer">
                         Book a Thali
                     </button>
-<button class="h-14 w-full bg-white/10 backdrop-blur-md border-2 border-white text-white rounded-xl font-label-md flex items-center justify-center active:scale-95 transition-transform">
+<button onclick="window.location.href='../akshaypatra_mobile_menu_expanded/code.html'" class="h-14 w-full bg-white/10 backdrop-blur-md border-2 border-white text-white rounded-xl font-label-md flex items-center justify-center active:scale-95 transition-transform cursor-pointer">
                         Explore Menu
                     </button>
 </div>
@@ -177,7 +180,7 @@
 <span class="text-spice-red font-label-sm uppercase tracking-widest">Fresh Today</span>
 <h3 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface">Today's Specials</h3>
 </div>
-<button class="text-primary font-label-md flex items-center gap-1">
+<button onclick="window.location.href='../akshaypatra_mobile_menu_expanded/code.html'" class="text-primary font-label-md flex items-center gap-1 cursor-pointer">
                     View All <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
 </button>
 </div>
@@ -194,7 +197,7 @@
 <span class="font-label-md text-spice-red">₹140</span>
 </div>
 <p class="text-on-surface-variant text-sm line-clamp-2">Authentic spicy sprouts curry served with buttered pav and fresh lemon.</p>
-<button class="w-full h-10 border-2 border-tertiary text-tertiary rounded-lg font-label-sm active:bg-tertiary/10">Add to Thali</button>
+<button onclick="addToCart({ name: 'Misal Pav', price: 140, quantity: 1, image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAJi-n7-VRRC-uWXdbKWEaALkmKm6GDX5ym-fW-hw-QzAfaOCUou1fgAtNTs8a41XBm2M-i2YPG2F1_6G_Ui2IBxm3SrZ5Y5WIq-J-8e5vK8eHES4k7fLEqu-NlResN5BuNm5d0NkFzQzisBMMDt8DqmJPxd7dmkKjUbhNqm6XTTVzLdvJciFwWn0g0B9b_fjl2DKpNwESad36ct0BakEDPGuFMp7fmsOT49lYU89_vKnd8pJvBRzoZst_3tOUvsJ1aNrnoUoFPQA' })" class="w-full h-10 border-2 border-tertiary text-tertiary rounded-lg font-label-sm active:bg-tertiary/10 cursor-pointer">Add to Thali</button>
 </div>
 </div>
 <!-- Special Item 2 -->
@@ -208,7 +211,7 @@
 <span class="font-label-md text-spice-red">₹180</span>
 </div>
 <p class="text-on-surface-variant text-sm line-clamp-2">Traditional sweet flatbread stuffed with chana dal and jaggery, topped with ghee.</p>
-<button class="w-full h-10 border-2 border-tertiary text-tertiary rounded-lg font-label-sm active:bg-tertiary/10">Add to Thali</button>
+<button onclick="addToCart({ name: 'Puran Poli', price: 180, quantity: 1, image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAcpl1g292NIpv3cYiLCXLT2LAwG_qcJbKc4l5jFoA9d65TEKOKY0Wdp0KOlOCh3b98pi8jUHz0XQ_tCsgziL96yBsW3BOKWRvHfB8Y3EYSy5ZclMG66h8XWPCVeQCxOfbB7T5LXwjH9PIJxLxG6ItMLBp_8wakybskvIVSajS37rYGLPELqm_SySUyH32N0N5YfBapNUVTHXgkDLNfD5FFCSXfYwgcxAaA635RFY3gC8cF4R97jc7FPc25UjWl37937QfRM8t9Sg' })" class="w-full h-10 border-2 border-tertiary text-tertiary rounded-lg font-label-sm active:bg-tertiary/10 cursor-pointer">Add to Thali</button>
 </div>
 </div>
 </div>
@@ -347,4 +350,5 @@
 <span class="font-label-sm text-label-sm mt-1">Profile</span>
 </a>
 </nav>
+<script src="../cart.js"></script>
 </body></html>

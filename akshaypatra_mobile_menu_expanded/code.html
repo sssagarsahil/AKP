@@ -182,7 +182,7 @@
 <p class="text-on-surface-variant font-body-md text-body-md line-clamp-2">
                         A grand celebration of heritage flavors including 3 main courses, dal makhani, pulao, 2 rotis, and our chef's special gulab jamun.
                     </p>
-<button class="mt-2 w-full h-14 bg-primary text-on-primary rounded-lg font-label-md text-label-md hover:opacity-90 transition-opacity active:scale-[0.98] flex items-center justify-center gap-2">
+<button onclick="addToCart({ name: 'Maharaja Signature Thali', price: 450, quantity: 1, image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCHvitphDyiCtUJtHO5YRAKkz_kjQkI9xESchEG7R9qnKLgIxS3M59xMKIjjKRXGypigLXeEmRLRmp6xvjSk9wzGQsF7aZndBugcHyVNc7ssX8LBUDFluU3OKdg-z_xO9D5dY9YIWkt0XD8J9U0kET3xGifAunjMxiUsVYUSu97_T7_sJgFzq6JjZBlmXQBFG0gjC0IAUbJCtA42Gebx47tnmU0wgB-AMxTFFhhH40NZdn-m1C5AvvxCQ1pTu5dU1KovjlUJ6MwXw' })" class="mt-2 w-full h-14 bg-primary text-on-primary rounded-lg font-label-md text-label-md hover:opacity-90 transition-opacity active:scale-[0.98] flex items-center justify-center gap-2 cursor-pointer">
 <span class="material-symbols-outlined">add_shopping_cart</span>
                         Add to Cart
                     </button>
@@ -214,7 +214,7 @@
 <p class="text-on-surface-variant font-body-md text-body-md line-clamp-2">
                         Overnight slow-cooked black lentils tempered with double-smoked spices and finished with a touch of plant-based cream.
                     </p>
-<button class="mt-2 w-full h-14 bg-primary text-on-primary rounded-lg font-label-md text-label-md hover:opacity-90 transition-opacity active:scale-[0.98] flex items-center justify-center gap-2">
+<button onclick="addToCart({ name: 'Dal Heritage Tadka', price: 220, quantity: 1, image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAx0EtOFD1MMCOJ80CvcCSaUm9RvtC2Gqq91L8uWC624XxYMF1eZocaNay-4mSgueGE-L75HOgmWiBT2KafZH-Aa_j7ibVGSH8Pz-BfVmAAVOl8H3DnRiJMJO4ywMZH5U0inOgcLzzzqZ5IRR6QvSJBZSTQxDhlppTkVxZ-fjv37e99EqqKmO59WIGIlBhFFmEKw_Rb1Zmt4PAZW_Tz_0acA205xRMMUaFbxwyKqLv4fJOwrtakT_hWBs4kd-hl6jbepm7YxW2V-Q' })" class="mt-2 w-full h-14 bg-primary text-on-primary rounded-lg font-label-md text-label-md hover:opacity-90 transition-opacity active:scale-[0.98] flex items-center justify-center gap-2 cursor-pointer">
 <span class="material-symbols-outlined">add_shopping_cart</span>
                         Add to Cart
                     </button>
@@ -247,7 +247,7 @@
 <p class="text-on-surface-variant font-body-md text-body-md line-clamp-2">
                         Fresh malai paneer cubes simmered in a slow-cooked gravy of Guntur chilies and heritage whole spices.
                     </p>
-<button class="mt-2 w-full h-14 bg-primary text-on-primary rounded-lg font-label-md text-label-md hover:opacity-90 transition-opacity active:scale-[0.98] flex items-center justify-center gap-2">
+<button onclick="addToCart({ name: 'Spicy Paneer Dum Pukht', price: 320, quantity: 1, image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCoA27LvUzWHul7Zm4ocXHC24IjIvIcsFQpZIGpA274Eh3EjPCcAjZREnFxTNmKcYbcjlV6elLMcGNRCS3k3luT8o_JJytcdSNSUQqeRkTqocLuY2z7Mx0-hBJYx_zZ8Ei6buGfxvmjA1EVJN75ewVeXD3hweAyKWLPy6e7BoXVTWXGQt9QAMagEr8xDdVjPIkWDM2ugkpgqRUDgJ2lGUO53k2_XPZ715m68VEEUce6SahjXxM7Zkgw2YAQ02le-zr7rfZALQ8FqA' })" class="mt-2 w-full h-14 bg-primary text-on-primary rounded-lg font-label-md text-label-md hover:opacity-90 transition-opacity active:scale-[0.98] flex items-center justify-center gap-2 cursor-pointer">
 <span class="material-symbols-outlined">add_shopping_cart</span>
                         Add to Cart
                     </button>
@@ -256,18 +256,18 @@
 </section>
 </main>
 <!-- Floating View Cart Bar -->
-<div class="fixed bottom-24 left-0 w-full px-margin-mobile z-50">
+<div id="mobile-floating-cart-bar" class="fixed bottom-24 left-0 w-full px-margin-mobile z-50 hidden">
 <div class="bg-inverse-surface text-inverse-on-surface rounded-xl p-4 shadow-xl flex items-center justify-between">
 <div class="flex items-center gap-3">
-<div class="bg-primary-container text-on-primary-container w-8 h-8 rounded-full flex items-center justify-center font-label-sm text-label-sm">
-                    2
+<div class="cart-count-badge bg-primary-container text-on-primary-container w-8 h-8 rounded-full flex items-center justify-center font-label-sm text-label-sm">
+                    0
                 </div>
 <div>
-<p class="font-label-md text-label-md">2 Items Added</p>
-<p class="text-xs opacity-80">₹670 plus taxes</p>
+<p class="cart-count-text font-label-md text-label-md">0 Items Added</p>
+<p class="cart-price-text text-xs opacity-80">₹0.00 plus taxes</p>
 </div>
 </div>
-<button class="flex items-center gap-1 bg-accent-gold text-on-secondary-fixed px-4 py-2 rounded-lg font-label-md text-label-md active:scale-95 transition-transform">
+<button onclick="window.location.href='../akshaypatra_mobile_checkout/code.html'" class="flex items-center gap-1 bg-accent-gold text-on-secondary-fixed px-4 py-2 rounded-lg font-label-md text-label-md active:scale-95 transition-transform cursor-pointer">
                 View Cart
                 <span class="material-symbols-outlined">arrow_forward</span>
 </button>
@@ -275,15 +275,15 @@
 </div>
 <!-- Bottom Navigation Bar -->
 <nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-20 px-4 pb-2 bg-surface-container-lowest dark:bg-deep-earth shadow-lg rounded-t-xl">
-<button class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-variant/50 transition-all active:scale-90">
+<button onclick="window.location.href='../akshaypatra_mobile_landing_page/code.html'" class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-variant/50 transition-all active:scale-90 cursor-pointer">
 <span class="material-symbols-outlined">home</span>
 <span class="font-label-md text-label-md">Home</span>
 </button>
-<button class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-full px-6 py-1 transition-all active:scale-90">
+<button onclick="window.location.href='../akshaypatra_mobile_menu_expanded/code.html'" class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-full px-6 py-1 transition-all active:scale-90 cursor-pointer">
 <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">restaurant_menu</span>
 <span class="font-label-md text-label-md">Menu</span>
 </button>
-<button class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-variant/50 transition-all active:scale-90">
+<button onclick="window.location.href='../akshaypatra_web_order_tracking/code.html'" class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-variant/50 transition-all active:scale-90 cursor-pointer">
 <span class="material-symbols-outlined">receipt_long</span>
 <span class="font-label-md text-label-md">Orders</span>
 </button>
@@ -292,4 +292,5 @@
 <span class="font-label-md text-label-md">Profile</span>
 </button>
 </nav>
+<script src="../cart.js"></script>
 </body></html>
