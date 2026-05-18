@@ -140,14 +140,14 @@
 <!-- Sticky Filters -->
 <div class="sticky top-[80px] z-40 bg-surface-cream/90 backdrop-blur-md py-4 -mx-4 px-4 flex flex-wrap items-center justify-between gap-md border-b border-outline-variant/30">
 <div class="flex gap-sm overflow-x-auto hide-scrollbar pb-2 md:pb-0">
-<button class="flex items-center gap-xs px-md py-2 bg-primary text-on-primary rounded-full font-label-md text-label-md transition-transform active:scale-95">
+<button id="filter-all" onclick="filterMenu('all')" class="flex items-center gap-xs px-md py-2 bg-primary text-on-primary rounded-full font-label-md text-label-md transition-transform active:scale-95 cursor-pointer">
                             All Dishes
                         </button>
-<button class="flex items-center gap-xs px-md py-2 bg-surface-container-high text-on-surface rounded-full font-label-md text-label-md border border-outline-variant hover:border-primary transition-colors">
+<button id="filter-veg" onclick="filterMenu('veg')" class="flex items-center gap-xs px-md py-2 bg-surface-container-high text-on-surface rounded-full font-label-md text-label-md border border-outline-variant hover:border-primary transition-colors cursor-pointer">
 <span class="material-symbols-outlined text-[18px]">eco</span> Veg
                         </button>
-<button class="flex items-center gap-xs px-md py-2 bg-surface-container-high text-on-surface rounded-full font-label-md text-label-md border border-outline-variant hover:border-primary transition-colors">
-<span class="material-symbols-outlined text-[18px]">leaf_spark</span> Vegan
+<button id="filter-vegan" onclick="filterMenu('vegan')" class="flex items-center gap-xs px-md py-2 bg-surface-container-high text-on-surface rounded-full font-label-md text-label-md border border-outline-variant hover:border-primary transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-[18px]">eco</span> Vegan
                         </button>
 </div>
 <div class="flex items-center gap-md">
@@ -171,7 +171,7 @@
 </div>
 <div class="grid grid-cols-1 md:grid-cols-2 gap-lg">
 <!-- Item 1 -->
-<div class="group bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow border border-outline-variant/30 flex flex-col md:flex-row h-full">
+<div data-category="veg" class="group bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow border border-outline-variant/30 flex flex-col md:flex-row h-full">
 <div class="md:w-2/5 relative h-48 md:h-auto overflow-hidden">
 <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="A lush, colorful Indian Thali spread on a circular bronze platter. The meal includes vibrant bowls of creamy dal, spicy curries, fragrant basmati rice, crispy papadums, and fresh buttery naan. Warm, golden overhead lighting captures the steam rising from the food, set against a rustic wooden table that evokes a traditional communal home kitchen atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDmbuF-ZaL8ZHLgNzsNZG8Hpv1aEsjsKOZgR5qqStct5s048b77HTMAapM-TR_K4p9zjroTPbLT9KgxLsHTBcGrbdJpzjYVGTmCDbjNruRACQ_NAguW-pkKPvqS6XCEsvdlrzletfM-aIp9BEtZOqKsDEgI0s_qXz5XlB0T092pFBzri4BnAXH6fR2Lhec5rDwtfCSAae5_Gq4D1-XE5iNOn7K0PI4rwU6FYmtarImKnwI-Cf4vUxtRbwaeIeyXt38btHX_ayPHaQ"/>
 <div class="absolute top-4 left-4 bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full font-label-sm text-label-sm shadow-sm">Best Seller</div>
@@ -196,7 +196,7 @@
 </div>
 </div>
 <!-- Item 2 -->
-<div class="group bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow border border-outline-variant/30 flex flex-col md:flex-row h-full">
+<div data-category="vegan" class="group bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow border border-outline-variant/30 flex flex-col md:flex-row h-full">
 <div class="md:w-2/5 relative h-48 md:h-auto overflow-hidden">
 <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="A regional South Indian Banana Leaf thali service. The bright green banana leaf is laden with mounds of white rice, sambar, coconut-based poriyals, and traditional pickles. The lighting is soft and natural, emphasizing the organic textures of the leaf and the fresh, colorful vegetables. The composition is clean and focused, reflecting a modern minimalist take on ancient eating traditions." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCGOOkhpCxSfsbkAMssTc-OiQU2dpDsf3LgPFFhQ4ISvIXfzFilJDYXv2ZqmhutMW5uOjqmBy0OS_dHKMVuh3pQK-D4NxsUEc0e8RNM51G7-9CS76OmjIJU5E5t8f5F7z__IR2v_ZdqoxtEympwI2VJpuCNU_7jgnrJlfgFA2MeyIcaM2tohQXugXvVR1e8yTJGzMFqP_Vwv9_MvrgL9GXNyKLAuCPtq6wXdR34vD7MXK6u2yr8CogEZkfXlQl44ccHCXtA_zpRMA"/>
 </div>
@@ -230,7 +230,7 @@
 </div>
 <div class="grid grid-cols-1 md:grid-cols-3 gap-md">
 <!-- Item 3 -->
-<div class="group bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow border border-outline-variant/30 flex flex-col">
+<div data-category="veg" class="group bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow border border-outline-variant/30 flex flex-col">
 <div class="aspect-[4/3] overflow-hidden relative">
 <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="A close-up of a slow-cooked vegetable biryani in a traditional clay pot. The saffron-stained long-grain rice is topped with caramelized onions, fresh mint leaves, and vibrant pomegranate seeds. Wisps of steam are illuminated by a soft, warm light coming from the side, creating long shadows and highlighting the delicate texture of the grains. The style is luxurious yet grounded in artisan craft." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCOJ1BSeO1dZEekih2i-_vPv3Qbyvx1ud8VQitrk6Z0VILXsli1rzM5sqKVNiUz4rtulDkdEC9tYiPe7mW7m9cc1n6QwiOdbNlchGjNje5wpgxQKY1dmifJF9nztG3UTwRhlGcWN0FxVVBiI35NRMSWK2Z5xpZdX4JzIA4AimS2Dvrfnni8GKC-KlVyoSgm8Tl-LJ4Gb7TqfyGVH1WxsrhnULs6THwMUM2JSiaUz66X9pGT3A5eVJ8zJ5J1EwQ1bP_6MI-Rp78yJA"/>
 </div>
@@ -240,13 +240,17 @@
 <span class="font-headline-md text-headline-md text-spice-red">₹550</span>
 </div>
 <p class="font-body-md text-body-md text-on-surface-variant mb-md flex-grow">A slow-cooked masterpiece of aged Basmati and farm-fresh vegetables, sealed in clay with heritage spices.</p>
+<div class="flex gap-xs mb-md">
+<span class="material-symbols-outlined text-green-700 text-[20px]" title="Vegetarian">eco</span>
+<span class="material-symbols-outlined text-spice-red text-[20px]" title="Spice Level: Medium">local_fire_department</span>
+</div>
 <button class="w-full bg-primary text-on-primary h-14 rounded-lg font-label-md text-label-md hover:bg-spice-red transition-colors active:scale-95 flex items-center justify-center gap-xs">
 <span class="material-symbols-outlined text-[20px]">add_shopping_cart</span> Add to Cart
                             </button>
 </div>
 </div>
 <!-- Item 4 -->
-<div class="group bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow border border-outline-variant/30 flex flex-col">
+<div data-category="vegan" class="group bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow border border-outline-variant/30 flex flex-col">
 <div class="aspect-[4/3] overflow-hidden relative">
 <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="A beautifully plated salad of heritage vegetables and roasted chickpeas. The colors range from deep beets to bright carrots, all drizzled with a creamy tahini-based dressing. The photography is high-key and modern, using a light cream background that matches the UI. The lighting is diffused and even, emphasizing the freshness and health-conscious 'Modern Traditionalist' vibe of the brand." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCzGoe2EcEVB3VDSVoU9MXhniOr0y_YTijZKMnCQJr4RKUlS_lL5j7DXKH_-hFECgE1dqn4Q_b1jbDesm8zHnarsiCqpfgiS8lTZxRu2q_BvGZ-VcoSxJ1wX91mr7QNsRWHwWBJzR6jFCCSE2ijs4eO3xOWUJyDpxS7PVFDMhEgar1Woi6XJa_J7wn28e48C2btsL4XF2EXO_rlBxIWtKQgTyIUTXCeRBVTmOQth0EyMYe0PjrTv0Q5AMNTftes9VIx82TEZJyTEA"/>
 </div>
@@ -256,13 +260,17 @@
 <span class="font-headline-md text-headline-md text-spice-red">₹320</span>
 </div>
 <p class="font-body-md text-body-md text-on-surface-variant mb-md flex-grow">Roasted heirloom root vegetables, spiced ancient grains, and a zesty mint-coriander yogurt dressing.</p>
+<div class="flex gap-xs mb-md">
+<span class="material-symbols-outlined text-green-700 text-[20px]" title="Vegan">eco</span>
+<span class="material-symbols-outlined text-on-surface-variant text-[20px]" title="Spice Level: Mild">local_fire_department</span>
+</div>
 <button class="w-full border-2 border-primary text-primary h-14 rounded-lg font-label-md text-label-md hover:bg-primary hover:text-on-primary transition-colors active:scale-95 flex items-center justify-center gap-xs">
 <span class="material-symbols-outlined text-[20px]">add_shopping_cart</span> Add to Cart
                             </button>
 </div>
 </div>
 <!-- Item 5 -->
-<div class="group bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow border border-outline-variant/30 flex flex-col">
+<div data-category="veg" class="group bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow border border-outline-variant/30 flex flex-col">
 <div class="aspect-[4/3] overflow-hidden relative">
 <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="An assortment of artisanal samosas served with three distinct chutneys in small ceramic bowls. The samosas have a perfectly golden, flaky crust with intricate crimped edges. The presentation is elevated, set on a dark slate plate which contrasts with the warm cream tablecloth. The atmosphere is warm and inviting, perfect for a cozy afternoon snack or street-food craving." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBC1nmGi4HbaJxdwDVTG3quVd1uauHGU0RZ6ADCfT1i1WUNsstTORKgupT1i8xMwMJXAiXZbqXuez9EEmclgKGLA6zPXuTnEVwVLr4o6hB26Mu4VVQb1ci8B8ratENS0qj_jSNx9HYpw81oOU0sJB_EleTUmNkEUsisbJGBVy9DfWD256gh7GuLZWhC4VzaFR9shVvAIui3rLELA0tZ5efFbgnuuhu3Gna_rWjVV0inAW52Z8ZsFVZn9T-RkYYEGHsnvAb16ZnzMg"/>
 </div>
@@ -272,6 +280,10 @@
 <span class="font-headline-md text-headline-md text-spice-red">₹180</span>
 </div>
 <p class="font-body-md text-body-md text-on-surface-variant mb-md flex-grow">Hand-folded pastry filled with spiced peas, artisanal paneer, and caramelized onion fillings.</p>
+<div class="flex gap-xs mb-md">
+<span class="material-symbols-outlined text-green-700 text-[20px]" title="Vegetarian">eco</span>
+<span class="material-symbols-outlined text-spice-red text-[20px]" title="Spice Level: Medium">local_fire_department</span>
+</div>
 <button class="w-full bg-primary text-on-primary h-14 rounded-lg font-label-md text-label-md hover:bg-spice-red transition-colors active:scale-95 flex items-center justify-center gap-xs">
 <span class="material-symbols-outlined text-[20px]">add_shopping_cart</span> Add to Cart
                             </button>
@@ -287,7 +299,7 @@
 </div>
 <div class="grid grid-cols-1 md:grid-cols-4 gap-md">
 <!-- Dessert 1 -->
-<div class="group bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all border border-outline-variant/30">
+<div data-category="veg" class="group bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all border border-outline-variant/30">
 <div class="aspect-square overflow-hidden">
 <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="A gourmet presentation of Gulab Jamun served in a modern white ceramic bowl. The deep golden spheres are glistening in a transparent saffron syrup, garnished with slivers of green pistachios and delicate dried rose petals. The lighting is soft and elegant, creating a high-end restaurant aesthetic that feels both traditional and sophisticated." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBkKUJ76gZKSNtPXxJX6IqOfanpFWIP-XeF48C_SJiQCBBb9eNYBpNllDcGmS0vwaXLepUWnU7J1FO5pG9KJisMV_bXRn00q9tbyb7rpnQHDUA5nJsz9XNars1glJ7XZPaVD9elIMRN7hAS8H2HAIsUdbei8Bbp39FUwRDsoe3GbAdGE_Evnf781cOMNh_iBJCQUaPmBdyrjimqIpYY1rkkH4LPSIkLAsG619qm34KyNzzlwdzmnQVFh-NXbi1kqGzA85idUlFOcg"/>
 </div>
@@ -298,7 +310,7 @@
 </div>
 </div>
 <!-- Dessert 2 -->
-<div class="group bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all border border-outline-variant/30">
+<div data-category="veg" class="group bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all border border-outline-variant/30">
 <div class="aspect-square overflow-hidden">
 <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="A glass of artisanal Mango Lassi, topped with a swirl of fresh cream and crushed cardamom. The vibrant yellow of the Alphonso mango contrast beautifully with the creamy white surface. The background is a soft-focus warm kitchen setting, emphasizing the homemade, authentic nature of the drink. The composition is vertical and refreshing, inviting a cool finish to a spicy meal." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBtMubkummGkG72Zx9jYNKUJer8ZU_xXRdqjEzrp3MinO8cnaB9lpVsOJK_Xnvkl6Yie9vm273UYCiqO91DTOZKc35MQ5ib7Vxhkv9It-ULqCtiseTqkZgtRv7gscORDoUBMQ7CEmJL-_7dM2j8I6IkAYmDxgF5xURPXka4BFSbYrX-zFT_49Ij0pg6Aq55LBqIfdazPn5b8N-U-ALNzOscTB8AuD1bK6_UQXfS9GtOrfu9EZRAj2H7PDknYLOsPbabn7UsY_sn-Q"/>
 </div>
@@ -309,7 +321,7 @@
 </div>
 </div>
 <!-- Dessert 3 -->
-<div class="group bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all border border-outline-variant/30">
+<div data-category="veg" class="group bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all border border-outline-variant/30">
 <div class="aspect-square overflow-hidden">
 <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="A bowl of creamy Kheer (rice pudding) served in a silver bowl. The surface is decorated with silver leaf (vark), toasted almonds, and bright green pistachios. The lighting captures the creamy, rich texture of the milk and the reflective glint of the silver leaf. The overall mood is festive and regal, perfect for a special celebration finale." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDjTMq7oNBK4BKnfIeYW0EKCNx1vd7jYHcyWV2mnvoW-Uw_Hz5gt-_awyWHP_rE3aioalNhnOG2cfw3fUWjISCMlFFuuyhZ9MdRAbuZLMYbRRr-pClL3wPWWJv1XkeA4X9BwHWBKD7avFqrQ5fKz237DLOFbFbapwSoVDy2KGXkJvgH9KnU0D3KuB2DBqfGryNnQp7p8b-My3oGhWhJnbMPeE4nVs9zt2f7-qmtqRjeydy8nz-_d2ij-P52q-8vrF8z2_-dK1rJSQ"/>
 </div>
@@ -320,7 +332,7 @@
 </div>
 </div>
 <!-- Dessert 4 -->
-<div class="group bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all border border-outline-variant/30">
+<div data-category="veg" class="group bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all border border-outline-variant/30">
 <div class="aspect-square overflow-hidden">
 <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="Artisanal Kulfi popsicles arranged on a marble platter, drizzled with rose syrup and sprinkled with crushed nuts. The kulfi has a dense, creamy texture visible in the cross-section. The setting is bright and clean with a modern feel, using light-mode aesthetics and high-key lighting to highlight the frozen dessert's inviting appeal." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBRYjiqbyGNx8K9LwIww4HnLlwV2QTN_qNc2ZgnlOzIuT1OlvgACkRXfrQE3tplSmvE6eE2t26kiVxJVSF-047bbuZAKBa4OMh9-Ks_lS8-mmBiOCIrlFj2zuxW1-EVe3vO9c1U7N81KRvpQdAfJEcJInEa5264UORxOAtzYHgRkrr-T9osdhGFSE0LByApoFDrr3dFwbciv0e_2mMCITO_ODPZEKrj-QWLg0WPydK6czaC3eDrW3rgBLs1bP9XMS_S5NiUsF2Q9w"/>
 </div>
@@ -376,6 +388,69 @@
 
 <script src="../cart.js"></script>
 <script>
+// Filter menu by category (All, Veg, Vegan)
+window.filterMenu = function(category) {
+    const btnAll = document.getElementById('filter-all');
+    const btnVeg = document.getElementById('filter-veg');
+    const btnVegan = document.getElementById('filter-vegan');
+    
+    if (!btnAll || !btnVeg || !btnVegan) return;
+    
+    // Reset all buttons to inactive styling
+    const inactiveClasses = ['bg-surface-container-high', 'text-on-surface', 'border', 'border-outline-variant'];
+    const activeClasses = ['bg-primary', 'text-on-primary'];
+    
+    [btnAll, btnVeg, btnVegan].forEach(btn => {
+        btn.classList.remove(...activeClasses);
+        btn.classList.add(...inactiveClasses);
+    });
+    
+    // Highlight the selected button
+    let selectedBtn = btnAll;
+    if (category === 'veg') selectedBtn = btnVeg;
+    else if (category === 'vegan') selectedBtn = btnVegan;
+    
+    selectedBtn.classList.remove(...inactiveClasses);
+    selectedBtn.classList.add(...activeClasses);
+    
+    // Filter items based on data-category attribute
+    const items = document.querySelectorAll('.group');
+    items.forEach(item => {
+        const itemCat = item.getAttribute('data-category');
+        if (category === 'all') {
+            item.classList.remove('hidden');
+        } else if (category === 'veg') {
+            // Veg category displays both vegetarian and vegan dishes
+            if (itemCat === 'veg' || itemCat === 'vegan') {
+                item.classList.remove('hidden');
+            } else {
+                item.classList.add('hidden');
+            }
+        } else if (category === 'vegan') {
+            // Vegan category displays only vegan dishes
+            if (itemCat === 'vegan') {
+                item.classList.remove('hidden');
+            } else {
+                item.classList.add('hidden');
+            }
+        }
+    });
+    
+    // Toggle section container visibility if it has no visible items
+    const sections = document.querySelectorAll('main section');
+    sections.forEach(section => {
+        // Skip the hero/filter section
+        if (section.classList.contains('px-margin-desktop')) return;
+        
+        const visibleItems = section.querySelectorAll('.group:not(.hidden)');
+        if (visibleItems.length === 0) {
+            section.classList.add('hidden');
+        } else {
+            section.classList.remove('hidden');
+        }
+    });
+};
+
 document.addEventListener('DOMContentLoaded', () => {
     // Attach click listeners to all Add to Cart buttons
     const buttons = document.querySelectorAll('button');
