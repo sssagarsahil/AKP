@@ -280,22 +280,68 @@
 <script src="../cart.js"></script>
 <script>
 document.addEventListener('DOMContentLoaded', () => {
-    // Generate random order number
-    const orderNum = Math.floor(10000 + Math.random() * 90000);
-    document.getElementById('order-number').innerText = '#AKP-' + orderNum;
+    // Generate random order number or use the last successful order's number
+    const lastOrderStr = localStorage.getItem('akshaypatra_last_order');
+    let orderDetails = null;
 
-    // Load cart items
-    const cart = getCart();
+    if (lastOrderStr) {
+        try {
+            orderDetails = JSON.parse(lastOrderStr);
+        } catch (e) {
+            console.error('Error parsing last order:', e);
+        }
+    }
+
     const container = document.getElementById('confirmation-items');
     const itemTotalEl = document.getElementById('conf-item-total');
     const taxEl = document.getElementById('conf-tax');
     const totalEl = document.getElementById('conf-total');
     const pointsEl = document.getElementById('conf-points');
+    const orderNumberEl = document.getElementById('order-number');
 
-    if (cart.length === 0) {
-        container.innerHTML = '<p class="text-on-surface-variant italic py-4">No items found. Your cart may have been cleared.</p>';
+    if (orderDetails) {
+        // Display details from the actual placed order
+        orderNumberEl.innerText = orderDetails.orderNumber.startsWith('#') ? orderDetails.orderNumber : '#' + orderDetails.orderNumber;
+        
+        let html = '';
+        orderDetails.items.forEach(item => {
+            const lineTotal = item.price * item.quantity;
+            html += `
+            <div class="flex justify-between items-center">
+                <div class="flex items-center gap-sm">
+                    <div class="w-10 h-10 rounded-lg bg-surface-container overflow-hidden">
+                        <img src="${item.image || 'https://www.gstatic.com/labs-code/stitch/stitch-placeholder-300x300.svg'}" alt="${item.name}" class="w-full h-full object-cover"/>
+                    </div>
+                    <div class="text-left">
+                        <p class="font-body-md text-body-md font-semibold text-on-surface">${item.name} × ${item.quantity}</p>
+                    </div>
+                </div>
+                <p class="font-body-md text-body-md text-on-surface">₹${lineTotal.toFixed(2)}</p>
+            </div>
+            `;
+        });
+        container.innerHTML = html;
+        
+        itemTotalEl.innerText = '₹' + orderDetails.itemTotal.toFixed(2);
+        taxEl.innerText = '₹' + orderDetails.tax.toFixed(2);
+        totalEl.innerText = '₹' + orderDetails.totalAmount.toFixed(2);
+        pointsEl.innerText = '+' + orderDetails.loyaltyPointsEarned;
+        
+        // Launch confetti!
+        launchConfetti();
         return;
     }
+
+    // Fallback to active cart if direct navigation occurred
+    const cart = getCart();
+
+    if (cart.length === 0) {
+        container.innerHTML = '<p class="text-on-surface-variant italic py-4">No active or past order details found.</p>';
+        return;
+    }
+
+    const orderNum = Math.floor(10000 + Math.random() * 90000);
+    orderNumberEl.innerText = '#AKP-' + orderNum;
 
     let html = '';
     let itemTotal = 0;
@@ -329,6 +375,16 @@ document.addEventListener('DOMContentLoaded', () => {
     taxEl.innerText = '₹' + tax.toFixed(2);
     totalEl.innerText = '₹' + finalTotal.toFixed(2);
     pointsEl.innerText = '+' + points;
+
+    // Save to last order so it persists on reload
+    localStorage.setItem('akshaypatra_last_order', JSON.stringify({
+        orderNumber: 'AKP-' + orderNum,
+        items: cart,
+        itemTotal: itemTotal,
+        tax: tax,
+        totalAmount: finalTotal,
+        loyaltyPointsEarned: points
+    }));
 
     // Clear cart after displaying confirmation
     clearCart();

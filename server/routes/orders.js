@@ -44,7 +44,9 @@ router.post('/', optionalAuth, async (req, res) => {
                 address: 'Flat 402, Heritage Residency, Wagholi (Pune) Depot Road, Pune, Maharashtra 411038',
                 phone: '+91 98765 43210'
             },
-            paymentMethod: paymentMethod || 'upi'
+            paymentMethod: paymentMethod || 'upi',
+            scheduledDate: req.body.scheduledDate || '',
+            scheduledTime: req.body.scheduledTime || ''
         });
 
         await order.save();

@@ -136,7 +136,7 @@
 <!-- Header Section -->
 <div class="mb-lg">
 <h1 class="font-headline-xl text-headline-xl text-on-background mb-base">Tracking Your Feast</h1>
-<p class="font-body-lg text-body-lg text-on-surface-variant">Order #AKP-99281 • From our Wagholi (Pune) Kitchen</p>
+<p id="tracking-order-number" class="font-body-lg text-body-lg text-on-surface-variant">Order #AKP-99281 • From our Wagholi (Pune) Kitchen</p>
 </div>
 <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
 <!-- Tracking Column -->
@@ -195,7 +195,7 @@
 <span class="material-symbols-outlined text-primary">receipt_long</span>
 <h3 class="font-headline-md text-headline-md text-on-background">Order Summary</h3>
 </div>
-<ul class="space-y-sm mb-md">
+<ul id="tracking-items" class="space-y-sm mb-md">
 <li class="flex justify-between font-body-md text-body-md text-on-surface">
 <span>Puran Poli (2 pcs)</span>
 <span class="font-bold">₹180</span>
@@ -211,7 +211,7 @@
 </ul>
 <div class="border-t border-outline-variant pt-sm flex justify-between">
 <span class="font-label-md text-label-md text-on-surface">Total</span>
-<span class="font-headline-md text-headline-md text-primary">₹690</span>
+<span id="tracking-total" class="font-headline-md text-headline-md text-primary">₹690</span>
 </div>
 </div>
 <!-- Delivery Partner -->
@@ -292,4 +292,49 @@
             </div>
 </div>
 </footer>
+<script src="../cart.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const lastOrderStr = localStorage.getItem('akshaypatra_last_order');
+    if (!lastOrderStr) return; // Fallback to hardcoded mock values if no order placed yet
+
+    try {
+        const order = JSON.parse(lastOrderStr);
+        if (!order) return;
+
+        // 1. Update order number in header
+        const orderNumberEl = document.getElementById('tracking-order-number');
+        if (orderNumberEl) {
+            const formattedNum = order.orderNumber.startsWith('#') ? order.orderNumber : '#' + order.orderNumber;
+            orderNumberEl.innerText = `Order ${formattedNum} • From our Wagholi (Pune) Kitchen`;
+        }
+
+        // 2. Update order items list
+        const itemsContainer = document.getElementById('tracking-items');
+        if (itemsContainer && order.items && order.items.length > 0) {
+            let html = '';
+            order.items.forEach(item => {
+                const itemPrice = typeof item.price === 'number' ? item.price : 0;
+                const lineTotal = itemPrice * item.quantity;
+                html += `
+                <li class="flex justify-between font-body-md text-body-md text-on-surface">
+                    <span>${item.name} (x${item.quantity})</span>
+                    <span class="font-bold">₹${lineTotal.toFixed(2)}</span>
+                </li>
+                `;
+            });
+            itemsContainer.innerHTML = html;
+        }
+
+        // 3. Update total amount
+        const totalEl = document.getElementById('tracking-total');
+        if (totalEl) {
+            const finalTotal = typeof order.totalAmount === 'number' ? order.totalAmount : 0;
+            totalEl.innerText = `₹${finalTotal.toFixed(2)}`;
+        }
+    } catch (e) {
+        console.error('Error loading order details in tracking page:', e);
+    }
+});
+</script>
 </body></html>

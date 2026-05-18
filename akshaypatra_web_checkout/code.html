@@ -159,18 +159,30 @@
 </div>
 <!-- Scheduling Card -->
 <div class="bg-surface-container-low p-md rounded-xl border border-outline-variant grid grid-cols-1 md:grid-cols-2 gap-md">
-<div class="space-y-xs">
+<div class="space-y-xs relative">
 <label class="font-label-md text-label-md text-on-surface-variant">Scheduled Date</label>
-<div class="flex items-center gap-3 bg-surface-container-lowest p-sm rounded-lg border border-outline-variant cursor-pointer">
+<button id="date-select-btn" onclick="toggleDateDropdown(event)" class="w-full flex items-center justify-between bg-surface-container-lowest p-sm rounded-lg border border-outline-variant cursor-pointer hover:border-primary transition-colors">
+<div class="flex items-center gap-3">
 <span class="material-symbols-outlined text-primary">calendar_today</span>
-<span class="font-body-md text-body-md">Today, Oct 24</span>
+<span id="selected-date-text" class="font-body-md text-body-md">Today, May 18</span>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant">expand_more</span>
+</button>
+<!-- Date Dropdown Menu -->
+<div id="date-dropdown" class="hidden absolute left-0 right-0 mt-1 bg-surface-container-lowest border border-outline-variant rounded-lg shadow-lg z-50 py-1 max-h-60 overflow-y-auto">
 </div>
 </div>
-<div class="space-y-xs">
+<div class="space-y-xs relative">
 <label class="font-label-md text-label-md text-on-surface-variant">Scheduled Time</label>
-<div class="flex items-center gap-3 bg-surface-container-lowest p-sm rounded-lg border border-outline-variant cursor-pointer">
+<button id="time-select-btn" onclick="toggleTimeDropdown(event)" class="w-full flex items-center justify-between bg-surface-container-lowest p-sm rounded-lg border border-outline-variant cursor-pointer hover:border-primary transition-colors">
+<div class="flex items-center gap-3">
 <span class="material-symbols-outlined text-primary">schedule</span>
-<span class="font-body-md text-body-md">07:30 PM - 08:00 PM</span>
+<span id="selected-time-text" class="font-body-md text-body-md">07:30 PM - 08:00 PM</span>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant">expand_more</span>
+</button>
+<!-- Time Dropdown Menu -->
+<div id="time-dropdown" class="hidden absolute left-0 right-0 mt-1 bg-surface-container-lowest border border-outline-variant rounded-lg shadow-lg z-50 py-1 max-h-60 overflow-y-auto">
 </div>
 </div>
 </div>
@@ -181,46 +193,50 @@
                     Payment Selection
                 </h2>
 <div class="space-y-base">
-<!-- Payment Option 1 -->
-<div class="flex items-center justify-between bg-surface-container-lowest p-md rounded-xl border-2 border-primary shadow-sm">
+<!-- Payment Option 1: UPI -->
+<div id="pay-upi" onclick="selectPaymentMethod('upi')" class="flex items-center justify-between bg-surface-container-lowest p-md rounded-xl border-2 border-primary shadow-sm cursor-pointer transition-all duration-200 group">
 <div class="flex items-center gap-md">
 <div class="w-12 h-12 bg-surface-container-high rounded-lg flex items-center justify-center">
-<span class="material-symbols-outlined text-primary text-[32px]">account_balance_wallet</span>
+<span class="material-symbols-outlined text-primary text-[32px] transition-colors">account_balance_wallet</span>
 </div>
 <div>
 <p class="font-body-lg text-body-lg font-bold text-on-surface">UPI / GPay / PhonePe</p>
 <p class="font-label-sm text-label-sm text-on-surface-variant">Pay using any UPI App</p>
 </div>
 </div>
-<div class="w-6 h-6 rounded-full border-2 border-primary flex items-center justify-center">
-<div class="w-3 h-3 bg-primary rounded-full"></div>
+<div class="bullet-outer w-6 h-6 rounded-full border-2 border-primary flex items-center justify-center">
+<div class="bullet-inner w-3 h-3 bg-primary rounded-full"></div>
 </div>
 </div>
-<!-- Payment Option 2 -->
-<div class="flex items-center justify-between bg-surface-container-lowest p-md rounded-xl border border-outline-variant hover:border-outline transition-colors cursor-pointer group">
+<!-- Payment Option 2: Cards -->
+<div id="pay-card" onclick="selectPaymentMethod('card')" class="flex items-center justify-between bg-surface-container-lowest p-md rounded-xl border border-outline-variant hover:border-outline cursor-pointer transition-all duration-200 group">
 <div class="flex items-center gap-md">
 <div class="w-12 h-12 bg-surface-container-high rounded-lg flex items-center justify-center">
-<span class="material-symbols-outlined text-on-surface-variant text-[32px]">credit_card</span>
+<span class="material-symbols-outlined text-on-surface-variant text-[32px] group-hover:text-primary transition-colors">credit_card</span>
 </div>
 <div>
 <p class="font-body-lg text-body-lg font-bold text-on-surface">Cards</p>
 <p class="font-label-sm text-label-sm text-on-surface-variant">Visa, Mastercard, RuPay</p>
 </div>
 </div>
-<div class="w-6 h-6 rounded-full border-2 border-outline-variant group-hover:border-outline"></div>
+<div class="bullet-outer w-6 h-6 rounded-full border-2 border-outline-variant group-hover:border-outline flex items-center justify-center">
+<div class="bullet-inner w-3 h-3 bg-transparent rounded-full"></div>
 </div>
-<!-- Payment Option 3 -->
-<div class="flex items-center justify-between bg-surface-container-lowest p-md rounded-xl border border-outline-variant hover:border-outline transition-colors cursor-pointer group">
+</div>
+<!-- Payment Option 3: COD -->
+<div id="pay-cod" onclick="selectPaymentMethod('cod')" class="flex items-center justify-between bg-surface-container-lowest p-md rounded-xl border border-outline-variant hover:border-outline cursor-pointer transition-all duration-200 group">
 <div class="flex items-center gap-md">
 <div class="w-12 h-12 bg-surface-container-high rounded-lg flex items-center justify-center">
-<span class="material-symbols-outlined text-on-surface-variant text-[32px]">hand_gesture</span>
+<span class="material-symbols-outlined text-on-surface-variant text-[32px] group-hover:text-primary transition-colors">hand_gesture</span>
 </div>
 <div>
 <p class="font-body-lg text-body-lg font-bold text-on-surface">Cash on Delivery</p>
 <p class="font-label-sm text-label-sm text-on-surface-variant">Pay when food arrives</p>
 </div>
 </div>
-<div class="w-6 h-6 rounded-full border-2 border-outline-variant group-hover:border-outline"></div>
+<div class="bullet-outer w-6 h-6 rounded-full border-2 border-outline-variant group-hover:border-outline flex items-center justify-center">
+<div class="bullet-inner w-3 h-3 bg-transparent rounded-full"></div>
+</div>
 </div>
 </div>
 </section>
@@ -359,6 +375,203 @@ document.addEventListener('DOMContentLoaded', () => {
     totalEl.innerText = '₹' + finalTotal.toFixed(2);
 });
 
+// Dropdown Toggle Logic
+function toggleDateDropdown(e) {
+    e.stopPropagation();
+    const dateDropdown = document.getElementById('date-dropdown');
+    const timeDropdown = document.getElementById('time-dropdown');
+    
+    dateDropdown.classList.toggle('hidden');
+    timeDropdown.classList.add('hidden'); // Close the other dropdown
+}
+
+function toggleTimeDropdown(e) {
+    e.stopPropagation();
+    const dateDropdown = document.getElementById('date-dropdown');
+    const timeDropdown = document.getElementById('time-dropdown');
+    
+    timeDropdown.classList.toggle('hidden');
+    dateDropdown.classList.add('hidden'); // Close the other dropdown
+}
+
+// Close dropdowns when clicking anywhere outside
+document.addEventListener('click', () => {
+    const dateDropdown = document.getElementById('date-dropdown');
+    const timeDropdown = document.getElementById('time-dropdown');
+    if (dateDropdown) dateDropdown.classList.add('hidden');
+    if (timeDropdown) timeDropdown.classList.add('hidden');
+});
+
+// Dynamic Populators
+document.addEventListener('DOMContentLoaded', () => {
+    // Populate Dates
+    const dateDropdown = document.getElementById('date-dropdown');
+    const selectedDateText = document.getElementById('selected-date-text');
+    
+    if (dateDropdown && selectedDateText) {
+        const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+        const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+        
+        const today = new Date();
+        let dates = [];
+        
+        for (let i = 0; i < 7; i++) {
+            const nextDate = new Date(today);
+            nextDate.setDate(today.getDate() + i);
+            
+            let label = '';
+            if (i === 0) label = `Today, ${months[nextDate.getMonth()]} ${nextDate.getDate()}`;
+            else if (i === 1) label = `Tomorrow, ${months[nextDate.getMonth()]} ${nextDate.getDate()}`;
+            else label = `${daysOfWeek[nextDate.getDay()]}, ${months[nextDate.getMonth()]} ${nextDate.getDate()}`;
+            
+            dates.push(label);
+        }
+        
+        // Set initial selected date
+        selectedDateText.innerText = dates[0];
+        
+        // Populate date dropdown HTML
+        let dateHtml = '';
+        dates.forEach(dateStr => {
+            dateHtml += `
+            <div onclick="selectDate('${dateStr}')" class="px-4 py-2 hover:bg-surface-container cursor-pointer text-body-md text-on-surface transition-colors flex items-center justify-between">
+                <span>${dateStr}</span>
+                <span class="material-symbols-outlined check-icon text-primary hidden">check</span>
+            </div>
+            `;
+        });
+        dateDropdown.innerHTML = dateHtml;
+        selectDate(dates[0]); // mark active selection
+    }
+
+    // Populate Times
+    const timeDropdown = document.getElementById('time-dropdown');
+    const selectedTimeText = document.getElementById('selected-time-text');
+    
+    if (timeDropdown && selectedTimeText) {
+        const timeSlots = [
+            "11:30 AM - 12:00 PM",
+            "12:00 PM - 12:30 PM",
+            "12:30 PM - 01:00 PM",
+            "01:00 PM - 01:30 PM",
+            "01:30 PM - 02:00 PM",
+            "07:00 PM - 07:30 PM",
+            "07:30 PM - 08:00 PM",
+            "08:00 PM - 08:30 PM",
+            "08:30 PM - 09:00 PM",
+            "09:00 PM - 09:30 PM"
+        ];
+        
+        // Set default selected time
+        selectedTimeText.innerText = timeSlots[6]; // 07:30 PM - 08:00 PM
+        
+        let timeHtml = '';
+        timeSlots.forEach(slot => {
+            timeHtml += `
+            <div onclick="selectTime('${slot}')" class="px-4 py-2 hover:bg-surface-container cursor-pointer text-body-md text-on-surface transition-colors flex items-center justify-between">
+                <span>${slot}</span>
+                <span class="material-symbols-outlined check-icon text-primary hidden">check</span>
+            </div>
+            `;
+        });
+        timeDropdown.innerHTML = timeHtml;
+        selectTime(timeSlots[6]); // mark active selection
+    }
+});
+
+function selectDate(dateStr) {
+    const selectedDateText = document.getElementById('selected-date-text');
+    if (selectedDateText) selectedDateText.innerText = dateStr;
+    
+    // Update checkmarks in dropdown
+    const options = document.querySelectorAll('#date-dropdown > div');
+    options.forEach(opt => {
+        const text = opt.querySelector('span').innerText;
+        const icon = opt.querySelector('.check-icon');
+        if (text === dateStr) {
+            icon.classList.remove('hidden');
+            opt.classList.add('bg-primary-fixed-dim', 'text-on-primary-fixed');
+        } else {
+            icon.classList.add('hidden');
+            opt.classList.remove('bg-primary-fixed-dim', 'text-on-primary-fixed');
+        }
+    });
+}
+
+let currentPaymentMethod = 'upi';
+
+function selectPaymentMethod(method) {
+    currentPaymentMethod = method;
+    
+    const upiCard = document.getElementById('pay-upi');
+    const cardCard = document.getElementById('pay-card');
+    const codCard = document.getElementById('pay-cod');
+    
+    // Reset all cards to unselected state
+    [upiCard, cardCard, codCard].forEach(card => {
+        if (!card) return;
+        card.className = "flex items-center justify-between bg-surface-container-lowest p-md rounded-xl border border-outline-variant hover:border-outline cursor-pointer transition-all duration-200 group";
+        
+        const icon = card.querySelector('.material-symbols-outlined');
+        if (icon) {
+            icon.className = "material-symbols-outlined text-on-surface-variant text-[32px] group-hover:text-primary transition-colors";
+        }
+        
+        const bulletOuter = card.querySelector('.bullet-outer');
+        if (bulletOuter) {
+            bulletOuter.className = "bullet-outer w-6 h-6 rounded-full border-2 border-outline-variant group-hover:border-outline flex items-center justify-center";
+        }
+        
+        const bulletInner = card.querySelector('.bullet-inner');
+        if (bulletInner) {
+            bulletInner.className = "bullet-inner w-3 h-3 bg-transparent rounded-full";
+        }
+    });
+    
+    // Set active class on selected card
+    let activeCard = upiCard;
+    if (method === 'card') activeCard = cardCard;
+    else if (method === 'cod') activeCard = codCard;
+    
+    if (activeCard) {
+        activeCard.className = "flex items-center justify-between bg-surface-container-lowest p-md rounded-xl border-2 border-primary shadow-sm cursor-pointer transition-all duration-200 group";
+        
+        const activeIcon = activeCard.querySelector('.material-symbols-outlined');
+        if (activeIcon) {
+            activeIcon.className = "material-symbols-outlined text-primary text-[32px] transition-colors";
+        }
+        
+        const activeBulletOuter = activeCard.querySelector('.bullet-outer');
+        if (activeBulletOuter) {
+            activeBulletOuter.className = "bullet-outer w-6 h-6 rounded-full border-2 border-primary flex items-center justify-center";
+        }
+        
+        const activeBulletInner = activeCard.querySelector('.bullet-inner');
+        if (activeBulletInner) {
+            activeBulletInner.className = "bullet-inner w-3 h-3 bg-primary rounded-full";
+        }
+    }
+}
+
+function selectTime(timeStr) {
+    const selectedTimeText = document.getElementById('selected-time-text');
+    if (selectedTimeText) selectedTimeText.innerText = timeStr;
+    
+    // Update checkmarks in dropdown
+    const options = document.querySelectorAll('#time-dropdown > div');
+    options.forEach(opt => {
+        const text = opt.querySelector('span').innerText;
+        const icon = opt.querySelector('.check-icon');
+        if (text === timeStr) {
+            icon.classList.remove('hidden');
+            opt.classList.add('bg-primary-fixed-dim', 'text-on-primary-fixed');
+        } else {
+            icon.classList.add('hidden');
+            opt.classList.remove('bg-primary-fixed-dim', 'text-on-primary-fixed');
+        }
+    });
+}
+
 async function handlePlaceOrder() {
     const cart = getCart();
     if (cart.length === 0) {
@@ -366,6 +579,11 @@ async function handlePlaceOrder() {
         return;
     }
     
+    const scheduledDateEl = document.getElementById('selected-date-text');
+    const scheduledTimeEl = document.getElementById('selected-time-text');
+    const scheduledDate = scheduledDateEl ? scheduledDateEl.innerText : '';
+    const scheduledTime = scheduledTimeEl ? scheduledTimeEl.innerText : '';
+
     try {
         const response = await fetch('/api/orders', {
             method: 'POST',
@@ -379,12 +597,21 @@ async function handlePlaceOrder() {
                     address: 'Flat 402, Heritage Residency, Wagholi (Pune) Depot Road, Pune, Maharashtra 411038',
                     phone: '+91 98765 43210'
                 },
-                paymentMethod: 'upi'
+                paymentMethod: currentPaymentMethod,
+                scheduledDate,
+                scheduledTime
             })
         });
         
         if (response.ok) {
+            const data = await response.json();
+            // Store details of the successfully placed order
+            localStorage.setItem('akshaypatra_last_order', JSON.stringify(data.order));
+            
+            // Clear the active cart
             clearCart();
+            
+            // Redirect to confirmation screen
             window.location.href = '../akshaypatra_web_order_confirmation/code.html';
         } else {
             const data = await response.json();

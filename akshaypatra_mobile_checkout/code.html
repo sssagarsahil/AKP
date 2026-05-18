@@ -217,8 +217,8 @@
 <h2 class="font-headline-md text-headline-md text-primary mb-md">Payment Method</h2>
 <div class="space-y-base">
 <!-- UPI -->
-<label class="flex items-center p-md bg-surface-container-lowest border border-accent-gold rounded-xl cursor-pointer">
-<input checked="" class="w-5 h-5 text-primary border-outline focus:ring-primary" name="payment" type="radio"/>
+<label id="label-pay-upi" class="flex items-center p-md bg-surface-container-lowest border border-accent-gold rounded-xl cursor-pointer">
+<input checked="" value="upi" class="w-5 h-5 text-primary border-outline focus:ring-primary" name="payment" type="radio"/>
 <div class="ml-md flex-1 flex items-center justify-between">
 <div class="flex items-center gap-3">
 <span class="material-symbols-outlined text-spice-red">account_balance_wallet</span>
@@ -228,16 +228,16 @@
 </div>
 </label>
 <!-- Card -->
-<label class="flex items-center p-md bg-surface-container-lowest border border-outline-variant rounded-xl cursor-pointer">
-<input class="w-5 h-5 text-primary border-outline focus:ring-primary" name="payment" type="radio"/>
+<label id="label-pay-card" class="flex items-center p-md bg-surface-container-lowest border border-outline-variant rounded-xl cursor-pointer">
+<input value="card" class="w-5 h-5 text-primary border-outline focus:ring-primary" name="payment" type="radio"/>
 <div class="ml-md flex items-center gap-3">
 <span class="material-symbols-outlined text-on-surface-variant">credit_card</span>
 <span class="font-label-md text-label-md">Credit / Debit Card</span>
 </div>
 </label>
 <!-- Cash -->
-<label class="flex items-center p-md bg-surface-container-lowest border border-outline-variant rounded-xl cursor-pointer">
-<input class="w-5 h-5 text-primary border-outline focus:ring-primary" name="payment" type="radio"/>
+<label id="label-pay-cod" class="flex items-center p-md bg-surface-container-lowest border border-outline-variant rounded-xl cursor-pointer">
+<input value="cod" class="w-5 h-5 text-primary border-outline focus:ring-primary" name="payment" type="radio"/>
 <div class="ml-md flex items-center gap-3">
 <span class="material-symbols-outlined text-on-surface-variant">payments</span>
 <span class="font-label-md text-label-md">Cash on Delivery</span>
@@ -321,6 +321,32 @@ document.addEventListener('DOMContentLoaded', () => {
     taxEl.innerText = '₹' + tax.toFixed(2);
     totalEl.innerText = '₹' + finalTotal.toFixed(2);
     if (footerTotalEl) footerTotalEl.innerText = '₹' + finalTotal.toFixed(2);
+    // Listen for payment changes to update borders
+    const paymentRadios = document.querySelectorAll('input[name="payment"]');
+    paymentRadios.forEach(radio => {
+        radio.addEventListener('change', (e) => {
+            const upiLabel = document.getElementById('label-pay-upi');
+            const cardLabel = document.getElementById('label-pay-card');
+            const codLabel = document.getElementById('label-pay-cod');
+            
+            [upiLabel, cardLabel, codLabel].forEach(label => {
+                if (label) {
+                    label.classList.remove('border-accent-gold');
+                    label.classList.add('border-outline-variant');
+                }
+            });
+            
+            const activeValue = e.target.value;
+            let activeLabel = upiLabel;
+            if (activeValue === 'card') activeLabel = cardLabel;
+            else if (activeValue === 'cod') activeLabel = codLabel;
+            
+            if (activeLabel) {
+                activeLabel.classList.remove('border-outline-variant');
+                activeLabel.classList.add('border-accent-gold');
+            }
+        });
+    });
 });
 
 async function handlePlaceOrder() {
@@ -331,6 +357,9 @@ async function handlePlaceOrder() {
         return;
     }
     
+    const activePaymentRadio = document.querySelector('input[name="payment"]:checked');
+    const paymentMethod = activePaymentRadio ? activePaymentRadio.value : 'upi';
+
     try {
         const response = await fetch('/api/orders', {
             method: 'POST',
@@ -344,12 +373,19 @@ async function handlePlaceOrder() {
                     address: 'Flat 402, Heritage Residency, Deccan Gymkhana, Pune - 411004',
                     phone: '+91 98765 43210'
                 },
-                paymentMethod: 'upi'
+                paymentMethod: paymentMethod
             })
         });
         
         if (response.ok) {
+            const data = await response.json();
+            // Store details of the successfully placed order
+            localStorage.setItem('akshaypatra_last_order', JSON.stringify(data.order));
+            
+            // Clear the active cart
             if (typeof clearCart === 'function') clearCart();
+            
+            // Redirect to confirmation screen
             window.location.href = '../akshaypatra_web_order_confirmation/code.html';
         } else {
             const data = await response.json();

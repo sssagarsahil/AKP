@@ -35,6 +35,8 @@ const orderSchema = new mongoose.Schema({
         default: 'upi'
     },
     estimatedDelivery: { type: String, default: '35-45 min' },
+    scheduledDate: { type: String, default: '' },
+    scheduledTime: { type: String, default: '' },
 }, { timestamps: true });
 
 module.exports = mongoose.model('Order', orderSchema);
