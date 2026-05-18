@@ -648,6 +648,11 @@ async function executeOrderPlacement() {
             if (typeof clearCart === 'function') clearCart();
             closePaymentModal();
             
+            // Notify Admin via WhatsApp pop-up
+            const adminPhone = "919876543210";
+            const adminMsg = `New Order Placed! ${data.order.orderNumber}. Start preparing now.`;
+            window.open(`https://api.whatsapp.com/send?phone=${adminPhone}&text=${encodeURIComponent(adminMsg)}`, '_blank');
+            
             // Redirect to confirmation
             window.location.href = '../akshaypatra_web_order_confirmation/code.html';
         } else {
@@ -699,6 +704,12 @@ function runStaticFallback(cart, paymentMethod) {
     localStorage.setItem('akshaypatra_last_order', JSON.stringify(mockOrder));
     if (typeof clearCart === 'function') clearCart();
     closePaymentModal();
+    
+    // Notify Admin via WhatsApp pop-up
+    const adminPhone = "919876543210";
+    const adminMsg = `New Order Placed! ${mockOrderNum}. Start preparing now.`;
+    window.open(`https://api.whatsapp.com/send?phone=${adminPhone}&text=${encodeURIComponent(adminMsg)}`, '_blank');
+    
     window.location.href = '../akshaypatra_web_order_confirmation/code.html';
 }
 
