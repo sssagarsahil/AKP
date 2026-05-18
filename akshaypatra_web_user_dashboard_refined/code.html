@@ -232,7 +232,7 @@
 <button class="px-4 py-1 text-on-surface-variant font-label-md hover:text-primary transition-colors">Subscriptions</button>
 </div>
 </div>
-<div class="space-y-md">
+<div id="orders-list" class="space-y-md">
 <!-- Order Card 1 (Active/Recent) -->
 <div class="bg-surface-container-lowest rounded-xl border-l-4 border-l-spice-red shadow-sm overflow-hidden border border-outline-variant">
 <div class="p-md md:p-lg">
@@ -396,4 +396,58 @@
 <span class="text-[10px] font-bold">Rewards</span>
 </a>
 </nav>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const lastOrderStr = localStorage.getItem('akshaypatra_last_order');
+        if (lastOrderStr) {
+            try {
+                const order = JSON.parse(lastOrderStr);
+                const ordersList = document.getElementById('orders-list');
+                
+                if (ordersList && order) {
+                    const itemCount = order.items ? order.items.reduce((sum, item) => sum + item.quantity, 0) : 0;
+                    const imageUrl = order.items && order.items.length > 0 ? order.items[0].image : 'https://www.gstatic.com/labs-code/stitch/stitch-placeholder-300x300.svg';
+                    
+                    const orderHtml = `
+                    <div class="bg-surface-container-lowest rounded-xl border-l-4 border-l-spice-red shadow-sm overflow-hidden border border-outline-variant mb-md">
+                        <div class="p-md md:p-lg">
+                            <div class="flex flex-col md:flex-row justify-between gap-md mb-md">
+                                <div class="flex gap-md">
+                                    <div class="w-16 h-16 rounded-lg overflow-hidden flex-shrink-0">
+                                        <img class="w-full h-full object-cover" src="${imageUrl}">
+                                    </div>
+                                    <div>
+                                        <p class="font-label-md text-label-md text-on-surface">Order ${order.orderNumber || '#AP-NEW'}</p>
+                                        <p class="font-body-md text-body-md text-on-surface-variant">Just now</p>
+                                        <div class="mt-2 flex items-center gap-2">
+                                            <span class="w-2 h-2 rounded-full bg-spice-red"></span>
+                                            <span class="font-label-sm text-label-sm text-spice-red uppercase tracking-wider">Processing</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="text-left md:text-right">
+                                    <p class="font-headline-md text-headline-md text-primary">₹${order.totalAmount ? order.totalAmount.toFixed(2) : '0.00'}</p>
+                                    <p class="font-label-sm text-label-sm text-on-surface-variant">${itemCount} Items</p>
+                                </div>
+                            </div>
+                            <div class="border-t border-outline-variant pt-md flex flex-wrap gap-md justify-between items-center">
+                                <div class="flex gap-md">
+                                    <a href="../akshaypatra_web_order_tracking/code.html" class="h-12 px-6 border-2 border-tertiary text-tertiary rounded-lg font-label-md hover:bg-tertiary/5 transition-colors flex items-center justify-center">Track Order</a>
+                                    <a href="../akshaypatra_web_menu_expanded/code.html" class="h-12 px-6 bg-primary text-on-primary rounded-lg font-label-md hover:opacity-90 flex items-center gap-2 no-underline">
+                                        <span class="material-symbols-outlined text-sm">reorder</span> Reorder
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>`;
+                    
+                    // Prepend new order before the hardcoded ones
+                    ordersList.insertAdjacentHTML('afterbegin', orderHtml);
+                }
+            } catch (e) {
+                console.error("Error parsing recent order", e);
+            }
+        }
+    });
+</script>
 </body></html>
