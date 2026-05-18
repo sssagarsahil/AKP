@@ -135,30 +135,42 @@
 </header>
 <main class="pt-20 px-margin-mobile space-y-base">
 <!-- Delivery Section -->
-<section class="bg-surface-container-low rounded-xl p-md shadow-sm border border-outline-variant/30">
-<div class="flex items-center justify-between mb-sm">
+<section class="bg-surface-container-low rounded-xl p-md shadow-sm border border-outline-variant/30 space-y-md">
+<div class="flex items-center justify-between">
 <h2 class="font-headline-md text-headline-md text-primary">Delivery Address</h2>
 <span class="material-symbols-outlined text-spice-red">location_on</span>
 </div>
-<!-- Toggle Home/Office -->
-<div class="flex p-xs bg-surface-variant rounded-lg mb-md">
-<button class="flex-1 py-2 rounded-md font-label-md text-label-md bg-secondary-container text-on-secondary-container shadow-sm flex items-center justify-center gap-2">
-<span class="material-symbols-outlined text-[18px]">home</span>
-                    Home
-                </button>
-<button class="flex-1 py-2 rounded-md font-label-md text-label-md text-on-surface-variant flex items-center justify-center gap-2">
-<span class="material-symbols-outlined text-[18px]">work</span>
-                    Office
-                </button>
+
+<div class="space-y-sm">
+    <div class="space-y-xs">
+        <label class="font-label-md text-label-md text-on-surface-variant">Full Name</label>
+        <div class="relative">
+            <span class="absolute left-3 top-1/2 -translate-y-1/2 material-symbols-outlined text-on-surface-variant text-[20px]">person</span>
+            <input id="delivery-name" type="text" value="Aravind Kelkar" placeholder="Aravind Kelkar" class="w-full bg-surface-container-lowest pl-10 pr-sm py-2.5 rounded-lg border border-outline-variant focus:border-primary outline-none text-body-md text-on-surface transition-colors" required />
+        </div>
+    </div>
+    
+    <div class="space-y-xs">
+        <label class="font-label-md text-label-md text-on-surface-variant">Contact Phone Number</label>
+        <div class="relative">
+            <span class="absolute left-3 top-1/2 -translate-y-1/2 material-symbols-outlined text-on-surface-variant text-[20px]">phone</span>
+            <input id="delivery-phone" type="tel" value="9876543210" placeholder="98765 43210" maxlength="10" class="w-full bg-surface-container-lowest pl-10 pr-sm py-2.5 rounded-lg border border-outline-variant focus:border-primary outline-none text-body-md text-on-surface transition-colors" required />
+        </div>
+    </div>
+
+    <div class="space-y-xs">
+        <label class="font-label-md text-label-md text-on-surface-variant">Precise Address</label>
+        <div class="relative">
+            <span class="absolute left-3 top-4 material-symbols-outlined text-on-surface-variant text-[20px]">home</span>
+            <textarea id="delivery-address" placeholder="Flat 402, Heritage Residency, Deccan Gymkhana, Pune - 411004" class="w-full bg-surface-container-lowest pl-10 pr-sm py-3 rounded-lg border border-outline-variant focus:border-primary outline-none text-body-md text-on-surface min-h-[70px] transition-colors" required>Flat 402, Heritage Residency, Deccan Gymkhana, Pune - 411004</textarea>
+        </div>
+    </div>
 </div>
-<div class="flex flex-col gap-1 border-l-4 border-accent-gold pl-4">
-<p class="font-body-md text-body-md font-bold">Aravind Kelkar</p>
-<p class="font-body-md text-body-md text-on-surface-variant">Flat 402, Heritage Residency, Deccan Gymkhana, Pune - 411004</p>
+
 <p class="font-label-md text-label-md text-primary mt-2 flex items-center gap-1">
 <span class="material-symbols-outlined text-[16px]">schedule</span>
                     Estimated Delivery: 35-45 mins
-                </p>
-</div>
+</p>
 </section>
 <!-- Order Summary -->
 <section class="bg-surface-container-lowest rounded-xl p-md border border-outline-variant shadow-sm overflow-hidden">
@@ -606,6 +618,10 @@ async function executeOrderPlacement() {
     const activePaymentRadio = document.querySelector('input[name="payment"]:checked');
     const paymentMethod = activePaymentRadio ? activePaymentRadio.value : 'upi';
 
+    const name = document.getElementById('delivery-name').value.trim();
+    const phone = document.getElementById('delivery-phone').value.trim();
+    const address = document.getElementById('delivery-address').value.trim();
+
     try {
         const response = await fetch('/api/orders', {
             method: 'POST',
@@ -615,9 +631,9 @@ async function executeOrderPlacement() {
             body: JSON.stringify({
                 items: cart,
                 deliveryAddress: {
-                    name: 'Aravind Kelkar',
-                    address: 'Flat 402, Heritage Residency, Deccan Gymkhana, Pune - 411004',
-                    phone: '+91 98765 43210'
+                    name,
+                    address,
+                    phone
                 },
                 paymentMethod: paymentMethod
             })
@@ -656,6 +672,10 @@ function runStaticFallback(cart, paymentMethod) {
     const mockOrderNum = 'AKP-' + Math.floor(10000 + Math.random() * 90000);
     const mockTxnId = 'TXN-' + Date.now() + '-' + Math.floor(1000 + Math.random() * 9000);
     
+    const name = document.getElementById('delivery-name').value.trim();
+    const phone = document.getElementById('delivery-phone').value.trim();
+    const address = document.getElementById('delivery-address').value.trim();
+
     const mockOrder = {
         orderNumber: mockOrderNum,
         items: cart,
@@ -664,9 +684,9 @@ function runStaticFallback(cart, paymentMethod) {
         totalAmount: finalTotal,
         loyaltyPointsEarned: loyaltyPointsEarned,
         deliveryAddress: {
-            name: 'Aravind Kelkar',
-            address: 'Flat 402, Heritage Residency, Deccan Gymkhana, Pune - 411004',
-            phone: '+91 98765 43210'
+            name: name,
+            address: address,
+            phone: phone
         },
         paymentMethod: paymentMethod,
         paymentStatus: paymentMethod === 'cod' ? 'pending' : 'paid',
@@ -704,6 +724,27 @@ async function handlePlaceOrder() {
     
     if (cart.length === 0) {
         alert('Your cart is empty! Please go back and add some items to your Thali.');
+        return;
+    }
+
+    // Delivery fields validation
+    const name = document.getElementById('delivery-name').value.trim();
+    const phone = document.getElementById('delivery-phone').value.trim();
+    const address = document.getElementById('delivery-address').value.trim();
+
+    if (!name) {
+        alert('Please enter your Full Name for delivery.');
+        document.getElementById('delivery-name').focus();
+        return;
+    }
+    if (!phone || phone.length < 10 || !/^\d{10}$/.test(phone)) {
+        alert('Please enter a valid 10-digit mobile number.');
+        document.getElementById('delivery-phone').focus();
+        return;
+    }
+    if (!address || address.length < 10) {
+        alert('Please enter a precise delivery address (at least 10 characters).');
+        document.getElementById('delivery-address').focus();
         return;
     }
     

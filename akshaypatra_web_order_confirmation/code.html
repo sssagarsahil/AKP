@@ -256,8 +256,11 @@
             <span class="material-symbols-outlined text-spice-red" style="font-variation-settings: 'FILL' 1;">location_on</span>
             <p class="font-label-md text-label-md text-on-surface">Delivering To</p>
         </div>
-        <p class="font-body-md text-body-md text-on-surface font-semibold">Rahul Deshmukh</p>
-        <p class="font-body-md text-body-md text-on-surface-variant">Flat 402, Heritage Residency, Wagholi (Pune) Depot Road,<br/>Pune, Maharashtra 411038</p>
+        <p id="conf-delivery-name" class="font-body-md text-body-md text-on-surface font-semibold">Rahul Deshmukh</p>
+        <p id="conf-delivery-address" class="font-body-md text-body-md text-on-surface-variant">Flat 402, Heritage Residency, Wagholi (Pune) Depot Road, Pune, Maharashtra 411038</p>
+        <p id="conf-delivery-phone" class="font-body-md text-body-md text-on-surface-variant mt-1 flex items-center gap-1 font-semibold">
+            <span class="material-symbols-outlined text-[16px]">phone</span> +91 98765 43210
+        </p>
     </div>
 
     <!-- Loyalty Points Earned -->
@@ -377,6 +380,17 @@ document.addEventListener('DOMContentLoaded', () => {
         if (txnContainer && txnIdEl && orderDetails.transactionId) {
             txnIdEl.innerText = orderDetails.transactionId;
             txnContainer.classList.remove('hidden');
+        }
+
+        if (orderDetails.deliveryAddress) {
+            const dnEl = document.getElementById('conf-delivery-name');
+            const daEl = document.getElementById('conf-delivery-address');
+            const dpEl = document.getElementById('conf-delivery-phone');
+            if (dnEl && orderDetails.deliveryAddress.name) dnEl.innerText = orderDetails.deliveryAddress.name;
+            if (daEl && orderDetails.deliveryAddress.address) daEl.innerText = orderDetails.deliveryAddress.address;
+            if (dpEl && orderDetails.deliveryAddress.phone) {
+                dpEl.innerHTML = `<span class="material-symbols-outlined text-[16px]">phone</span> +91 ${orderDetails.deliveryAddress.phone}`;
+            }
         }
         
         // Launch confetti!
