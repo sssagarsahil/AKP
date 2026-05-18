@@ -650,7 +650,8 @@ async function executeOrderPlacement() {
             
             // Notify Admin via WhatsApp pop-up
             const adminPhone = "919226759879";
-            const adminMsg = `New Order Placed! ${data.order.orderNumber}. Start preparing now.`;
+            const orderTime = new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata', hour12: true, day: '2-digit', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit' });
+            const adminMsg = `🍛 *Akshaypatra – New Order!*\n\n📦 *Order ID:* ${data.order.orderNumber}\n🕐 *Time:* ${orderTime} (IST)\n\n✅ Please start preparing now!`;
             window.open(`https://api.whatsapp.com/send?phone=${adminPhone}&text=${encodeURIComponent(adminMsg)}`, '_blank');
             
             // Redirect to confirmation
@@ -707,7 +708,8 @@ function runStaticFallback(cart, paymentMethod) {
     
     // Notify Admin via WhatsApp pop-up
     const adminPhone = "919226759879";
-    const adminMsg = `New Order Placed! ${mockOrderNum}. Start preparing now.`;
+    const orderTime = new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata', hour12: true, day: '2-digit', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit' });
+    const adminMsg = `🍛 *Akshaypatra – New Order!*\n\n📦 *Order ID:* ${mockOrderNum}\n🕐 *Time:* ${orderTime} (IST)\n\n✅ Please start preparing now!`;
     window.open(`https://api.whatsapp.com/send?phone=${adminPhone}&text=${encodeURIComponent(adminMsg)}`, '_blank');
     
     window.location.href = '../akshaypatra_web_order_confirmation/code.html';
