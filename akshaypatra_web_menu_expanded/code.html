@@ -491,6 +491,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const priceEl = container.querySelector('.text-spice-red');
                 const imgEl = container.querySelector('img');
                 const descEl = container.querySelector('p.text-on-surface-variant');
+                const desc = descEl ? descEl.innerText.trim() : '';
                 
                 if (titleEl && priceEl) {
                     const name = titleEl.innerText.trim();
