@@ -100,6 +100,15 @@ const menuItems = [
         tags: ['veg', 'sweet'],
         spiceLevel: 'mild',
     },
+    {
+        name: 'Ukadiche Modak',
+        price: 150,
+        description: 'Traditional steamed sweet dumplings stuffed with freshly grated coconut and jaggery, drizzled with warm Sajuk Toop (ghee).',
+        image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuD00kU8GtJlT0bGuSgpvsyHSygnFJE0THxmNTmVcQrH0za4O8E1JLDDqdzaWNy3HEr1c_Mla9Tjgj6XNkaTkiwdDQg3gUYor-eeVZmgQ-T8Z1xXTMfM8Y4z5MdInTWr_XMJvY5h4jG-Rv-pIn7muS1XfpYFN1e-cpwBs4XIj6fTv-RL9kYsTxgr0ntJvW-gAt6m1eO08yZh6rb1ecqLopRImwIxHE93OR2kqZi7JOfrCfPXxtlgfGQ1oUIZI3lhKLBYjsR-AE3kvA',
+        category: 'sweet-finales',
+        tags: ['veg', 'sweet'],
+        spiceLevel: 'mild',
+    },
     // ===== Beverages =====
     {
         name: 'Masala Chai',
