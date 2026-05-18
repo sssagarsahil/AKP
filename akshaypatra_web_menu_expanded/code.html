@@ -153,9 +153,9 @@
 <div class="flex items-center gap-md">
 <span class="font-label-md text-label-md text-on-surface-variant hidden md:block">Spice Level:</span>
 <div class="flex bg-surface-container-low rounded-lg p-1 border border-outline-variant">
-<button class="px-4 py-1 rounded-md text-label-sm font-label-sm bg-surface-container-highest text-primary">Mild</button>
-<button class="px-4 py-1 rounded-md text-label-sm font-label-sm text-on-surface-variant hover:text-primary transition-colors">Medium</button>
-<button class="px-4 py-1 rounded-md text-label-sm font-label-sm text-on-surface-variant hover:text-primary transition-colors">Spicy</button>
+<button id="spice-mild" onclick="selectSpice('Mild')" class="px-4 py-1 rounded-md text-label-sm font-label-sm bg-surface-container-highest text-primary transition-all">Mild</button>
+<button id="spice-medium" onclick="selectSpice('Medium')" class="px-4 py-1 rounded-md text-label-sm font-label-sm text-on-surface-variant hover:text-primary transition-all">Medium</button>
+<button id="spice-spicy" onclick="selectSpice('Spicy')" class="px-4 py-1 rounded-md text-label-sm font-label-sm text-on-surface-variant hover:text-primary transition-all">Spicy</button>
 </div>
 </div>
 </div>
@@ -388,6 +388,31 @@
 
 <script src="../cart.js"></script>
 <script>
+// Spice level state & control
+window.selectedSpice = 'Mild';
+window.selectSpice = function(spiceLevel) {
+    window.selectedSpice = spiceLevel;
+    const btnMild = document.getElementById('spice-mild');
+    const btnMedium = document.getElementById('spice-medium');
+    const btnSpicy = document.getElementById('spice-spicy');
+    if (!btnMild || !btnMedium || !btnSpicy) return;
+    
+    const activeClasses = ['bg-surface-container-highest', 'text-primary'];
+    const inactiveClasses = ['text-on-surface-variant', 'hover:text-primary'];
+    
+    [btnMild, btnMedium, btnSpicy].forEach(btn => {
+        btn.classList.remove(...activeClasses);
+        btn.classList.add(...inactiveClasses);
+    });
+    
+    let activeBtn = btnMild;
+    if (spiceLevel === 'Medium') activeBtn = btnMedium;
+    else if (spiceLevel === 'Spicy') activeBtn = btnSpicy;
+    
+    activeBtn.classList.remove(...inactiveClasses);
+    activeBtn.classList.add(...activeClasses);
+};
+
 // Filter menu by category (All, Veg, Vegan)
 window.filterMenu = function(category) {
     const btnAll = document.getElementById('filter-all');
@@ -472,13 +497,14 @@ document.addEventListener('DOMContentLoaded', () => {
                     const priceText = priceEl.innerText.replace(/[^0-9.]/g, ''); // Remove ₹
                     const price = parseFloat(priceText);
                     const image = imgEl ? imgEl.src : '';
-                    const desc = descEl ? descEl.innerText.trim() : '';
+                    const isDessert = container.closest('section')?.querySelector('h2')?.innerText.includes('Sweet Finales');
+                    const finalDesc = isDessert ? desc : (desc ? `${window.selectedSpice} Spice | ${desc}` : `${window.selectedSpice} Spice`);
                     
                     addToCart({
                         name: name,
                         price: price,
                         image: image,
-                        desc: desc,
+                        desc: finalDesc,
                         quantity: 1
                     });
                     
