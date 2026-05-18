@@ -24,6 +24,15 @@ const menuItems = [
         spiceLevel: 'mild',
     },
     {
+        name: 'Punjabi Thali',
+        price: 320,
+        description: 'A rich northern feast consisting of Matar Paneer, 2 Butter Parathas, smoky Dal Tadka, fragrant Jeera Rice, crisp Salad, Achar, crunchy Papad, and Sweet Lassi or Chaas.',
+        image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDQjvd4sPdfblsW14FW2LQd1AocpEKKqyDiCwjqb_aQ6wVfGW3vp2sFv9bZ_Xol3_9UwX3VB8OjfOqW5qcVBHqZu9JIr5Ej0DhCDaJ0CblqJPJ4A6JYX27W8l92VdvGRsLBBGXlC-Q14oJd1hN3HpfB-OvFAhvfUTZ12E1W4fA03hbJhLPTMrMO3bMrwPyM59Fn1YdN9EPw0J2PqQ3lAmpMYB7vXm_F7gIWHq9q7L8w3R7NlWiPqh1HllDJ_WqKjjT9bvhc48s1w',
+        category: 'signature-thalis',
+        tags: ['veg'],
+        spiceLevel: 'medium',
+    },
+    {
         name: 'South Coast Platter',
         price: 390,
         description: 'Coconut-infused seasonal vegetables served on a traditional banana leaf with red rice and tempered buttermilk.',
