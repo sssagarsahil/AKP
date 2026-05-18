@@ -15,6 +15,15 @@ const menuItems = [
         spiceLevel: 'medium',
     },
     {
+        name: 'Daily Meal Thali',
+        price: 250,
+        description: 'A balanced daily special thali featuring chef\'s choice vegetable curry, comforting dal, fragrant steamed rice, 2 hot rotis, and cooling raita.',
+        image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBwWde4oSbOdaUBR_nYzgy5jxb6GH-FFS-pS9Q94SA-nfttbR0bkDroG21mJQHXz7XGu04H7zJPQKsklv9ILJe4UB2yENF3fwwCVwJ2wINZ8prDeaK0L7kRZtbNl0_9_vIK6mQiMgwyDa75jo0l07-_2rVZrUnKRkPmHZ7uxhMLeZX7xPtuG61kMMqt1VlRMHzt308VnGn5S0Sq3HxAj0YT0RUPbpowxHivSmhg0wfm4gCkW8tvfQTHpBzHMW7Oooa5olWfsiIjSg',
+        category: 'signature-thalis',
+        tags: ['veg'],
+        spiceLevel: 'mild',
+    },
+    {
         name: 'South Coast Platter',
         price: 390,
         description: 'Coconut-infused seasonal vegetables served on a traditional banana leaf with red rice and tempered buttermilk.',
