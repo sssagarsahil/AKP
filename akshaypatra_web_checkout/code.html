@@ -312,6 +312,103 @@
 </div>
 </aside>
 </main>
+
+<!-- Payment Modal Overlay -->
+<div id="payment-modal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center hidden opacity-0 transition-opacity duration-300">
+    <div class="bg-surface-container-lowest border border-outline-variant rounded-2xl w-full max-w-md overflow-hidden shadow-2xl transform scale-95 transition-transform duration-300 mx-4">
+        <!-- Modal Header -->
+        <div class="bg-spice-red text-white p-md flex items-center justify-between">
+            <h3 id="payment-modal-title" class="font-headline-md text-headline-md flex items-center gap-2">
+                <span class="material-symbols-outlined">payments</span>
+                Complete Payment
+            </h3>
+            <button onclick="closePaymentModal()" class="hover:bg-white/20 p-1 rounded-full transition-colors flex items-center justify-center">
+                <span class="material-symbols-outlined text-[24px]">close</span>
+            </button>
+        </div>
+        
+        <!-- Modal Content (Dynamic based on payment method) -->
+        <div class="p-md space-y-md">
+            <!-- UPI QR Code View -->
+            <div id="upi-payment-view" class="hidden flex flex-col items-center text-center space-y-md py-4">
+                <p class="font-body-md text-body-md text-on-surface-variant">Please scan this secure QR code using any UPI app to pay <span id="upi-modal-amount" class="font-bold text-primary">₹0.00</span></p>
+                
+                <!-- QR Code Container -->
+                <div class="bg-white p-2 border border-outline-variant rounded-xl shadow-inner relative flex items-center justify-center w-48 h-48">
+                    <!-- Standard clean QR Code SVG representation for rich premium look -->
+                    <svg class="w-full h-full text-deep-earth" viewBox="0 0 100 100" fill="currentColor">
+                        <path d="M5,5 h20 v20 h-20 z M10,10 h10 v10 h-10 z M5,35 h5 v5 h-5 z M20,35 h5 v10 h-5 z M5,45 h10 v5 h-10 z M15,35 h5 v5 h-5 z" />
+                        <path d="M40,5 h20 v20 h-20 z M45,10 h10 v10 h-10 z M35,5 h5 v10 h-5 z M35,20 h5 v5 h-5 z" />
+                        <path d="M5,65 h20 v20 h-20 z M10,70 h10 v10 h-10 z M35,65 h5 v5 h-5 z M45,70 h10 v5 h-10 z M35,80 h15 v5 h-15 z" />
+                        <path d="M65,5 h30 v30 h-30 z M70,10 h20 v20 h-20 z M75,15 h10 v10 h-10 z M70,40 h5 v5 h-5 z M80,40 h15 v5 h-15 z M65,45 h10 v5 h-10 z" />
+                        <path d="M65,65 h30 v30 h-30 z M70,70 h20 v20 h-20 z M75,75 h10 v10 h-10 z M45,45 h10 v10 h-10 z M35,35 h15 v15 h-15 z M55,35 h5 v5 h-5 z" />
+                        <circle cx="50" cy="50" r="10" fill="#be543c" />
+                        <path d="M47,47 h6 v6 h-6 z" fill="#fff" />
+                    </svg>
+                </div>
+                
+                <div class="flex items-center gap-1 font-label-sm text-label-sm text-secondary bg-secondary-container px-3 py-1.5 rounded-full">
+                    <span class="material-symbols-outlined text-[16px] animate-pulse">lock</span>
+                    Secure Encrypted UPI Transaction
+                </div>
+            </div>
+            
+            <!-- Card Details View -->
+            <div id="card-payment-view" class="hidden space-y-4">
+                <p class="font-body-md text-body-md text-on-surface-variant mb-4 text-center">Enter your details to securely pay <span id="card-modal-amount" class="font-bold text-primary">₹0.00</span></p>
+                
+                <div class="space-y-3 text-left">
+                    <div class="space-y-1">
+                        <label class="font-label-md text-label-md text-on-surface-variant">Cardholder Name</label>
+                        <input id="card-name" type="text" placeholder="Rahul Deshmukh" class="w-full bg-surface-container p-2.5 rounded-lg border border-outline-variant focus:border-primary outline-none text-body-md text-on-surface transition-colors" required />
+                    </div>
+                    
+                    <div class="space-y-1">
+                        <label class="font-label-md text-label-md text-on-surface-variant">Card Number</label>
+                        <div class="relative flex items-center">
+                            <input id="card-number" type="text" placeholder="4111 2222 3333 4444" maxlength="19" class="w-full bg-surface-container p-2.5 pr-12 rounded-lg border border-outline-variant focus:border-primary outline-none text-body-md text-on-surface transition-colors" required />
+                            <span id="card-type-icon" class="absolute right-3 material-symbols-outlined text-on-surface-variant text-[24px]">credit_card</span>
+                        </div>
+                    </div>
+                    
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="space-y-1">
+                            <label class="font-label-md text-label-md text-on-surface-variant">Expiry Date</label>
+                            <input id="card-expiry" type="text" placeholder="MM/YY" maxlength="5" class="w-full bg-surface-container p-2.5 rounded-lg border border-outline-variant focus:border-primary outline-none text-body-md text-on-surface text-center transition-colors" required />
+                        </div>
+                        <div class="space-y-1">
+                            <label class="font-label-md text-label-md text-on-surface-variant">CVV</label>
+                            <input id="card-cvv" type="password" placeholder="•••" maxlength="3" class="w-full bg-surface-container p-2.5 rounded-lg border border-outline-variant focus:border-primary outline-none text-body-md text-on-surface text-center transition-colors" required />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Cash on Delivery / Processing Overlay -->
+            <div id="processing-view" class="hidden flex flex-col items-center text-center space-y-4 py-6">
+                <div class="relative w-16 h-16">
+                    <div class="absolute inset-0 border-4 border-outline-variant rounded-full"></div>
+                    <div class="absolute inset-0 border-4 border-primary border-t-transparent rounded-full animate-spin"></div>
+                </div>
+                <div>
+                    <h4 class="font-headline-sm text-headline-sm text-on-surface">Verifying Transaction...</h4>
+                    <p class="font-body-md text-body-md text-on-surface-variant mt-2">Please do not close this window or refresh the page.</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Modal Footer Actions -->
+        <div id="payment-modal-footer" class="bg-surface-container-low p-md border-t border-outline-variant flex gap-md">
+            <button onclick="closePaymentModal()" class="flex-1 h-12 rounded-lg border border-outline text-on-surface font-label-md text-label-md hover:bg-surface-container transition-colors">
+                Cancel
+            </button>
+            <button id="modal-submit-btn" onclick="submitModalPayment()" class="flex-1 h-12 bg-primary text-white font-label-md text-label-md rounded-lg flex items-center justify-center gap-2 hover:bg-primary/90 transition-colors shadow-md">
+                Verify & Pay
+            </button>
+        </div>
+    </div>
+</div>
+
 <!-- BottomNavBar Suppressed for Transactional Integrity per Design Rules -->
 <footer class="bg-surface-container-lowest mt-xl py-lg border-t border-outline-variant">
 <div class="max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop flex flex-col md:flex-row justify-between items-center gap-md">
@@ -572,13 +669,160 @@ function selectTime(timeStr) {
     });
 }
 
-async function handlePlaceOrder() {
-    const cart = getCart();
-    if (cart.length === 0) {
-        alert('Your cart is empty!');
-        return;
+// Payment Modal Control Operations
+function openPaymentModal(amount) {
+    const modal = document.getElementById('payment-modal');
+    
+    // Set amounts in modal views
+    const formattedAmount = '₹' + amount.toFixed(2);
+    const upiAmountEl = document.getElementById('upi-modal-amount');
+    const cardAmountEl = document.getElementById('card-modal-amount');
+    if (upiAmountEl) upiAmountEl.innerText = formattedAmount;
+    if (cardAmountEl) cardAmountEl.innerText = formattedAmount;
+    
+    // Reset view visibility
+    const upiView = document.getElementById('upi-payment-view');
+    const cardView = document.getElementById('card-payment-view');
+    const processingView = document.getElementById('processing-view');
+    const modalFooter = document.getElementById('payment-modal-footer');
+    const modalTitle = document.getElementById('payment-modal-title');
+    const modalSubmitBtn = document.getElementById('modal-submit-btn');
+    
+    upiView.classList.add('hidden');
+    cardView.classList.add('hidden');
+    processingView.classList.add('hidden');
+    modalFooter.classList.remove('hidden');
+    
+    if (currentPaymentMethod === 'upi') {
+        upiView.classList.remove('hidden');
+        modalTitle.innerHTML = `<span class="material-symbols-outlined text-[28px]">qr_code_scanner</span> UPI Scan & Pay`;
+        modalSubmitBtn.innerText = "I Have Scanned & Paid";
+    } else if (currentPaymentMethod === 'card') {
+        cardView.classList.remove('hidden');
+        modalTitle.innerHTML = `<span class="material-symbols-outlined text-[28px]">credit_card</span> Enter Card Details`;
+        modalSubmitBtn.innerText = `Pay ${formattedAmount}`;
+        
+        // Reset card input fields
+        document.getElementById('card-name').value = '';
+        document.getElementById('card-number').value = '';
+        document.getElementById('card-expiry').value = '';
+        document.getElementById('card-cvv').value = '';
     }
     
+    // Show modal with animation
+    modal.classList.remove('hidden');
+    setTimeout(() => {
+        modal.classList.remove('opacity-0');
+        modal.querySelector('.transform').classList.remove('scale-95');
+        modal.querySelector('.transform').classList.add('scale-100');
+    }, 10);
+}
+
+function closePaymentModal() {
+    const modal = document.getElementById('payment-modal');
+    if (!modal) return;
+    modal.classList.add('opacity-0');
+    modal.querySelector('.transform').classList.remove('scale-100');
+    modal.querySelector('.transform').classList.add('scale-95');
+    setTimeout(() => {
+        modal.classList.add('hidden');
+    }, 300);
+}
+
+// Format input helpers
+document.addEventListener('DOMContentLoaded', () => {
+    // Card Number Formatting (spaces every 4 digits)
+    const cardNumberInput = document.getElementById('card-number');
+    if (cardNumberInput) {
+        cardNumberInput.addEventListener('input', (e) => {
+            let value = e.target.value.replace(/\s+/g, '').replace(/[^0-9]/gi, '');
+            let formatted = '';
+            for (let i = 0; i < value.length; i++) {
+                if (i > 0 && i % 4 === 0) formatted += ' ';
+                formatted += value[i];
+            }
+            e.target.value = formatted;
+            
+            // Detect card type (e.g., Visa starts with 4, Mastercard with 5)
+            const cardIcon = document.getElementById('card-type-icon');
+            if (cardIcon) {
+                if (value.startsWith('4')) {
+                    cardIcon.style.color = '#3b82f6'; // Blue
+                } else if (value.startsWith('5')) {
+                    cardIcon.style.color = '#f59e0b'; // Amber
+                } else {
+                    cardIcon.style.color = '';
+                }
+            }
+        });
+    }
+
+    // Expiry Date Formatting (MM/YY)
+    const cardExpiryInput = document.getElementById('card-expiry');
+    if (cardExpiryInput) {
+        cardExpiryInput.addEventListener('input', (e) => {
+            let value = e.target.value.replace(/\//g, '').replace(/[^0-9]/gi, '');
+            if (value.length > 2) {
+                e.target.value = value.substring(0, 2) + '/' + value.substring(2, 4);
+            } else {
+                e.target.value = value;
+            }
+        });
+    }
+    
+    // CVV Formatting (Digits only)
+    const cardCvvInput = document.getElementById('card-cvv');
+    if (cardCvvInput) {
+        cardCvvInput.addEventListener('input', (e) => {
+            e.target.value = e.target.value.replace(/[^0-9]/gi, '');
+        });
+    }
+});
+
+async function submitModalPayment() {
+    const upiView = document.getElementById('upi-payment-view');
+    const cardView = document.getElementById('card-payment-view');
+    const processingView = document.getElementById('processing-view');
+    const modalFooter = document.getElementById('payment-modal-footer');
+    
+    if (currentPaymentMethod === 'card') {
+        const name = document.getElementById('card-name').value.trim();
+        const number = document.getElementById('card-number').value.replace(/\s+/g, '');
+        const expiry = document.getElementById('card-expiry').value;
+        const cvv = document.getElementById('card-cvv').value;
+        
+        if (!name) {
+            alert('Please enter the Cardholder Name.');
+            return;
+        }
+        if (number.length !== 16) {
+            alert('Please enter a valid 16-digit Card Number.');
+            return;
+        }
+        if (!/^\d{2}\/\d{2}$/.test(expiry)) {
+            alert('Please enter a valid expiry date (MM/YY).');
+            return;
+        }
+        if (cvv.length !== 3) {
+            alert('Please enter a valid 3-digit CVV.');
+            return;
+        }
+    }
+    
+    // Transition to processing view
+    upiView.classList.add('hidden');
+    cardView.classList.add('hidden');
+    processingView.classList.remove('hidden');
+    modalFooter.classList.add('hidden'); // Hide Cancel/Submit actions during progress
+    
+    // Simulate payment gateway delay (2 seconds)
+    setTimeout(async () => {
+        await executeOrderPlacement();
+    }, 2000);
+}
+
+async function executeOrderPlacement() {
+    const cart = getCart();
     const scheduledDateEl = document.getElementById('selected-date-text');
     const scheduledTimeEl = document.getElementById('selected-time-text');
     const scheduledDate = scheduledDateEl ? scheduledDateEl.innerText : '';
@@ -608,18 +852,84 @@ async function handlePlaceOrder() {
             // Store details of the successfully placed order
             localStorage.setItem('akshaypatra_last_order', JSON.stringify(data.order));
             
-            // Clear the active cart
+            // Clear active cart and close modal
             clearCart();
+            closePaymentModal();
             
-            // Redirect to confirmation screen
+            // Redirect to confirmation
             window.location.href = '../akshaypatra_web_order_confirmation/code.html';
         } else {
             const data = await response.json();
             alert('Failed to place order: ' + data.error);
+            resetModalOnError();
         }
     } catch (error) {
         console.error('Error placing order:', error);
         alert('An error occurred. Please try again.');
+        resetModalOnError();
+    }
+}
+
+function resetModalOnError() {
+    const upiView = document.getElementById('upi-payment-view');
+    const cardView = document.getElementById('card-payment-view');
+    const processingView = document.getElementById('processing-view');
+    const modalFooter = document.getElementById('payment-modal-footer');
+    
+    processingView.classList.add('hidden');
+    modalFooter.classList.remove('hidden');
+    
+    if (currentPaymentMethod === 'upi') {
+        upiView.classList.remove('hidden');
+    } else if (currentPaymentMethod === 'card') {
+        cardView.classList.remove('hidden');
+    }
+}
+
+async function handlePlaceOrder() {
+    const cart = getCart();
+    if (cart.length === 0) {
+        alert('Your cart is empty!');
+        return;
+    }
+    
+    // Calculate total order amount
+    let itemTotal = 0;
+    cart.forEach(item => {
+        itemTotal += item.price * item.quantity;
+    });
+    const tax = itemTotal * 0.05;
+    const finalTotal = itemTotal + tax;
+    
+    if (currentPaymentMethod === 'cod') {
+        // Skip payment modal for Cash on Delivery, place directly with simulated quick loader
+        const modal = document.getElementById('payment-modal');
+        const upiView = document.getElementById('upi-payment-view');
+        const cardView = document.getElementById('card-payment-view');
+        const processingView = document.getElementById('processing-view');
+        const modalFooter = document.getElementById('payment-modal-footer');
+        const modalTitle = document.getElementById('payment-modal-title');
+        
+        upiView.classList.add('hidden');
+        cardView.classList.add('hidden');
+        modalFooter.classList.add('hidden');
+        processingView.classList.remove('hidden');
+        modalTitle.innerHTML = `<span class="material-symbols-outlined text-[28px]">payments</span> Processing Order`;
+        
+        // Show modal with animation
+        modal.classList.remove('hidden');
+        setTimeout(() => {
+            modal.classList.remove('opacity-0');
+            modal.querySelector('.transform').classList.remove('scale-95');
+            modal.querySelector('.transform').classList.add('scale-100');
+        }, 10);
+        
+        setTimeout(async () => {
+            await executeOrderPlacement();
+        }, 1500);
+    } else {
+        // Open modal for interactive QR scan (UPI) or Card input details
+        openPaymentModal(finalTotal);
     }
 }
 </script>
