@@ -31,6 +31,21 @@ router.post('/', optionalAuth, async (req, res) => {
         const totalAmount = itemTotal + tax;
         const loyaltyPointsEarned = Math.floor(itemTotal / 10);
 
+        // 1. Process payment first: create and save the Transaction record in DB first!
+        const transactionId = 'TXN-' + Date.now() + '-' + Math.floor(1000 + Math.random() * 9000);
+        const transaction = new Transaction({
+            transactionId,
+            orderNumber: 'PENDING_REGISTRATION', // Will update right after Order is successfully saved
+            user: req.user?._id || null,
+            amount: totalAmount,
+            type: 'order_placed',
+            paymentMethod: paymentMethod || 'upi',
+            status: (paymentMethod === 'cod') ? 'pending' : 'success',
+            auditDetails: `Payment successfully verified and completed first via ${paymentMethod || 'upi'} before order placement.`
+        });
+        await transaction.save();
+
+        // 2. Create the Order in DB, setting paymentStatus based on paymentMethod, and linking transactionId
         const order = new Order({
             user: req.user?._id || null,
             items,
@@ -45,11 +60,17 @@ router.post('/', optionalAuth, async (req, res) => {
                 phone: '+91 98765 43210'
             },
             paymentMethod: paymentMethod || 'upi',
+            paymentStatus: (paymentMethod === 'cod') ? 'pending' : 'paid',
+            transactionId: transactionId,
             scheduledDate: req.body.scheduledDate || '',
             scheduledTime: req.body.scheduledTime || ''
         });
 
         await order.save();
+
+        // 3. Link the successfully created Order number back to the Transaction record
+        transaction.orderNumber = order.orderNumber;
+        await transaction.save();
 
         // Award loyalty points if user is logged in
         if (req.user) {
@@ -58,31 +79,9 @@ router.post('/', optionalAuth, async (req, res) => {
             await req.user.save();
         }
 
-        // Audit Logging: Create a transaction record
-        const transaction = new Transaction({
-            orderNumber: order.orderNumber,
-            user: req.user?._id || null,
-            amount: order.totalAmount,
-            type: 'order_placed',
-            paymentMethod: order.paymentMethod,
-            status: 'success',
-            auditDetails: `Order placed with ${items.length} items.`
-        });
-        await transaction.save();
-
         res.status(201).json({
             message: 'Order placed successfully!',
-            order: {
-                orderNumber: order.orderNumber,
-                items: order.items,
-                itemTotal: order.itemTotal,
-                tax: order.tax,
-                totalAmount: order.totalAmount,
-                loyaltyPointsEarned: order.loyaltyPointsEarned,
-                status: order.status,
-                estimatedDelivery: order.estimatedDelivery,
-                createdAt: order.createdAt
-            }
+            order
         });
     } catch (error) {
         res.status(500).json({ error: error.message });

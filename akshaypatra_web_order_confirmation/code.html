@@ -228,6 +228,28 @@
         </div>
     </div>
 
+    <!-- Payment Details -->
+    <div class="animate-fade-up-3 w-full bg-surface-container-low rounded-xl border border-outline-variant p-md mb-lg text-left">
+        <div class="flex items-center gap-2 mb-sm">
+            <span class="material-symbols-outlined text-spice-red">payments</span>
+            <p class="font-label-md text-label-md text-on-surface">Payment Details</p>
+        </div>
+        <div class="space-y-xs font-body-md text-body-md text-on-surface-variant">
+            <div class="flex justify-between items-center">
+                <span>Payment Mode:</span>
+                <span id="conf-payment-method" class="font-bold uppercase text-on-surface">UPI</span>
+            </div>
+            <div id="conf-txn-container" class="flex justify-between items-center hidden">
+                <span>Transaction ID:</span>
+                <span id="conf-txn-id" class="font-mono text-on-surface font-semibold text-[13px]"></span>
+            </div>
+            <div class="flex justify-between items-center">
+                <span>Payment Status:</span>
+                <span id="conf-payment-status" class="px-2 py-0.5 rounded text-[11px] font-bold"></span>
+            </div>
+        </div>
+    </div>
+
     <!-- Delivery Address -->
     <div class="animate-fade-up-3 w-full bg-surface-container-low rounded-xl border border-outline-variant p-md mb-lg text-left">
         <div class="flex items-center gap-2 mb-sm">
@@ -326,6 +348,36 @@ document.addEventListener('DOMContentLoaded', () => {
         taxEl.innerText = '₹' + orderDetails.tax.toFixed(2);
         totalEl.innerText = '₹' + orderDetails.totalAmount.toFixed(2);
         pointsEl.innerText = '+' + orderDetails.loyaltyPointsEarned;
+        
+        // Populate Payment Details Card
+        const pmEl = document.getElementById('conf-payment-method');
+        const statusEl = document.getElementById('conf-payment-status');
+        const txnContainer = document.getElementById('conf-txn-container');
+        const txnIdEl = document.getElementById('conf-txn-id');
+        
+        if (pmEl) {
+            let pmLabel = 'UPI / Google Pay';
+            if (orderDetails.paymentMethod === 'card') pmLabel = 'Credit / Debit Card';
+            else if (orderDetails.paymentMethod === 'cod') pmLabel = 'Cash on Delivery';
+            pmEl.innerText = pmLabel;
+        }
+        
+        if (statusEl) {
+            const pStatus = orderDetails.paymentStatus || 'paid';
+            statusEl.innerText = pStatus.toUpperCase();
+            if (pStatus === 'paid') {
+                statusEl.className = "px-2 py-0.5 rounded text-[11px] font-bold bg-green-100 text-green-800";
+            } else if (pStatus === 'pending') {
+                statusEl.className = "px-2 py-0.5 rounded text-[11px] font-bold bg-amber-100 text-amber-800";
+            } else {
+                statusEl.className = "px-2 py-0.5 rounded text-[11px] font-bold bg-red-100 text-red-800";
+            }
+        }
+        
+        if (txnContainer && txnIdEl && orderDetails.transactionId) {
+            txnIdEl.innerText = orderDetails.transactionId;
+            txnContainer.classList.remove('hidden');
+        }
         
         // Launch confetti!
         launchConfetti();

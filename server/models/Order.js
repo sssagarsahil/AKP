@@ -34,6 +34,12 @@ const orderSchema = new mongoose.Schema({
         enum: ['upi', 'card', 'cod'],
         default: 'upi'
     },
+    paymentStatus: {
+        type: String,
+        enum: ['pending', 'paid', 'failed'],
+        default: 'pending'
+    },
+    transactionId: { type: String, default: '' },
     estimatedDelivery: { type: String, default: '35-45 min' },
     scheduledDate: { type: String, default: '' },
     scheduledTime: { type: String, default: '' },
