@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Thali Customizer | Akshaypatra</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;600;700&family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+      tailwind.config = {
+        theme: {
+          extend: {
+            "colors": {
+                "spice-red": "#be543c",
+                "primary": "#7e2600",
+                "accent-gold": "#feb71a",
+                "surface-cream": "#fcf9f2",
+                "deep-earth": "#31312c",
+                "surface-container-low": "#f6f3ec",
+                "surface-container-lowest": "#ffffff"
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+        .thali-plate {
+            background: radial-gradient(circle, #e6c89c 0%, #b88a4c 70%, #825c27 100%);
+            border: 12px solid #6b4a1a;
+            box-shadow: inset 0 0 20px rgba(0,0,0,0.4), 0 10px 25px rgba(0,0,0,0.15);
+        }
+        .bowl-slot {
+            background: rgba(0, 0, 0, 0.15);
+            border: 2px dashed rgba(255, 255, 255, 0.4);
+            box-shadow: inset 0 4px 8px rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
+        }
+        .bowl-filled {
+            border: 3px solid #825c27;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+    </style>
+</head>
+<body class="bg-surface-cream text-deep-earth font-sans min-h-screen flex justify-center">
+    <div class="w-full max-w-md bg-white min-h-screen flex flex-col justify-between shadow-2xl relative">
+        
+        <!-- Header -->
+        <header class="sticky top-0 bg-white border-b border-orange-100 px-6 py-4 flex items-center justify-between z-50">
+            <button onclick="window.location.href='../akshaypatra_mobile_landing_page/code.html'" class="material-symbols-outlined text-primary text-[28px] cursor-pointer">arrow_back</button>
+            <h1 class="font-headline-md text-xl text-primary font-bold text-center flex-grow">Customize Your Thali</h1>
+            <div class="w-7"></div> <!-- Spacer for centering -->
+        </header>
+
+        <main class="flex-grow overflow-y-auto px-6 py-4 pb-32">
+            <!-- Section: Visual Thali Plate -->
+            <div class="flex flex-col items-center mb-8">
+                <div class="thali-plate w-72 h-72 rounded-full relative flex items-center justify-center p-4">
+                    <!-- Central Bowl (Rice/Base) -->
+                    <div id="slot-base" class="bowl-slot w-24 h-24 rounded-full absolute flex flex-col items-center justify-center text-center overflow-hidden">
+                        <span class="material-symbols-outlined text-white/50 text-[32px]">rice_bowl</span>
+                        <p class="text-[10px] text-white/80 font-bold uppercase mt-1">Select Base</p>
+                    </div>
+
+                    <!-- Bowl 1 (Main Curry 1) -->
+                    <div id="slot-main1" class="bowl-slot w-16 h-16 rounded-full absolute -top-1 left-28 overflow-hidden flex flex-col items-center justify-center">
+                        <span class="material-symbols-outlined text-white/50 text-[20px]">soup_kitchen</span>
+                        <p class="text-[8px] text-white/80 font-bold uppercase">Main 1</p>
+                    </div>
+
+                    <!-- Bowl 2 (Main Curry 2) -->
+                    <div id="slot-main2" class="bowl-slot w-16 h-16 rounded-full absolute top-12 right-3 overflow-hidden flex flex-col items-center justify-center">
+                        <span class="material-symbols-outlined text-white/50 text-[20px]">soup_kitchen</span>
+                        <p class="text-[8px] text-white/80 font-bold uppercase">Main 2</p>
+                    </div>
+
+                    <!-- Bowl 3 (Side) -->
+                    <div id="slot-side" class="bowl-slot w-16 h-16 rounded-full absolute bottom-8 right-8 overflow-hidden flex flex-col items-center justify-center">
+                        <span class="material-symbols-outlined text-white/50 text-[20px]">restaurant</span>
+                        <p class="text-[8px] text-white/80 font-bold uppercase">Side</p>
+                    </div>
+
+                    <!-- Bowl 4 (Dessert) -->
+                    <div id="slot-dessert" class="bowl-slot w-16 h-16 rounded-full absolute bottom-8 left-8 overflow-hidden flex flex-col items-center justify-center">
+                        <span class="material-symbols-outlined text-white/50 text-[20px]">icecream</span>
+                        <p class="text-[8px] text-white/80 font-bold uppercase">Sweet</p>
+                    </div>
+                </div>
+                <p class="text-xs text-on-surface-variant italic mt-4 text-center">Tap options below to fill your thali plate in real-time!</p>
+            </div>
+
+            <!-- Customizer Options -->
+            <div class="space-y-6">
+                <!-- Option Group 1: Bases -->
+                <div>
+                    <h3 class="font-headline-md text-lg text-primary mb-3">1. Select Your Base</h3>
+                    <div class="grid grid-cols-3 gap-2">
+                        <button onclick="selectOption('base', 'Saffron Basmati', 0, 'https://lh3.googleusercontent.com/aida-public/AB6AXuDmbuF-ZaL8ZHLgNzsNZG8Hpv1aEsjsKOZgR5qqStct5s048b77HTMAapM-TR_K4p9zjroTPbLT9KgxLsHTBcGrbdJpzjYVGTmCDbjNruRACQ_NAguW-pkKPvqS6XCEsvdlrzletfM-aIp9BEtZOqKsDEgI0s_qXz5XlB0T092pFBzri4BnAXH6fR2Lhec5rDwtfCSAae5_Gq4D1-XE5iNOn7K0PI4rwU6FYmtarImKnwI-Cf4vUxtRbwaeIeyXt38btHX_ayPHaQ')" class="option-btn-base p-3 bg-surface-container-low border border-outline-variant/30 rounded-xl text-center hover:border-primary active:scale-95 transition-all">
+                            <p class="font-bold text-xs">Saffron Rice</p>
+                            <p class="text-[10px] text-on-surface-variant font-medium mt-1">Included</p>
+                        </button>
+                        <button onclick="selectOption('base', 'Butter Naan', 25, 'https://lh3.googleusercontent.com/aida-public/AB6AXuDmbuF-ZaL8ZHLgNzsNZG8Hpv1aEsjsKOZgR5qqStct5s048b77HTMAapM-TR_K4p9zjroTPbLT9KgxLsHTBcGrbdJpzjYVGTmCDbjNruRACQ_NAguW-pkKPvqS6XCEsvdlrzletfM-aIp9BEtZOqKsDEgI0s_qXz5XlB0T092pFBzri4BnAXH6fR2Lhec5rDwtfCSAae5_Gq4D1-XE5iNOn7K0PI4rwU6FYmtarImKnwI-Cf4vUxtRbwaeIeyXt38btHX_ayPHaQ')" class="option-btn-base p-3 bg-surface-container-low border border-outline-variant/30 rounded-xl text-center hover:border-primary active:scale-95 transition-all">
+                            <p class="font-bold text-xs">Butter Naan</p>
+                            <p class="text-[10px] text-primary font-bold mt-1">+₹25</p>
+                        </button>
+                        <button onclick="selectOption('base', 'Laccha Paratha', 30, 'https://lh3.googleusercontent.com/aida-public/AB6AXuDmbuF-ZaL8ZHLgNzsNZG8Hpv1aEsjsKOZgR5qqStct5s048b77HTMAapM-TR_K4p9zjroTPbLT9KgxLsHTBcGrbdJpzjYVGTmCDbjNruRACQ_NAguW-pkKPvqS6XCEsvdlrzletfM-aIp9BEtZOqKsDEgI0s_qXz5XlB0T092pFBzri4BnAXH6fR2Lhec5rDwtfCSAae5_Gq4D1-XE5iNOn7K0PI4rwU6FYmtarImKnwI-Cf4vUxtRbwaeIeyXt38btHX_ayPHaQ')" class="option-btn-base p-3 bg-surface-container-low border border-outline-variant/30 rounded-xl text-center hover:border-primary active:scale-95 transition-all">
+                            <p class="font-bold text-xs">Laccha Paratha</p>
+                            <p class="text-[10px] text-primary font-bold mt-1">+₹30</p>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Option Group 2: Main Curry 1 -->
+                <div>
+                    <h3 class="font-headline-md text-lg text-primary mb-3">2. Select Curry 1</h3>
+                    <div class="grid grid-cols-2 gap-2">
+                        <button onclick="selectOption('main1', 'Paneer Butter Masala', 0, 'https://lh3.googleusercontent.com/aida-public/AB6AXuDmbuF-ZaL8ZHLgNzsNZG8Hpv1aEsjsKOZgR5qqStct5s048b77HTMAapM-TR_K4p9zjroTPbLT9KgxLsHTBcGrbdJpzjYVGTmCDbjNruRACQ_NAguW-pkKPvqS6XCEsvdlrzletfM-aIp9BEtZOqKsDEgI0s_qXz5XlB0T092pFBzri4BnAXH6fR2Lhec5rDwtfCSAae5_Gq4D1-XE5iNOn7K0PI4rwU6FYmtarImKnwI-Cf4vUxtRbwaeIeyXt38btHX_ayPHaQ')" class="option-btn-main1 p-3 bg-surface-container-low border border-outline-variant/30 rounded-xl text-center hover:border-primary active:scale-95 transition-all flex items-center justify-between">
+                            <span class="font-bold text-xs">Paneer Butter Masala</span>
+                            <span class="text-[10px] text-on-surface-variant font-medium">Included</span>
+                        </button>
+                        <button onclick="selectOption('main1', 'Royal Kaju Curry', 40, 'https://lh3.googleusercontent.com/aida-public/AB6AXuDmbuF-ZaL8ZHLgNzsNZG8Hpv1aEsjsKOZgR5qqStct5s048b77HTMAapM-TR_K4p9zjroTPbLT9KgxLsHTBcGrbdJpzjYVGTmCDbjNruRACQ_NAguW-pkKPvqS6XCEsvdlrzletfM-aIp9BEtZOqKsDEgI0s_qXz5XlB0T092pFBzri4BnAXH6fR2Lhec5rDwtfCSAae5_Gq4D1-XE5iNOn7K0PI4rwU6FYmtarImKnwI-Cf4vUxtRbwaeIeyXt38btHX_ayPHaQ')" class="option-btn-main1 p-3 bg-surface-container-low border border-outline-variant/30 rounded-xl text-center hover:border-primary active:scale-95 transition-all flex items-center justify-between">
+                            <span class="font-bold text-xs">Royal Kaju Curry</span>
+                            <span class="text-[10px] text-primary font-bold">+₹40</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Option Group 3: Main Curry 2 -->
+                <div>
+                    <h3 class="font-headline-md text-lg text-primary mb-3">3. Select Curry 2</h3>
+                    <div class="grid grid-cols-2 gap-2">
+                        <button onclick="selectOption('main2', 'Slow-cooked Dal Makhani', 0, 'https://lh3.googleusercontent.com/aida-public/AB6AXuDmbuF-ZaL8ZHLgNzsNZG8Hpv1aEsjsKOZgR5qqStct5s048b77HTMAapM-TR_K4p9zjroTPbLT9KgxLsHTBcGrbdJpzjYVGTmCDbjNruRACQ_NAguW-pkKPvqS6XCEsvdlrzletfM-aIp9BEtZOqKsDEgI0s_qXz5XlB0T092pFBzri4BnAXH6fR2Lhec5rDwtfCSAae5_Gq4D1-XE5iNOn7K0PI4rwU6FYmtarImKnwI-Cf4vUxtRbwaeIeyXt38btHX_ayPHaQ')" class="option-btn-main2 p-3 bg-surface-container-low border border-outline-variant/30 rounded-xl text-center hover:border-primary active:scale-95 transition-all flex items-center justify-between">
+                            <span class="font-bold text-xs">Slow-cooked Dal Makhani</span>
+                            <span class="text-[10px] text-on-surface-variant font-medium">Included</span>
+                        </button>
+                        <button onclick="selectOption('main2', 'Heritage Chana Masala', 0, 'https://lh3.googleusercontent.com/aida-public/AB6AXuDmbuF-ZaL8ZHLgNzsNZG8Hpv1aEsjsKOZgR5qqStct5s048b77HTMAapM-TR_K4p9zjroTPbLT9KgxLsHTBcGrbdJpzjYVGTmCDbjNruRACQ_NAguW-pkKPvqS6XCEsvdlrzletfM-aIp9BEtZOqKsDEgI0s_qXz5XlB0T092pFBzri4BnAXH6fR2Lhec5rDwtfCSAae5_Gq4D1-XE5iNOn7K0PI4rwU6FYmtarImKnwI-Cf4vUxtRbwaeIeyXt38btHX_ayPHaQ')" class="option-btn-main2 p-3 bg-surface-container-low border border-outline-variant/30 rounded-xl text-center hover:border-primary active:scale-95 transition-all flex items-center justify-between">
+                            <span class="font-bold text-xs">Heritage Chana Masala</span>
+                            <span class="text-[10px] text-on-surface-variant font-medium">Included</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Option Group 4: Sides -->
+                <div>
+                    <h3 class="font-headline-md text-lg text-primary mb-3">4. Select Side</h3>
+                    <div class="grid grid-cols-2 gap-2">
+                        <button onclick="selectOption('side', 'Garlic Raita', 0, 'https://lh3.googleusercontent.com/aida-public/AB6AXuDmbuF-ZaL8ZHLgNzsNZG8Hpv1aEsjsKOZgR5qqStct5s048b77HTMAapM-TR_K4p9zjroTPbLT9KgxLsHTBcGrbdJpzjYVGTmCDbjNruRACQ_NAguW-pkKPvqS6XCEsvdlrzletfM-aIp9BEtZOqKsDEgI0s_qXz5XlB0T092pFBzri4BnAXH6fR2Lhec5rDwtfCSAae5_Gq4D1-XE5iNOn7K0PI4rwU6FYmtarImKnwI-Cf4vUxtRbwaeIeyXt38btHX_ayPHaQ')" class="option-btn-side p-3 bg-surface-container-low border border-outline-variant/30 rounded-xl text-center hover:border-primary active:scale-95 transition-all flex items-center justify-between">
+                            <span class="font-bold text-xs">Garlic Veg Raita</span>
+                            <span class="text-[10px] text-on-surface-variant font-medium">Included</span>
+                        </button>
+                        <button onclick="selectOption('side', 'Spiced Papad & Chutney', 10, 'https://lh3.googleusercontent.com/aida-public/AB6AXuBC1nmGi4HbaJxdwDVTG3quVd1uauHGU0RZ6ADCfT1i1WUNsstTORKgupT1i8xMwMJXAiXZbqXuez9EEmclgKGLA6zPXuTnEVwVLr4o6hB26Mu4VVQb1ci8B8ratENS0qj_jSNx9HYpw81oOU0sJB_EleTUmNkEUsisbJGBVy9DfWD256gh7GuLZWhC4VzaFR9shVvAIui3rLELA0tZ5efFbgnuuhu3Gna_rWjVV0inAW52Z8ZsFVZn9T-RkYYEGHsnvAb16ZnzMg')" class="option-btn-side p-3 bg-surface-container-low border border-outline-variant/30 rounded-xl text-center hover:border-primary active:scale-95 transition-all flex items-center justify-between">
+                            <span class="font-bold text-xs">Samosa & Papad</span>
+                            <span class="text-[10px] text-primary font-bold">+₹10</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Option Group 5: Desserts -->
+                <div>
+                    <h3 class="font-headline-md text-lg text-primary mb-3">5. Select Sweet Finale</h3>
+                    <div class="grid grid-cols-2 gap-2">
+                        <button onclick="selectOption('dessert', 'Saffron Gulab Jamun', 0, 'https://lh3.googleusercontent.com/aida-public/AB6AXuBkKUJ76gZKSNtPXxJX6IqOfanpFWIP-XeF48C_SJiQCBBb9eNYBpNllDcGmS0vwaXLepUWnU7J1FO5pG9KJisMV_bXRn00q9tbyb7rpnQHDUA5nJsz9XNars1glJ7XZPaVD9elIMRN7hAS8H2HAIsUdbei8Bbp39FUwRDsoe3GbAdGE_Evnf781cOMNh_iBJCQUaPmBdyrjimqIpYY1rkkH4LPSIkLAsG619qm34KyNzzlwdzmnQVFh-NXbi1kqGzA85idUlFOcg')" class="option-btn-dessert p-3 bg-surface-container-low border border-outline-variant/30 rounded-xl text-center hover:border-primary active:scale-95 transition-all flex items-center justify-between">
+                            <span class="font-bold text-xs">Gulab Jamun</span>
+                            <span class="text-[10px] text-on-surface-variant font-medium">Included</span>
+                        </button>
+                        <button onclick="selectOption('dessert', 'Alphonso Mango Kulfi', 20, 'https://lh3.googleusercontent.com/aida-public/AB6AXuBRYjiqbyGNx8K9LwIww4HnLlwV2QTN_qNc2ZgnlOzIuT1OlvgACkRXfrQE3tplSmvE6eE2t26kiVxJVSF-047bbuZAKBa4OMh9-Ks_lS8-mmBiOCIrlFj2zuxW1-EVe3vO9c1U7N81KRvpQdAfJEcJInEa5264UORxOAtzYHgRkrr-T9osdhGFSE0LByApoFDrr3dFwbciv0e_2mMCITO_ODPZEKrj-QWLg0WPydK6czaC3eDrW3rgBLs1bP9XMS_S5NiUsF2Q9w')" class="option-btn-dessert p-3 bg-surface-container-low border border-outline-variant/30 rounded-xl text-center hover:border-primary active:scale-95 transition-all flex items-center justify-between">
+                            <span class="font-bold text-xs">Mango Kulfi</span>
+                            <span class="text-[10px] text-primary font-bold">+₹20</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Floating Price & Add to Cart Panel -->
+        <div class="fixed bottom-0 left-0 w-full max-w-md bg-white border-t border-orange-100 px-6 py-4 flex flex-col gap-3 shadow-[0_-8px_20px_rgba(0,0,0,0.05)] z-40">
+            <div class="flex justify-between items-center">
+                <div>
+                    <p class="text-xs text-on-surface-variant uppercase font-bold tracking-wider">Your Customized Thali</p>
+                    <p id="thali-summary" class="text-xs text-primary truncate max-w-[200px] mt-0.5">Please customize...</p>
+                </div>
+                <p id="total-price" class="font-headline-md text-2xl font-bold text-primary">₹299</p>
+            </div>
+            <button id="add-to-cart-btn" onclick="addCustomThaliToCart()" class="w-full h-14 bg-primary text-white rounded-xl font-label-md text-label-md flex items-center justify-center gap-2 active:scale-[0.98] transition-all hover:bg-spice-red shadow-lg cursor-pointer">
+                <span class="material-symbols-outlined">add_shopping_cart</span>
+                Add to Cart
+            </button>
+        </div>
+    </div>
+
+    <!-- Inject shared cart logic -->
+    <script src="../cart.js"></script>
+    <script>
+        const selections = {
+            base: { name: '', price: 0, img: '' },
+            main1: { name: '', price: 0, img: '' },
+            main2: { name: '', price: 0, img: '' },
+            side: { name: '', price: 0, img: '' },
+            dessert: { name: '', price: 0, img: '' }
+        };
+        const BASE_PRICE = 299;
+
+        function selectOption(category, name, price, img) {
+            selections[category].name = name;
+            selections[category].price = price;
+            selections[category].img = img;
+
+            // Highlight chosen button
+            const buttons = document.querySelectorAll(`.option-btn-${category}`);
+            buttons.forEach(btn => {
+                const text = btn.innerText || btn.querySelector('span').innerText;
+                if (text.includes(name)) {
+                    btn.classList.remove('bg-surface-container-low', 'border-outline-variant/30');
+                    btn.classList.add('bg-secondary-container/20', 'border-primary', 'border-2');
+                } else {
+                    btn.classList.remove('bg-secondary-container/20', 'border-primary', 'border-2');
+                    btn.classList.add('bg-surface-container-low', 'border-outline-variant/30');
+                }
+            });
+
+            // Update slot visual
+            const slot = document.getElementById(`slot-${category}`);
+            if (slot) {
+                slot.innerHTML = `<img src="${img}" class="w-full h-full object-cover" />`;
+                slot.classList.add('bowl-filled');
+            }
+
+            calculateTotal();
+        }
+
+        function calculateTotal() {
+            let extra = 0;
+            const items = [];
+            for (const cat in selections) {
+                if (selections[cat].name) {
+                    extra += selections[cat].price;
+                    items.push(selections[cat].name);
+                }
+            }
+            const total = BASE_PRICE + extra;
+            document.getElementById('total-price').innerText = `₹${total}`;
+            document.getElementById('thali-summary').innerText = items.join(', ') || 'Please customize...';
+        }
+
+        function addCustomThaliToCart() {
+            // Verify everything selected
+            for (const cat in selections) {
+                if (!selections[cat].name) {
+                    alert(`Please select your ${cat === 'main1' ? 'Curry 1' : cat === 'main2' ? 'Curry 2' : cat}!`);
+                    return;
+                }
+            }
+
+            let extra = 0;
+            const details = [];
+            for (const cat in selections) {
+                extra += selections[cat].price;
+                details.push(selections[cat].name);
+            }
+            const finalPrice = BASE_PRICE + extra;
+
+            addToCart({
+                name: 'Customized Heritage Thali',
+                price: finalPrice,
+                quantity: 1,
+                image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDmbuF-ZaL8ZHLgNzsNZG8Hpv1aEsjsKOZgR5qqStct5s048b77HTMAapM-TR_K4p9zjroTPbLT9KgxLsHTBcGrbdJpzjYVGTmCDbjNruRACQ_NAguW-pkKPvqS6XCEsvdlrzletfM-aIp9BEtZOqKsDEgI0s_qXz5XlB0T092pFBzri4BnAXH6fR2Lhec5rDwtfCSAae5_Gq4D1-XE5iNOn7K0PI4rwU6FYmtarImKnwI-Cf4vUxtRbwaeIeyXt38btHX_ayPHaQ',
+                desc: `Custom: ${details.join(' + ')}`
+            });
+
+            // Visual feedback
+            const btn = document.getElementById('add-to-cart-btn');
+            const originalHTML = btn.innerHTML;
+            btn.innerHTML = '<span class="material-symbols-outlined">check</span> Thali Added!';
+            btn.classList.add('bg-green-700');
+            btn.classList.remove('bg-primary');
+
+            setTimeout(() => {
+                btn.innerHTML = originalHTML;
+                btn.classList.remove('bg-green-700');
+                btn.classList.add('bg-primary');
+                // Redirect to checkout to proceed with order
+                window.location.href = '../akshaypatra_mobile_checkout/code.html';
+            }, 1000);
+        }
+
+        // Initialize with default selections
+        document.addEventListener('DOMContentLoaded', () => {
+            selectOption('base', 'Saffron Basmati', 0, 'https://lh3.googleusercontent.com/aida-public/AB6AXuDmbuF-ZaL8ZHLgNzsNZG8Hpv1aEsjsKOZgR5qqStct5s048b77HTMAapM-TR_K4p9zjroTPbLT9KgxLsHTBcGrbdJpzjYVGTmCDbjNruRACQ_NAguW-pkKPvqS6XCEsvdlrzletfM-aIp9BEtZOqKsDEgI0s_qXz5XlB0T092pFBzri4BnAXH6fR2Lhec5rDwtfCSAae5_Gq4D1-XE5iNOn7K0PI4rwU6FYmtarImKnwI-Cf4vUxtRbwaeIeyXt38btHX_ayPHaQ');
+            selectOption('main1', 'Paneer Butter Masala', 0, 'https://lh3.googleusercontent.com/aida-public/AB6AXuDmbuF-ZaL8ZHLgNzsNZG8Hpv1aEsjsKOZgR5qqStct5s048b77HTMAapM-TR_K4p9zjroTPbLT9KgxLsHTBcGrbdJpzjYVGTmCDbjNruRACQ_NAguW-pkKPvqS6XCEsvdlrzletfM-aIp9BEtZOqKsDEgI0s_qXz5XlB0T092pFBzri4BnAXH6fR2Lhec5rDwtfCSAae5_Gq4D1-XE5iNOn7K0PI4rwU6FYmtarImKnwI-Cf4vUxtRbwaeIeyXt38btHX_ayPHaQ');
+            selectOption('main2', 'Slow-cooked Dal Makhani', 0, 'https://lh3.googleusercontent.com/aida-public/AB6AXuDmbuF-ZaL8ZHLgNzsNZG8Hpv1aEsjsKOZgR5qqStct5s048b77HTMAapM-TR_K4p9zjroTPbLT9KgxLsHTBcGrbdJpzjYVGTmCDbjNruRACQ_NAguW-pkKPvqS6XCEsvdlrzletfM-aIp9BEtZOqKsDEgI0s_qXz5XlB0T092pFBzri4BnAXH6fR2Lhec5rDwtfCSAae5_Gq4D1-XE5iNOn7K0PI4rwU6FYmtarImKnwI-Cf4vUxtRbwaeIeyXt38btHX_ayPHaQ');
+            selectOption('side', 'Garlic Raita', 0, 'https://lh3.googleusercontent.com/aida-public/AB6AXuDmbuF-ZaL8ZHLgNzsNZG8Hpv1aEsjsKOZgR5qqStct5s048b77HTMAapM-TR_K4p9zjroTPbLT9KgxLsHTBcGrbdJpzjYVGTmCDbjNruRACQ_NAguW-pkKPvqS6XCEsvdlrzletfM-aIp9BEtZOqKsDEgI0s_qXz5XlB0T092pFBzri4BnAXH6fR2Lhec5rDwtfCSAae5_Gq4D1-XE5iNOn7K0PI4rwU6FYmtarImKnwI-Cf4vUxtRbwaeIeyXt38btHX_ayPHaQ');
+            selectOption('dessert', 'Saffron Gulab Jamun', 0, 'https://lh3.googleusercontent.com/aida-public/AB6AXuBkKUJ76gZKSNtPXxJX6IqOfanpFWIP-XeF48C_SJiQCBBb9eNYBpNllDcGmS0vwaXLepUWnU7J1FO5pG9KJisMV_bXRn00q9tbyb7rpnQHDUA5nJsz9XNars1glJ7XZPaVD9elIMRN7hAS8H2HAIsUdbei8Bbp39FUwRDsoe3GbAdGE_Evnf781cOMNh_iBJCQUaPmBdyrjimqIpYY1rkkH4LPSIkLAsG619qm34KyNzzlwdzmnQVFh-NXbi1kqGzA85idUlFOcg');
+        });
+    </script>
+</body>
+</html>
