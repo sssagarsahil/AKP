@@ -649,7 +649,7 @@ async function executeOrderPlacement() {
             closePaymentModal();
             
             // Notify Admin via WhatsApp pop-up
-            const adminPhone = "919876543210";
+            const adminPhone = "919226759879";
             const adminMsg = `New Order Placed! ${data.order.orderNumber}. Start preparing now.`;
             window.open(`https://api.whatsapp.com/send?phone=${adminPhone}&text=${encodeURIComponent(adminMsg)}`, '_blank');
             
@@ -706,7 +706,7 @@ function runStaticFallback(cart, paymentMethod) {
     closePaymentModal();
     
     // Notify Admin via WhatsApp pop-up
-    const adminPhone = "919876543210";
+    const adminPhone = "919226759879";
     const adminMsg = `New Order Placed! ${mockOrderNum}. Start preparing now.`;
     window.open(`https://api.whatsapp.com/send?phone=${adminPhone}&text=${encodeURIComponent(adminMsg)}`, '_blank');
     
