@@ -72,6 +72,16 @@ const menuItems = [
         spiceLevel: 'spicy',
         weekendOnly: true,
     },
+    {
+        name: 'Thalipeeth',
+        price: 120,
+        description: 'Traditional Maharashtrian multigrain spiced flatbread made with Bhajani, served with fresh white butter, curd, and spicy thecha.',
+        image: '/akshaypatra_logo/thalipeeth.jpg',
+        category: 'weekend-specials',
+        tags: ['veg'],
+        spiceLevel: 'medium',
+        weekendOnly: true,
+    },
     // ===== Sweet Finales =====
     {
         name: 'Saffron Gulab Jamun',
