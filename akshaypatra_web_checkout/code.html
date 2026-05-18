@@ -311,13 +311,11 @@
 </div>
 </div>
 </aside>
-</main>
-
-<!-- Payment Modal Overlay -->
-<div id="payment-modal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-60 flex items-center justify-center hidden opacity-0 transition-opacity duration-300 pb-40 md:pb-12">
-    <div class="bg-surface-container-lowest border border-outline-variant rounded-2xl w-full max-w-md overflow-hidden shadow-2xl transform scale-95 transition-transform duration-300 mx-4">
+</main><!-- Payment Modal Overlay -->
+<div id="payment-modal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-[100] flex items-center justify-center hidden opacity-0 transition-opacity duration-300 p-4">
+    <div class="bg-surface-container-lowest border border-outline-variant rounded-2xl w-full max-w-md flex flex-col max-h-[85vh] overflow-hidden shadow-2xl transform scale-95 transition-transform duration-300 mx-4">
         <!-- Modal Header -->
-        <div class="bg-spice-red text-white p-md flex items-center justify-between">
+        <div class="bg-spice-red text-white p-md flex items-center justify-between flex-shrink-0">
             <h3 id="payment-modal-title" class="font-headline-md text-headline-md flex items-center gap-2">
                 <span class="material-symbols-outlined">payments</span>
                 Complete Payment
@@ -328,7 +326,7 @@
         </div>
         
         <!-- Modal Content (Dynamic based on payment method) -->
-        <div class="p-md space-y-md">
+        <div class="p-md space-y-md overflow-y-auto flex-1">
             <!-- UPI QR Code View -->
             <div id="upi-payment-view" class="hidden flex flex-col items-center text-center space-y-md py-4">
                 <p class="font-body-md text-body-md text-on-surface-variant">Please scan this secure QR code using any UPI app to pay <span id="upi-modal-amount" class="font-bold text-primary">₹0.00</span></p>
@@ -398,7 +396,7 @@
         </div>
         
         <!-- Modal Footer Actions -->
-        <div id="payment-modal-footer" class="bg-surface-container-low p-md border-t border-outline-variant flex gap-md">
+        <div id="payment-modal-footer" class="bg-surface-container-low p-md border-t border-outline-variant flex gap-md flex-shrink-0">
             <button onclick="closePaymentModal()" class="flex-1 h-12 rounded-lg border border-outline text-on-surface font-label-md text-label-md hover:bg-surface-container transition-colors">
                 Cancel
             </button>
