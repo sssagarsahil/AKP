@@ -38,7 +38,8 @@ app.use(express.static(path.join(__dirname, '..')));
 
 // Fallback — serve project index
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, '..', 'akshaypatra_project_index_index.html'));
+    // Serve the expanded web menu as the landing page for every visitor
+    res.sendFile(path.join(__dirname, '..', 'akshaypatra_web_menu_expanded', 'code.html'));
 });
 
 app.listen(PORT, () => {
