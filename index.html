@@ -1,6 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script>
+        // Check admin authorization via URL query parameter or localStorage session
+        const urlParams = new URLSearchParams(window.location.search);
+        const isAdminQuery = urlParams.get('admin') === 'true';
+        const isAdminSession = localStorage.getItem('akshaypatra_admin_auth') === 'true';
+
+        if (isAdminQuery) {
+            localStorage.setItem('akshaypatra_admin_auth', 'true');
+        }
+
+        if (!isAdminQuery && !isAdminSession) {
+            // Check device type to route customers appropriately
+            const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth < 768;
+            if (isMobile) {
+                window.location.replace('akshaypatra_mobile_landing_page/code.html');
+            } else {
+                window.location.replace('akshaypatra_web_landing_page/code.html');
+            }
+        }
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Akshaypatra - Heritage Cloud Kitchen</title>
