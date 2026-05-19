@@ -83,8 +83,9 @@ router.post('/', optionalAuth, async (req, res) => {
         if (process.env.TWILIO_ACCOUNT_SID && process.env.TWILIO_AUTH_TOKEN && process.env.TWILIO_PHONE_NUMBER) {
             try {
                 const twilio = require('twilio')(process.env.TWILIO_ACCOUNT_SID, process.env.TWILIO_AUTH_TOKEN);
+                const itemsList = order.items.map(item => `${item.quantity}x ${item.name}`).join('\n');
                 await twilio.messages.create({
-                    body: `🍛 Akshaypatra: New Order Received!\nID: ${order.orderNumber}\nTotal: ₹${order.totalAmount}\nPlease start preparing now.`,
+                    body: `🍛 Akshaypatra: New Order!\nID: ${order.orderNumber}\n\nItems:\n${itemsList}\n\nTotal: ₹${order.totalAmount}\nPlease start preparing!`,
                     from: process.env.TWILIO_PHONE_NUMBER,
                     to: '+919226759879' // Admin phone number
                 });
