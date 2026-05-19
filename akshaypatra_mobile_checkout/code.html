@@ -623,7 +623,7 @@ async function executeOrderPlacement() {
     const address = document.getElementById('delivery-address').value.trim();
 
     try {
-        const response = await fetch('/api/orders', {
+        const response = await fetch('http://127.0.0.1:8082/api/orders', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
