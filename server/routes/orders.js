@@ -84,14 +84,17 @@ router.post('/', optionalAuth, async (req, res) => {
             try {
                 const twilio = require('twilio')(process.env.TWILIO_ACCOUNT_SID, process.env.TWILIO_AUTH_TOKEN);
                 const itemsList = order.items.map(item => `${item.quantity}x ${item.name}`).join('\n');
-                await twilio.messages.create({
+                twilio.messages.create({
                     body: `🍛 Akshaypatra: New Order!\nID: ${order.orderNumber}\n\nItems:\n${itemsList}\n\nTotal: ₹${order.totalAmount}\nPlease start preparing!`,
                     from: process.env.TWILIO_PHONE_NUMBER,
                     to: '+919226759879' // Admin phone number
+                }).then(() => {
+                    console.log(`[Twilio] SMS successfully sent to admin for order ${order.orderNumber}`);
+                }).catch(smsError => {
+                    console.error(`[Twilio] Failed to send SMS for order ${order.orderNumber}:`, smsError.message);
                 });
-                console.log(`[Twilio] SMS successfully sent to admin for order ${order.orderNumber}`);
             } catch (smsError) {
-                console.error(`[Twilio] Failed to send SMS for order ${order.orderNumber}:`, smsError.message);
+                console.error(`[Twilio] Failed to initialize Twilio or send SMS for order ${order.orderNumber}:`, smsError.message);
             }
         } else {
             console.log(`[Twilio] Skipping SMS notification for ${order.orderNumber} (Missing Twilio .env credentials)`);
