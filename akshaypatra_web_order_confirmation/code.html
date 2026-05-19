@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Order Confirmed | Akshaypatra</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;600;700&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+    .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    @keyframes checkmark-pop {
+        0% { transform: scale(0); opacity: 0; }
+        50% { transform: scale(1.2); }
+        100% { transform: scale(1); opacity: 1; }
+    }
+    @keyframes fade-up {
+        0% { transform: translateY(30px); opacity: 0; }
+        100% { transform: translateY(0); opacity: 1; }
+    }
+    @keyframes confetti-fall {
+        0% { transform: translateY(-100px) rotate(0deg); opacity: 1; }
+        100% { transform: translateY(600px) rotate(720deg); opacity: 0; }
+    }
+    .animate-checkmark { animation: checkmark-pop 0.6s ease-out 0.3s both; }
+    .animate-fade-up-1 { animation: fade-up 0.5s ease-out 0.6s both; }
+    .animate-fade-up-2 { animation: fade-up 0.5s ease-out 0.8s both; }
+    .animate-fade-up-3 { animation: fade-up 0.5s ease-out 1.0s both; }
+    .animate-fade-up-4 { animation: fade-up 0.5s ease-out 1.2s both; }
+    .animate-fade-up-5 { animation: fade-up 0.5s ease-out 1.4s both; }
+    .confetti-piece {
+        position: fixed;
+        top: -20px;
+        width: 10px;
+        height: 10px;
+        border-radius: 2px;
+        animation: confetti-fall linear forwards;
+        z: 100;
+    }
+    .pulse-ring {
+        animation: pulse-ring 1.5s ease-out infinite;
+    }
+    @keyframes pulse-ring {
+        0% { box-shadow: 0 0 0 0 rgba(169, 55, 2, 0.3); }
+        100% { box-shadow: 0 0 0 30px rgba(169, 55, 2, 0); }
+    }
+</style>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+                  "tertiary-fixed-dim": "#ffb4a3",
+                  "deep-earth": "#31312c",
+                  "on-secondary-fixed": "#271900",
+                  "tertiary": "#7d2611",
+                  "primary-fixed": "#ffdbcf",
+                  "on-surface-variant": "#58423a",
+                  "on-secondary-fixed-variant": "#5f4100",
+                  "surface-container-high": "#ebe8e1",
+                  "on-error-container": "#93000a",
+                  "surface-container-highest": "#e5e2db",
+                  "surface-container-low": "#f6f3ec",
+                  "on-tertiary-fixed": "#3d0700",
+                  "background": "#fcf9f2",
+                  "surface-variant": "#e5e2db",
+                  "inverse-on-surface": "#f3f0ea",
+                  "surface": "#fcf9f2",
+                  "secondary-fixed-dim": "#f1be65",
+                  "primary": "#7e2600",
+                  "primary-container": "#a63500",
+                  "tertiary-container": "#9d3d26",
+                  "primary-fixed-dim": "#ffb59c",
+                  "surface-cream": "#fcf9f2",
+                  "on-secondary": "#ffffff",
+                  "on-surface": "#1c1c18",
+                  "on-background": "#1c1c18",
+                  "tertiary-fixed": "#ffdad2",
+                  "surface-container": "#f0eee7",
+                  "error-container": "#ffdad6",
+                  "spice-red": "#be543c",
+                  "on-primary-fixed-variant": "#822800",
+                  "outline-variant": "#e0c0b5",
+                  "outline": "#8c7168",
+                  "secondary-fixed": "#ffdeaa",
+                  "accent-gold": "#feb71a",
+                  "on-primary-container": "#ffc9b7",
+                  "on-primary": "#ffffff",
+                  "surface-bright": "#fcf9f2",
+                  "on-secondary-container": "#775300",
+                  "inverse-primary": "#ffb59c",
+                  "secondary-container": "#fec96f",
+                  "surface-tint": "#a93702",
+                  "surface-dim": "#dcdad3",
+                  "error": "#ba1a1a",
+                  "on-tertiary-fixed-variant": "#812913",
+                  "secondary": "#7d5700",
+                  "on-tertiary": "#ffffff",
+                  "on-tertiary-container": "#ffc8bb",
+                  "on-primary-fixed": "#380c00",
+                  "surface-container-lowest": "#ffffff",
+                  "inverse-surface": "#31312c",
+                  "on-error": "#ffffff"
+          },
+          "borderRadius": {
+                  "DEFAULT": "0.25rem",
+                  "lg": "0.5rem",
+                  "xl": "0.75rem",
+                  "full": "9999px"
+          },
+          "spacing": {
+                  "margin-mobile": "16px",
+                  "xl": "64px",
+                  "base": "8px",
+                  "md": "24px",
+                  "lg": "40px",
+                  "sm": "12px",
+                  "margin-desktop": "80px",
+                  "gutter": "16px",
+                  "xs": "4px"
+          },
+          "fontFamily": {
+                  "headline-xl": ["Noto Serif"],
+                  "headline-md": ["Noto Serif"],
+                  "body-md": ["Plus Jakarta Sans"],
+                  "label-sm": ["Plus Jakarta Sans"],
+                  "label-md": ["Plus Jakarta Sans"],
+                  "headline-lg": ["Noto Serif"],
+                  "body-lg": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+                  "headline-xl": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                  "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                  "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                  "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "700"}],
+                  "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+                  "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                  "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
+          }
+        },
+      },
+    }
+</script>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen">
+
+<!-- Confetti Container -->
+<div id="confetti-container" class="fixed inset-0 pointer-events-none z-50 overflow-hidden"></div>
+
+<!-- TopAppBar -->
+<header class="bg-surface-bright shadow-sm w-full top-0 sticky z-40 flex justify-between items-center h-16 px-margin-mobile md:px-margin-desktop">
+    <div class="flex items-center gap-2">
+        <a href="../akshaypatra_web_landing_page/code.html" class="flex items-center gap-2 no-underline">
+            <h1 class="font-headline-lg text-headline-lg text-spice-red">Akshaypatra</h1>
+        </a>
+    </div>
+    <div class="flex items-center gap-4">
+        <span class="font-label-md text-label-md hidden md:block text-on-surface-variant">Wagholi (Pune)</span>
+    </div>
+</header>
+
+<main class="max-w-3xl mx-auto px-margin-mobile md:px-margin-desktop py-xl flex flex-col items-center text-center">
+
+    <!-- Checkmark Circle -->
+    <div class="animate-checkmark mb-lg">
+        <div class="w-28 h-28 rounded-full bg-green-100 flex items-center justify-center pulse-ring">
+            <div class="w-20 h-20 rounded-full bg-green-500 flex items-center justify-center shadow-lg">
+                <span class="material-symbols-outlined text-white text-[48px]" style="font-variation-settings: 'FILL' 1, 'wght' 700;">check</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Thank You Heading -->
+    <div class="animate-fade-up-1 mb-md">
+        <h1 class="font-headline-xl text-headline-xl text-primary mb-xs">Dhanyavad!</h1>
+        <p class="font-body-lg text-body-lg text-on-surface-variant">Your order has been placed successfully.</p>
+    </div>
+
+    <!-- Order Details Card -->
+    <div class="animate-fade-up-2 w-full bg-surface-container-lowest rounded-2xl border border-outline-variant shadow-lg overflow-hidden mb-lg">
+        <!-- Header -->
+        <div class="bg-primary text-on-primary px-md py-4 flex justify-between items-center">
+            <div class="text-left">
+                <p class="font-label-sm text-label-sm opacity-80">Order Number</p>
+                <p id="order-number" class="font-headline-md text-headline-md">#AKP-00000</p>
+            </div>
+            <div class="text-right">
+                <p class="font-label-sm text-label-sm opacity-80">Estimated Delivery</p>
+                <p class="font-headline-md text-headline-md flex items-center gap-1">
+                    <span class="material-symbols-outlined text-[20px]">schedule</span>
+                    35-45 min
+                </p>
+            </div>
+        </div>
+
+        <!-- Items Summary -->
+        <div class="p-md">
+            <div id="confirmation-items" class="space-y-sm mb-md">
+                <!-- Dynamic items will be injected here -->
+            </div>
+
+            <hr class="border-outline-variant mb-md"/>
+
+            <!-- Totals -->
+            <div class="space-y-base font-body-md text-body-md text-on-surface-variant">
+                <div class="flex justify-between">
+                    <span>Item Total</span>
+                    <span id="conf-item-total" class="text-on-surface">₹0.00</span>
+                </div>
+                <div class="flex justify-between">
+                    <span>Delivery Fee</span>
+                    <span class="text-secondary font-bold">FREE</span>
+                </div>
+                <div class="flex justify-between">
+                    <span>Taxes & GST (5%)</span>
+                    <span id="conf-tax" class="text-on-surface">₹0.00</span>
+                </div>
+            </div>
+
+            <hr class="border-outline-variant my-md"/>
+
+            <div class="flex justify-between items-center">
+                <p class="font-headline-md text-headline-md text-on-surface">Total Paid</p>
+                <p id="conf-total" class="font-headline-md text-headline-md text-primary">₹0.00</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Payment Details -->
+    <div class="animate-fade-up-3 w-full bg-surface-container-low rounded-xl border border-outline-variant p-md mb-lg text-left">
+        <div class="flex items-center gap-2 mb-sm">
+            <span class="material-symbols-outlined text-spice-red">payments</span>
+            <p class="font-label-md text-label-md text-on-surface">Payment Details</p>
+        </div>
+        <div class="space-y-xs font-body-md text-body-md text-on-surface-variant">
+            <div class="flex justify-between items-center">
+                <span>Payment Mode:</span>
+                <span id="conf-payment-method" class="font-bold uppercase text-on-surface">UPI</span>
+            </div>
+            <div id="conf-txn-container" class="flex justify-between items-center hidden">
+                <span>Transaction ID:</span>
+                <span id="conf-txn-id" class="font-mono text-on-surface font-semibold text-[13px]"></span>
+            </div>
+            <div class="flex justify-between items-center">
+                <span>Payment Status:</span>
+                <span id="conf-payment-status" class="px-2 py-0.5 rounded text-[11px] font-bold"></span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Delivery Address -->
+    <div class="animate-fade-up-3 w-full bg-surface-container-low rounded-xl border border-outline-variant p-md mb-lg text-left">
+        <div class="flex items-center gap-2 mb-sm">
+            <span class="material-symbols-outlined text-spice-red" style="font-variation-settings: 'FILL' 1;">location_on</span>
+            <p class="font-label-md text-label-md text-on-surface">Delivering To</p>
+        </div>
+        <p id="conf-delivery-name" class="font-body-md text-body-md text-on-surface font-semibold">Rahul Deshmukh</p>
+        <p id="conf-delivery-address" class="font-body-md text-body-md text-on-surface-variant">Flat 402, Heritage Residency, Wagholi (Pune) Depot Road, Pune, Maharashtra 411038</p>
+        <p id="conf-delivery-phone" class="font-body-md text-body-md text-on-surface-variant mt-1 flex items-center gap-1 font-semibold">
+            <span class="material-symbols-outlined text-[16px]">phone</span> +91 98765 43210
+        </p>
+    </div>
+
+    <!-- Loyalty Points Earned -->
+    <div class="animate-fade-up-4 w-full bg-gradient-to-r from-amber-50 to-orange-50 rounded-xl border border-accent-gold/30 p-md mb-lg flex items-center justify-between">
+        <div class="flex items-center gap-3">
+            <div class="w-12 h-12 rounded-full bg-accent-gold/20 flex items-center justify-center">
+                <span class="material-symbols-outlined text-accent-gold text-[28px]" style="font-variation-settings: 'FILL' 1;">stars</span>
+            </div>
+            <div class="text-left">
+                <p class="font-label-md text-label-md text-on-surface">Dhanyavad Points Earned</p>
+                <p class="font-label-sm text-label-sm text-on-surface-variant">Redeem on your next order!</p>
+            </div>
+        </div>
+        <p id="conf-points" class="font-headline-lg text-headline-lg text-accent-gold">+0</p>
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="animate-fade-up-5 w-full flex flex-col sm:flex-row gap-md">
+        <a href="../akshaypatra_web_order_tracking/code.html" class="flex-1 h-14 bg-primary text-on-primary rounded-xl font-label-md text-label-md shadow-lg active:scale-[0.98] transition-transform flex items-center justify-center gap-2 no-underline hover:bg-spice-red">
+            <span class="material-symbols-outlined">local_shipping</span>
+            Track Your Order
+        </a>
+        <a href="../akshaypatra_web_menu_expanded/code.html" id="btn-back-menu" class="flex-1 h-14 border-2 border-primary text-primary rounded-xl font-label-md text-label-md active:scale-[0.98] transition-all flex items-center justify-center gap-2 no-underline hover:bg-primary hover:text-on-primary">
+            <span class="material-symbols-outlined">restaurant_menu</span>
+            Order Again
+        </a>
+    </div>
+
+</main>
+
+<!-- Footer -->
+<footer class="bg-surface-container-lowest mt-xl py-lg border-t border-outline-variant">
+    <div class="max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop flex flex-col md:flex-row justify-between items-center gap-md">
+        <div class="text-center md:text-left">
+            <p class="font-headline-md text-headline-md text-spice-red">Akshaypatra</p>
+            <p class="font-body-md text-body-md text-on-surface-variant">Connecting you to family recipes, one plate at a time.</p>
+        </div>
+        <p class="font-label-sm text-label-sm text-on-surface-variant">© 2023 Akshaypatra Wagholi (Pune)</p>
+    </div>
+</footer>
+
+<script src="../cart.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    // Generate random order number or use the last successful order's number
+    const lastOrderStr = localStorage.getItem('akshaypatra_last_order');
+    let orderDetails = null;
+
+    if (lastOrderStr) {
+        try {
+            orderDetails = JSON.parse(lastOrderStr);
+        } catch (e) {
+            console.error('Error parsing last order:', e);
+        }
+    }
+
+    const container = document.getElementById('confirmation-items');
+    const itemTotalEl = document.getElementById('conf-item-total');
+    const taxEl = document.getElementById('conf-tax');
+    const totalEl = document.getElementById('conf-total');
+    const pointsEl = document.getElementById('conf-points');
+    const orderNumberEl = document.getElementById('order-number');
+
+    if (orderDetails) {
+        // Display details from the actual placed order
+        orderNumberEl.innerText = orderDetails.orderNumber.startsWith('#') ? orderDetails.orderNumber : '#' + orderDetails.orderNumber;
+        
+        let html = '';
+        orderDetails.items.forEach(item => {
+            const lineTotal = item.price * item.quantity;
+            html += `
+            <div class="flex justify-between items-center">
+                <div class="flex items-center gap-sm">
+                    <div class="w-10 h-10 rounded-lg bg-surface-container overflow-hidden">
+                        <img src="${item.image || 'https://www.gstatic.com/labs-code/stitch/stitch-placeholder-300x300.svg'}" alt="${item.name}" class="w-full h-full object-cover"/>
+                    </div>
+                    <div class="text-left">
+                        <p class="font-body-md text-body-md font-semibold text-on-surface">${item.name} × ${item.quantity}</p>
+                    </div>
+                </div>
+                <p class="font-body-md text-body-md text-on-surface">₹${lineTotal.toFixed(2)}</p>
+            </div>
+            `;
+        });
+        container.innerHTML = html;
+        
+        itemTotalEl.innerText = '₹' + orderDetails.itemTotal.toFixed(2);
+        taxEl.innerText = '₹' + orderDetails.tax.toFixed(2);
+        totalEl.innerText = '₹' + orderDetails.totalAmount.toFixed(2);
+        pointsEl.innerText = '+' + orderDetails.loyaltyPointsEarned;
+        
+        // Populate Payment Details Card
+        const pmEl = document.getElementById('conf-payment-method');
+        const statusEl = document.getElementById('conf-payment-status');
+        const txnContainer = document.getElementById('conf-txn-container');
+        const txnIdEl = document.getElementById('conf-txn-id');
+        
+        if (pmEl) {
+            let pmLabel = 'UPI / Google Pay';
+            if (orderDetails.paymentMethod === 'card') pmLabel = 'Credit / Debit Card';
+            else if (orderDetails.paymentMethod === 'cod') pmLabel = 'Cash on Delivery';
+            pmEl.innerText = pmLabel;
+        }
+        
+        if (statusEl) {
+            const pStatus = orderDetails.paymentStatus || 'paid';
+            statusEl.innerText = pStatus.toUpperCase();
+            if (pStatus === 'paid') {
+                statusEl.className = "px-2 py-0.5 rounded text-[11px] font-bold bg-green-100 text-green-800";
+            } else if (pStatus === 'pending') {
+                statusEl.className = "px-2 py-0.5 rounded text-[11px] font-bold bg-amber-100 text-amber-800";
+            } else {
+                statusEl.className = "px-2 py-0.5 rounded text-[11px] font-bold bg-red-100 text-red-800";
+            }
+        }
+        
+        if (txnContainer && txnIdEl && orderDetails.transactionId) {
+            txnIdEl.innerText = orderDetails.transactionId;
+            txnContainer.classList.remove('hidden');
+        }
+
+        if (orderDetails.deliveryAddress) {
+            const dnEl = document.getElementById('conf-delivery-name');
+            const daEl = document.getElementById('conf-delivery-address');
+            const dpEl = document.getElementById('conf-delivery-phone');
+            if (dnEl && orderDetails.deliveryAddress.name) dnEl.innerText = orderDetails.deliveryAddress.name;
+            if (daEl && orderDetails.deliveryAddress.address) daEl.innerText = orderDetails.deliveryAddress.address;
+            if (dpEl && orderDetails.deliveryAddress.phone) {
+                dpEl.innerHTML = `<span class="material-symbols-outlined text-[16px]">phone</span> +91 ${orderDetails.deliveryAddress.phone}`;
+            }
+        }
+        
+        // Launch confetti!
+        launchConfetti();
+        return;
+    }
+
+    // Fallback to active cart if direct navigation occurred
+    const cart = getCart();
+
+    if (cart.length === 0) {
+        container.innerHTML = '<p class="text-on-surface-variant italic py-4">No active or past order details found.</p>';
+        return;
+    }
+
+    const orderNum = Math.floor(10000 + Math.random() * 90000);
+    orderNumberEl.innerText = '#AKP-' + orderNum;
+
+    let html = '';
+    let itemTotal = 0;
+
+    cart.forEach(item => {
+        const lineTotal = item.price * item.quantity;
+        itemTotal += lineTotal;
+
+        html += `
+        <div class="flex justify-between items-center">
+            <div class="flex items-center gap-sm">
+                <div class="w-10 h-10 rounded-lg bg-surface-container overflow-hidden">
+                    <img src="${item.image}" alt="${item.name}" class="w-full h-full object-cover"/>
+                </div>
+                <div class="text-left">
+                    <p class="font-body-md text-body-md font-semibold text-on-surface">${item.name} × ${item.quantity}</p>
+                </div>
+            </div>
+            <p class="font-body-md text-body-md text-on-surface">₹${lineTotal.toFixed(2)}</p>
+        </div>
+        `;
+    });
+
+    container.innerHTML = html;
+
+    const tax = itemTotal * 0.05;
+    const finalTotal = itemTotal + tax;
+    const points = Math.floor(itemTotal / 10);
+
+    itemTotalEl.innerText = '₹' + itemTotal.toFixed(2);
+    taxEl.innerText = '₹' + tax.toFixed(2);
+    totalEl.innerText = '₹' + finalTotal.toFixed(2);
+    pointsEl.innerText = '+' + points;
+
+    // Save to last order so it persists on reload
+    localStorage.setItem('akshaypatra_last_order', JSON.stringify({
+        orderNumber: 'AKP-' + orderNum,
+        items: cart,
+        itemTotal: itemTotal,
+        tax: tax,
+        totalAmount: finalTotal,
+        loyaltyPointsEarned: points
+    }));
+
+    // Clear cart after displaying confirmation
+    clearCart();
+
+    // Launch confetti!
+    launchConfetti();
+});
+
+function launchConfetti() {
+    const container = document.getElementById('confetti-container');
+    const colors = ['#be543c', '#feb71a', '#7e2600', '#fec96f', '#ffb59c', '#9d3d26', '#22c55e'];
+
+    for (let i = 0; i < 60; i++) {
+        const piece = document.createElement('div');
+        piece.className = 'confetti-piece';
+        piece.style.left = Math.random() * 100 + '%';
+        piece.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+        piece.style.width = (Math.random() * 8 + 5) + 'px';
+        piece.style.height = (Math.random() * 8 + 5) + 'px';
+        piece.style.animationDuration = (Math.random() * 2 + 2) + 's';
+        piece.style.animationDelay = (Math.random() * 1.5) + 's';
+        piece.style.borderRadius = Math.random() > 0.5 ? '50%' : '2px';
+        container.appendChild(piece);
+    }
+
+    // Clean up confetti after animation
+    setTimeout(() => {
+        container.innerHTML = '';
+    }, 5000);
+}
+</script>
+</body></html>

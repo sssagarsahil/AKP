@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@600;700&amp;family=Plus+Jakarta+Sans:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-tertiary": "#ffffff",
+                    "surface-variant": "#e5e2db",
+                    "error-container": "#ffdad6",
+                    "secondary-fixed": "#ffdeaa",
+                    "primary-fixed-dim": "#ffb59c",
+                    "on-secondary-container": "#775300",
+                    "inverse-primary": "#ffb59c",
+                    "on-primary-container": "#ffc9b7",
+                    "on-surface": "#1c1c18",
+                    "secondary": "#7d5700",
+                    "surface-tint": "#a93702",
+                    "surface-container": "#f0eee7",
+                    "outline": "#8c7168",
+                    "on-primary-fixed": "#380c00",
+                    "spice-red": "#be543c",
+                    "secondary-container": "#fec96f",
+                    "primary-container": "#a63500",
+                    "primary": "#7e2600",
+                    "secondary-fixed-dim": "#f1be65",
+                    "on-error": "#ffffff",
+                    "surface-container-highest": "#e5e2db",
+                    "surface-cream": "#fcf9f2",
+                    "on-tertiary-fixed-variant": "#812913",
+                    "surface-dim": "#dcdad3",
+                    "on-background": "#1c1c18",
+                    "surface-container-lowest": "#ffffff",
+                    "tertiary-fixed-dim": "#ffb4a3",
+                    "error": "#ba1a1a",
+                    "on-primary-fixed-variant": "#822800",
+                    "background": "#fcf9f2",
+                    "on-secondary-fixed": "#271900",
+                    "outline-variant": "#e0c0b5",
+                    "on-primary": "#ffffff",
+                    "inverse-surface": "#31312c",
+                    "accent-gold": "#feb71a",
+                    "tertiary-container": "#9d3d26",
+                    "on-tertiary-fixed": "#3d0700",
+                    "on-surface-variant": "#58423a",
+                    "on-tertiary-container": "#ffc8bb",
+                    "on-secondary-fixed-variant": "#5f4100",
+                    "primary-fixed": "#ffdbcf",
+                    "tertiary": "#7d2611",
+                    "on-error-container": "#93000a",
+                    "inverse-on-surface": "#f3f0ea",
+                    "surface": "#fcf9f2",
+                    "surface-bright": "#fcf9f2",
+                    "surface-container-high": "#ebe8e1",
+                    "tertiary-fixed": "#ffdad2",
+                    "on-secondary": "#ffffff",
+                    "surface-container-low": "#f6f3ec",
+                    "deep-earth": "#31312c"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter": "16px",
+                    "xs": "4px",
+                    "lg": "40px",
+                    "margin-mobile": "16px",
+                    "xl": "64px",
+                    "sm": "12px",
+                    "margin-desktop": "80px",
+                    "base": "8px",
+                    "md": "24px"
+            },
+            "fontFamily": {
+                    "headline-md": ["Noto Serif"],
+                    "label-sm": ["Plus Jakarta Sans"],
+                    "body-lg": ["Plus Jakarta Sans"],
+                    "headline-xl": ["Noto Serif"],
+                    "label-md": ["Plus Jakarta Sans"],
+                    "headline-lg": ["Noto Serif"],
+                    "body-md": ["Plus Jakarta Sans"]
+            },
+            "fontSize": {
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "headline-xl": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        body {
+            background-color: #fcf9f2;
+            color: #1c1c18;
+            -webkit-font-smoothing: antialiased;
+        }
+    </style>
+</head>
+<body class="font-body-md text-body-md">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-surface-cream border-b border-outline-variant shadow-sm flex justify-between items-center px-margin-desktop py-4 max-w-full">
+<div class="flex items-center gap-2">
+<img alt="Akshaypatra Logo" class="h-8 w-auto object-contain" src="../akshaypatra_logo/brand_logo.jpg"/>
+<div class="font-headline-lg text-headline-lg text-primary tracking-tight">Akshaypatra</div>
+</div>
+<div class="hidden md:flex items-center space-x-lg">
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-spice-red transition-colors duration-200" href="../akshaypatra_web_menu_expanded/code.html"> Menu </a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-spice-red transition-colors duration-200" href="../akshaypatra_web_heritage_story_refined/code.html"> Heritage Story </a>
+<a class="font-body-md text-body-md text-primary font-bold border-b-2 border-primary pb-1 hover:text-spice-red transition-colors duration-200" href="../akshaypatra_web_sustainability_showcase/code.html"> Sustainability </a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-spice-red transition-colors duration-200" href="../akshaypatra_web_user_dashboard_refined/code.html"> Account </a>
+</div>
+<div class="flex items-center space-x-md text-primary">
+<span class="material-symbols-outlined text-headline-md cursor-pointer hover:text-spice-red transition-colors" data-icon="shopping_cart">shopping_cart</span>
+<span class="material-symbols-outlined text-headline-md md:hidden cursor-pointer" data-icon="menu">menu</span>
+</div>
+</nav>
+<main class="pt-24">
+<!-- Hero Section -->
+<section class="relative w-full h-[716px] flex items-center overflow-hidden">
+<div class="absolute inset-0 z-0">
+<img alt="Sustainable Farming" class="w-full h-full object-cover" data-alt="A lush, sun-drenched organic farm landscape in Wagholi (Pune), featuring rows of vibrant green leafy vegetables and traditional clay irrigation pots. The lighting is warm and golden, capturing the late afternoon glow that emphasizes the tactile textures of the soil and plants. The atmosphere is tranquil and authentic, reflecting a commitment to natural heritage and sustainable agriculture within a modern traditionalist culinary brand." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAHpPaJaSrKaInEiD8qpCFb3NXgPgjtSax4SYw90wVumAoAYgUr4q2ULPWEPmRbaVn5hbXZZhL3NItpnC-f0mGuTUf4v-lvrf1v58S87J_yAXhMLiy2JxkqoW-IblCJ7UJmVnwOwGynhLj13X8yShgOrsvM4AvPk5mxvWgPZ5_gIRsE_kwiyr0Fa4L7iMTFULCjrJh9AVq_U2BffHEZwhVZzEUkxkRREaC570mEeLVwqy8Z-if8lnNkFqFVNpQ7NXzyMhoW9X9HKA"/>
+<div class="absolute inset-0 bg-gradient-to-r from-deep-earth/80 to-transparent"></div>
+</div>
+<div class="relative z-10 px-margin-desktop max-w-4xl">
+<span class="inline-block px-sm py-xs bg-secondary-container text-on-secondary-container font-label-md text-label-md rounded-lg mb-md">Our Commitment</span>
+<h1 class="font-headline-xl text-headline-xl text-surface-cream mb-md leading-tight">Nurturing the Earth, One Meal at a Time</h1>
+<p class="font-body-lg text-body-lg text-surface-cream/90 max-w-2xl">At Akshaypatra, sustainability isn't a trend—it's the very foundation of how we've cooked for generations. We bridge ancient wisdom with modern responsibility.</p>
+</div>
+</section>
+<!-- Stats Section -->
+<section class="py-xl bg-surface-container-low">
+<div class="px-margin-desktop grid grid-cols-1 md:grid-cols-4 gap-md">
+<div class="text-center p-md border-r border-outline-variant last:border-0">
+<span class="material-symbols-outlined text-spice-red text-[48px] mb-sm" data-icon="eco">eco</span>
+<div class="font-headline-lg text-headline-lg text-primary">100%</div>
+<div class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Compostable Packaging</div>
+</div>
+<div class="text-center p-md border-r border-outline-variant last:border-0">
+<span class="material-symbols-outlined text-spice-red text-[48px] mb-sm" data-icon="agriculture">agriculture</span>
+<div class="font-headline-lg text-headline-lg text-primary">15+</div>
+<div class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Local Farm Partners</div>
+</div>
+<div class="text-center p-md border-r border-outline-variant last:border-0">
+<span class="material-symbols-outlined text-spice-red text-[48px] mb-sm" data-icon="delete_sweep">delete_sweep</span>
+<div class="font-headline-lg text-headline-lg text-primary">Zero</div>
+<div class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Single-Use Plastics</div>
+</div>
+<div class="text-center p-md border-r border-outline-variant last:border-0">
+<span class="material-symbols-outlined text-spice-red text-[48px] mb-sm" data-icon="water_drop">water_drop</span>
+<div class="font-headline-lg text-headline-lg text-primary">30%</div>
+<div class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Water Recycling Rate</div>
+</div>
+</div>
+</section>
+<!-- Bento Storytelling Section -->
+<section class="py-xl px-margin-desktop">
+<div class="grid grid-cols-12 gap-md">
+<!-- Heritage Card -->
+<div class="col-span-12 md:col-span-7 bg-surface-container-lowest p-xl rounded-xl shadow-sm border border-outline-variant flex flex-col justify-center">
+<h2 class="font-headline-lg text-headline-lg text-primary mb-md">Zero-Waste Traditional Cooking</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-base">We follow the 'Purna-Annam' philosophy where every part of the ingredient is utilized. Stems are pickled, peels are sun-dried for powders, and water used for washing rice is repurposed for our garden.</p>
+<p class="font-body-md text-body-md text-on-surface-variant">This ancient kitchen rhythm ensures that our waste footprint remains minimal while maximizing the nutritional profile of every dish we serve to your family.</p>
+<div class="mt-xl">
+<button class="h-14 px-xl bg-primary text-on-primary rounded-full font-label-md hover:shadow-lg active:scale-95 transition-all">Explore our Methods</button>
+</div>
+</div>
+<!-- Visual Card -->
+<div class="col-span-12 md:col-span-5 aspect-[4/5] rounded-xl overflow-hidden shadow-sm">
+<img alt="Traditional Cooking Utensils" class="w-full h-full object-cover" data-alt="Close-up of traditional Indian brass and clay cooking pots arranged on a rustic wooden surface. Soft, directional morning light highlights the warm metallic sheen and the earthy texture of the clay. Fresh spices and herbs are scattered nearby, creating a tactile, artisanal scene that evokes the 'Modern Traditionalist' aesthetic of Heritage Hearth. The image uses a rich, spice-inspired color palette with deep browns, warm oranges, and subtle creams." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCR_Zy1iUOnAg-CpWDAwatresSXQ90bewpoItWSZ6Dx45eXniNcnVVMn5sWcPKip6sFwv57rfqKPdyH_-ikkT9YWO_ezByKPqlqXwFgCIwEG3i5MawoFjM23AMY0Xkoxn_5xFoIjS8Kj_XjV_u9trqKVKGQ2NWWKeLdxLxo6VAS1cl9isDU-ICB0e23vmOAyZidG6mxoOkrnsULrLOOc49pxocPybdjKdKgK3IiQpJ81ToJUfR45H4NeSNdf8wO1i6inmjUvahkew"/>
+</div>
+<!-- Plastic Free Card -->
+<div class="col-span-12 md:col-span-4 aspect-square rounded-xl overflow-hidden relative group">
+<img alt="Eco Packaging" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Minimalist, eco-friendly food packaging made from compostable leaf-based materials and recycled paper, neatly stacked against a clean, warm cream background. The design is elegant and corporate yet maintains a tactile, handmade quality. Soft shadows create depth, emphasizing the sustainable and premium nature of the materials. The color palette is dominated by natural greens, earthy browns, and soft ivory tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuABFGxXglLO30j9dbhOrYqSxK_038JBZ7J0RTSVmVbiGLUHokEtl0NNOzzOinuxeTR6iLpdBLdvkKaA3M9_APrpvIV_3QNikI2cH2Om2iuaWSS1nI1pH9biDnsBSRwQoUubVhaFNSK5HB6ZX_hak9-5dWBl8vRNnhuJUG05sfTPQlT2ivFTSGJryvPEVQJuWQW7yD_x-ty_DHvcM1jqfVG7OuRcDpqtmDZcvsItignVYvWG18qw7csk7JyVUm0XhSqGsJr2Nr8fLw"/>
+<div class="absolute bottom-0 left-0 right-0 p-md bg-gradient-to-t from-deep-earth to-transparent text-surface-cream">
+<h3 class="font-headline-md text-headline-md">Plastic-Free Delivery</h3>
+<p class="font-label-sm text-label-sm opacity-90">Corn-starch containers &amp; Areca leaf plates</p>
+</div>
+</div>
+<!-- Local Farmer Sourcing -->
+<div class="col-span-12 md:col-span-8 bg-spice-red/10 p-xl rounded-xl border border-spice-red/20 flex flex-col md:flex-row gap-lg">
+<div class="flex-1">
+<h2 class="font-headline-lg text-headline-lg text-spice-red mb-md">Wagholi (Pune)’s Finest Farmers</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-md">Our vegetables travel less than 15 kilometers from the fields of Wagholi (Pune) directly to our kitchens. We pay 20% above market rates to ensure our local farmers can continue their chemical-free heritage practices.</p>
+<div class="flex items-center space-x-sm text-primary font-bold">
+<span class="material-symbols-outlined" data-icon="pin_drop">pin_drop</span>
+<span class="font-label-md">Sourced within 15km of our kitchens</span>
+</div>
+</div>
+<div class="w-full md:w-64 h-64 rounded-lg overflow-hidden border-2 border-surface-cream shadow-md">
+<img alt="Local Farmers" class="w-full h-full object-cover" data-alt="A portrait of a smiling elderly Indian farmer in Wagholi (Pune), holding a basket of fresh, vibrant red peppers and green chilies. He is standing in a field during the golden hour, with soft, warm light illuminating his weathered face and the fresh produce. The background is a soft-focus lush green field, emphasizing the direct connection between the source and the brand. The aesthetic is warm, communal, and deeply authentic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCwcIUNeavbA-3bypqcc439oj40YTKEArDWQV6eSx_x3h7orqGlq9wNVrnyelSp5rFlQMDrl9ofxrlZw0ZzOHOBQ2l-1IbSdkP0n3q0k4gfINalY8-METzo_eeCBlTurcedlA9qp5paJtUIWhqOBxBMBWfStj4tJ4LQmipfE_XaMcDwMYn22zn4Da3i8MtsmPRYtgw1NB-LRWfSGCIGaBSLstbVlnf3VLWDrG33ELbu39h_O_8alke-PtjV0vxd2rdZlPsH8Fw39Q"/>
+</div>
+</div>
+</div>
+</section>
+<!-- Newsletter / Community Section -->
+<section class="py-xl bg-surface-container-highest px-margin-desktop">
+<div class="max-w-4xl mx-auto text-center">
+<h2 class="font-headline-lg text-headline-lg text-primary mb-base">Join the Heritage Circle</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-xl">Receive updates on our seasonal local harvests and traditional zero-waste recipes you can try at home.</p>
+<div class="flex flex-col md:flex-row gap-base justify-center">
+<input class="h-14 px-md bg-surface-cream border border-outline-variant rounded-lg md:w-80 focus:ring-2 focus:ring-primary focus:outline-none" placeholder="Your email address" type="email"/>
+<button class="h-14 px-xl bg-spice-red text-on-primary rounded-lg font-label-md hover:bg-primary transition-colors active:scale-95">Subscribe</button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-low border-t border-outline-variant w-full py-xl">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-md px-margin-desktop max-w-7xl mx-auto">
+<div class="flex flex-col space-y-sm">
+<div class="font-headline-md text-headline-md text-primary">Akshaypatra</div>
+<p class="font-label-md text-label-md text-on-surface-variant">Honoring traditional Indian recipes with modern sustainability at the core.</p>
+</div>
+<div class="flex flex-col space-y-base">
+<h4 class="font-label-md text-label-md text-primary uppercase">Explore</h4>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-spice-red underline" href="../akshaypatra_web_landing_page/code.html"> Kitchen Locations </a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-spice-red underline" href="../akshaypatra_web_sustainability_showcase/code.html"> Sustainability </a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-spice-red underline" href="../akshaypatra_web_heritage_story_refined/code.html"> Heritage Story </a>
+</div>
+<div class="flex flex-col space-y-base">
+<h4 class="font-label-md text-label-md text-primary uppercase">Legal</h4>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-spice-red underline" href="#">Privacy Policy</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-spice-red underline" href="#">Terms of Service</a>
+</div>
+<div class="flex flex-col space-y-base">
+<h4 class="font-label-md text-label-md text-primary uppercase">Social</h4>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-spice-red underline" href="#">Instagram</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-spice-red underline" href="#">Facebook</a>
+</div>
+</div>
+<div class="mt-xl pt-md border-t border-outline-variant/30 text-center px-margin-desktop">
+<p class="font-label-md text-label-md text-on-surface-variant">© 2024 Heritage Hearth. All rights reserved.</p>
+</div>
+</footer>
+</body></html>

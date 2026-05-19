@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Akshaypatra | Authentic Maharashtrian Cloud Kitchen</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;600;700&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-fixed": "#ffdbcf",
+                        "tertiary": "#7d2611",
+                        "surface-variant": "#e5e2db",
+                        "surface-bright": "#fcf9f2",
+                        "secondary-fixed": "#ffdeaa",
+                        "on-primary-fixed-variant": "#822800",
+                        "on-secondary-fixed-variant": "#5f4100",
+                        "surface-container-highest": "#e5e2db",
+                        "error-container": "#ffdad6",
+                        "background": "#fcf9f2",
+                        "error": "#ba1a1a",
+                        "surface-container-lowest": "#ffffff",
+                        "inverse-surface": "#31312c",
+                        "primary-container": "#a63500",
+                        "on-error": "#ffffff",
+                        "tertiary-container": "#9d3d26",
+                        "on-primary-fixed": "#380c00",
+                        "secondary-container": "#fec96f",
+                        "inverse-on-surface": "#f3f0ea",
+                        "primary": "#7e2600",
+                        "on-secondary": "#ffffff",
+                        "surface-dim": "#dcdad3",
+                        "inverse-primary": "#ffb59c",
+                        "on-tertiary-container": "#ffc8bb",
+                        "on-surface-variant": "#58423a",
+                        "tertiary-fixed-dim": "#ffb4a3",
+                        "accent-gold": "#feb71a",
+                        "on-primary": "#ffffff",
+                        "outline": "#8c7168",
+                        "surface-container": "#f0eee7",
+                        "surface-container-high": "#ebe8e1",
+                        "on-tertiary-fixed-variant": "#812913",
+                        "on-surface": "#1c1c18",
+                        "surface": "#fcf9f2",
+                        "secondary": "#7d5700",
+                        "deep-earth": "#31312c",
+                        "surface-container-low": "#f6f3ec",
+                        "spice-red": "#be543c",
+                        "surface-cream": "#fcf9f2",
+                        "on-primary-container": "#ffc9b7",
+                        "tertiary-fixed": "#ffdad2",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-fixed": "#3d0700",
+                        "on-tertiary": "#ffffff",
+                        "on-background": "#1c1c18",
+                        "surface-tint": "#a93702",
+                        "secondary-fixed-dim": "#f1be65",
+                        "outline-variant": "#e0c0b5",
+                        "on-secondary-fixed": "#271900",
+                        "on-secondary-container": "#775300",
+                        "primary-fixed-dim": "#ffb59c"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "xs": "4px",
+                        "gutter": "16px",
+                        "base": "8px",
+                        "margin-mobile": "16px",
+                        "sm": "12px",
+                        "margin-desktop": "80px",
+                        "lg": "40px",
+                        "xl": "64px",
+                        "md": "24px"
+                    },
+                    "fontFamily": {
+                        "label-md": ["Plus Jakarta Sans"],
+                        "label-sm": ["Plus Jakarta Sans"],
+                        "headline-xl": ["Noto Serif"],
+                        "headline-md": ["Noto Serif"],
+                        "headline-lg": ["Noto Serif"],
+                        "body-md": ["Plus Jakarta Sans"],
+                        "body-lg": ["Plus Jakarta Sans"]
+                    },
+                    "fontSize": {
+                        "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "700"}],
+                        "headline-xl": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                        "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body-md selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- Top App Bar -->
+<header class="bg-surface sticky top-0 z-50 flex justify-between items-center w-full px-margin-mobile h-14">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary text-[24px]">menu</span>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-primary tracking-tight">Akshaypatra</h1>
+</div>
+<div class="flex items-center gap-4">
+<button onclick="window.location.href='../akshaypatra_mobile_checkout/code.html'" class="cursor-pointer flex items-center relative text-primary">
+<span class="material-symbols-outlined text-[24px]">shopping_cart</span>
+<span id="mobile-cart-badge" class="absolute -top-2 -right-2 bg-spice-red text-white text-[10px] w-5 h-5 rounded-full flex items-center justify-center font-bold hidden">0</span>
+</button>
+</div>
+</header>
+<main class="pb-[80px]">
+<!-- Hero Section -->
+<section class="relative w-full aspect-[4/5] flex items-end overflow-hidden">
+<img alt="Traditional Maharashtrian Thali" class="absolute inset-0 w-full h-full object-cover" data-alt="A lush and vibrant overhead shot of a traditional Maharashtrian Thali served on a polished copper plate. The arrangement includes bowls of spicy rassa, creamy amti, fresh bhakri, and colorful condiments like thecha and pickles. The lighting is warm and golden, reminiscent of a late afternoon in a rustic Pune kitchen. The overall aesthetic is rich, tactile, and deeply rooted in heritage hearth traditions with a premium modern polish." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC-3cSRO-1xwBxDkzRQRpZxA6Nw81iV_82AV9wYNZcuxLxcC6deGHo2DwqniNP2fVIn2o9S0qYYhtDOEN3cstWM1PJMjQ5pgr8sw95C-PflwR0UB1i67rJn777Lgqq8EAezDEH73tQV1cskvWuOyAdCSE_klZjuRSpa81KlL5wsgi_JnSk7IraQVY6kCtItBeF8wcVnltmrWMGzWdsPiuUw55VUEQMfFrYABTvBFRuh5XE6F1rzBoCc6qukTGFXx6aVfRxQIeo3sg"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+<div class="relative w-full p-margin-mobile space-y-4">
+<h2 class="font-headline-xl text-white text-4xl leading-tight">A Legacy of Authentic Flavors</h2>
+<p class="text-white/90 font-body-lg">Wagholi (Pune)'s heart beats in our kitchen. Experience the heritage recipes passed through generations.</p>
+<div class="flex flex-col gap-3 pt-2">
+<button onclick="window.location.href='../akshaypatra_mobile_menu_expanded/code.html'" class="h-14 w-full bg-primary text-on-primary rounded-xl font-label-md flex items-center justify-center shadow-lg active:scale-95 transition-transform cursor-pointer">
+                        Book a Thali
+                    </button>
+<button onclick="window.location.href='../akshaypatra_mobile_menu_expanded/code.html'" class="h-14 w-full bg-white/10 backdrop-blur-md border-2 border-white text-white rounded-xl font-label-md flex items-center justify-center active:scale-95 transition-transform cursor-pointer">
+                        Explore Menu
+                    </button>
+</div>
+</div>
+</section>
+<!-- Story Section -->
+<section class="px-margin-mobile py-lg bg-surface-container-low">
+<div class="space-y-6">
+<div class="space-y-2">
+<span class="text-spice-red font-label-sm uppercase tracking-widest">Our Heritage</span>
+<h3 class="font-headline-lg-mobile text-headline-lg-mobile text-primary">Preserving the Hearth of Maharashtra</h3>
+</div>
+<div class="relative rounded-2xl overflow-hidden shadow-sm aspect-video">
+<img alt="Traditional Chulha Stove" class="w-full h-full object-cover" data-alt="A close-up, atmospheric shot of a traditional wood-fire chulha stove inside a rustic kitchen. Glowing embers and soft orange light illuminate the stone hearth, where a heavy iron griddle sits warming. Wisps of gentle smoke rise against a backdrop of textured earthen walls, creating a warm, nostalgic mood. The visual style is artisanal and tactile, highlighting the deep cultural roots and slow-cooking traditions of authentic Maharashtrian cuisine." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB3rBWPWFiZXwNjvTgVzWwQ6VdJ2iyT7_aKsm1SYQvR3KlxHLBrv_3eU6o31PKLmYMYqsdw7dzwWbTUNIBwnEzKTD-lb98coS75w7LGr_ZgzkhK0qF2S0hOeVLex0pW_DALGY-lmMv7lGJdVA9GcgSRR7ihWI3wh7sdiBQ--P21-QoOKVfxe1IWESZiWeDaIDJfF23HgYUgB0EArbtjvGOqrXgpl4xtm5v-oleWTthVKI5W20YGvwkEiYzS4Y7-G1l8-Pmw1Q8X8g"/>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="bg-surface-container-lowest p-5 rounded-2xl border border-outline-variant text-center">
+<div class="text-spice-red font-headline-lg">30+</div>
+<div class="text-on-surface-variant font-label-sm">Years of Heritage</div>
+</div>
+<div class="bg-surface-container-lowest p-5 rounded-2xl border border-outline-variant text-center">
+<div class="text-spice-red font-headline-lg">50+</div>
+<div class="text-on-surface-variant font-label-sm">Original Recipes</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Today's Specials -->
+<section class="py-lg">
+<div class="px-margin-mobile flex justify-between items-end mb-6">
+<div class="space-y-1">
+<span class="text-spice-red font-label-sm uppercase tracking-widest">Fresh Today</span>
+<h3 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface">Today's Specials</h3>
+</div>
+<button onclick="window.location.href='../akshaypatra_mobile_menu_expanded/code.html'" class="text-primary font-label-md flex items-center gap-1 cursor-pointer">
+                    View All <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+<div class="flex overflow-x-auto hide-scrollbar gap-4 px-margin-mobile pb-4">
+<!-- Special Item 1 -->
+<div class="min-w-[280px] bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm border border-outline-variant">
+<div class="h-40 relative">
+<img alt="Misal Pav" class="w-full h-full object-cover" data-alt="A macro photograph of Misal Pav served in a small steel bowl, topped with crunchy farsan, fresh chopped onions, and a squeeze of lime. The spicy red rassa glistens under bright, natural kitchen lighting, contrasting with the soft, white buttered pav on the side. The shot is intimate and appetizing, emphasizing the vibrant textures and rich colors of the spices within a modern, minimalist culinary aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAJi-n7-VRRC-uWXdbKWEaALkmKm6GDX5ym-fW-hw-QzAfaOCUou1fgAtNTs8a41XBm2M-i2YPG2F1_6G_Ui2IBxm3SrZ5Y5WIq-J-8e5vK8eHES4k7fLEqu-NlResN5BuNm5d0NkFzQzisBMMDt8DqmJPxd7dmkKjUbhNqm6XTTVzLdvJciFwWn0g0B9b_fjl2DKpNwESad36ct0BakEDPGuFMp7fmsOT49lYU89_vKnd8pJvBRzoZst_3tOUvsJ1aNrnoUoFPQA"/>
+<div class="absolute top-3 left-3 bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full font-label-sm">Bestseller</div>
+</div>
+<div class="p-4 space-y-3">
+<div class="flex justify-between items-start">
+<h4 class="font-headline-md text-on-surface">Misal Pav</h4>
+<span class="font-label-md text-spice-red">₹140</span>
+</div>
+<p class="text-on-surface-variant text-sm line-clamp-2">Authentic spicy sprouts curry served with buttered pav and fresh lemon.</p>
+<button onclick="addToCart({ name: 'Misal Pav', price: 140, quantity: 1, image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAJi-n7-VRRC-uWXdbKWEaALkmKm6GDX5ym-fW-hw-QzAfaOCUou1fgAtNTs8a41XBm2M-i2YPG2F1_6G_Ui2IBxm3SrZ5Y5WIq-J-8e5vK8eHES4k7fLEqu-NlResN5BuNm5d0NkFzQzisBMMDt8DqmJPxd7dmkKjUbhNqm6XTTVzLdvJciFwWn0g0B9b_fjl2DKpNwESad36ct0BakEDPGuFMp7fmsOT49lYU89_vKnd8pJvBRzoZst_3tOUvsJ1aNrnoUoFPQA' })" class="w-full h-10 border-2 border-tertiary text-tertiary rounded-lg font-label-sm active:bg-tertiary/10 cursor-pointer">Add to Thali</button>
+</div>
+</div>
+<!-- Special Item 2 -->
+<div class="min-w-[280px] bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm border border-outline-variant">
+<div class="h-40 relative">
+<img alt="Puran Poli" class="w-full h-full object-cover" data-alt="A beautiful close-up of a golden Puran Poli, a sweet Maharashtrian flatbread, glistening with a dollop of melting ghee in the center. The flatbread has delicate brown char marks from the griddle and is served on a traditional banana leaf background. The lighting is soft and warm, highlighting the buttery texture and the artisanal craft behind this heritage dessert, presented in a clean and elegant composition." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAcpl1g292NIpv3cYiLCXLT2LAwG_qcJbKc4l5jFoA9d65TEKOKY0Wdp0KOlOCh3b98pi8jUHz0XQ_tCsgziL96yBsW3BOKWRvHfB8Y3EYSy5ZclMG66h8XWPCVeQCxOfbB7T5LXwjH9PIJxLxG6ItMLBp_8wakybskvIVSajS37rYGLPELqm_SySUyH32N0N5YfBapNUVTHXgkDLNfD5FFCSXfYwgcxAaA635RFY3gC8cF4R97jc7FPc25UjWl37937QfRM8t9Sg"/>
+</div>
+<div class="p-4 space-y-3">
+<div class="flex justify-between items-start">
+<h4 class="font-headline-md text-on-surface">Puran Poli</h4>
+<span class="font-label-md text-spice-red">₹180</span>
+</div>
+<p class="text-on-surface-variant text-sm line-clamp-2">Traditional sweet flatbread stuffed with chana dal and jaggery, topped with ghee.</p>
+<button onclick="addToCart({ name: 'Puran Poli', price: 180, quantity: 1, image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAcpl1g292NIpv3cYiLCXLT2LAwG_qcJbKc4l5jFoA9d65TEKOKY0Wdp0KOlOCh3b98pi8jUHz0XQ_tCsgziL96yBsW3BOKWRvHfB8Y3EYSy5ZclMG66h8XWPCVeQCxOfbB7T5LXwjH9PIJxLxG6ItMLBp_8wakybskvIVSajS37rYGLPELqm_SySUyH32N0N5YfBapNUVTHXgkDLNfD5FFCSXfYwgcxAaA635RFY3gC8cF4R97jc7FPc25UjWl37937QfRM8t9Sg' })" class="w-full h-10 border-2 border-tertiary text-tertiary rounded-lg font-label-sm active:bg-tertiary/10 cursor-pointer">Add to Thali</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Catering Section -->
+<section class="px-margin-mobile py-lg bg-primary text-on-primary rounded-t-[32px]">
+<div class="text-center space-y-2 mb-8">
+<span class="text-primary-fixed font-label-sm uppercase tracking-widest">Special Moments</span>
+<h3 class="font-headline-lg-mobile text-headline-lg-mobile">Catering Your Celebrations</h3>
+</div>
+<div class="space-y-4">
+<div class="flex items-center gap-4 bg-white/10 p-4 rounded-2xl backdrop-blur-sm border border-white/20">
+<div class="w-12 h-12 bg-secondary-container rounded-full flex items-center justify-center text-on-secondary-container">
+<span class="material-symbols-outlined">family_restroom</span>
+</div>
+<div class="flex-1">
+<h4 class="font-label-md">Family Gatherings</h4>
+<p class="text-primary-fixed text-sm opacity-80">Intimate home celebrations</p>
+</div>
+</div>
+<div class="flex items-center gap-4 bg-white/10 p-4 rounded-2xl backdrop-blur-sm border border-white/20">
+<div class="w-12 h-12 bg-secondary-container rounded-full flex items-center justify-center text-on-secondary-container">
+<span class="material-symbols-outlined">corporate_fare</span>
+</div>
+<div class="flex-1">
+<h4 class="font-label-md">Corporate Events</h4>
+<p class="text-primary-fixed text-sm opacity-80">Authentic meals for your team</p>
+</div>
+</div>
+<div class="flex items-center gap-4 bg-white/10 p-4 rounded-2xl backdrop-blur-sm border border-white/20">
+<div class="w-12 h-12 bg-secondary-container rounded-full flex items-center justify-center text-on-secondary-container">
+<span class="material-symbols-outlined">celebration</span>
+</div>
+<div class="flex-1">
+<h4 class="font-label-md">Weddings</h4>
+<p class="text-primary-fixed text-sm opacity-80">Traditional grand Maharashtrian feast</p>
+</div>
+</div>
+</div>
+<button class="mt-8 w-full h-14 bg-accent-gold text-on-secondary-fixed rounded-xl font-label-md shadow-lg active:scale-95 transition-transform">
+                Enquire Now
+            </button>
+</section>
+<!-- Location Section -->
+<section class="px-margin-mobile py-lg">
+<div class="space-y-6">
+<div class="space-y-2">
+<span class="text-spice-red font-label-sm uppercase tracking-widest">Find Us</span>
+<h3 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface">Visit Our Kitchen</h3>
+</div>
+<div class="bg-surface-container-low rounded-3xl overflow-hidden border border-outline-variant">
+<div class="h-48 relative">
+<img alt="Map view of Wagholi (Pune) Pune" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/ADBb0ugH9SybXyU8gdeibdxuSmeETexhmyndGlsk4381WtMHD1EAlcIqsS_7vtN-cYsblF2iymZac3h6eyclduZmfcMmsCKVuORtxuz9ZF5LfIYgKWHHJv3mN2mypx_iUPFgzmY1H1MxFvxTBVQUCbOKb3Lbjk-tuto4cUY2bLr6FmIG-_ffd4Gmz7SOay13QYB8auO6gUPyB5JCacN_d_gXXftw2ueiOwSpqNQjF8IMABr-UiNeiUlt1ufhvg"/>
+<div class="absolute inset-0 bg-primary/10 pointer-events-none"></div>
+</div>
+<div class="p-6 space-y-4">
+<div class="flex gap-3">
+<span class="material-symbols-outlined text-spice-red">location_on</span>
+<div>
+<h4 class="font-label-md text-on-surface">Akshaypatra Cloud Kitchen</h4>
+<p class="text-on-surface-variant text-sm">Shop 4, Heritage Heights, Paud Road, Wagholi (Pune) - 411038</p>
+</div>
+</div>
+<div class="flex gap-3">
+<span class="material-symbols-outlined text-spice-red">schedule</span>
+<div>
+<h4 class="font-label-md text-on-surface">Kitchen Hours</h4>
+<p class="text-on-surface-variant text-sm">Tue - Sun: 11:00 AM - 10:30 PM<br/>Monday: Closed</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-inverse-surface text-inverse-on-surface px-margin-mobile py-xl space-y-10">
+<div class="space-y-4">
+<h4 class="font-headline-md text-primary-fixed">Akshaypatra</h4>
+<p class="text-outline-variant text-sm">Bringing the authentic taste of Maharashtrian heritage directly to your doorstep. Every meal is a story told through flavor.</p>
+</div>
+<div class="grid grid-cols-2 gap-8">
+<div class="space-y-4">
+<h5 class="font-label-md text-white">Links</h5>
+<ul class="space-y-2 text-outline-variant text-sm">
+<li>About Us</li>
+<li>Full Menu</li>
+<li>Catering</li>
+<li>Contact</li>
+</ul>
+</div>
+<div class="space-y-4">
+<h5 class="font-label-md text-white">Legal</h5>
+<ul class="space-y-2 text-outline-variant text-sm">
+<li>Terms of Service</li>
+<li>Privacy Policy</li>
+<li>Refund Policy</li>
+</ul>
+</div>
+</div>
+<div class="bg-white/5 p-6 rounded-2xl space-y-4 border border-white/10">
+<h5 class="font-label-md text-white">Join Our Newsletter</h5>
+<p class="text-outline-variant text-xs">Get updates on seasonal specials and kitchen stories.</p>
+<div class="flex gap-2">
+<input class="flex-1 bg-transparent border-b border-outline-variant focus:border-primary-fixed focus:ring-0 text-sm py-2 px-0 text-white placeholder:text-outline-variant/50" placeholder="Your Email" type="email"/>
+<button class="w-10 h-10 bg-primary-fixed text-on-primary-fixed rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">send</span>
+</button>
+</div>
+</div>
+<div class="pt-8 border-t border-white/10 flex flex-col items-center gap-4 text-xs text-outline-variant">
+<div class="flex gap-6">
+<span class="material-symbols-outlined">face_nod</span>
+<span class="material-symbols-outlined">infrared</span>
+<span class="material-symbols-outlined">crossword</span>
+</div>
+<p>© 2024 Akshaypatra Kitchen. All rights reserved.</p>
+</div>
+</footer>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 bg-surface border-t border-outline-variant flex justify-around items-center px-4 pb-safe h-[80px] shadow-lg">
+<a class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-full px-5 py-1 scale-90 transition-all duration-150" href="../akshaypatra_mobile_landing_page/code.html">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="font-label-sm text-label-sm mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant" href="../akshaypatra_mobile_menu_expanded/code.html">
+<span class="material-symbols-outlined">restaurant_menu</span>
+<span class="font-label-sm text-label-sm mt-1">Menu</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant" href="#">
+<span class="material-symbols-outlined">receipt_long</span>
+<span class="font-label-sm text-label-sm mt-1">Orders</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-sm text-label-sm mt-1">Profile</span>
+</a>
+</nav>
+<script src="../cart.js"></script>
+</body></html>

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Meet Our Chefs | Akshaypatra</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;600;700&family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+      tailwind.config = {
+        theme: {
+          extend: {
+            "colors": {
+                "spice-red": "#be543c",
+                "primary": "#7e2600",
+                "accent-gold": "#feb71a",
+                "surface-cream": "#fcf9f2",
+                "deep-earth": "#31312c",
+                "surface-container-low": "#f6f3ec",
+                "surface-container-lowest": "#ffffff"
+            }
+          }
+        }
+      }
+    </script>
+</head>
+<body class="bg-surface-cream text-deep-earth font-sans selection:bg-secondary-container">
+
+    <!-- TopNavBar -->
+    <header class="fixed top-0 w-full z-50 bg-surface-cream border-b border-outline-variant shadow-sm px-12 py-4 flex justify-between items-center max-w-full">
+        <div onclick="window.location.href='../index.html'" class="font-headline-lg text-2xl text-primary font-bold tracking-tight cursor-pointer">Akshaypatra</div>
+        <nav class="hidden md:flex items-center gap-8">
+            <a class="text-on-surface-variant font-body-md hover:text-spice-red transition-colors duration-200" href="../akshaypatra_web_menu_expanded/code.html"> Menu </a>
+            <a class="text-on-surface-variant font-body-md hover:text-spice-red transition-colors duration-200" href="../akshaypatra_web_heritage_story_refined/code.html"> Heritage Story </a>
+            <a class="text-on-surface-variant font-body-md hover:text-spice-red transition-colors duration-200" href="../akshaypatra_web_sustainability_showcase/code.html"> Sustainability </a>
+            <a class="text-primary font-bold border-b-2 border-primary pb-1 font-body-md hover:text-spice-red transition-colors duration-200" href="#"> Chefs </a>
+        </nav>
+        <div class="flex items-center gap-4">
+            <button onclick="window.location.href='../akshaypatra_web_checkout/code.html'" class="material-symbols-outlined text-primary text-[28px] hover:text-spice-red transition-opacity active:opacity-80">shopping_cart</button>
+        </div>
+    </header>
+
+    <main class="pt-[120px] pb-16 px-12 max-w-7xl mx-auto">
+        <!-- Hero Section -->
+        <section class="text-center mb-16">
+            <h1 class="font-headline-xl text-4xl md:text-5xl text-primary font-bold mb-4">The Culinary Masters</h1>
+            <p class="font-body-lg text-lg text-on-surface-variant max-w-3xl mx-auto">
+                Behind every aromatic blend, simmered curry, and caramelized dessert are the hands of masters dedicated to keeping centuries-old family recipes alive.
+            </p>
+        </section>
+
+        <!-- Chefs Grid -->
+        <section class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
+            <!-- Chef 1: Maushi -->
+            <div class="bg-white rounded-2xl overflow-hidden shadow-md border border-orange-100 flex flex-col justify-between group hover:shadow-xl transition-all duration-300">
+                <div class="aspect-square w-full overflow-hidden relative">
+                    <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCr5rRmuzpmBbgxHRQg-AuKBfqBU7jVaKVoYjEzo18AOSG_prIOoDLFes5oMG579J0IBzE6FyMZCmg6A4MsicZWiD2gABKY-mMHJEicsiPKz3Xp04lC9KcDTO_fPbdRwmhxUNucbnvjXqnqwtXVtRov-loY75JJu9CrhD7vXy2nFkBCRA6FJruiuSUN0_FOvUQlwpHigbgihRZJvYi0ilkfv8hTvCcA8DB8kF2sYhAIX82jfoTYsLIFrTth7P1nXWHXaEj2kvVolQ" alt="Head Chef Maushi" />
+                    <div class="absolute bottom-4 left-4 bg-primary text-white px-3 py-1 rounded-full text-xs font-bold shadow-md">Founding head chef</div>
+                </div>
+                <div class="p-6 flex-grow flex flex-col justify-between">
+                    <div>
+                        <h2 class="font-headline-md text-2xl text-primary font-bold mb-2">Maushi (Radhabai)</h2>
+                        <p class="text-xs font-bold text-accent-gold uppercase tracking-widest mb-4">Guardian of Spice Ratios</p>
+                        <p class="text-sm text-on-surface-variant leading-relaxed">
+                            Serving her authentic recipes for over 40 years, Maushi is the soul of our kitchen. She hand-inspects every batch of whole spices and supervises the stone-grinding process to maintain absolute perfection.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Chef 2: Raghav -->
+            <div class="bg-white rounded-2xl overflow-hidden shadow-md border border-orange-100 flex flex-col justify-between group hover:shadow-xl transition-all duration-300">
+                <div class="aspect-square w-full overflow-hidden relative">
+                    <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCr5rRmuzpmBbgxHRQg-AuKBfqBU7jVaKVoYjEzo18AOSG_prIOoDLFes5oMG579J0IBzE6FyMZCmg6A4MsicZWiD2gABKY-mMHJEicsiPKz3Xp04lC9KcDTO_fPbdRwmhxUNucbnvjXqnqwtXVtRov-loY75JJu9CrhD7vXy2nFkBCRA6FJruiuSUN0_FOvUQlwpHigbgihRZJvYi0ilkfv8hTvCcA8DB8kF2sYhAIX82jfoTYsLIFrTth7P1nXWHXaEj2kvVolQ" alt="Executive Chef Raghav" />
+                    <div class="absolute bottom-4 left-4 bg-primary text-white px-3 py-1 rounded-full text-xs font-bold shadow-md">Executive Chef</div>
+                </div>
+                <div class="p-6 flex-grow flex flex-col justify-between">
+                    <div>
+                        <h2 class="font-headline-md text-2xl text-primary font-bold mb-2">Chef Raghav</h2>
+                        <p class="text-xs font-bold text-accent-gold uppercase tracking-widest mb-4">Master of Traditional Baking</p>
+                        <p class="text-sm text-on-surface-variant leading-relaxed">
+                            Trained in clay oven arts (Tandoor) across regional food capitals, Raghav blends ancient slow-cooking slow-heat methods with modern digital workflow precision.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Chef 3: Ananya -->
+            <div class="bg-white rounded-2xl overflow-hidden shadow-md border border-orange-100 flex flex-col justify-between group hover:shadow-xl transition-all duration-300">
+                <div class="aspect-square w-full overflow-hidden relative">
+                    <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCr5rRmuzpmBbgxHRQg-AuKBfqBU7jVaKVoYjEzo18AOSG_prIOoDLFes5oMG579J0IBzE6FyMZCmg6A4MsicZWiD2gABKY-mMHJEicsiPKz3Xp04lC9KcDTO_fPbdRwmhxUNucbnvjXqnqwtXVtRov-loY75JJu9CrhD7vXy2nFkBCRA6FJruiuSUN0_FOvUQlwpHigbgihRZJvYi0ilkfv8hTvCcA8DB8kF2sYhAIX82jfoTYsLIFrTth7P1nXWHXaEj2kvVolQ" alt="Chef Ananya" />
+                    <div class="absolute bottom-4 left-4 bg-primary text-white px-3 py-1 rounded-full text-xs font-bold shadow-md">Dessert Artisan</div>
+                </div>
+                <div class="p-6 flex-grow flex flex-col justify-between">
+                    <div>
+                        <h2 class="font-headline-md text-2xl text-primary font-bold mb-2">Chef Ananya</h2>
+                        <p class="text-xs font-bold text-accent-gold uppercase tracking-widest mb-4">Alchemist of Sweets</p>
+                        <p class="text-sm text-on-surface-variant leading-relaxed">
+                            Ananya spent a decade perfecting regional sweet profiles, specializing in slow-reduced milk desserts, saffron infusions, and natural sugar-alternative bases.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Chef's Recommendations Section -->
+        <section class="bg-surface-container-low rounded-3xl p-8 md:p-12 border border-outline-variant/30">
+            <h2 class="font-headline-lg text-3xl text-primary font-bold mb-8 text-center">Chef's Signature Recommendations</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Signature 1 -->
+                <div class="bg-white rounded-xl overflow-hidden border border-orange-100 flex flex-col justify-between group">
+                    <div class="h-48 overflow-hidden">
+                        <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDmbuF-ZaL8ZHLgNzsNZG8Hpv1aEsjsKOZgR5qqStct5s048b77HTMAapM-TR_K4p9zjroTPbLT9KgxLsHTBcGrbdJpzjYVGTmCDbjNruRACQ_NAguW-pkKPvqS6XCEsvdlrzletfM-aIp9BEtZOqKsDEgI0s_qXz5XlB0T092pFBzri4BnAXH6fR2Lhec5rDwtfCSAae5_Gq4D1-XE5iNOn7K0PI4rwU6FYmtarImKnwI-Cf4vUxtRbwaeIeyXt38btHX_ayPHaQ" alt="Royal Heritage Thali" />
+                    </div>
+                    <div class="p-6 flex-grow flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-center mb-2">
+                                <h3 class="font-bold text-lg text-primary">Royal Heritage Thali</h3>
+                                <span class="text-spice-red font-bold">₹450</span>
+                            </div>
+                            <p class="text-xs text-on-surface-variant line-clamp-2 mb-4">Maushi's signature feast featuring 12 traditional regional dishes and fresh grain flatbreads.</p>
+                        </div>
+                        <button onclick="addRecItem('Royal Heritage Thali', 450)" class="w-full py-2.5 bg-primary text-white rounded-lg text-xs font-bold hover:bg-spice-red transition-all cursor-pointer">Quick Add to Cart</button>
+                    </div>
+                </div>
+
+                <!-- Signature 2 -->
+                <div class="bg-white rounded-xl overflow-hidden border border-orange-100 flex flex-col justify-between group">
+                    <div class="h-48 overflow-hidden">
+                        <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCOJ1BSeO1dZEekih2i-_vPv3Qbyvx1ud8VQitrk6Z0VILXsli1rzM5sqKVNiUz4rtulDkdEC9tYiPe7mW7m9cc1n6QwiOdbNlchGjNje5wpgxQKY1dmifJF9nztG3UTwRhlGcWN0FxVVBiI35NRMSWK2Z5xpZdX4JzIA4AimS2Dvrfnni8GKC-KlVyoSgm8Tl-LJ4Gb7TqfyGVH1WxsrhnULs6THwMUM2JSiaUz66X9pGT3A5eVJ8zJ5J1EwQ1bP_6MI-Rp78yJA" alt="Heritage Pot Biryani" />
+                    </div>
+                    <div class="p-6 flex-grow flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-center mb-2">
+                                <h3 class="font-bold text-lg text-primary">Heritage Pot Biryani</h3>
+                                <span class="text-spice-red font-bold">₹550</span>
+                            </div>
+                            <p class="text-xs text-on-surface-variant line-clamp-2 mb-4">Raghav's masterpiece of aged Basmati and seasonal greens slow-cooked under clay-sealed lids.</p>
+                        </div>
+                        <button onclick="addRecItem('Heritage Pot Biryani', 550)" class="w-full py-2.5 bg-primary text-white rounded-lg text-xs font-bold hover:bg-spice-red transition-all cursor-pointer">Quick Add to Cart</button>
+                    </div>
+                </div>
+
+                <!-- Signature 3 -->
+                <div class="bg-white rounded-xl overflow-hidden border border-orange-100 flex flex-col justify-between group">
+                    <div class="h-48 overflow-hidden">
+                        <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBkKUJ76gZKSNtPXxJX6IqOfanpFWIP-XeF48C_SJiQCBBb9eNYBpNllDcGmS0vwaXLepUWnU7J1FO5pG9KJisMV_bXRn00q9tbyb7rpnQHDUA5nJsz9XNars1glJ7XZPaVD9elIMRN7hAS8H2HAIsUdbei8Bbp39FUwRDsoe3GbAdGE_Evnf781cOMNh_iBJCQUaPmBdyrjimqIpYY1rkkH4LPSIkLAsG619qm34KyNzzlwdzmnQVFh-NXbi1kqGzA85idUlFOcg" alt="Saffron Gulab Jamun" />
+                    </div>
+                    <div class="p-6 flex-grow flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-center mb-2">
+                                <h3 class="font-bold text-lg text-primary">Saffron Gulab Jamun</h3>
+                                <span class="text-spice-red font-bold">₹140</span>
+                            </div>
+                            <p class="text-xs text-on-surface-variant line-clamp-2 mb-4">Ananya's handmade deep-fried milk dumplings soaked in clear warm saffron-infused syrup.</p>
+                        </div>
+                        <button onclick="addRecItem('Saffron Gulab Jamun', 140)" class="w-full py-2.5 bg-primary text-white rounded-lg text-xs font-bold hover:bg-spice-red transition-all cursor-pointer">Quick Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-surface-container-low border-t border-outline-variant py-8 w-full text-center">
+        <div class="font-headline-md text-xl text-primary font-bold mb-2">Akshaypatra</div>
+        <p class="text-xs text-on-surface-variant">© 2024 Heritage Hearth. All rights reserved.</p>
+    </footer>
+
+    <!-- Inject shared cart logic -->
+    <script src="../cart.js"></script>
+    <script>
+        function addRecItem(name, price) {
+            addToCart({
+                name: name,
+                price: price,
+                quantity: 1,
+                image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDmbuF-ZaL8ZHLgNzsNZG8Hpv1aEsjsKOZgR5qqStct5s048b77HTMAapM-TR_K4p9zjroTPbLT9KgxLsHTBcGrbdJpzjYVGTmCDbjNruRACQ_NAguW-pkKPvqS6XCEsvdlrzletfM-aIp9BEtZOqKsDEgI0s_qXz5XlB0T092pFBzri4BnAXH6fR2Lhec5rDwtfCSAae5_Gq4D1-XE5iNOn7K0PI4rwU6FYmtarImKnwI-Cf4vUxtRbwaeIeyXt38btHX_ayPHaQ',
+                desc: 'Chef Recommend'
+            });
+            alert(`${name} added to cart!`);
+        }
+    </script>
+</body>
+</html>

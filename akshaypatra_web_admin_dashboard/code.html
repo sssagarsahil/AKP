@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Admin Analytics Dashboard | Akshaypatra</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+      tailwind.config = {
+        theme: {
+          extend: {
+            "colors": {
+                "spice-red": "#be543c",
+                "primary": "#7e2600",
+                "accent-gold": "#feb71a",
+                "surface-cream": "#fcf9f2",
+                "deep-earth": "#21211e",
+                "surface-container-low": "#f6f3ec",
+                "surface-container-lowest": "#ffffff"
+            }
+          }
+        }
+      }
+    </script>
+</head>
+<body class="bg-surface-cream text-deep-earth font-sans min-h-screen flex">
+    
+    <!-- Sidebar Navigation -->
+    <aside class="w-64 bg-white border-r border-orange-100 flex flex-col justify-between hidden md:flex">
+        <div class="p-6">
+            <div onclick="window.location.href='../index.html'" class="font-headline-lg text-2xl text-primary font-bold tracking-tight cursor-pointer mb-8">Akshaypatra</div>
+            
+            <nav class="space-y-2">
+                <a class="flex items-center gap-3 px-4 py-3 bg-secondary-container/20 text-primary border-l-4 border-primary font-bold rounded-r-xl transition-all" href="#">
+                    <span class="material-symbols-outlined">analytics</span>
+                    Analytics
+                </a>
+                <a onclick="window.location.href='../akshaypatra_web_menu_expanded/code.html'" class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-low rounded-xl transition-all" href="#">
+                    <span class="material-symbols-outlined">restaurant_menu</span>
+                    Menu Manager
+                </a>
+                <a onclick="window.location.href='../akshaypatra_web_user_dashboard_refined/code.html'" class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-low rounded-xl transition-all" href="#">
+                    <span class="material-symbols-outlined">badge</span>
+                    User Dashboard
+                </a>
+                <a onclick="window.location.href='../akshaypatra_web_order_tracking/code.html'" class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-low rounded-xl transition-all" href="#">
+                    <span class="material-symbols-outlined">local_shipping</span>
+                    Order Logistics
+                </a>
+            </nav>
+        </div>
+        
+        <div class="p-6 border-t border-orange-50">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold">A</div>
+                <div>
+                    <p class="text-xs font-bold text-deep-earth">Admin Master</p>
+                    <p class="text-[10px] text-on-surface-variant">System Administrator</p>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="flex-grow p-8 md:p-12 overflow-y-auto max-w-full">
+        <!-- Header -->
+        <header class="flex justify-between items-center mb-8">
+            <div>
+                <h1 class="font-headline-xl text-3xl font-bold text-primary mb-1">Analytics Dashboard</h1>
+                <p class="text-sm text-on-surface-variant">Real-time order audit, sales analytics, and kitchen logistics</p>
+            </div>
+            <button onclick="refreshData()" class="h-11 px-4 border border-outline-variant/30 bg-white hover:bg-orange-50/50 rounded-xl flex items-center gap-2 font-label-md text-xs active:scale-95 transition-all shadow-sm cursor-pointer">
+                <span class="material-symbols-outlined text-[18px]">refresh</span>
+                Sync Data
+            </button>
+        </header>
+
+        <!-- Metrics Grid -->
+        <section class="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+            <!-- Card 1 -->
+            <div class="bg-white p-6 rounded-2xl border border-orange-50 shadow-sm flex flex-col justify-between">
+                <div>
+                    <span class="material-symbols-outlined text-primary text-[32px] mb-3">monetization_on</span>
+                    <p class="text-xs text-on-surface-variant uppercase tracking-wider font-bold">Total Sales</p>
+                </div>
+                <div class="mt-4">
+                    <p id="total-sales-amount" class="text-3xl font-bold text-primary">₹0</p>
+                    <p class="text-[10px] text-green-700 font-bold mt-1">▲ +14.2% from last week</p>
+                </div>
+            </div>
+            <!-- Card 2 -->
+            <div class="bg-white p-6 rounded-2xl border border-orange-50 shadow-sm flex flex-col justify-between">
+                <div>
+                    <span class="material-symbols-outlined text-spice-red text-[32px] mb-3">shopping_cart</span>
+                    <p class="text-xs text-on-surface-variant uppercase tracking-wider font-bold">Total Orders</p>
+                </div>
+                <div class="mt-4">
+                    <p id="total-orders-count" class="text-3xl font-bold text-primary">842</p>
+                    <p class="text-[10px] text-green-700 font-bold mt-1">▲ +8.1% from yesterday</p>
+                </div>
+            </div>
+            <!-- Card 3 -->
+            <div class="bg-white p-6 rounded-2xl border border-orange-50 shadow-sm flex flex-col justify-between">
+                <div>
+                    <span class="material-symbols-outlined text-accent-gold text-[32px] mb-3">analytics</span>
+                    <p class="text-xs text-on-surface-variant uppercase tracking-wider font-bold">Avg. Order Value</p>
+                </div>
+                <div class="mt-4">
+                    <p id="avg-order-value" class="text-3xl font-bold text-primary">₹0</p>
+                    <p class="text-[10px] text-on-surface-variant font-medium mt-1">Balanced target values</p>
+                </div>
+            </div>
+            <!-- Card 4 -->
+            <div class="bg-white p-6 rounded-2xl border border-orange-50 shadow-sm flex flex-col justify-between">
+                <div>
+                    <span class="material-symbols-outlined text-green-700 text-[32px] mb-3">verified</span>
+                    <p class="text-xs text-on-surface-variant uppercase tracking-wider font-bold">Compliance Score</p>
+                </div>
+                <div class="mt-4">
+                    <p class="text-3xl font-bold text-green-700">100%</p>
+                    <p class="text-[10px] text-on-surface-variant font-medium mt-1">Clean database sync</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Graphical Insights -->
+        <section class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
+            <!-- Chart 1: Revenue Timeline (SVG styled Tailwind) -->
+            <div class="bg-white p-6 rounded-2xl border border-orange-50 shadow-sm lg:col-span-2">
+                <h3 class="font-headline-md text-lg text-primary font-bold mb-6">Revenue Performance History</h3>
+                <div class="h-48 flex items-end justify-between gap-2 pt-6">
+                    <div class="flex-grow flex flex-col items-center gap-2">
+                        <div class="w-full bg-primary/20 hover:bg-primary rounded-t-lg transition-all" style="height: 60px;"></div>
+                        <span class="text-[10px] text-on-surface-variant">Mon</span>
+                    </div>
+                    <div class="flex-grow flex flex-col items-center gap-2">
+                        <div class="w-full bg-primary/20 hover:bg-primary rounded-t-lg transition-all" style="height: 110px;"></div>
+                        <span class="text-[10px] text-on-surface-variant">Tue</span>
+                    </div>
+                    <div class="flex-grow flex flex-col items-center gap-2">
+                        <div class="w-full bg-primary/20 hover:bg-primary rounded-t-lg transition-all" style="height: 90px;"></div>
+                        <span class="text-[10px] text-on-surface-variant">Wed</span>
+                    </div>
+                    <div class="flex-grow flex flex-col items-center gap-2">
+                        <div class="w-full bg-primary/20 hover:bg-primary rounded-t-lg transition-all" style="height: 140px;"></div>
+                        <span class="text-[10px] text-on-surface-variant">Thu</span>
+                    </div>
+                    <div class="flex-grow flex flex-col items-center gap-2">
+                        <div class="w-full bg-primary/20 hover:bg-primary rounded-t-lg transition-all" style="height: 120px;"></div>
+                        <span class="text-[10px] text-on-surface-variant">Fri</span>
+                    </div>
+                    <div class="flex-grow flex flex-col items-center gap-2">
+                        <div class="w-full bg-primary hover:bg-spice-red rounded-t-lg transition-all" style="height: 180px;"></div>
+                        <span class="text-[10px] text-primary font-bold">Sat</span>
+                    </div>
+                    <div class="flex-grow flex flex-col items-center gap-2">
+                        <div class="w-full bg-primary hover:bg-spice-red rounded-t-lg transition-all" style="height: 160px;"></div>
+                        <span class="text-[10px] text-primary font-bold">Sun</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Chart 2: Category Breakdown -->
+            <div class="bg-white p-6 rounded-2xl border border-orange-50 shadow-sm">
+                <h3 class="font-headline-md text-lg text-primary font-bold mb-6">Sales by Category</h3>
+                <div class="space-y-4">
+                    <div>
+                        <div class="flex justify-between text-xs font-bold mb-1">
+                            <span>Signature Thalis</span>
+                            <span>54%</span>
+                        </div>
+                        <div class="w-full h-2 bg-orange-50 rounded-full overflow-hidden">
+                            <div class="h-full bg-primary" style="width: 54%;"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between text-xs font-bold mb-1">
+                            <span>Weekend Specials</span>
+                            <span>28%</span>
+                        </div>
+                        <div class="w-full h-2 bg-orange-50 rounded-full overflow-hidden">
+                            <div class="h-full bg-spice-red" style="width: 28%;"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between text-xs font-bold mb-1">
+                            <span>Sweet Finales</span>
+                            <span>18%</span>
+                        </div>
+                        <div class="w-full h-2 bg-orange-50 rounded-full overflow-hidden">
+                            <div class="h-full bg-accent-gold" style="width: 18%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Live Orders and Transactions Ledger -->
+        <section class="bg-white rounded-2xl border border-orange-50 shadow-sm p-6 overflow-x-auto">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="font-headline-md text-xl text-primary font-bold">Seeded Order & Transaction Ledger</h3>
+                <span class="text-[10px] bg-green-100 text-green-800 font-bold px-2.5 py-1 rounded-full uppercase tracking-wider">Audit Testing Ready</span>
+            </div>
+            
+            <table class="w-full text-left border-collapse">
+                <thead>
+                    <tr class="border-b border-orange-100 text-xs uppercase tracking-wider text-on-surface-variant font-bold">
+                        <th class="py-3 px-4">Order ID</th>
+                        <th class="py-3 px-4">Items</th>
+                        <th class="py-3 px-4">Amount</th>
+                        <th class="py-3 px-4">Status</th>
+                        <th class="py-3 px-4">Payment Method</th>
+                        <th class="py-3 px-4 text-center">Action</th>
+                    </tr>
+                </thead>
+                <tbody id="orders-tbody" class="text-sm">
+                    <tr>
+                        <td colspan="6" class="py-8 text-center text-on-surface-variant italic">Loading orders from server...</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <script>
+        // Helper to get the correct API base URL dynamically
+        function getApiUrl(path) {
+            if (window.location.protocol.startsWith('http')) {
+                if (window.location.port === '8082') {
+                    return `${window.location.origin}${path}`;
+                } else {
+                    return `${window.location.protocol}//${window.location.hostname}:8082${path}`;
+                }
+            }
+            return `http://127.0.0.1:8082${path}`;
+        }
+
+        let ordersList = [];
+
+        async function fetchOrders() {
+            try {
+                const response = await fetch(getApiUrl('/api/orders'));
+                if (response.ok) {
+                    const data = await response.json();
+                    ordersList = data.orders || [];
+                    renderOrders();
+                    updateMetrics();
+                } else {
+                    console.error('Failed to fetch orders from server');
+                }
+            } catch (error) {
+                console.error('Error fetching orders:', error);
+            }
+        }
+
+        function renderOrders() {
+            const tbody = document.getElementById('orders-tbody');
+            if (!tbody) return;
+            
+            if (ordersList.length === 0) {
+                tbody.innerHTML = `
+                    <tr>
+                        <td colspan="6" class="py-8 text-center text-on-surface-variant italic">No orders found in the database. Place an order to see it here!</td>
+                    </tr>
+                `;
+                return;
+            }
+
+            tbody.innerHTML = ordersList.map(order => {
+                const itemsList = order.items.map(item => `${item.quantity}x ${item.name}`).join(', ');
+                const badgeColor = getBadgeClass(order.status);
+                
+                return `
+                    <tr class="border-b border-orange-50/50 hover:bg-orange-50/10">
+                        <td class="py-4 px-4 font-bold text-primary">${order.orderNumber}</td>
+                        <td class="py-4 px-4 truncate max-w-xs" title="${itemsList}">${itemsList}</td>
+                        <td class="py-4 px-4 font-bold">₹${order.totalAmount.toFixed(2)}</td>
+                        <td class="py-4 px-4">
+                            <span id="badge-${order.orderNumber}" class="px-2.5 py-1 text-xs font-bold rounded-full uppercase ${badgeColor}">${order.status}</span>
+                        </td>
+                        <td class="py-4 px-4 uppercase font-bold text-on-surface-variant">${order.paymentMethod || 'upi'}</td>
+                        <td class="py-4 px-4 text-center">
+                            <select onchange="updateStatus('${order.orderNumber}', this.value)" class="text-xs rounded-lg border-outline-variant/30 focus:border-primary focus:ring-0">
+                                <option value="placed" ${order.status === 'placed' ? 'selected' : ''}>Placed</option>
+                                <option value="preparing" ${order.status === 'preparing' ? 'selected' : ''}>Preparing</option>
+                                <option value="out-for-delivery" ${order.status === 'out-for-delivery' ? 'selected' : ''}>Out For Delivery</option>
+                                <option value="delivered" ${order.status === 'delivered' ? 'selected' : ''}>Delivered</option>
+                                <option value="cancelled" ${order.status === 'cancelled' ? 'selected' : ''}>Cancelled</option>
+                            </select>
+                        </td>
+                    </tr>
+                `;
+            }).join('');
+        }
+
+        function getBadgeClass(status) {
+            switch(status) {
+                case 'delivered': return 'bg-green-100 text-green-800';
+                case 'preparing': return 'bg-blue-100 text-blue-800';
+                case 'placed': return 'bg-orange-100 text-orange-800';
+                case 'out-for-delivery': return 'bg-purple-100 text-purple-800';
+                default: return 'bg-red-100 text-red-800';
+            }
+        }
+
+        async function updateStatus(orderNumber, newStatus) {
+            try {
+                const response = await fetch(getApiUrl(`/api/orders/${orderNumber}/status`), {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ status: newStatus })
+                });
+
+                if (response.ok) {
+                    const badge = document.getElementById(`badge-${orderNumber}`);
+                    if (badge) {
+                        badge.innerText = newStatus;
+                        badge.className = `px-2.5 py-1 text-xs font-bold rounded-full uppercase ${getBadgeClass(newStatus)}`;
+                    }
+                    const o = ordersList.find(item => item.orderNumber === orderNumber);
+                    if (o) o.status = newStatus;
+                    updateMetrics();
+                } else {
+                    alert('Failed to update status on server');
+                }
+            } catch (error) {
+                console.error('Error updating order status:', error);
+                alert('Error connecting to server to update status');
+            }
+        }
+
+        function updateMetrics() {
+            const totalOrders = ordersList.length;
+            const totalSales = ordersList
+                .filter(o => o.status !== 'cancelled')
+                .reduce((sum, o) => sum + o.totalAmount, 0);
+            const avgVal = totalOrders > 0 ? Math.round(totalSales / totalOrders) : 0;
+
+            document.getElementById('total-orders-count').innerText = totalOrders;
+            document.getElementById('total-sales-amount').innerText = '₹' + totalSales.toLocaleString('en-IN');
+            document.getElementById('avg-order-value').innerText = '₹' + avgVal;
+        }
+
+        function refreshData() {
+            fetchOrders();
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            fetchOrders();
+        });
+    </script>
+</body>
+</html>

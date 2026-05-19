@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;600;700&amp;family=Plus+Jakarta+Sans:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .editorial-gradient {
+            background: linear-gradient(180deg, rgba(252, 249, 242, 0) 0%, rgba(252, 249, 242, 1) 100%);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-surface": "#1c1c18",
+                        "on-error": "#ffffff",
+                        "primary": "#7e2600",
+                        "inverse-on-surface": "#f3f0ea",
+                        "secondary": "#7d5700",
+                        "surface-container": "#f0eee7",
+                        "surface-variant": "#e5e2db",
+                        "deep-earth": "#31312c",
+                        "on-secondary-fixed-variant": "#5f4100",
+                        "spice-red": "#be543c",
+                        "tertiary-fixed": "#ffdad2",
+                        "on-tertiary-fixed-variant": "#812913",
+                        "surface-container-highest": "#e5e2db",
+                        "error": "#ba1a1a",
+                        "on-surface-variant": "#58423a",
+                        "on-background": "#1c1c18",
+                        "primary-fixed-dim": "#ffb59c",
+                        "outline-variant": "#e0c0b5",
+                        "surface-container-lowest": "#ffffff",
+                        "inverse-surface": "#31312c",
+                        "secondary-fixed-dim": "#f1be65",
+                        "background": "#fcf9f2",
+                        "accent-gold": "#feb71a",
+                        "surface-bright": "#fcf9f2",
+                        "surface": "#fcf9f2",
+                        "on-secondary-fixed": "#271900",
+                        "on-tertiary-container": "#ffc8bb",
+                        "on-secondary": "#ffffff",
+                        "primary-fixed": "#ffdbcf",
+                        "on-tertiary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "tertiary": "#7d2611",
+                        "primary-container": "#a63500",
+                        "outline": "#8c7168",
+                        "secondary-fixed": "#ffdeaa",
+                        "on-secondary-container": "#775300",
+                        "on-primary": "#ffffff",
+                        "inverse-primary": "#ffb59c",
+                        "on-primary-container": "#ffc9b7",
+                        "on-primary-fixed": "#380c00",
+                        "surface-tint": "#a93702",
+                        "surface-container-low": "#f6f3ec",
+                        "surface-container-high": "#ebe8e1",
+                        "secondary-container": "#fec96f",
+                        "surface-cream": "#fcf9f2",
+                        "tertiary-container": "#9d3d26",
+                        "tertiary-fixed-dim": "#ffb4a3",
+                        "on-error-container": "#93000a",
+                        "on-primary-fixed-variant": "#822800",
+                        "on-tertiary-fixed": "#3d0700",
+                        "surface-dim": "#dcdad3"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "lg": "40px",
+                        "xs": "4px",
+                        "md": "24px",
+                        "gutter": "16px",
+                        "base": "8px",
+                        "xl": "64px",
+                        "margin-mobile": "16px",
+                        "sm": "12px",
+                        "margin-desktop": "80px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Plus Jakarta Sans"],
+                        "headline-xl": ["Noto Serif"],
+                        "body-lg": ["Plus Jakarta Sans"],
+                        "label-sm": ["Plus Jakarta Sans"],
+                        "headline-lg": ["Noto Serif"],
+                        "label-md": ["Plus Jakarta Sans"],
+                        "headline-md": ["Noto Serif"]
+                    },
+                    "fontSize": {
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "headline-xl": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "700"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                        "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface font-body-md overflow-x-hidden">
+<!-- Top App Bar -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-margin-mobile h-16 bg-surface shadow-sm">
+<button class="active:scale-95 transition-transform hover:opacity-80">
+<span class="material-symbols-outlined text-primary" data-icon="menu">menu</span>
+</button>
+<h1 class="font-headline-md text-headline-md font-bold text-primary">Akshaypatra</h1>
+<div class="w-8 h-8 rounded-full overflow-hidden border border-outline-variant">
+<img alt="User profile photo" data-alt="A professional headshot of a friendly man with a warm smile, set against a soft, neutral studio background. The lighting is bright and even, reflecting a modern corporate aesthetic. The overall mood is approachable and trustworthy, consistent with a high-end service platform's user profile interface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDWOX8u8sikFmx_tWPqnwDd3Am2Ilvk2PfKPPeWMuriWloAONaiF3PI3asqxmhVMm_idi3vpdbHSySmXm5O9hs2H3MEX5pD_cV-AsU0yH2OZKZmdVJOxjX8rkoPJSDduVGQNS_AxhG-cfuMHKXKMFzpUB5yOReat3CZEYtpHZl3z9jZNADK9xNKk_zwxYIX9R-EKpgylC1j9nVaMU6NmaVoeFITb__4UVBcPLR9elhQYesHOPGjEdL3moYuOI6fIsWoWFcLmWRcUw"/>
+</div>
+</header>
+<main class="pt-16 pb-20">
+<!-- Hero Section -->
+<section class="relative h-[707px] flex items-end overflow-hidden">
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover" data-alt="A macro close-up of vibrant, fresh green coriander leaves and aromatic Indian spices scattered on a rustic wooden table. The lighting is warm and golden, reminiscent of a late afternoon in a traditional Indian kitchen. The composition is artistic and tactile, emphasizing the raw beauty and freshness of heritage ingredients in a modern culinary context." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA1FmwKbzxR8G8j9nrqD9mMybzbkddGQiHDDH4ENX2ucqvnSQOi3Byu8AfKcPyBgmcapLinAdciaTRadah6LqIuznHppdl-yxms55NsLBbha3ObbgGe3NBzppgdkTbpMAFtBV2DnLk3lQ5xJa2g2C0AHKcUlZCEAEiL3etkEJ2XqZpT20o-LMui8tHqnrSYWnPVorAyX0I8XmoVMmhWKbINComHsPNU--az5jHLkuUsbYLkG-XaVLk_ftXj38uocdHr9EcD05LtsA"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent"></div>
+</div>
+<div class="relative z-10 px-margin-mobile pb-lg max-w-lg">
+<span class="inline-block px-3 py-1 bg-secondary-container text-on-secondary-container font-label-md rounded-full mb-base">Sustainable Legacy</span>
+<h2 class="font-headline-xl text-headline-xl text-primary mb-sm">Rooted in Earth, Served with Soul.</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Our journey back to the basics is more than a trend; it's a commitment to the land that feeds us.</p>
+</div>
+</section>
+<!-- Sourcing from Wagholi (Pune) Farmers -->
+<section class="px-margin-mobile py-xl bg-surface-container-low">
+<div class="mb-lg">
+<h3 class="font-headline-lg text-headline-lg text-tertiary mb-sm">Sourcing from Wagholi (Pune) Farmers</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-md">Every dawn, we connect with the local soil. Our partnership with the generational farmers of Wagholi (Pune) ensures that the 'Bhaji' on your plate traveled less than 10 kilometers from the vine.</p>
+</div>
+<div class="grid grid-cols-2 gap-base h-80">
+<div class="col-span-1 rounded-xl overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A wide-angle, scenic view of lush green vegetable fields in rural Maharashtra during the golden hour. The soft, warm sunlight bathes the rows of crops in a magical glow, highlighting the rich soil and vibrant produce. The atmosphere is serene and grounded, capturing the essence of traditional farming practices and deep connection to the land." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBk4IhmviuY_Mj7bvDTYNf3MLLUULwfKqB6BTq23kbpg6ZtvJYhXn16w1rMfPD1TPB_IdeQLyYSaigd-y_ScFiwOVf9C5weV5BGs9UD4GJo1wBC21Ln16tbgcs0mRyWcwsF5Lwnoye9DT-FGttfY-vabc3-qPgPlnkaudmfN6D_NcFsHagEGp8-M3QV78g44pELX9UnL3o7zp8llvdYpsvKDxNG-ZuCgSteYoTlPJuhUNXMGV2SZX2htIgItExwj5XIgeUsUHDaPg"/>
+</div>
+<div class="col-span-1 grid grid-rows-2 gap-base">
+<div class="rounded-xl overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A close-up shot of weathered, hardworking hands of an Indian farmer holding a bundle of freshly harvested bright red radishes with vibrant green tops. The textures of the soil on the hands and the crispness of the vegetables are highly detailed. The lighting is natural and bright, celebrating the dignity and labor of local agriculture." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDvGHgUExYzNfskPTvpVYbWO16w0muN4--fZe7h_CrKkshiElaegpTOFxgRpH42egxCQU5cBg_Nfs9zMUaLTZEPavTxuVsdBIrD0GNY2f2k2k2A3NynNT-J2MJEzJaVKlFIa2Uh2hmJB4zqHndtiVS5DH71NmC6K3vkDoXXLVesQ920AvUwJI7-r3ZXHWnAWO_ROMEMmjIVFUB5qeQnpLxk18_Awwcyh1-XZYF_sec1YHb1y1BRRWht7QfAk2xxzjHN-bCkdRsGew"/>
+</div>
+<div class="rounded-xl overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A top-down arrangement of diverse heirloom Indian vegetables like ridge gourd, okra, and fenugreek leaves on a traditional jute mat. The colors are earthy and saturated, with a focus on fresh, organic textures. The lighting is soft and diffused, creating a clean, high-end editorial feel that emphasizes purity and heritage." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-gPZqx5fQY0wQ5zv4i1D3dOksnmI2Ns8_VG6w2FWxPAlxKlmsNgYgTtMZsdia7xWkxUfqKSckBQ-Nh1BUwpYHYRvSBZ4X7SNoSYefLSZnVAkHOOoR7V0HjV7o8NiqkKFkvWZhqZ3ZD6fDcoInu-UxNj7aWgFlHKNxOt7pA3bpld93q3JkyfoqjfOr2k1AVf6thLbJ7xO0hFtgzhZZjsYkCTcR3e6czoMZFWP2Wt9kSC69g8wOfwKBiYOGi7j9VzUGVtGSA-7E8w"/>
+</div>
+</div>
+</div>
+</section>
+<!-- Plastic-Free Delivery -->
+<section class="py-xl">
+<div class="px-margin-mobile mb-lg">
+<h3 class="font-headline-lg text-headline-lg text-primary mb-sm">Plastic-Free Delivery</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">We believe that heritage food shouldn't leave a modern footprint. Our packaging is 100% biodegradable, utilizing banana leaves, compostable containers, and recycled craft paper.</p>
+</div>
+<!-- Horizontal Scroll for Packaging -->
+<div class="flex overflow-x-auto gap-md px-margin-mobile snap-x scrollbar-hide pb-base">
+<div class="min-w-[280px] snap-center bg-surface-container-lowest rounded-xl shadow-sm border border-outline-variant overflow-hidden">
+<div class="h-48">
+<img class="w-full h-full object-cover" data-alt="A beautifully presented meal wrapped in a fresh, vibrant green banana leaf, tied with a natural jute string. The packaging looks organic and premium, set against a minimalist cream background. The lighting is crisp and bright, highlighting the eco-friendly and traditional method of food preservation and delivery used by the brand." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD38Vz1vx_hyVYzQtJ-co_2BHqYuzIR4IIfCWYnq_HdvYTmfoGwDoeTnF7JjusA72yLlhbcVan-MLyXgBfCTA4YnNpHUHX5xM2_tEMr8TcUZ341X0qkma79KnUtlHv3rOko-OtmEjGMR3QzY18yt3UopBBBZS1oewBEBoH_9LaSL4JD95wSi5LV7w7GNL3yDIJAKIAy5PnmbC7exWLWSl6uqcC39hpoYd_Kwca0CdtVQtUgMw0kO1heQxSEChUUKk-HXQ6KgM_L8Q"/>
+</div>
+<div class="p-md">
+<h4 class="font-label-md text-label-md text-primary mb-xs">Traditional Wrap</h4>
+<p class="text-label-sm font-label-sm text-on-surface-variant">Fresh banana leaves for natural insulation and flavor.</p>
+</div>
+</div>
+<div class="min-w-[280px] snap-center bg-surface-container-lowest rounded-xl shadow-sm border border-outline-variant overflow-hidden">
+<div class="h-48">
+<img class="w-full h-full object-cover" data-alt="A stack of minimalist craft paper boxes and bags with a subtle, elegant brand logo printed in spice-red ink. The materials are clearly recycled and high-quality, presented in a clean, modern lifestyle setting. The soft side-lighting creates gentle shadows, emphasizing the tactile, premium nature of the sustainable delivery materials." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDqfG-LUwAU-FfzUQcxWO5eevOdc4zxUx-ZhQeKiPJmjlSAIWpVPxeoIChTReq5oRTX2OKkzGxgZ_gLJshefqBJVtpFngV3TsLt2BDQdwDvvW0opoMBAEpmxTwLzt0323OiF2LDT1p7MOuI5oc3cV0tFVLZVEI8AEFpHMPexV6BkgBjCWL3YBK5UHyDzA7yw0qzTXMZKdUlw9eVyq5oJ9ILISooWoth5UylKXIeAT6ehWPPYfcRK1W02KXXMQTV_gpNqALTXTW7RA"/>
+</div>
+<div class="p-md">
+<h4 class="font-label-md text-label-md text-primary mb-xs">Recycled Craft</h4>
+<p class="text-label-sm font-label-sm text-on-surface-variant">FSC-certified paper handles and bags for a zero-waste trip.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Zero-Waste Kitchen -->
+<section class="px-margin-mobile py-xl bg-deep-earth text-surface">
+<div class="flex flex-col gap-lg">
+<div class="relative rounded-xl overflow-hidden h-64 border border-outline/30">
+<img class="w-full h-full object-cover opacity-60" data-alt="An atmospheric shot of a traditional Indian kitchen featuring polished copper pots and brass utensils gleaming under warm, low-key lighting. Wisps of steam rise from a pot in the background, creating a sense of authentic culinary craft. The color palette is rich with ambers and deep browns, emphasizing the timeless, zero-waste tradition of metal cookware." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCcIDn3emKNEcFEyjGgP9Yc4-mxB5hkPwsqTAGYZZzmoTzneDp5RizUUwpLNMvki8lN8Gyou5tvstrMTTlbOFcCCSMgQ2Cr_dFJ9fq7lD2aCMLlH3AeMe2wwstY4APyruFaBpZN4p6Kzb48O3HYB8d4A3qrBwX-yayjd0gUNiGptcB6zjBWDOI9wSwExv1s6hR4ugJiLsf00GSS9uiOEIuG1lrPupeA58qgsJ0A1irWcUdMMegEM8EbJkslPsKywkwPQXHoT6A2xg"/>
+<div class="absolute inset-0 flex flex-col justify-end p-md bg-gradient-to-t from-deep-earth to-transparent">
+<h3 class="font-headline-lg text-headline-lg text-secondary-fixed">Zero-Waste Kitchen</h3>
+<p class="font-body-md text-body-md text-surface-variant">Preserving techniques that honor every scrap.</p>
+</div>
+</div>
+<div class="grid grid-cols-1 gap-md">
+<div class="flex items-start gap-md">
+<div class="w-12 h-12 flex-shrink-0 bg-primary-container rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary-container" data-icon="recycling">recycling</span>
+</div>
+<div>
+<h4 class="font-label-md text-label-md text-secondary-fixed">Composting Culture</h4>
+<p class="font-label-sm text-label-sm text-surface-variant/80">Every peel and root from our prep station goes back to Wagholi (Pune) as nutrient-rich compost.</p>
+</div>
+</div>
+<div class="flex items-start gap-md">
+<div class="w-12 h-12 flex-shrink-0 bg-primary-container rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary-container" data-icon="restaurant_menu">restaurant_menu</span>
+</div>
+<div>
+<h4 class="font-label-md text-label-md text-secondary-fixed">Copper Longevity</h4>
+<p class="font-label-sm text-label-sm text-surface-variant/80">We use timeless copper and cast iron, eliminating the need for short-lived non-stick coatings.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Newsletter / Community -->
+<section class="px-margin-mobile py-xl text-center">
+<span class="material-symbols-outlined text-primary text-5xl mb-md" data-icon="eco">eco</span>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-sm">Join the Green Hearth</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-lg px-md">Get updates on our seasonal sourcing and tips for a zero-waste home kitchen.</p>
+<div class="space-y-sm">
+<input class="w-full h-14 bg-surface-container-highest border-none rounded-xl px-md focus:ring-2 focus:ring-primary" placeholder="Your email address" type="email"/>
+<button class="w-full h-14 bg-primary text-on-primary font-label-md rounded-xl active:scale-95 transition-transform">Support the Earth</button>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-20 px-4 pb-2 bg-surface-container-lowest shadow-lg rounded-t-xl">
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-variant/50 transition-colors p-2 rounded-xl" href="../akshaypatra_mobile_landing_page/code.html">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-label-md text-label-md">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-variant/50 transition-colors p-2 rounded-xl" href="../akshaypatra_mobile_menu_expanded/code.html">
+<span class="material-symbols-outlined" data-icon="restaurant_menu">restaurant_menu</span>
+<span class="font-label-md text-label-md">Menu</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-full px-6 py-1 active:scale-90 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="receipt_long">receipt_long</span>
+<span class="font-label-md text-label-md">Orders</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-variant/50 transition-colors p-2 rounded-xl" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-label-md text-label-md">Profile</span>
+</a>
+</nav>
+</body></html>

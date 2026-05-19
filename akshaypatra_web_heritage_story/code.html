@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Heritage Story | Akshaypatra</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;600;700&amp;family=Plus+Jakarta+Sans:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "outline": "#8c7168",
+                    "deep-earth": "#31312c",
+                    "tertiary": "#7d2611",
+                    "background": "#fcf9f2",
+                    "primary-fixed": "#ffdbcf",
+                    "surface-container": "#f0eee7",
+                    "secondary-fixed-dim": "#f1be65",
+                    "on-error-container": "#93000a",
+                    "inverse-surface": "#31312c",
+                    "on-secondary-fixed": "#271900",
+                    "on-tertiary-container": "#ffc8bb",
+                    "inverse-on-surface": "#f3f0ea",
+                    "secondary-container": "#fec96f",
+                    "primary": "#7e2600",
+                    "outline-variant": "#e0c0b5",
+                    "tertiary-fixed-dim": "#ffb4a3",
+                    "primary-fixed-dim": "#ffb59c",
+                    "on-surface": "#1c1c18",
+                    "on-secondary-container": "#775300",
+                    "secondary": "#7d5700",
+                    "error-container": "#ffdad6",
+                    "surface": "#fcf9f2",
+                    "on-error": "#ffffff",
+                    "tertiary-container": "#9d3d26",
+                    "primary-container": "#a63500",
+                    "on-primary": "#ffffff",
+                    "on-tertiary-fixed-variant": "#812913",
+                    "on-secondary": "#ffffff",
+                    "surface-variant": "#e5e2db",
+                    "on-primary-fixed": "#380c00",
+                    "on-background": "#1c1c18",
+                    "on-primary-fixed-variant": "#822800",
+                    "accent-gold": "#feb71a",
+                    "on-tertiary-fixed": "#3d0700",
+                    "surface-container-high": "#ebe8e1",
+                    "on-primary-container": "#ffc9b7",
+                    "on-tertiary": "#ffffff",
+                    "surface-cream": "#fcf9f2",
+                    "inverse-primary": "#ffb59c",
+                    "surface-tint": "#a93702",
+                    "on-surface-variant": "#58423a",
+                    "tertiary-fixed": "#ffdad2",
+                    "spice-red": "#be543c",
+                    "surface-dim": "#dcdad3",
+                    "on-secondary-fixed-variant": "#5f4100",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-container-highest": "#e5e2db",
+                    "surface-bright": "#fcf9f2",
+                    "error": "#ba1a1a",
+                    "secondary-fixed": "#ffdeaa",
+                    "surface-container-low": "#f6f3ec"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "md": "24px",
+                    "margin-desktop": "80px",
+                    "sm": "12px",
+                    "xs": "4px",
+                    "xl": "64px",
+                    "margin-mobile": "16px",
+                    "lg": "40px",
+                    "gutter": "16px",
+                    "base": "8px"
+            },
+            "fontFamily": {
+                    "headline-xl": ["Noto Serif"],
+                    "label-sm": ["Plus Jakarta Sans"],
+                    "headline-md": ["Noto Serif"],
+                    "body-md": ["Plus Jakarta Sans"],
+                    "label-md": ["Plus Jakarta Sans"],
+                    "headline-lg": ["Noto Serif"],
+                    "body-lg": ["Plus Jakarta Sans"]
+            },
+            "fontSize": {
+                    "headline-xl": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "700"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+        }
+        .hero-gradient {
+            background: linear-gradient(180deg, rgba(49, 49, 44, 0.4) 0%, rgba(49, 49, 44, 0.8) 100%);
+        }
+        .text-balance {
+            text-wrap: balance;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body-md antialiased selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- TopNavBar -->
+<nav class="sticky top-0 w-full z-50 bg-surface border-b border-outline-variant shadow-sm transition-all duration-200">
+<div class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-4 mx-auto max-w-7xl">
+<div class="font-headline-lg text-headline-lg text-primary uppercase tracking-tight">Akshaypatra</div>
+<div class="hidden md:flex items-center gap-lg">
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md" href="../akshaypatra_web_menu_expanded/code.html"> Menu </a>
+<a class="text-primary font-bold border-b-2 border-primary pb-1 font-body-md text-body-md" href="../akshaypatra_web_heritage_story_refined/code.html"> Heritage Story </a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md" href="../akshaypatra_web_spice_circle_rewards_exclusive/code.html"> Specials </a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md" href="../akshaypatra_web_sustainability_showcase/code.html"> Catering </a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md" href="../akshaypatra_web_user_dashboard_refined/code.html"> Account </a>
+</div>
+<div class="flex items-center gap-md">
+<div class="hidden md:flex bg-surface-container rounded-full px-4 py-2 items-center gap-sm">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="search">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-body-md w-40" placeholder="Find a dish..." type="text"/>
+</div>
+<a href="../akshaypatra_web_menu_expanded/code.html" class="bg-primary text-on-primary px-lg py-sm rounded-full font-label-md text-label-md hover:bg-primary-container hover:text-on-primary-container transition-all hover:scale-95 active:scale-90 duration-200 no-underline">
+                    Order Now
+                </a>
+</div>
+</div>
+</nav>
+<main>
+<!-- Hero Section -->
+<header class="relative h-[819px] w-full overflow-hidden">
+<img alt="The Inexhaustible Vessel" class="absolute inset-0 w-full h-full object-cover" data-alt="A cinematic, high-angle close-up of a traditional Indian copper vessel filled with steaming, golden lentil stew. The scene is set in a rustic Maharashtrian kitchen with warm, directional sunlight filtering through a window, illuminating the swirling steam and vibrant spices. The overall atmosphere is nostalgic, rich in texture, and deeply rooted in heritage, utilizing a warm palette of spice-red and deep earth tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuABLOe55cHRiuCb1o6w87F5E0Bo4gRwIRK4EkMLvM6arlgr5-V8ffTARhuJGSfp2ry0c8q9wCbh0dqCGiVgRgljC9u1RgbxwZ8fYjMIPo7UJdNJr8-ZrIYJKTrEcO2cobo02BJMhtux3_BfNkRLkec92aXpUY_XBTFnlXliuFAjV0jxKfrjgg4xqlXihYcLqSJdW63eF1C5BqVMmKL31SLLJGv-35I-SfWue7SI8fQCEFVxI-8uZWeEtXZlqFb7Z0myoW5ROI03wQ"/>
+<div class="absolute inset-0 hero-gradient flex items-end pb-xl">
+<div class="max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop w-full">
+<div class="max-w-3xl">
+<span class="bg-accent-gold text-deep-earth px-4 py-1 rounded-full font-label-md text-label-md mb-md inline-block uppercase tracking-wider">The Legend</span>
+<h1 class="font-headline-xl text-headline-xl text-white mb-md text-balance">The Inexhaustible Vessel: A Tale of Eternal Abundance</h1>
+<p class="font-body-lg text-body-lg text-surface-cream opacity-90 leading-relaxed">In the ancient epics, the Akshaypatra was a divine copper vessel given to the Pandavas, ensuring that no guest ever left their hearth hungry. Today, we carry that same spirit in every pot we simmer.</p>
+</div>
+</div>
+</div>
+</header>
+<!-- Bento Heritage Section -->
+<section class="py-xl px-margin-mobile md:px-margin-desktop max-w-7xl mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Large Content Card -->
+<div class="md:col-span-7 bg-surface-container-low p-lg md:p-xl rounded-xl flex flex-col justify-center">
+<h2 class="font-headline-lg text-headline-lg text-primary mb-md">A Tale of Eternal Abundance</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-lg leading-relaxed">
+                        Akshaypatra isn't just a name; it's a promise. Rooted in the Maharashtrian philosophy of 'Atithi Devo Bhava', our kitchen operates on the belief that food is the ultimate blessing. We don't just cook; we preserve a lineage of flavors that have sustained families for generations. Every grain of rice and every pinch of Goda Masala tells a story of survival, celebration, and community.
+                    </p>
+<div class="flex items-center gap-md">
+<div class="h-px bg-outline-variant flex-grow"></div>
+<span class="font-headline-md text-headline-md text-spice-red italic">Est. 1974</span>
+</div>
+</div>
+<!-- Secondary Image Card -->
+<div class="md:col-span-5 h-[400px] md:h-auto relative overflow-hidden rounded-xl shadow-sm">
+<img alt="Authentic Spices" class="absolute inset-0 w-full h-full object-cover" data-alt="Detailed macro shot of various whole Indian spices like star anise, cardamom, and cinnamon sticks arranged artistically on a weathered wooden surface. The lighting is moody and dramatic, highlighting the earthy textures and rich colors of the spices. This high-end culinary photograph emphasizes the raw, natural ingredients that define the authentic Maharashtrian flavor profile of Akshaypatra." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBg3aq7yNcF3kqpBCUCVmiYkMqESg909YdfvF2yHl3LIvYrW5HJYWZvC-aYOzDvsQOfSkju2TmfmL-sX0ZZk6qFTnAwCsteaqLFSf_KjTM73QWeYraN0Twos2DVFAbF3qCUqxjOKgjcgjuABYWwCh0wnpOP-NW9udbRRSqrt2hAvT6Ux7FLHkHtU6ytp1wttCU8c1aeTjbWUOudjU63hNRTQc8bCsg54Pqp0pZFaX1qySzxpNF2oWAAJVWIZx4aroKzpOk9ZbTz0A"/>
+</div>
+<!-- Small Grid Items -->
+<div class="md:col-span-4 bg-white border border-outline-variant p-md rounded-xl shadow-sm">
+<div class="w-12 h-12 bg-secondary-container rounded-full flex items-center justify-center mb-md">
+<span class="material-symbols-outlined text-on-secondary-container" data-icon="temp_preferences_custom">temp_preferences_custom</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-deep-earth mb-sm">Slow Grind</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">We still use the stone 'Patta-Varvanta' for our spice blends, ensuring the oils remain cold-pressed and aromatic.</p>
+</div>
+<div class="md:col-span-4 bg-white border border-outline-variant p-md rounded-xl shadow-sm">
+<div class="w-12 h-12 bg-primary-container rounded-full flex items-center justify-center mb-md">
+<span class="material-symbols-outlined text-on-primary-container" data-icon="local_fire_department">local_fire_department</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-deep-earth mb-sm">Fire &amp; Smoke</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">The 'Chulha' method isn't just about heat; it's about the subtle smokiness that only wood-fire cooking can impart.</p>
+</div>
+<div class="md:col-span-4 bg-white border border-outline-variant p-md rounded-xl shadow-sm">
+<div class="w-12 h-12 bg-tertiary-container rounded-full flex items-center justify-center mb-md">
+<span class="material-symbols-outlined text-on-tertiary-container" data-icon="diversity_3">diversity_3</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-deep-earth mb-sm">Community</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">A portion of every meal shared at Akshaypatra goes toward supporting local farming families in the Wagholi (Pune) region.</p>
+</div>
+</div>
+</section>
+<!-- Our Wagholi (Pune) Roots - Asymmetric Layout -->
+<section class="bg-deep-earth text-surface-cream py-xl">
+<div class="max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop grid grid-cols-1 md:grid-cols-12 gap-xl items-center">
+<div class="md:col-span-5 relative order-2 md:order-1">
+<div class="aspect-[4/5] rounded-xl overflow-hidden shadow-lg border-4 border-accent-gold/20">
+<img alt="Maushi - The Heart of Our Kitchen" class="w-full h-full object-cover" data-alt="A portrait of a senior Maharashtrian woman, affectionately known as Maushi, smiling warmly in a traditional kitchen setting. She is wearing a vibrant nine-yard Saree and traditional jewelry. The background shows old copper pots and a dimly lit, authentic kitchen. The photograph is captured with a shallow depth of field, emphasizing the wisdom and kindness in her eyes, perfectly representing the heart of Wagholi (Pune) roots." src="https://lh3.googleusercontent.com/aida-public/AB6AXuATx9d_XuwmsrT4x_F8kci7ejTVvxPbKToijOVGQVJ41Z5XLPx1h4AKhSBSKU4opoiib4345QwpnIvVoxoXNjT__ma3CmeF1ztx3-dDvp0btc_W_6fXAIBT2NQEE9Bo_9WqKdn5QHQDXro83jRHGoqwivqYJ0c4SCMZmu7rUHtgbBA7Jb9DAe93vCrnFcutbsvK93RzdpXUOsdwz4E0UY8gNKuv1eCw-l1kUp92kU5jqp6tByumJwRqk6i00NvD0W2V8oo3TSjF1w"/>
+</div>
+<div class="absolute -bottom-6 -right-6 bg-accent-gold p-md rounded-lg shadow-xl hidden md:block">
+<p class="font-headline-md text-headline-md text-deep-earth">"Love is the secret ingredient."</p>
+<p class="font-label-md text-label-md text-on-secondary-fixed opacity-70">— Maushi</p>
+</div>
+</div>
+<div class="md:col-span-7 order-1 md:order-2">
+<span class="text-accent-gold font-label-md text-label-md tracking-widest uppercase mb-sm block">Local Guardians</span>
+<h2 class="font-headline-xl text-headline-xl mb-md">Our Wagholi (Pune) Roots</h2>
+<p class="font-body-lg text-body-lg mb-lg opacity-90 leading-relaxed">
+                        Before the digital age and the urban sprawl, Akshaypatra was a small window in Wagholi (Pune) where Maushi would serve Puran Poli to students and workers. Her kitchen was a sanctuary of warmth. While we have grown, our heart remains in that small lane. Maushi still oversees our spice roasting, her sharp eye ensuring that every batch of 'Thecha' has the perfect punch of green chillies and garlic.
+                    </p>
+<div class="grid grid-cols-2 gap-md">
+<div class="border-l-2 border-spice-red pl-md">
+<span class="block font-headline-lg text-headline-lg text-accent-gold">100%</span>
+<span class="font-label-md text-label-md opacity-70 uppercase">Hand-pounded Spices</span>
+</div>
+<div class="border-l-2 border-spice-red pl-md">
+<span class="block font-headline-lg text-headline-lg text-accent-gold">50+</span>
+<span class="font-label-md text-label-md opacity-70 uppercase">Heritage Recipes</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Timeless Traditions - Visual Section -->
+<section class="py-xl">
+<div class="max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop text-center mb-xl">
+<h2 class="font-headline-lg text-headline-lg text-primary mb-sm">Timeless Traditions</h2>
+<div class="h-1 w-24 bg-spice-red mx-auto mb-md"></div>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">Discover the meticulous processes that define our culinary identity.</p>
+</div>
+<!-- Horizontal Scroll for Mobile / Grid for Desktop -->
+<div class="max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop overflow-x-auto">
+<div class="flex md:grid md:grid-cols-3 gap-md pb-md">
+<!-- Process Card 1 -->
+<div class="min-w-[300px] md:min-w-0 bg-white rounded-xl overflow-hidden shadow-sm border border-outline-variant flex flex-col group">
+<div class="h-64 overflow-hidden">
+<img alt="The Slow Grind" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A focused close-up of a stone mortar and pestle grinding fresh green herbs and spices into a coarse paste. Small droplets of oil and vibrant spice particles are visible, emphasizing the tactile, manual effort of the slow grind process. The lighting is bright and fresh, with a clean, professional aesthetic that contrasts with the rustic tools." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDySoJtYOcdR2JFqyIRy2xY4VpfCzGQLBwkyo6NNObWkgIAWw7FaLkwywv7IlArpwUhWicHHJfoEB5ZDkzR0zpl5uD74XS9b8ON9CaXn1FOKetNIpKZHKs6i805gL3siUgsxDkbqMUra4PpJcMtwqUw7KJzlOERpT4n2gfMbyI9tgx_tqRNIkj2ckDxvLlcxbggNT63cX0hRdCQYCtYz7KPM5FLT13z5rb1X9srLmT74FOa0Ffz1zB6e4JxjIqBFJxHu-dvm8sRug"/>
+</div>
+<div class="p-md">
+<h4 class="font-headline-md text-headline-md text-deep-earth mb-xs">The Slow Grind</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Our spices never touch a high-speed blade. We use stone grinders to preserve the essential oils and soul of the masala.</p>
+</div>
+</div>
+<!-- Process Card 2 -->
+<div class="min-w-[300px] md:min-w-0 bg-white rounded-xl overflow-hidden shadow-sm border border-outline-variant flex flex-col group">
+<div class="h-64 overflow-hidden">
+<img alt="Fire &amp; Smoke" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A dark, atmospheric shot of a traditional wood-fired stove (Chulha) with glowing orange embers and wisps of grey smoke rising around a soot-stained clay pot. The heat is almost palpable through the warm, saturated color palette. The composition is artistic and minimalist, focusing on the primal element of fire and its role in traditional Maharashtrian cooking." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBIgRLe5JJtcEYK2y7uAhPCRJqWr4ztzi6DjeVwmzNYvKJfgJRg1hooWbyv-EIbFn5a32QbCWAVuhFkqd6jVzXjKnuAURBnXxynA9Adtg3u3-he1_mr7sxJ3I6zbYzwd2pn2ORNn47hXPBu5X7HgsccZlnQAGrLeWbJR2PDaozFbTJbaOI5NghKF-3m2yjuH2HA1XiaFWzIUuIwfhXuUKeX8LKYwAR2x4EK4V0ob3V3WZIK65BUsoLNvWS9C_pQDToyS4JUhevuGg"/>
+</div>
+<div class="p-md">
+<h4 class="font-headline-md text-headline-md text-deep-earth mb-xs">Fire &amp; Smoke</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">The 'Phodni' (tempering) is done in iron kadhais over open flames, giving our curries that unmistakable earthy depth.</p>
+</div>
+</div>
+<!-- Process Card 3 -->
+<div class="min-w-[300px] md:min-w-0 bg-white rounded-xl overflow-hidden shadow-sm border border-outline-variant flex flex-col group">
+<div class="h-64 overflow-hidden">
+<img alt="Sacred Service" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A beautifully composed flat-lay of a traditional Maharashtrian Thali served on a large banana leaf. Multiple small stainless steel bowls contain vibrant curries, lentils, and sweets, surrounded by freshly made Bhakri bread. The scene is bright and communal, set against a clean white background that emphasizes the 'White-Space' design principle and the premium quality of the food." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAOVXPp4OXxv0a7W3mGL4UuDmkrm2fNlKhw9deA_qdpOJohWOnyDYRkyMsTCJnvZud9716ePeiXwxpNjRc7ikN-o3pTR9bUONPIHuqL3N7730VZ1W6-KqbuF_lAixXzK5q7uyU3oHi_tHatN0ZAlsGPyntATH58m_wKlG0WuElEyvuAhnefKVPKPYI7FMwVOsLIHkBL-VbxoU0wUYjdMmcJs-32H0dt71c2uNzQGFjA5WH2uhTGHfHK8xJrRpvBh6WaxZ1nyYz7pg"/>
+</div>
+<div class="p-md">
+<h4 class="font-headline-md text-headline-md text-deep-earth mb-xs">Sacred Service</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Service is 'Annadaan'. Every plate is presented with a respect for the diner, ensuring a feast for the eyes and the soul.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Newsletter / CTA -->
+<section class="bg-surface-container-high py-xl px-margin-mobile md:px-margin-desktop">
+<div class="max-w-4xl mx-auto text-center">
+<h2 class="font-headline-lg text-headline-lg text-primary mb-md">Join Our Heritage Circle</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-lg">Receive exclusive stories of Maharashtrian food culture, seasonal recipe secrets from Maushi, and priority booking for our heritage dining events.</p>
+<form class="flex flex-col md:flex-row gap-md justify-center">
+<input class="bg-surface-container-lowest border-outline-variant rounded-full px-lg py-sm font-body-md text-body-md focus:ring-primary focus:border-primary w-full md:w-80" placeholder="Your email address" type="email"/>
+<button class="bg-primary text-on-primary px-xl py-sm rounded-full font-label-md text-label-md hover:bg-primary-container hover:text-on-primary-container transition-all shadow-sm">
+                        Subscribe
+                    </button>
+</form>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-deep-earth dark:bg-surface-container-lowest w-full py-xl">
+<div class="flex flex-col md:flex-row justify-between items-center w-full px-margin-mobile md:px-margin-desktop mx-auto max-w-7xl gap-md">
+<div class="flex flex-col items-center md:items-start gap-sm">
+<div class="font-headline-md text-headline-md text-accent-gold">Akshaypatra</div>
+<p class="font-label-md text-label-md text-surface-cream opacity-60 text-center md:text-left">© 2024 Akshaypatra. Honoring Maharashtrian Culinary Traditions.</p>
+</div>
+<div class="flex gap-lg">
+<a class="text-surface-variant hover:text-white transition-colors font-label-md text-label-md" href="#">Privacy</a>
+<a class="text-surface-variant hover:text-white transition-colors font-label-md text-label-md" href="#">Terms</a>
+<a class="text-surface-variant hover:text-white transition-colors font-label-md text-label-md" href="../akshaypatra_web_sustainability_showcase/code.html"> Sustainability </a>
+<a class="text-surface-variant hover:text-white transition-colors font-label-md text-label-md" href="#">Our Kitchens</a>
+</div>
+<div class="flex gap-md">
+<span class="material-symbols-outlined text-accent-gold cursor-pointer hover:opacity-80 transition-opacity" data-icon="facebook">social_leaderboard</span>
+<span class="material-symbols-outlined text-accent-gold cursor-pointer hover:opacity-80 transition-opacity" data-icon="instagram">retweet</span>
+<span class="material-symbols-outlined text-accent-gold cursor-pointer hover:opacity-80 transition-opacity" data-icon="youtube">route</span>
+</div>
+</div>
+</footer>
+<!-- FAB for quick action (Conditional Suppression logic: Rendered here as it's a top-level page) -->
+<button class="fixed bottom-8 right-8 bg-primary text-on-primary w-16 h-16 rounded-full shadow-lg flex items-center justify-center group hover:scale-105 active:scale-95 transition-all z-40 md:hidden">
+<span class="material-symbols-outlined text-3xl" data-icon="shopping_basket">shopping_basket</span>
+</button>
+</body></html>

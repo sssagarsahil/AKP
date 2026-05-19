@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;600;700&amp;family=Plus+Jakarta+Sans:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-surface": "#1c1c18",
+                        "on-error": "#ffffff",
+                        "primary": "#7e2600",
+                        "inverse-on-surface": "#f3f0ea",
+                        "secondary": "#7d5700",
+                        "surface-container": "#f0eee7",
+                        "surface-variant": "#e5e2db",
+                        "deep-earth": "#31312c",
+                        "on-secondary-fixed-variant": "#5f4100",
+                        "spice-red": "#be543c",
+                        "tertiary-fixed": "#ffdad2",
+                        "on-tertiary-fixed-variant": "#812913",
+                        "surface-container-highest": "#e5e2db",
+                        "error": "#ba1a1a",
+                        "on-surface-variant": "#58423a",
+                        "on-background": "#1c1c18",
+                        "primary-fixed-dim": "#ffb59c",
+                        "outline-variant": "#e0c0b5",
+                        "surface-container-lowest": "#ffffff",
+                        "inverse-surface": "#31312c",
+                        "secondary-fixed-dim": "#f1be65",
+                        "background": "#fcf9f2",
+                        "accent-gold": "#feb71a",
+                        "surface-bright": "#fcf9f2",
+                        "surface": "#fcf9f2",
+                        "on-secondary-fixed": "#271900",
+                        "on-tertiary-container": "#ffc8bb",
+                        "on-secondary": "#ffffff",
+                        "primary-fixed": "#ffdbcf",
+                        "on-tertiary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "tertiary": "#7d2611",
+                        "primary-container": "#a63500",
+                        "outline": "#8c7168",
+                        "secondary-fixed": "#ffdeaa",
+                        "on-secondary-container": "#775300",
+                        "on-primary": "#ffffff",
+                        "inverse-primary": "#ffb59c",
+                        "on-primary-container": "#ffc9b7",
+                        "on-primary-fixed": "#380c00",
+                        "surface-tint": "#a93702",
+                        "surface-container-low": "#f6f3ec",
+                        "surface-container-high": "#ebe8e1",
+                        "secondary-container": "#fec96f",
+                        "surface-cream": "#fcf9f2",
+                        "tertiary-container": "#9d3d26",
+                        "tertiary-fixed-dim": "#ffb4a3",
+                        "on-error-container": "#93000a",
+                        "on-primary-fixed-variant": "#822800",
+                        "on-tertiary-fixed": "#3d0700",
+                        "surface-dim": "#dcdad3"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "lg": "40px",
+                        "xs": "4px",
+                        "md": "24px",
+                        "gutter": "16px",
+                        "base": "8px",
+                        "xl": "64px",
+                        "margin-mobile": "16px",
+                        "sm": "12px",
+                        "margin-desktop": "80px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Plus Jakarta Sans"],
+                        "headline-xl": ["Noto Serif"],
+                        "body-lg": ["Plus Jakarta Sans"],
+                        "label-sm": ["Plus Jakarta Sans"],
+                        "headline-lg": ["Noto Serif"],
+                        "label-md": ["Plus Jakarta Sans"],
+                        "headline-md": ["Noto Serif"]
+                    },
+                    "fontSize": {
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "headline-xl": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "700"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                        "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body-md min-h-screen pb-32">
+<!-- TopAppBar -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-margin-mobile h-16 bg-surface shadow-sm">
+<button class="active:scale-95 transition-transform hover:opacity-80 transition-opacity">
+<span class="material-symbols-outlined text-primary">arrow_back</span>
+</button>
+<h1 class="font-headline-md text-headline-md font-bold text-primary">Checkout</h1>
+<div class="w-10 h-10 rounded-full bg-surface-variant flex items-center justify-center">
+<span class="material-symbols-outlined text-on-surface-variant">person</span>
+</div>
+</header>
+<main class="pt-20 px-margin-mobile space-y-base">
+<!-- Delivery Section -->
+<section class="bg-surface-container-low rounded-xl p-md shadow-sm border border-outline-variant/30 space-y-md">
+<div class="flex items-center justify-between">
+<h2 class="font-headline-md text-headline-md text-primary">Delivery Address</h2>
+<span class="material-symbols-outlined text-spice-red">location_on</span>
+</div>
+
+<div class="space-y-sm">
+    <div class="space-y-xs">
+        <label class="font-label-md text-label-md text-on-surface-variant">Full Name</label>
+        <div class="relative">
+            <span class="absolute left-3 top-1/2 -translate-y-1/2 material-symbols-outlined text-on-surface-variant text-[20px]">person</span>
+            <input id="delivery-name" type="text" value="" placeholder="Enter your Full Name" class="w-full bg-surface-container-lowest pl-10 pr-sm py-2.5 rounded-lg border border-outline-variant focus:border-primary outline-none text-body-md text-on-surface transition-colors" required />
+        </div>
+    </div>
+    
+    <div class="space-y-xs">
+        <label class="font-label-md text-label-md text-on-surface-variant">Contact Phone Number</label>
+        <div class="relative">
+            <span class="absolute left-3 top-1/2 -translate-y-1/2 material-symbols-outlined text-on-surface-variant text-[20px]">phone</span>
+            <input id="delivery-phone" type="tel" value="" placeholder="e.g. 9876543210" maxlength="10" class="w-full bg-surface-container-lowest pl-10 pr-sm py-2.5 rounded-lg border border-outline-variant focus:border-primary outline-none text-body-md text-on-surface transition-colors" required />
+        </div>
+    </div>
+
+    <div class="space-y-xs">
+        <label class="font-label-md text-label-md text-on-surface-variant">Precise Address</label>
+        <div class="relative">
+            <span class="absolute left-3 top-4 material-symbols-outlined text-on-surface-variant text-[20px]">home</span>
+            <textarea id="delivery-address" placeholder="Flat No, Building, Area/Landmark, Pune" class="w-full bg-surface-container-lowest pl-10 pr-sm py-3 rounded-lg border border-outline-variant focus:border-primary outline-none text-body-md text-on-surface min-h-[70px] transition-colors" required></textarea>
+        </div>
+    </div>
+</div>
+
+<p class="font-label-md text-label-md text-primary mt-2 flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">schedule</span>
+                    Estimated Delivery: 35-45 mins
+</p>
+</section>
+<!-- Order Summary -->
+<section class="bg-surface-container-lowest rounded-xl p-md border border-outline-variant shadow-sm overflow-hidden">
+<h2 class="font-headline-md text-headline-md text-primary mb-md">Order Summary</h2>
+<div id="cart-items-container" class="space-y-md">
+<!-- Item 1 -->
+<div class="flex gap-md">
+<div class="w-20 h-20 rounded-lg overflow-hidden flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="A macro photography shot of a traditional copper bowl filled with vibrant yellow Dal Tadka, garnished with fresh green coriander and a swirl of ghee. The lighting is warm and golden, reminiscent of a sunset in a rustic Indian kitchen. The image captures the steam rising from the hot lentils, emphasizing freshness and authentic heritage hearth cooking styles." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCUIBIB8Wbu8RPo65lbDwZgD3kxRM7KyvLB1eGDrEi1kUgbX2X8wBEaE2wHznSFm2zMhy1o5ejzAzHu28A3kejtw_H4T_UmMCPgnfqJ5GZaIMjZRcmass5GChhp6DvanOyi5Vjnjcwy9s_ZDKmOQz2v5vyPydFfmr3gY5ss_zJGKcwpmij_oEPT0pFlackJff1oIkqZ0Jrb_smpeH7wkBb4JIxMmgQKkGgmVinQSqyorsKNekN5xMESVRW_4r1sdKfbsgdii5Sl4Q"/>
+</div>
+<div class="flex-1">
+<div class="flex justify-between">
+<h3 class="font-body-md text-body-md font-bold">Grandmother's Special Dal</h3>
+<p class="font-label-md text-label-md">₹340</p>
+</div>
+<p class="text-on-surface-variant text-[14px]">Qty: 1</p>
+<p class="text-spice-red text-[12px] italic">Mild spice, extra tempered ghee</p>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="flex gap-md">
+<div class="w-20 h-20 rounded-lg overflow-hidden flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="A beautifully plated serving of fragrant Basmati Pulao, decorated with colorful saffron strands, green peas, and toasted cashew nuts. The scene is set on a traditional woven mat with soft, natural morning light casting gentle shadows. The visual aesthetic is clean and modern yet deeply rooted in communal culinary traditions, featuring warm spice tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAcr2X0RYzLz9D_-mmwugneNgrIk7Pyzh2NOOtfnpCX1Bppdv9l67beHSWcOFotNXYkVo0DDXJnn7NMnnO22KtLXKQPbWUVfekv17lTtGtujPzswwiM7IQodAPtBDG18gkpUK2NeRH2BEyT-vQKqDaeZvtfxht15QwmkKEdeOYNshdgAYlqS5BFtaS-QGNfDBENMTcehfB-qBfUPibVg0qI1ftb7izmp3t-xlEEgxXBcvKiCdPU-tzDFAkfnlbmgOn-3AFdGXBZ6Q"/>
+</div>
+<div class="flex-1">
+<div class="flex justify-between">
+<h3 class="font-body-md text-body-md font-bold">Saffron Pulao</h3>
+<p class="font-label-md text-label-md">₹280</p>
+</div>
+<p class="text-on-surface-variant text-[14px]">Qty: 2</p>
+</div>
+</div>
+</div>
+<hr class="my-md border-outline-variant"/>
+<div class="space-y-sm">
+<div class="flex justify-between text-on-surface-variant">
+<span>Subtotal</span>
+<span id="bill-subtotal">₹900</span>
+</div>
+<div class="flex justify-between text-on-surface-variant">
+<span>Delivery Fee</span>
+<span class="text-secondary font-bold">FREE</span>
+</div>
+<div class="flex justify-between text-on-surface-variant">
+<span>Tax (GST)</span>
+<span id="bill-tax">₹45</span>
+</div>
+<div class="flex justify-between font-headline-md text-headline-md text-on-surface pt-2">
+<span>Total Amount</span>
+<span id="bill-total" class="text-primary">₹945</span>
+</div>
+</div>
+</section>
+<!-- Payment Method -->
+<section class="bg-surface-container-low rounded-xl p-md shadow-sm border border-outline-variant/30">
+<h2 class="font-headline-md text-headline-md text-primary mb-md">Payment Method</h2>
+<div class="space-y-base">
+<!-- UPI -->
+<label id="label-pay-upi" class="flex items-center p-md bg-surface-container-lowest border border-accent-gold rounded-xl cursor-pointer">
+<input checked="" value="upi" class="w-5 h-5 text-primary border-outline focus:ring-primary" name="payment" type="radio"/>
+<div class="ml-md flex-1 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-spice-red">account_balance_wallet</span>
+<span class="font-label-md text-label-md">UPI (GPay, PhonePe)</span>
+</div>
+<span class="text-[10px] bg-secondary-container px-2 py-0.5 rounded text-on-secondary-container">RECOMMENDED</span>
+</div>
+</label>
+<!-- Card -->
+<label id="label-pay-card" class="flex items-center p-md bg-surface-container-lowest border border-outline-variant rounded-xl cursor-pointer">
+<input value="card" class="w-5 h-5 text-primary border-outline focus:ring-primary" name="payment" type="radio"/>
+<div class="ml-md flex items-center gap-3">
+<span class="material-symbols-outlined text-on-surface-variant">credit_card</span>
+<span class="font-label-md text-label-md">Credit / Debit Card</span>
+</div>
+</label>
+<!-- Cash -->
+<label id="label-pay-cod" class="flex items-center p-md bg-surface-container-lowest border border-outline-variant rounded-xl cursor-pointer">
+<input value="cod" class="w-5 h-5 text-primary border-outline focus:ring-primary" name="payment" type="radio"/>
+<div class="ml-md flex items-center gap-3">
+<span class="material-symbols-outlined text-on-surface-variant">payments</span>
+<span class="font-label-md text-label-md">Cash on Delivery</span>
+</div>
+</label>
+</div>
+</section>
+<!-- Safety Trust Banner -->
+<div class="flex items-center justify-center gap-2 py-md opacity-60">
+<span class="material-symbols-outlined text-[18px]">verified_user</span>
+<span class="text-label-sm font-label-sm uppercase tracking-wider">100% Secure Transaction</span>
+</div>
+</main>
+
+<!-- Payment Modal Overlay -->
+<div id="payment-modal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-[100] flex items-center justify-center hidden opacity-0 transition-opacity duration-300 p-4">
+    <div class="bg-surface-container-lowest border border-outline-variant rounded-2xl w-full max-w-sm flex flex-col max-h-[85vh] overflow-hidden shadow-2xl transform scale-95 transition-transform duration-300 mx-4">
+        <!-- Modal Header -->
+        <div class="bg-spice-red text-white p-md flex items-center justify-between flex-shrink-0">
+            <h3 id="payment-modal-title" class="font-headline-md text-headline-md flex items-center gap-2">
+                <span class="material-symbols-outlined">payments</span>
+                Complete Payment
+            </h3>
+            <button onclick="closePaymentModal()" class="hover:bg-white/20 p-1 rounded-full transition-colors flex items-center justify-center">
+                <span class="material-symbols-outlined text-[24px]">close</span>
+            </button>
+        </div>
+        
+        <!-- Modal Content (Dynamic based on payment method) -->
+        <div class="p-md space-y-md overflow-y-auto flex-1">
+            <!-- UPI QR Code View -->
+            <div id="upi-payment-view" class="hidden flex flex-col items-center text-center space-y-md py-4">
+                <p class="font-body-md text-body-md text-on-surface-variant">Please scan this secure QR code using any UPI app to pay <span id="upi-modal-amount" class="font-bold text-primary">₹0.00</span></p>
+                
+                <!-- QR Code Container -->
+                <div class="bg-white p-2 border border-outline-variant rounded-xl shadow-inner relative flex items-center justify-center w-40 h-40">
+                    <svg class="w-full h-full text-deep-earth" viewBox="0 0 100 100" fill="currentColor">
+                        <path d="M5,5 h20 v20 h-20 z M10,10 h10 v10 h-10 z M5,35 h5 v5 h-5 z M20,35 h5 v10 h-5 z M5,45 h10 v5 h-10 z M15,35 h5 v5 h-5 z" />
+                        <path d="M40,5 h20 v20 h-20 z M45,10 h10 v10 h-10 z M35,5 h5 v10 h-5 z M35,20 h5 v5 h-5 z" />
+                        <path d="M5,65 h20 v20 h-20 z M10,70 h10 v10 h-10 z M35,65 h5 v5 h-5 z M45,70 h10 v5 h-10 z M35,80 h15 v5 h-15 z" />
+                        <path d="M65,5 h30 v30 h-30 z M70,10 h20 v20 h-20 z M75,15 h10 v10 h-10 z M70,40 h5 v5 h-5 z M80,40 h15 v5 h-15 z M65,45 h10 v5 h-10 z" />
+                        <path d="M65,65 h30 v30 h-30 z M70,70 h20 v20 h-20 z M75,75 h10 v10 h-10 z M45,45 h10 v10 h-10 z M35,35 h15 v15 h-15 z M55,35 h5 v5 h-5 z" />
+                        <circle cx="50" cy="50" r="10" fill="#be543c" />
+                        <path d="M47,47 h6 v6 h-6 z" fill="#fff" />
+                    </svg>
+                </div>
+                
+                <div class="flex items-center gap-1 font-label-sm text-label-sm text-secondary bg-secondary-container px-3 py-1.5 rounded-full">
+                    <span class="material-symbols-outlined text-[16px] animate-pulse">lock</span>
+                    Secure Encrypted UPI Transaction
+                </div>
+            </div>
+            
+            <!-- Card Details View -->
+            <div id="card-payment-view" class="hidden space-y-4">
+                <p class="font-body-md text-body-md text-on-surface-variant mb-4 text-center">Enter your details to securely pay <span id="card-modal-amount" class="font-bold text-primary">₹0.00</span></p>
+                
+                <div class="space-y-3 text-left">
+                    <div class="space-y-1">
+                        <label class="font-label-md text-label-md text-on-surface-variant">Cardholder Name</label>
+                        <input id="card-name" type="text" placeholder="Aravind Kelkar" class="w-full bg-surface-container p-2.5 rounded-lg border border-outline-variant focus:border-primary outline-none text-body-md text-on-surface transition-colors" required />
+                    </div>
+                    
+                    <div class="space-y-1">
+                        <label class="font-label-md text-label-md text-on-surface-variant">Card Number</label>
+                        <div class="relative flex items-center">
+                            <input id="card-number" type="text" placeholder="4111 2222 3333 4444" maxlength="19" class="w-full bg-surface-container p-2.5 pr-12 rounded-lg border border-outline-variant focus:border-primary outline-none text-body-md text-on-surface transition-colors" required />
+                            <span id="card-type-icon" class="absolute right-3 material-symbols-outlined text-on-surface-variant text-[24px]">credit_card</span>
+                        </div>
+                    </div>
+                    
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="space-y-1">
+                            <label class="font-label-md text-label-md text-on-surface-variant">Expiry Date</label>
+                            <input id="card-expiry" type="text" placeholder="MM/YY" maxlength="5" class="w-full bg-surface-container p-2.5 rounded-lg border border-outline-variant focus:border-primary outline-none text-body-md text-on-surface text-center transition-colors" required />
+                        </div>
+                        <div class="space-y-1">
+                            <label class="font-label-md text-label-md text-on-surface-variant">CVV</label>
+                            <input id="card-cvv" type="password" placeholder="•••" maxlength="3" class="w-full bg-surface-container p-2.5 rounded-lg border border-outline-variant focus:border-primary outline-none text-body-md text-on-surface text-center transition-colors" required />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Cash on Delivery / Processing Overlay -->
+            <div id="processing-view" class="hidden flex flex-col items-center text-center space-y-4 py-6">
+                <div class="relative w-16 h-16">
+                    <div class="absolute inset-0 border-4 border-outline-variant rounded-full"></div>
+                    <div class="absolute inset-0 border-4 border-primary border-t-transparent rounded-full animate-spin"></div>
+                </div>
+                <div>
+                    <h4 class="font-headline-sm text-headline-sm text-on-surface">Verifying Transaction...</h4>
+                    <p class="font-body-md text-body-md text-on-surface-variant mt-2">Please do not close this window or refresh the page.</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Modal Footer Actions -->
+        <div id="payment-modal-footer" class="bg-surface-container-low p-md border-t border-outline-variant flex gap-md flex-shrink-0">
+            <button onclick="closePaymentModal()" class="flex-1 h-12 rounded-lg border border-outline text-on-surface font-label-md text-label-md hover:bg-surface-container transition-colors">
+                Cancel
+            </button>
+            <button id="modal-submit-btn" onclick="submitModalPayment()" class="flex-1 h-12 bg-primary text-white font-label-md text-label-md rounded-lg flex items-center justify-center gap-2 hover:bg-primary/90 transition-colors shadow-md">
+                Verify & Pay
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- Fixed Action Bar -->
+<div class="fixed bottom-0 left-0 w-full bg-surface-container-lowest border-t border-outline-variant p-margin-mobile flex flex-col gap-md z-50 shadow-[0_-4px_10px_rgba(0,0,0,0.05)]">
+<div class="flex justify-between items-end">
+<div>
+<p class="text-label-sm font-label-sm text-on-surface-variant">Total to pay</p>
+<p id="footer-total" class="font-headline-lg text-headline-lg text-primary">₹945.00</p>
+</div>
+<div class="flex items-center gap-1 text-secondary">
+<span class="material-symbols-outlined text-[18px]">savings</span>
+<span class="font-label-sm text-label-sm">Saved ₹40 today</span>
+</div>
+</div>
+<button onclick="handlePlaceOrder()" class="w-full h-14 bg-primary text-on-primary font-label-md text-label-md rounded-xl flex items-center justify-center gap-2 active:scale-[0.98] transition-transform shadow-lg">
+            Place Order
+            <span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+<script src="../cart.js"></script>
+<script>
+// Helper to get the correct API base URL dynamically
+function getApiUrl(path) {
+    if (window.location.protocol.startsWith('http')) {
+        if (window.location.port === '8082') {
+            return `${window.location.origin}${path}`;
+        } else {
+            return `${window.location.protocol}//${window.location.hostname}:8082${path}`;
+        }
+    }
+    return `http://127.0.0.1:8082${path}`;
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    const container = document.getElementById('cart-items-container');
+    const subtotalEl = document.getElementById('bill-subtotal');
+    const taxEl = document.getElementById('bill-tax');
+    const totalEl = document.getElementById('bill-total');
+    const footerTotalEl = document.getElementById('footer-total');
+    
+    const cart = typeof getCart === 'function' ? getCart() : [];
+    
+    if (cart.length === 0) {
+        container.innerHTML = '<p class="text-on-surface-variant italic text-center py-4">Your cart is empty.</p>';
+        subtotalEl.innerText = '₹0.00';
+        taxEl.innerText = '₹0.00';
+        totalEl.innerText = '₹0.00';
+        if (footerTotalEl) footerTotalEl.innerText = '₹0.00';
+        return;
+    }
+    
+    let html = '';
+    let itemTotal = 0;
+    
+    cart.forEach(item => {
+        const itemLineTotal = item.price * item.quantity;
+        itemTotal += itemLineTotal;
+        
+        html += `
+        <div class="flex gap-md">
+            <div class="w-20 h-20 rounded-lg overflow-hidden flex-shrink-0 bg-surface-container">
+                <img class="w-full h-full object-cover" src="${item.image || 'https://www.gstatic.com/labs-code/stitch/stitch-placeholder-300x300.svg'}" alt="${item.name}"/>
+            </div>
+            <div class="flex-1">
+                <div class="flex justify-between">
+                    <h3 class="font-body-md text-body-md font-bold">${item.name}</h3>
+                    <p class="font-label-md text-label-md">₹${itemLineTotal.toFixed(2)}</p>
+                </div>
+                <p class="text-on-surface-variant text-[14px]">Qty: ${item.quantity}</p>
+                ${item.desc ? `<p class="text-spice-red text-[12px] italic">${item.desc}</p>` : ''}
+            </div>
+        </div>
+        `;
+    });
+    
+    container.innerHTML = html;
+    
+    const tax = Math.round(itemTotal * 0.05 * 100) / 100;
+    const finalTotal = itemTotal + tax;
+    
+    subtotalEl.innerText = '₹' + itemTotal.toFixed(2);
+    taxEl.innerText = '₹' + tax.toFixed(2);
+    totalEl.innerText = '₹' + finalTotal.toFixed(2);
+    if (footerTotalEl) footerTotalEl.innerText = '₹' + finalTotal.toFixed(2);
+    // Listen for payment changes to update borders
+    const paymentRadios = document.querySelectorAll('input[name="payment"]');
+    paymentRadios.forEach(radio => {
+        radio.addEventListener('change', (e) => {
+            const upiLabel = document.getElementById('label-pay-upi');
+            const cardLabel = document.getElementById('label-pay-card');
+            const codLabel = document.getElementById('label-pay-cod');
+            
+            [upiLabel, cardLabel, codLabel].forEach(label => {
+                if (label) {
+                    label.classList.remove('border-accent-gold');
+                    label.classList.add('border-outline-variant');
+                }
+            });
+            
+            const activeValue = e.target.value;
+            let activeLabel = upiLabel;
+            if (activeValue === 'card') activeLabel = cardLabel;
+            else if (activeValue === 'cod') activeLabel = codLabel;
+            
+            if (activeLabel) {
+                activeLabel.classList.remove('border-outline-variant');
+                activeLabel.classList.add('border-accent-gold');
+            }
+        });
+    });
+});
+
+// Payment Modal Control Operations
+function openPaymentModal(amount, paymentMethod) {
+    const modal = document.getElementById('payment-modal');
+    
+    // Set amounts in modal views
+    const formattedAmount = '₹' + amount.toFixed(2);
+    const upiAmountEl = document.getElementById('upi-modal-amount');
+    const cardAmountEl = document.getElementById('card-modal-amount');
+    if (upiAmountEl) upiAmountEl.innerText = formattedAmount;
+    if (cardAmountEl) cardAmountEl.innerText = formattedAmount;
+    
+    // Reset view visibility
+    const upiView = document.getElementById('upi-payment-view');
+    const cardView = document.getElementById('card-payment-view');
+    const processingView = document.getElementById('processing-view');
+    const modalFooter = document.getElementById('payment-modal-footer');
+    const modalTitle = document.getElementById('payment-modal-title');
+    const modalSubmitBtn = document.getElementById('modal-submit-btn');
+    
+    upiView.classList.add('hidden');
+    cardView.classList.add('hidden');
+    processingView.classList.add('hidden');
+    modalFooter.classList.remove('hidden');
+    
+    window.currentPaymentMethod = paymentMethod;
+    
+    if (paymentMethod === 'upi') {
+        upiView.classList.remove('hidden');
+        modalTitle.innerHTML = `<span class="material-symbols-outlined text-[24px]">qr_code_scanner</span> UPI Scan & Pay`;
+        modalSubmitBtn.innerText = "I Have Scanned & Paid";
+    } else if (paymentMethod === 'card') {
+        cardView.classList.remove('hidden');
+        modalTitle.innerHTML = `<span class="material-symbols-outlined text-[24px]">credit_card</span> Enter Card Details`;
+        modalSubmitBtn.innerText = `Pay ${formattedAmount}`;
+        
+        // Reset card input fields
+        document.getElementById('card-name').value = '';
+        document.getElementById('card-number').value = '';
+        document.getElementById('card-expiry').value = '';
+        document.getElementById('card-cvv').value = '';
+    }
+    
+    // Show modal with animation
+    modal.classList.remove('hidden');
+    setTimeout(() => {
+        modal.classList.remove('opacity-0');
+        modal.querySelector('.transform').classList.remove('scale-95');
+        modal.querySelector('.transform').classList.add('scale-100');
+    }, 10);
+}
+
+function closePaymentModal() {
+    const modal = document.getElementById('payment-modal');
+    if (!modal) return;
+    modal.classList.add('opacity-0');
+    modal.querySelector('.transform').classList.remove('scale-100');
+    modal.querySelector('.transform').classList.add('scale-95');
+    setTimeout(() => {
+        modal.classList.add('hidden');
+    }, 300);
+}
+
+// Format input helpers
+document.addEventListener('DOMContentLoaded', () => {
+    // Card Number Formatting (spaces every 4 digits)
+    const cardNumberInput = document.getElementById('card-number');
+    if (cardNumberInput) {
+        cardNumberInput.addEventListener('input', (e) => {
+            let value = e.target.value.replace(/\s+/g, '').replace(/[^0-9]/gi, '');
+            let formatted = '';
+            for (let i = 0; i < value.length; i++) {
+                if (i > 0 && i % 4 === 0) formatted += ' ';
+                formatted += value[i];
+            }
+            e.target.value = formatted;
+            
+            // Detect card type (e.g., Visa starts with 4, Mastercard with 5)
+            const cardIcon = document.getElementById('card-type-icon');
+            if (cardIcon) {
+                if (value.startsWith('4')) {
+                    cardIcon.style.color = '#3b82f6'; // Blue
+                } else if (value.startsWith('5')) {
+                    cardIcon.style.color = '#f59e0b'; // Amber
+                } else {
+                    cardIcon.style.color = '';
+                }
+            }
+        });
+    }
+
+    // Expiry Date Formatting (MM/YY)
+    const cardExpiryInput = document.getElementById('card-expiry');
+    if (cardExpiryInput) {
+        cardExpiryInput.addEventListener('input', (e) => {
+            let value = e.target.value.replace(/\//g, '').replace(/[^0-9]/gi, '');
+            if (value.length > 2) {
+                e.target.value = value.substring(0, 2) + '/' + value.substring(2, 4);
+            } else {
+                e.target.value = value;
+            }
+        });
+    }
+    
+    // CVV Formatting (Digits only)
+    const cardCvvInput = document.getElementById('card-cvv');
+    if (cardCvvInput) {
+        cardCvvInput.addEventListener('input', (e) => {
+            e.target.value = e.target.value.replace(/[^0-9]/gi, '');
+        });
+    }
+});
+
+async function submitModalPayment() {
+    const upiView = document.getElementById('upi-payment-view');
+    const cardView = document.getElementById('card-payment-view');
+    const processingView = document.getElementById('processing-view');
+    const modalFooter = document.getElementById('payment-modal-footer');
+    
+    const paymentMethod = window.currentPaymentMethod || 'upi';
+    
+    if (paymentMethod === 'card') {
+        const name = document.getElementById('card-name').value.trim();
+        const number = document.getElementById('card-number').value.replace(/\s+/g, '');
+        const expiry = document.getElementById('card-expiry').value;
+        const cvv = document.getElementById('card-cvv').value;
+        
+        if (!name) {
+            alert('Please enter the Cardholder Name.');
+            return;
+        }
+        if (number.length !== 16) {
+            alert('Please enter a valid 16-digit Card Number.');
+            return;
+        }
+        if (!/^\d{2}\/\d{2}$/.test(expiry)) {
+            alert('Please enter a valid expiry date (MM/YY).');
+            return;
+        }
+        if (cvv.length !== 3) {
+            alert('Please enter a valid 3-digit CVV.');
+            return;
+        }
+    }
+    
+    // Transition to processing view
+    upiView.classList.add('hidden');
+    cardView.classList.add('hidden');
+    processingView.classList.remove('hidden');
+    modalFooter.classList.add('hidden'); // Hide Cancel/Submit actions during progress
+    
+    // Simulate payment gateway delay (2 seconds)
+    setTimeout(async () => {
+        await executeOrderPlacement();
+    }, 2000);
+}
+
+async function executeOrderPlacement() {
+    const cart = typeof getCart === 'function' ? getCart() : [];
+    const activePaymentRadio = document.querySelector('input[name="payment"]:checked');
+    const paymentMethod = activePaymentRadio ? activePaymentRadio.value : 'upi';
+
+    const name = document.getElementById('delivery-name').value.trim();
+    const phone = document.getElementById('delivery-phone').value.trim();
+    const address = document.getElementById('delivery-address').value.trim();
+
+    try {
+        const response = await fetch(getApiUrl('/api/orders'), {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                items: cart,
+                deliveryAddress: {
+                    name,
+                    address,
+                    phone
+                },
+                paymentMethod: paymentMethod
+            })
+        });
+        
+        if (response.ok) {
+            const data = await response.json();
+            // Store details of the successfully placed order
+            localStorage.setItem('akshaypatra_last_order', JSON.stringify(data.order));
+            
+            // Clear active cart and close modal
+            if (typeof clearCart === 'function') clearCart();
+            closePaymentModal();
+            
+            // Admin notification is now handled seamlessly by the Node.js backend via Twilio
+            
+            // Redirect to confirmation
+            window.location.href = '../akshaypatra_web_order_confirmation/code.html';
+        } else {
+            console.warn('Backend server returned error, running static environment fallback...');
+            runStaticFallback(cart, paymentMethod);
+        }
+    } catch (error) {
+        console.warn('Backend fetch failed, running static environment fallback...', error);
+        runStaticFallback(cart, paymentMethod);
+    }
+}
+
+function runStaticFallback(cart, paymentMethod) {
+    let itemTotal = 0;
+    cart.forEach(item => {
+        itemTotal += item.price * item.quantity;
+    });
+    const tax = Math.round(itemTotal * 0.05 * 100) / 100;
+    const finalTotal = itemTotal + tax;
+    const loyaltyPointsEarned = Math.floor(itemTotal / 10);
+    
+    const mockOrderNum = 'AKP-' + Math.floor(10000 + Math.random() * 90000);
+    const mockTxnId = 'TXN-' + Date.now() + '-' + Math.floor(1000 + Math.random() * 9000);
+    
+    const name = document.getElementById('delivery-name').value.trim();
+    const phone = document.getElementById('delivery-phone').value.trim();
+    const address = document.getElementById('delivery-address').value.trim();
+
+    const mockOrder = {
+        orderNumber: mockOrderNum,
+        items: cart,
+        itemTotal: itemTotal,
+        tax: tax,
+        totalAmount: finalTotal,
+        loyaltyPointsEarned: loyaltyPointsEarned,
+        deliveryAddress: {
+            name: name,
+            address: address,
+            phone: phone
+        },
+        paymentMethod: paymentMethod,
+        paymentStatus: paymentMethod === 'cod' ? 'pending' : 'paid',
+        transactionId: paymentMethod === 'cod' ? '' : mockTxnId,
+        scheduledDate: '',
+        scheduledTime: '',
+        status: 'received'
+    };
+    
+    localStorage.setItem('akshaypatra_last_order', JSON.stringify(mockOrder));
+    if (typeof clearCart === 'function') clearCart();
+    closePaymentModal();
+    
+    // Note: SMS notification skipped in static fallback. Requires running backend + Twilio.
+    
+    window.location.href = '../akshaypatra_web_order_confirmation/code.html';
+}
+
+function resetModalOnError() {
+    const upiView = document.getElementById('upi-payment-view');
+    const cardView = document.getElementById('card-payment-view');
+    const processingView = document.getElementById('processing-view');
+    const modalFooter = document.getElementById('payment-modal-footer');
+    
+    processingView.classList.add('hidden');
+    modalFooter.classList.remove('hidden');
+    
+    const paymentMethod = window.currentPaymentMethod || 'upi';
+    if (paymentMethod === 'upi') {
+        upiView.classList.remove('hidden');
+    } else if (paymentMethod === 'card') {
+        cardView.classList.remove('hidden');
+    }
+}
+
+async function handlePlaceOrder() {
+    const cart = typeof getCart === 'function' ? getCart() : [];
+    
+    if (cart.length === 0) {
+        alert('Your cart is empty! Please go back and add some items to your Thali.');
+        return;
+    }
+
+    // Delivery fields validation
+    const name = document.getElementById('delivery-name').value.trim();
+    const phone = document.getElementById('delivery-phone').value.trim();
+    const address = document.getElementById('delivery-address').value.trim();
+
+    if (!name) {
+        alert('Please enter your Full Name for delivery.');
+        document.getElementById('delivery-name').focus();
+        return;
+    }
+    if (!phone || phone.length < 10 || !/^\d{10}$/.test(phone)) {
+        alert('Please enter a valid 10-digit mobile number.');
+        document.getElementById('delivery-phone').focus();
+        return;
+    }
+    if (!address || address.length < 10) {
+        alert('Please enter a precise delivery address (at least 10 characters).');
+        document.getElementById('delivery-address').focus();
+        return;
+    }
+    
+    const activePaymentRadio = document.querySelector('input[name="payment"]:checked');
+    const paymentMethod = activePaymentRadio ? activePaymentRadio.value : 'upi';
+    
+    // Calculate total order amount
+    let itemTotal = 0;
+    cart.forEach(item => {
+        itemTotal += item.price * item.quantity;
+    });
+    const tax = Math.round(itemTotal * 0.05 * 100) / 100;
+    const finalTotal = itemTotal + tax;
+    
+    if (paymentMethod === 'cod') {
+        // Skip payment modal for Cash on Delivery, place directly with simulated quick loader
+        const modal = document.getElementById('payment-modal');
+        const upiView = document.getElementById('upi-payment-view');
+        const cardView = document.getElementById('card-payment-view');
+        const processingView = document.getElementById('processing-view');
+        const modalFooter = document.getElementById('payment-modal-footer');
+        const modalTitle = document.getElementById('payment-modal-title');
+        
+        upiView.classList.add('hidden');
+        cardView.classList.add('hidden');
+        modalFooter.classList.add('hidden');
+        processingView.classList.remove('hidden');
+        modalTitle.innerHTML = `<span class="material-symbols-outlined text-[24px]">payments</span> Processing Order`;
+        
+        // Show modal with animation
+        modal.classList.remove('hidden');
+        setTimeout(() => {
+            modal.classList.remove('opacity-0');
+            modal.querySelector('.transform').classList.remove('scale-95');
+            modal.querySelector('.transform').classList.add('scale-100');
+        }, 10);
+        
+        setTimeout(async () => {
+            await executeOrderPlacement();
+        }, 1500);
+    } else {
+        // Open modal for interactive QR scan (UPI) or Card input details
+        openPaymentModal(finalTotal, paymentMethod);
+    }
+}
+</script>
+</body></html>

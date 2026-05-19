@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;600;700&amp;family=Plus+Jakarta+Sans:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-tertiary": "#ffffff",
+                    "surface-variant": "#e5e2db",
+                    "error-container": "#ffdad6",
+                    "secondary-fixed": "#ffdeaa",
+                    "primary-fixed-dim": "#ffb59c",
+                    "on-secondary-container": "#775300",
+                    "inverse-primary": "#ffb59c",
+                    "on-primary-container": "#ffc9b7",
+                    "on-surface": "#1c1c18",
+                    "secondary": "#7d5700",
+                    "surface-tint": "#a93702",
+                    "surface-container": "#f0eee7",
+                    "outline": "#8c7168",
+                    "on-primary-fixed": "#380c00",
+                    "spice-red": "#be543c",
+                    "secondary-container": "#fec96f",
+                    "primary-container": "#a63500",
+                    "primary": "#7e2600",
+                    "secondary-fixed-dim": "#f1be65",
+                    "on-error": "#ffffff",
+                    "surface-container-highest": "#e5e2db",
+                    "surface-cream": "#fcf9f2",
+                    "on-tertiary-fixed-variant": "#812913",
+                    "surface-dim": "#dcdad3",
+                    "on-background": "#1c1c18",
+                    "surface-container-lowest": "#ffffff",
+                    "tertiary-fixed-dim": "#ffb4a3",
+                    "error": "#ba1a1a",
+                    "on-primary-fixed-variant": "#822800",
+                    "background": "#fcf9f2",
+                    "on-secondary-fixed": "#271900",
+                    "outline-variant": "#e0c0b5",
+                    "on-primary": "#ffffff",
+                    "inverse-surface": "#31312c",
+                    "accent-gold": "#feb71a",
+                    "tertiary-container": "#9d3d26",
+                    "on-tertiary-fixed": "#3d0700",
+                    "on-surface-variant": "#58423a",
+                    "on-tertiary-container": "#ffc8bb",
+                    "on-secondary-fixed-variant": "#5f4100",
+                    "primary-fixed": "#ffdbcf",
+                    "tertiary": "#7d2611",
+                    "on-error-container": "#93000a",
+                    "inverse-on-surface": "#f3f0ea",
+                    "surface": "#fcf9f2",
+                    "surface-bright": "#fcf9f2",
+                    "surface-container-high": "#ebe8e1",
+                    "tertiary-fixed": "#ffdad2",
+                    "on-secondary": "#ffffff",
+                    "surface-container-low": "#f6f3ec",
+                    "deep-earth": "#31312c"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter": "16px",
+                    "xs": "4px",
+                    "lg": "40px",
+                    "margin-mobile": "16px",
+                    "xl": "64px",
+                    "sm": "12px",
+                    "margin-desktop": "80px",
+                    "base": "8px",
+                    "md": "24px"
+            },
+            "fontFamily": {
+                    "headline-md": ["Noto Serif"],
+                    "label-sm": ["Plus Jakarta Sans"],
+                    "body-lg": ["Plus Jakarta Sans"],
+                    "headline-xl": ["Noto Serif"],
+                    "label-md": ["Plus Jakarta Sans"],
+                    "headline-lg": ["Noto Serif"],
+                    "body-md": ["Plus Jakarta Sans"]
+            },
+            "fontSize": {
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "headline-xl": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="bg-surface-cream text-on-surface font-body-md selection:bg-secondary-container">
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full z-50 bg-surface-cream dark:bg-surface-dim border-b border-outline-variant shadow-sm px-margin-desktop py-4 flex justify-between items-center max-w-full">
+<div class="flex items-center gap-2">
+<img alt="Akshaypatra Logo" class="h-8 w-auto object-contain" src="../akshaypatra_logo/brand_logo.jpg"/>
+<div class="font-headline-lg text-headline-lg text-primary dark:text-inverse-primary tracking-tight">Akshaypatra</div>
+</div>
+<nav class="hidden md:flex items-center gap-xl">
+<a class="text-primary font-bold border-b-2 border-primary pb-1 font-body-md text-body-md hover:text-spice-red transition-colors duration-200" href="../akshaypatra_web_menu_expanded/code.html"> Menu </a>
+<a class="text-on-surface-variant dark:text-surface-variant font-body-md text-body-md hover:text-spice-red transition-colors duration-200" href="../akshaypatra_web_heritage_story_refined/code.html"> Heritage Story </a>
+<a class="text-on-surface-variant dark:text-surface-variant font-body-md text-body-md hover:text-spice-red transition-colors duration-200" href="../akshaypatra_web_sustainability_showcase/code.html"> Sustainability </a>
+<a class="text-on-surface-variant dark:text-surface-variant font-body-md text-body-md hover:text-spice-red transition-colors duration-200" href="../akshaypatra_web_user_dashboard_refined/code.html"> Account </a>
+</nav>
+<div class="flex items-center gap-md">
+<button class="material-symbols-outlined text-primary text-[28px] hover:text-spice-red transition-opacity active:opacity-80">shopping_cart</button>
+<button class="md:hidden material-symbols-outlined text-primary text-[28px]">menu</button>
+</div>
+</header>
+<main class="pt-[100px] pb-xl">
+<!-- Hero & Filter Section -->
+<section class="px-margin-desktop mb-xl">
+<div class="max-w-7xl mx-auto">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-md mb-lg">
+<div>
+<h1 class="font-headline-xl text-headline-xl text-primary mb-xs">Our Culinary Heritage</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">Traditional recipes passed down through generations, prepared with seasonal ingredients and authentic spices.</p>
+</div>
+</div>
+<!-- Sticky Filters -->
+<div class="sticky top-[80px] z-40 bg-surface-cream/90 backdrop-blur-md py-4 -mx-4 px-4 flex flex-wrap items-center justify-between gap-md border-b border-outline-variant/30">
+<div class="flex gap-sm overflow-x-auto hide-scrollbar pb-2 md:pb-0">
+<button id="filter-all" onclick="filterMenu('all')" class="flex items-center gap-xs px-md py-2 bg-primary text-on-primary rounded-full font-label-md text-label-md transition-transform active:scale-95 cursor-pointer">
+                            All Dishes
+                        </button>
+<button id="filter-veg" onclick="filterMenu('veg')" class="flex items-center gap-xs px-md py-2 bg-surface-container-high text-on-surface rounded-full font-label-md text-label-md border border-outline-variant hover:border-primary transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-[18px]">eco</span> Veg
+                        </button>
+<button id="filter-vegan" onclick="filterMenu('vegan')" class="flex items-center gap-xs px-md py-2 bg-surface-container-high text-on-surface rounded-full font-label-md text-label-md border border-outline-variant hover:border-primary transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-[18px]">eco</span> Vegan
+                        </button>
+</div>
+<div class="flex items-center gap-md">
+<span class="font-label-md text-label-md text-on-surface-variant hidden md:block">Spice Level:</span>
+<div class="flex bg-surface-container-low rounded-lg p-1 border border-outline-variant">
+<button id="spice-mild" onclick="selectSpice('Mild')" class="px-4 py-1 rounded-md text-label-sm font-label-sm bg-surface-container-highest text-primary transition-all">Mild</button>
+<button id="spice-medium" onclick="selectSpice('Medium')" class="px-4 py-1 rounded-md text-label-sm font-label-sm text-on-surface-variant hover:text-primary transition-all">Medium</button>
+<button id="spice-spicy" onclick="selectSpice('Spicy')" class="px-4 py-1 rounded-md text-label-sm font-label-sm text-on-surface-variant hover:text-primary transition-all">Spicy</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Menu Categories -->
+<div class="space-y-xl max-w-7xl mx-auto px-margin-desktop">
+<!-- Category: Signature Thalis -->
+<section>
+<div class="flex items-center gap-md mb-lg">
+<h2 class="font-headline-lg text-headline-lg text-deep-earth">Signature Thalis</h2>
+<div class="h-[1px] flex-grow bg-outline-variant"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-lg">
+<!-- Item 1 -->
+<div data-category="veg" class="group bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow border border-outline-variant/30 flex flex-col md:flex-row h-full">
+<div class="md:w-2/5 relative h-48 md:h-auto overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="A lush, colorful Indian Thali spread on a circular bronze platter. The meal includes vibrant bowls of creamy dal, spicy curries, fragrant basmati rice, crispy papadums, and fresh buttery naan. Warm, golden overhead lighting captures the steam rising from the food, set against a rustic wooden table that evokes a traditional communal home kitchen atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDmbuF-ZaL8ZHLgNzsNZG8Hpv1aEsjsKOZgR5qqStct5s048b77HTMAapM-TR_K4p9zjroTPbLT9KgxLsHTBcGrbdJpzjYVGTmCDbjNruRACQ_NAguW-pkKPvqS6XCEsvdlrzletfM-aIp9BEtZOqKsDEgI0s_qXz5XlB0T092pFBzri4BnAXH6fR2Lhec5rDwtfCSAae5_Gq4D1-XE5iNOn7K0PI4rwU6FYmtarImKnwI-Cf4vUxtRbwaeIeyXt38btHX_ayPHaQ"/>
+<div class="absolute top-4 left-4 bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full font-label-sm text-label-sm shadow-sm">Best Seller</div>
+</div>
+<div class="md:w-3/5 p-md flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-start mb-base">
+<h3 class="font-headline-md text-headline-md text-primary">Royal Heritage Thali</h3>
+<span class="font-headline-md text-headline-md text-spice-red">₹450</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-md">A curated journey through 12 traditional regional specialties, including hand-churned butter, slow-cooked lentils, and heritage grains.</p>
+</div>
+<div class="flex items-center justify-between pt-md border-t border-outline-variant/20">
+<div class="flex gap-xs">
+<span class="material-symbols-outlined text-green-700 text-[20px]" title="Vegetarian">eco</span>
+<span class="material-symbols-outlined text-spice-red text-[20px]" title="Spice Level: Medium">local_fire_department</span>
+</div>
+<button class="bg-primary text-on-primary h-12 px-6 rounded-lg font-label-md text-label-md hover:bg-spice-red transition-colors active:scale-95 flex items-center gap-xs">
+<span class="material-symbols-outlined text-[20px]">add_shopping_cart</span> Add to Cart
+                                </button>
+</div>
+</div>
+</div>
+<!-- Daily Meal Thali -->
+<div data-category="veg" class="group bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow border border-outline-variant/30 flex flex-col md:flex-row h-full">
+<div class="md:w-2/5 relative h-48 md:h-auto overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="Daily Meal Thali" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBwWde4oSbOdaUBR_nYzgy5jxb6GH-FFS-pS9Q94SA-nfttbR0bkDroG21mJQHXz7XGu04H7zJPQKsklv9ILJe4UB2yENF3fwwCVwJ2wINZ8prDeaK0L7kRZtbNl0_9_vIK6mQiMgwyDa75jo0l07-_2rVZrUnKRkPmHZ7uxhMLeZX7xPtuG61kMMqt1VlRMHzt308VnGn5S0Sq3HxAj0YT0RUPbpowxHivSmhg0wfm4gCkW8tvfQTHpBzHMW7Oooa5olWfsiIjSg"/>
+</div>
+<div class="md:w-3/5 p-md flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-start mb-base">
+<h3 class="font-headline-md text-headline-md text-primary">Daily Meal Thali</h3>
+<span class="font-headline-md text-headline-md text-spice-red">₹250</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-md">A balanced daily special thali featuring chef's choice vegetable curry, comforting dal, fragrant steamed rice, 2 hot rotis, and cooling raita.</p>
+</div>
+<div class="flex items-center justify-between pt-md border-t border-outline-variant/20">
+<div class="flex gap-xs">
+<span class="material-symbols-outlined text-green-700 text-[20px]" title="Vegetarian">eco</span>
+<span class="material-symbols-outlined text-accent-gold text-[20px]" title="Spice Level: Mild">local_fire_department</span>
+</div>
+<button class="bg-primary text-on-primary h-12 px-6 rounded-lg font-label-md text-label-md hover:bg-spice-red transition-colors active:scale-95 flex items-center gap-xs cursor-pointer">
+<span class="material-symbols-outlined text-[20px]">add_shopping_cart</span> Add to Cart
+                                </button>
+</div>
+</div>
+</div>
+<!-- Punjabi Thali -->
+<div data-category="veg" class="group bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow border border-outline-variant/30 flex flex-col md:flex-row h-full">
+<div class="md:w-2/5 relative h-48 md:h-auto overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="Punjabi Thali" src="../akshaypatra_logo/punjabi_thali.png"/>
+</div>
+<div class="md:w-3/5 p-md flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-start mb-base">
+<h3 class="font-headline-md text-headline-md text-primary">Punjabi Thali</h3>
+<span class="font-headline-md text-headline-md text-spice-red">₹320</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-md">A rich northern feast consisting of Matar Paneer, 2 Butter Parathas, smoky Dal Tadka, fragrant Jeera Rice, crisp Salad, Achar, crunchy Papad, and Sweet Lassi or Chaas.</p>
+</div>
+<div class="flex items-center justify-between pt-md border-t border-outline-variant/20">
+<div class="flex gap-xs">
+<span class="material-symbols-outlined text-green-700 text-[20px]" title="Vegetarian">eco</span>
+<span class="material-symbols-outlined text-spice-red text-[20px]" title="Spice Level: Medium">local_fire_department</span>
+</div>
+<button class="bg-primary text-on-primary h-12 px-6 rounded-lg font-label-md text-label-md hover:bg-spice-red transition-colors active:scale-95 flex items-center gap-xs cursor-pointer">
+<span class="material-symbols-outlined text-[20px]">add_shopping_cart</span> Add to Cart
+                                </button>
+</div>
+</div>
+</div>
+<!-- Item 2 -->
+<div data-category="vegan" class="group bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow border border-outline-variant/30 flex flex-col md:flex-row h-full">
+<div class="md:w-2/5 relative h-48 md:h-auto overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="A regional South Indian Banana Leaf thali service. The bright green banana leaf is laden with mounds of white rice, sambar, coconut-based poriyals, and traditional pickles. The lighting is soft and natural, emphasizing the organic textures of the leaf and the fresh, colorful vegetables. The composition is clean and focused, reflecting a modern minimalist take on ancient eating traditions." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCGOOkhpCxSfsbkAMssTc-OiQU2dpDsf3LgPFFhQ4ISvIXfzFilJDYXv2ZqmhutMW5uOjqmBy0OS_dHKMVuh3pQK-D4NxsUEc0e8RNM51G7-9CS76OmjIJU5E5t8f5F7z__IR2v_ZdqoxtEympwI2VJpuCNU_7jgnrJlfgFA2MeyIcaM2tohQXugXvVR1e8yTJGzMFqP_Vwv9_MvrgL9GXNyKLAuCPtq6wXdR34vD7MXK6u2yr8CogEZkfXlQl44ccHCXtA_zpRMA"/>
+</div>
+<div class="md:w-3/5 p-md flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-start mb-base">
+<h3 class="font-headline-md text-headline-md text-primary">South Coast Platter</h3>
+<span class="font-headline-md text-headline-md text-spice-red">₹390</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-md">Coconut-infused seasonal vegetables served on a traditional banana leaf with red rice and tempered buttermilk.</p>
+</div>
+<div class="flex items-center justify-between pt-md border-t border-outline-variant/20">
+<div class="flex gap-xs">
+<span class="material-symbols-outlined text-green-700 text-[20px]" title="Vegan">leaf_spark</span>
+<span class="material-symbols-outlined text-on-surface-variant text-[20px]" title="Spice Level: Mild">local_fire_department</span>
+</div>
+<button class="bg-primary text-on-primary h-12 px-6 rounded-lg font-label-md text-label-md hover:bg-spice-red transition-colors active:scale-95 flex items-center gap-xs">
+<span class="material-symbols-outlined text-[20px]">add_shopping_cart</span> Add to Cart
+                                </button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Category: Weekend Specials -->
+<section class="bg-surface-container-low -mx-margin-desktop px-margin-desktop py-xl rounded-none md:rounded-[40px]">
+<div class="flex items-center gap-md mb-lg">
+<h2 class="font-headline-lg text-headline-lg text-deep-earth">Weekend Specials</h2>
+<div class="h-[1px] flex-grow bg-outline-variant"></div>
+<span class="font-label-md text-label-md bg-accent-gold text-on-secondary-fixed px-4 py-1 rounded-full">Sat - Sun Only</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-md">
+<!-- Item 3 -->
+<div data-category="veg" class="group bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow border border-outline-variant/30 flex flex-col">
+<div class="aspect-[4/3] overflow-hidden relative">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="A close-up of a slow-cooked vegetable biryani in a traditional clay pot. The saffron-stained long-grain rice is topped with caramelized onions, fresh mint leaves, and vibrant pomegranate seeds. Wisps of steam are illuminated by a soft, warm light coming from the side, creating long shadows and highlighting the delicate texture of the grains. The style is luxurious yet grounded in artisan craft." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCOJ1BSeO1dZEekih2i-_vPv3Qbyvx1ud8VQitrk6Z0VILXsli1rzM5sqKVNiUz4rtulDkdEC9tYiPe7mW7m9cc1n6QwiOdbNlchGjNje5wpgxQKY1dmifJF9nztG3UTwRhlGcWN0FxVVBiI35NRMSWK2Z5xpZdX4JzIA4AimS2Dvrfnni8GKC-KlVyoSgm8Tl-LJ4Gb7TqfyGVH1WxsrhnULs6THwMUM2JSiaUz66X9pGT3A5eVJ8zJ5J1EwQ1bP_6MI-Rp78yJA"/>
+</div>
+<div class="p-md flex flex-col flex-grow">
+<div class="flex justify-between items-start mb-base">
+<h3 class="font-headline-md text-headline-md text-primary">Heritage Pot Biryani</h3>
+<span class="font-headline-md text-headline-md text-spice-red">₹550</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-md flex-grow">A slow-cooked masterpiece of aged Basmati and farm-fresh vegetables, sealed in clay with heritage spices.</p>
+<div class="flex gap-xs mb-md">
+<span class="material-symbols-outlined text-green-700 text-[20px]" title="Vegetarian">eco</span>
+<span class="material-symbols-outlined text-spice-red text-[20px]" title="Spice Level: Medium">local_fire_department</span>
+</div>
+<button class="w-full bg-primary text-on-primary h-14 rounded-lg font-label-md text-label-md hover:bg-spice-red transition-colors active:scale-95 flex items-center justify-center gap-xs">
+<span class="material-symbols-outlined text-[20px]">add_shopping_cart</span> Add to Cart
+                            </button>
+</div>
+</div>
+<!-- Item 4 -->
+<div data-category="vegan" class="group bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow border border-outline-variant/30 flex flex-col">
+<div class="aspect-[4/3] overflow-hidden relative">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="A beautifully plated salad of heritage vegetables and roasted chickpeas. The colors range from deep beets to bright carrots, all drizzled with a creamy tahini-based dressing. The photography is high-key and modern, using a light cream background that matches the UI. The lighting is diffused and even, emphasizing the freshness and health-conscious 'Modern Traditionalist' vibe of the brand." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCzGoe2EcEVB3VDSVoU9MXhniOr0y_YTijZKMnCQJr4RKUlS_lL5j7DXKH_-hFECgE1dqn4Q_b1jbDesm8zHnarsiCqpfgiS8lTZxRu2q_BvGZ-VcoSxJ1wX91mr7QNsRWHwWBJzR6jFCCSE2ijs4eO3xOWUJyDpxS7PVFDMhEgar1Woi6XJa_J7wn28e48C2btsL4XF2EXO_rlBxIWtKQgTyIUTXCeRBVTmOQth0EyMYe0PjrTv0Q5AMNTftes9VIx82TEZJyTEA"/>
+</div>
+<div class="p-md flex flex-col flex-grow">
+<div class="flex justify-between items-start mb-base">
+<h3 class="font-headline-md text-headline-md text-primary">Farm Harvest Bowl</h3>
+<span class="font-headline-md text-headline-md text-spice-red">₹320</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-md flex-grow">Roasted heirloom root vegetables, spiced ancient grains, and a zesty mint-coriander yogurt dressing.</p>
+<div class="flex gap-xs mb-md">
+<span class="material-symbols-outlined text-green-700 text-[20px]" title="Vegan">eco</span>
+<span class="material-symbols-outlined text-on-surface-variant text-[20px]" title="Spice Level: Mild">local_fire_department</span>
+</div>
+<button class="w-full border-2 border-primary text-primary h-14 rounded-lg font-label-md text-label-md hover:bg-primary hover:text-on-primary transition-colors active:scale-95 flex items-center justify-center gap-xs">
+<span class="material-symbols-outlined text-[20px]">add_shopping_cart</span> Add to Cart
+                            </button>
+</div>
+</div>
+<!-- Item 5 -->
+<div data-category="veg" class="group bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow border border-outline-variant/30 flex flex-col">
+<div class="aspect-[4/3] overflow-hidden relative">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="An assortment of artisanal samosas served with three distinct chutneys in small ceramic bowls. The samosas have a perfectly golden, flaky crust with intricate crimped edges. The presentation is elevated, set on a dark slate plate which contrasts with the warm cream tablecloth. The atmosphere is warm and inviting, perfect for a cozy afternoon snack or street-food craving." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBC1nmGi4HbaJxdwDVTG3quVd1uauHGU0RZ6ADCfT1i1WUNsstTORKgupT1i8xMwMJXAiXZbqXuez9EEmclgKGLA6zPXuTnEVwVLr4o6hB26Mu4VVQb1ci8B8ratENS0qj_jSNx9HYpw81oOU0sJB_EleTUmNkEUsisbJGBVy9DfWD256gh7GuLZWhC4VzaFR9shVvAIui3rLELA0tZ5efFbgnuuhu3Gna_rWjVV0inAW52Z8ZsFVZn9T-RkYYEGHsnvAb16ZnzMg"/>
+</div>
+<div class="p-md flex flex-col flex-grow">
+<div class="flex justify-between items-start mb-base">
+<h3 class="font-headline-md text-headline-md text-primary">Craft Samosa Trio</h3>
+<span class="font-headline-md text-headline-md text-spice-red">₹180</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-md flex-grow">Hand-folded pastry filled with spiced peas, artisanal paneer, and caramelized onion fillings.</p>
+<div class="flex gap-xs mb-md">
+<span class="material-symbols-outlined text-green-700 text-[20px]" title="Vegetarian">eco</span>
+<span class="material-symbols-outlined text-spice-red text-[20px]" title="Spice Level: Medium">local_fire_department</span>
+</div>
+<button class="w-full bg-primary text-on-primary h-14 rounded-lg font-label-md text-label-md hover:bg-spice-red transition-colors active:scale-95 flex items-center justify-center gap-xs">
+<span class="material-symbols-outlined text-[20px]">add_shopping_cart</span> Add to Cart
+                            </button>
+</div>
+</div>
+<!-- Item 6: Thalipeeth -->
+<div data-category="veg" class="group bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow border border-outline-variant/30 flex flex-col">
+<div class="aspect-[4/3] overflow-hidden relative">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="Traditional Maharashtrian Thalipeeth — a multigrain spiced flatbread served with fresh curd, pickle and green chillies on a steel plate." src="../akshaypatra_logo/thalipeeth.jpg"/>
+</div>
+<div class="p-md flex flex-col flex-grow">
+<div class="flex justify-between items-start mb-base">
+<h3 class="font-headline-md text-headline-md text-primary">Thalipeeth</h3>
+<span class="font-headline-md text-headline-md text-spice-red">₹120</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-md flex-grow">Traditional Maharashtrian multigrain spiced flatbread made with Bhajani, served with fresh white butter, curd, and spicy thecha.</p>
+<div class="flex gap-xs mb-md">
+<span class="material-symbols-outlined text-green-700 text-[20px]" title="Vegetarian">eco</span>
+<span class="material-symbols-outlined text-spice-red text-[20px]" title="Spice Level: Medium">local_fire_department</span>
+</div>
+<button class="w-full bg-primary text-on-primary h-14 rounded-lg font-label-md text-label-md hover:bg-spice-red transition-colors active:scale-95 flex items-center justify-center gap-xs">
+<span class="material-symbols-outlined text-[20px]">add_shopping_cart</span> Add to Cart
+                            </button>
+</div>
+</div>
+</div>
+</section>
+<!-- Category: Sweet Finales -->
+<section>
+<div class="flex items-center gap-md mb-lg">
+<h2 class="font-headline-lg text-headline-lg text-deep-earth">Sweet Finales</h2>
+<div class="h-[1px] flex-grow bg-outline-variant"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-md">
+<!-- Dessert 1 -->
+<div data-category="veg" class="group bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all border border-outline-variant/30">
+<div class="aspect-square overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="A gourmet presentation of Gulab Jamun served in a modern white ceramic bowl. The deep golden spheres are glistening in a transparent saffron syrup, garnished with slivers of green pistachios and delicate dried rose petals. The lighting is soft and elegant, creating a high-end restaurant aesthetic that feels both traditional and sophisticated." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBkKUJ76gZKSNtPXxJX6IqOfanpFWIP-XeF48C_SJiQCBBb9eNYBpNllDcGmS0vwaXLepUWnU7J1FO5pG9KJisMV_bXRn00q9tbyb7rpnQHDUA5nJsz9XNars1glJ7XZPaVD9elIMRN7hAS8H2HAIsUdbei8Bbp39FUwRDsoe3GbAdGE_Evnf781cOMNh_iBJCQUaPmBdyrjimqIpYY1rkkH4LPSIkLAsG619qm34KyNzzlwdzmnQVFh-NXbi1kqGzA85idUlFOcg"/>
+</div>
+<div class="p-base text-center">
+<h4 class="font-label-md text-label-md text-primary mb-xs">Saffron Gulab Jamun</h4>
+<p class="font-headline-md text-headline-md text-spice-red mb-base">₹140</p>
+<button class="w-full py-2 bg-surface-container-high text-on-surface hover:bg-secondary-container transition-colors rounded-lg font-label-sm text-label-sm">Quick Add</button>
+</div>
+</div>
+<!-- Dessert 2 -->
+<div data-category="veg" class="group bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all border border-outline-variant/30">
+<div class="aspect-square overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="A glass of artisanal Mango Lassi, topped with a swirl of fresh cream and crushed cardamom. The vibrant yellow of the Alphonso mango contrast beautifully with the creamy white surface. The background is a soft-focus warm kitchen setting, emphasizing the homemade, authentic nature of the drink. The composition is vertical and refreshing, inviting a cool finish to a spicy meal." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBtMubkummGkG72Zx9jYNKUJer8ZU_xXRdqjEzrp3MinO8cnaB9lpVsOJK_Xnvkl6Yie9vm273UYCiqO91DTOZKc35MQ5ib7Vxhkv9It-ULqCtiseTqkZgtRv7gscORDoUBMQ7CEmJL-_7dM2j8I6IkAYmDxgF5xURPXka4BFSbYrX-zFT_49Ij0pg6Aq55LBqIfdazPn5b8N-U-ALNzOscTB8AuD1bK6_UQXfS9GtOrfu9EZRAj2H7PDknYLOsPbabn7UsY_sn-Q"/>
+</div>
+<div class="p-base text-center">
+<h4 class="font-label-md text-label-md text-primary mb-xs">Alphonso Mango Lassi</h4>
+<p class="font-headline-md text-headline-md text-spice-red mb-base">₹120</p>
+<button class="w-full py-2 bg-surface-container-high text-on-surface hover:bg-secondary-container transition-colors rounded-lg font-label-sm text-label-sm">Quick Add</button>
+</div>
+</div>
+<!-- Dessert 3 -->
+<div data-category="veg" class="group bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all border border-outline-variant/30">
+<div class="aspect-square overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="A bowl of creamy Kheer (rice pudding) served in a silver bowl. The surface is decorated with silver leaf (vark), toasted almonds, and bright green pistachios. The lighting captures the creamy, rich texture of the milk and the reflective glint of the silver leaf. The overall mood is festive and regal, perfect for a special celebration finale." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDjTMq7oNBK4BKnfIeYW0EKCNx1vd7jYHcyWV2mnvoW-Uw_Hz5gt-_awyWHP_rE3aioalNhnOG2cfw3fUWjISCMlFFuuyhZ9MdRAbuZLMYbRRr-pClL3wPWWJv1XkeA4X9BwHWBKD7avFqrQ5fKz237DLOFbFbapwSoVDy2KGXkJvgH9KnU0D3KuB2DBqfGryNnQp7p8b-My3oGhWhJnbMPeE4nVs9zt2f7-qmtqRjeydy8nz-_d2ij-P52q-8vrF8z2_-dK1rJSQ"/>
+</div>
+<div class="p-base text-center">
+<h4 class="font-label-md text-label-md text-primary mb-xs">Cardamom Rice Kheer</h4>
+<p class="font-headline-md text-headline-md text-spice-red mb-base">₹160</p>
+<button class="w-full py-2 bg-surface-container-high text-on-surface hover:bg-secondary-container transition-colors rounded-lg font-label-sm text-label-sm">Quick Add</button>
+</div>
+</div>
+<!-- Dessert 4 -->
+<div data-category="veg" class="group bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all border border-outline-variant/30">
+<div class="aspect-square overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="Artisanal Kulfi popsicles arranged on a marble platter, drizzled with rose syrup and sprinkled with crushed nuts. The kulfi has a dense, creamy texture visible in the cross-section. The setting is bright and clean with a modern feel, using light-mode aesthetics and high-key lighting to highlight the frozen dessert's inviting appeal." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBRYjiqbyGNx8K9LwIww4HnLlwV2QTN_qNc2ZgnlOzIuT1OlvgACkRXfrQE3tplSmvE6eE2t26kiVxJVSF-047bbuZAKBa4OMh9-Ks_lS8-mmBiOCIrlFj2zuxW1-EVe3vO9c1U7N81KRvpQdAfJEcJInEa5264UORxOAtzYHgRkrr-T9osdhGFSE0LByApoFDrr3dFwbciv0e_2mMCITO_ODPZEKrj-QWLg0WPydK6czaC3eDrW3rgBLs1bP9XMS_S5NiUsF2Q9w"/>
+</div>
+<div class="p-base text-center">
+<h4 class="font-label-md text-label-md text-primary mb-xs">Artisanal Malai Kulfi</h4>
+<p class="font-headline-md text-headline-md text-spice-red mb-base">₹130</p>
+<button class="w-full py-2 bg-surface-container-high text-on-surface hover:bg-secondary-container transition-colors rounded-lg font-label-sm text-label-sm">Quick Add</button>
+</div>
+</div>
+<!-- Dessert 5 -->
+<div data-category="veg" class="group bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all border border-outline-variant/30">
+<div class="aspect-square overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="Steamed Ukadiche Modak served hot with saffron ghee." src="../akshaypatra_logo/ukadiche_modak.jpg"/>
+</div>
+<div class="p-base text-center">
+<h4 class="font-label-md text-label-md text-primary mb-xs">Ukadiche Modak</h4>
+<p class="font-headline-md text-headline-md text-spice-red mb-base">₹150</p>
+<button class="w-full py-2 bg-surface-container-high text-on-surface hover:bg-secondary-container transition-colors rounded-lg font-label-sm text-label-sm">Quick Add</button>
+</div>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-low dark:bg-surface-container-highest border-t border-outline-variant py-xl w-full">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-md px-margin-desktop max-w-7xl mx-auto">
+<div class="space-y-md">
+<div class="font-headline-md text-headline-md text-primary dark:text-inverse-primary">Akshaypatra</div>
+<p class="font-label-md text-label-md text-on-surface-variant">Bridging the gap between ancient family recipes and modern digital convenience.</p>
+</div>
+<div>
+<h4 class="font-label-md text-label-md text-primary font-bold mb-md">Explore</h4>
+<ul class="space-y-base">
+<li><a class="font-label-md text-label-md text-on-surface-variant hover:text-spice-red underline transition-colors" href="../akshaypatra_web_heritage_story_refined/code.html"> Heritage Story </a></li>
+<li><a class="font-label-md text-label-md text-on-surface-variant hover:text-spice-red underline transition-colors" href="../akshaypatra_web_sustainability_showcase/code.html"> Sustainability </a></li>
+<li><a class="font-label-md text-label-md text-on-surface-variant hover:text-spice-red underline transition-colors" href="../akshaypatra_web_landing_page/code.html"> Kitchen Locations </a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-label-md text-label-md text-primary font-bold mb-md">Support</h4>
+<ul class="space-y-base">
+<li><a class="font-label-md text-label-md text-on-surface-variant hover:text-spice-red underline transition-colors" href="#">Privacy Policy</a></li>
+<li><a class="font-label-md text-label-md text-on-surface-variant hover:text-spice-red underline transition-colors" href="#">Terms of Service</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-label-md text-label-md text-primary font-bold mb-md">Socials</h4>
+<div class="flex gap-md">
+<a class="text-on-surface-variant hover:text-spice-red transition-transform active:scale-95" href="#">Instagram</a>
+<a class="text-on-surface-variant hover:text-spice-red transition-transform active:scale-95" href="#">Facebook</a>
+</div>
+</div>
+</div>
+<div class="mt-xl text-center font-label-md text-label-md text-on-surface-variant opacity-70">
+            © 2024 Heritage Hearth. All rights reserved.
+        </div>
+</footer>
+<!-- FAB (Suppressed based on logic but available for primary menu context) -->
+<button onclick="window.location.href='../akshaypatra_web_checkout/code.html'" class="fixed bottom-gutter right-gutter md:bottom-md md:right-md bg-secondary-container text-on-secondary-container p-4 rounded-full shadow-lg flex items-center gap-2 hover:shadow-xl transition-all active:scale-95 z-40">
+<span class="material-symbols-outlined">shopping_basket</span>
+<span class="font-label-md text-label-md pr-2">View Cart (0)</span>
+</button>
+
+<script src="../cart.js"></script>
+<script>
+// Spice level state & control
+window.selectedSpice = 'Mild';
+window.selectSpice = function(spiceLevel) {
+    window.selectedSpice = spiceLevel;
+    const btnMild = document.getElementById('spice-mild');
+    const btnMedium = document.getElementById('spice-medium');
+    const btnSpicy = document.getElementById('spice-spicy');
+    if (!btnMild || !btnMedium || !btnSpicy) return;
+    
+    const activeClasses = ['bg-surface-container-highest', 'text-primary'];
+    const inactiveClasses = ['text-on-surface-variant', 'hover:text-primary'];
+    
+    [btnMild, btnMedium, btnSpicy].forEach(btn => {
+        btn.classList.remove(...activeClasses);
+        btn.classList.add(...inactiveClasses);
+    });
+    
+    let activeBtn = btnMild;
+    if (spiceLevel === 'Medium') activeBtn = btnMedium;
+    else if (spiceLevel === 'Spicy') activeBtn = btnSpicy;
+    
+    activeBtn.classList.remove(...inactiveClasses);
+    activeBtn.classList.add(...activeClasses);
+};
+
+// Filter menu by category (All, Veg, Vegan)
+window.filterMenu = function(category) {
+    const btnAll = document.getElementById('filter-all');
+    const btnVeg = document.getElementById('filter-veg');
+    const btnVegan = document.getElementById('filter-vegan');
+    
+    if (!btnAll || !btnVeg || !btnVegan) return;
+    
+    // Reset all buttons to inactive styling
+    const inactiveClasses = ['bg-surface-container-high', 'text-on-surface', 'border', 'border-outline-variant'];
+    const activeClasses = ['bg-primary', 'text-on-primary'];
+    
+    [btnAll, btnVeg, btnVegan].forEach(btn => {
+        btn.classList.remove(...activeClasses);
+        btn.classList.add(...inactiveClasses);
+    });
+    
+    // Highlight the selected button
+    let selectedBtn = btnAll;
+    if (category === 'veg') selectedBtn = btnVeg;
+    else if (category === 'vegan') selectedBtn = btnVegan;
+    
+    selectedBtn.classList.remove(...inactiveClasses);
+    selectedBtn.classList.add(...activeClasses);
+    
+    // Filter items based on data-category attribute
+    const items = document.querySelectorAll('.group');
+    items.forEach(item => {
+        const itemCat = item.getAttribute('data-category');
+        if (category === 'all') {
+            item.classList.remove('hidden');
+        } else if (category === 'veg') {
+            // Veg category displays both vegetarian and vegan dishes
+            if (itemCat === 'veg' || itemCat === 'vegan') {
+                item.classList.remove('hidden');
+            } else {
+                item.classList.add('hidden');
+            }
+        } else if (category === 'vegan') {
+            // Vegan category displays only vegan dishes
+            if (itemCat === 'vegan') {
+                item.classList.remove('hidden');
+            } else {
+                item.classList.add('hidden');
+            }
+        }
+    });
+    
+    // Toggle section container visibility if it has no visible items
+    const sections = document.querySelectorAll('main section');
+    sections.forEach(section => {
+        // Skip the hero/filter section
+        if (section.classList.contains('px-margin-desktop')) return;
+        
+        const visibleItems = section.querySelectorAll('.group:not(.hidden)');
+        if (visibleItems.length === 0) {
+            section.classList.add('hidden');
+        } else {
+            section.classList.remove('hidden');
+        }
+    });
+};
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Attach click listeners to all Add to Cart buttons
+    const buttons = document.querySelectorAll('button');
+    buttons.forEach(btn => {
+        if (btn.innerText.includes('Add to Cart') || btn.innerText.includes('Quick Add')) {
+            btn.addEventListener('click', (e) => {
+                // Find the closest item container. Depending on layout, we look up a few levels.
+                const container = btn.closest('.group');
+                if (!container) return;
+                
+                // Extract details
+                const titleEl = container.querySelector('h3, h4');
+                const priceEl = container.querySelector('.text-spice-red');
+                const imgEl = container.querySelector('img');
+                const descEl = container.querySelector('p.text-on-surface-variant');
+                const desc = descEl ? descEl.innerText.trim() : '';
+                
+                if (titleEl && priceEl) {
+                    const name = titleEl.innerText.trim();
+                    const priceText = priceEl.innerText.replace(/[^0-9.]/g, ''); // Remove ₹
+                    const price = parseFloat(priceText);
+                    const image = imgEl ? imgEl.src : '';
+                    const isDessert = container.closest('section')?.querySelector('h2')?.innerText.includes('Sweet Finales');
+                    const finalDesc = isDessert ? desc : (desc ? `${window.selectedSpice} Spice | ${desc}` : `${window.selectedSpice} Spice`);
+                    
+                    addToCart({
+                        name: name,
+                        price: price,
+                        image: image,
+                        desc: finalDesc,
+                        quantity: 1
+                    });
+                    
+                    // Visual feedback
+                    const originalText = btn.innerHTML;
+                    btn.innerHTML = '<span class="material-symbols-outlined text-[20px]">check</span> Added!';
+                    btn.classList.add('bg-green-700', 'text-white');
+                    btn.classList.remove('bg-primary', 'text-on-primary', 'bg-surface-container-high', 'border-primary', 'text-primary');
+                    
+                    setTimeout(() => {
+                        btn.innerHTML = originalText;
+                        btn.classList.remove('bg-green-700', 'text-white');
+                        // Reset generic classes might be tricky if they differ per button, but this works well enough for the prototype
+                        btn.classList.add('bg-primary', 'text-on-primary');
+                    }, 1000);
+                }
+            });
+        }
+    });
+});
+</script>
+</body></html>

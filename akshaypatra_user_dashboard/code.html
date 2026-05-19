@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@600;700&amp;family=Plus+Jakarta+Sans:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary-fixed": "#ffdad2",
+                    "primary-container": "#a63500",
+                    "surface-container-highest": "#e5e2db",
+                    "surface-container-lowest": "#ffffff",
+                    "inverse-primary": "#ffb59c",
+                    "secondary": "#7d5700",
+                    "on-primary-fixed": "#380c00",
+                    "on-background": "#1c1c18",
+                    "tertiary-fixed-dim": "#ffb4a3",
+                    "on-secondary-container": "#775300",
+                    "secondary-fixed-dim": "#f1be65",
+                    "secondary-fixed": "#ffdeaa",
+                    "background": "#fcf9f2",
+                    "surface-cream": "#fcf9f2",
+                    "inverse-surface": "#31312c",
+                    "inverse-on-surface": "#f3f0ea",
+                    "on-primary": "#ffffff",
+                    "surface": "#fcf9f2",
+                    "secondary-container": "#fec96f",
+                    "accent-gold": "#feb71a",
+                    "surface-bright": "#fcf9f2",
+                    "deep-earth": "#31312c",
+                    "on-tertiary-fixed": "#3d0700",
+                    "tertiary-container": "#9d3d26",
+                    "surface-container-low": "#f6f3ec",
+                    "on-surface-variant": "#58423a",
+                    "on-primary-fixed-variant": "#822800",
+                    "on-error-container": "#93000a",
+                    "primary-fixed-dim": "#ffb59c",
+                    "outline": "#8c7168",
+                    "error": "#ba1a1a",
+                    "on-secondary": "#ffffff",
+                    "outline-variant": "#e0c0b5",
+                    "surface-tint": "#a93702",
+                    "primary-fixed": "#ffdbcf",
+                    "on-error": "#ffffff",
+                    "error-container": "#ffdad6",
+                    "on-secondary-fixed": "#271900",
+                    "on-secondary-fixed-variant": "#5f4100",
+                    "surface-variant": "#e5e2db",
+                    "primary": "#7e2600",
+                    "surface-dim": "#dcdad3",
+                    "spice-red": "#be543c",
+                    "on-tertiary-fixed-variant": "#812913",
+                    "surface-container": "#f0eee7",
+                    "on-tertiary-container": "#ffc8bb",
+                    "on-surface": "#1c1c18",
+                    "tertiary": "#7d2611",
+                    "surface-container-high": "#ebe8e1",
+                    "on-tertiary": "#ffffff",
+                    "on-primary-container": "#ffc9b7"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "xl": "64px",
+                    "lg": "40px",
+                    "md": "24px",
+                    "xs": "4px",
+                    "sm": "12px",
+                    "margin-mobile": "16px",
+                    "base": "8px",
+                    "margin-desktop": "80px",
+                    "gutter": "16px"
+            },
+            "fontFamily": {
+                    "label-sm": ["Plus Jakarta Sans"],
+                    "label-md": ["Plus Jakarta Sans"],
+                    "body-md": ["Plus Jakarta Sans"],
+                    "headline-lg": ["Noto Serif"],
+                    "body-lg": ["Plus Jakarta Sans"],
+                    "headline-md": ["Noto Serif"],
+                    "headline-xl": ["Noto Serif"]
+            },
+            "fontSize": {
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "700"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "headline-xl": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .active-nav-pill {
+            background-color: #fec96f; /* secondary-container */
+            border-radius: 9999px;
+        }
+    </style>
+</head>
+<body class="bg-surface font-body-md text-on-surface">
+<!-- TopNavBar -->
+<header class="sticky top-0 w-full z-50 bg-surface border-b border-outline-variant">
+<div class="flex justify-between items-center h-20 px-margin-desktop max-w-screen-2xl mx-auto">
+<div class="flex items-center gap-base">
+<img alt="Akshaypatra Logo" class="h-10 w-auto object-contain" src="../akshaypatra_logo/brand_logo.jpg"/>
+<div class="text-headline-md font-headline-md text-primary tracking-tight">Akshaypatra</div>
+</div>
+<nav class="hidden md:flex items-center gap-xl">
+<a class="text-label-md font-label-md text-on-surface-variant hover:text-spice-red transition-colors duration-200" href="#">Menu</a>
+<a class="text-label-md font-label-md text-on-surface-variant hover:text-spice-red transition-colors duration-200" href="#">Heritage Story</a>
+<a class="text-label-md font-label-md text-on-surface-variant hover:text-spice-red transition-colors duration-200" href="#">Specials</a>
+<a class="text-label-md font-label-md text-on-surface-variant hover:text-spice-red transition-colors duration-200" href="#">Catering</a>
+</nav>
+<div class="flex items-center gap-md">
+<button class="p-base active:scale-95 transition-transform duration-150">
+<span class="material-symbols-outlined text-primary" data-icon="shopping_cart">shopping_cart</span>
+</button>
+<button class="p-base active:scale-95 transition-transform duration-150">
+<span class="material-symbols-outlined text-primary" data-icon="account_circle" style="font-variation-settings: 'FILL' 1;">account_circle</span>
+</button>
+</div>
+</div>
+</header>
+<main class="max-w-screen-2xl mx-auto px-margin-desktop py-lg flex gap-xl min-h-[calc(100vh-160px)]">
+<!-- Sidebar Navigation -->
+<aside class="w-64 flex-shrink-0 hidden md:block">
+<div class="sticky top-28 space-y-xs">
+<a class="flex items-center gap-sm px-md py-sm rounded-full bg-secondary-container text-on-secondary-container font-bold group" href="#">
+<span class="material-symbols-outlined" data-icon="person" style="font-variation-settings: 'FILL' 1;">person</span>
+<span class="text-label-md font-label-md">My Profile</span>
+</a>
+<a class="flex items-center gap-sm px-md py-sm rounded-full text-on-surface-variant hover:bg-surface-container-high transition-colors group" href="#">
+<span class="material-symbols-outlined" data-icon="history">history</span>
+<span class="text-label-md font-label-md">Order History</span>
+</a>
+<a class="flex items-center gap-sm px-md py-sm rounded-full text-on-surface-variant hover:bg-surface-container-high transition-colors group" href="#">
+<span class="material-symbols-outlined" data-icon="location_on">location_on</span>
+<span class="text-label-md font-label-md">Saved Addresses</span>
+</a>
+<a class="flex items-center gap-sm px-md py-sm rounded-full text-on-surface-variant hover:bg-surface-container-high transition-colors group" href="#">
+<span class="material-symbols-outlined" data-icon="loyalty">loyalty</span>
+<span class="text-label-md font-label-md">Spice Circle Rewards</span>
+</a>
+<a class="flex items-center gap-sm px-md py-sm rounded-full text-on-surface-variant hover:bg-surface-container-high transition-colors group" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="text-label-md font-label-md">Settings</span>
+</a>
+</div>
+</aside>
+<!-- Content Area -->
+<section class="flex-1 space-y-lg">
+<!-- Welcome Header -->
+<div>
+<h1 class="text-headline-xl font-headline-xl text-primary mb-xs">Namaste, Rahul</h1>
+<p class="text-body-lg font-body-lg text-on-surface-variant">Welcome back to your Akshaypatra dashboard.</p>
+</div>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-12 gap-md">
+<!-- Profile Card -->
+<div class="col-span-12 lg:col-span-7 bg-surface-container-lowest border border-outline-variant rounded-xl p-md shadow-sm flex items-center gap-md">
+<div class="w-32 h-32 rounded-full overflow-hidden border-4 border-secondary-container">
+<img alt="Rahul Deshmukh" class="w-full h-full object-cover" data-alt="A professional headshot of a middle-aged South Asian man with a warm, friendly smile. He is wearing a smart-casual linen shirt in a neutral beige tone. The lighting is soft and natural, with a warm, sun-kissed morning glow against a minimalist, cream-colored studio backdrop that matches the Akshaypatra brand aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAptkW7zNemm-rCUhZIf2Xbp3iIZYph40jKo8GfCPtfdnJis9IEU336HpXQ9hOjX4tfP_w2G1cwF9KldaUsuNzvF7jxj_WVLO97UjvhasKyZGOHekpzExR3lt1FMHPV_Ls9pmyf42oCFJaRmUNPNwhr3GzjjKoJRECUOxJDjh0A9UehZP_Dsf3sQADXwXnEBppzo3MZyFKpDaTIy_mWLvLq6gmhxIZZYNCDEUK_J5HE7LTZxzUd4TnArMPA1ZA553UMALLVVga6pw"/>
+</div>
+<div class="space-y-xs">
+<h2 class="text-headline-md font-headline-md text-primary">Rahul Deshmukh</h2>
+<div class="flex items-center gap-xs text-on-surface-variant">
+<span class="material-symbols-outlined text-label-sm" data-icon="mail">mail</span>
+<span class="text-body-md font-body-md">rahul.deshmukh@example.com</span>
+</div>
+<div class="flex items-center gap-xs text-on-surface-variant">
+<span class="material-symbols-outlined text-label-sm" data-icon="phone">phone</span>
+<span class="text-body-md font-body-md">+91 98765 43210</span>
+</div>
+<button class="mt-sm text-primary font-bold text-label-md hover:underline underline-offset-4">Edit Profile</button>
+</div>
+</div>
+<!-- Spice Circle Status -->
+<div class="col-span-12 lg:col-span-5 bg-tertiary-container text-on-tertiary-container rounded-xl p-md relative overflow-hidden shadow-sm flex flex-col justify-between">
+<div class="relative z-10">
+<div class="flex justify-between items-start">
+<div>
+<p class="text-label-sm font-label-sm uppercase tracking-wider opacity-80">Spice Circle Status</p>
+<h3 class="text-headline-lg font-headline-lg mt-xs text-secondary-container">Gold Member</h3>
+</div>
+<span class="material-symbols-outlined text-headline-xl text-secondary-container" data-icon="stars" style="font-variation-settings: 'FILL' 1;">stars</span>
+</div>
+<div class="mt-lg">
+<p class="text-label-md font-label-md">Current Balance</p>
+<div class="flex items-baseline gap-xs">
+<span class="text-headline-xl font-headline-xl">850</span>
+<span class="text-body-md">Akshaypatra Points</span>
+</div>
+</div>
+</div>
+<!-- Decorative Element -->
+<div class="absolute -bottom-10 -right-10 w-40 h-40 bg-spice-red rounded-full blur-3xl opacity-30"></div>
+</div>
+<!-- Quick Actions Section -->
+<div class="col-span-12">
+<h3 class="text-headline-md font-headline-md text-primary mb-md">Quick Actions</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-md">
+<!-- Action Card 1: Reorder -->
+<div class="bg-surface-container-low border border-outline-variant rounded-xl p-md group hover:bg-surface-container-highest transition-colors cursor-pointer flex items-center gap-md">
+<div class="w-16 h-16 rounded-lg overflow-hidden flex-shrink-0">
+<img alt="Thali" class="w-full h-full object-cover" data-alt="A vibrant and authentic Maharashtrian Thali served on a large stainless steel plate. It features small bowls containing various aromatic curries, dal, and amti, accompanied by steaming hot bhakri and a mound of fragrant basmati rice. The lighting is warm and communal, emphasizing the rich, spicy reds and golden yellows of the food." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBwWde4oSbOdaUBR_nYzgy5jxb6GH-FFS-pS9Q94SA-nfttbR0bkDroG21mJQHXz7XGu04H7zJPQKsklv9ILJe4UB2yENF3fwwCVwJ2wINZ8prDeaK0L7kRZtbNl0_9_vIK6mQiMgwyDa75jo0l07-_2rVZrUnKRkPmHZ7uxhMLeZX7xPtuG61kMMqt1VlRMHzt308VnGn5S0Sq3HxAj0YT0RUPbpowxHivSmhg0wfm4gCkW8tvfQTHpBzHMW7Oooa5olWfsiIjSg"/>
+</div>
+<div class="flex-1">
+<h4 class="text-label-md font-label-md text-primary">Reorder Favorite Thali</h4>
+<p class="text-label-sm font-label-sm text-on-surface-variant">Last ordered 3 days ago</p>
+</div>
+<span class="material-symbols-outlined text-primary group-hover:translate-x-1 transition-transform" data-icon="chevron_right">chevron_right</span>
+</div>
+<!-- Action Card 2: New Address -->
+<div class="bg-surface-container-low border border-outline-variant rounded-xl p-md group hover:bg-surface-container-highest transition-colors cursor-pointer flex items-center gap-md">
+<div class="w-12 h-12 rounded-full bg-secondary-container flex items-center justify-center flex-shrink-0 text-on-secondary-container">
+<span class="material-symbols-outlined" data-icon="add_location_alt">add_location_alt</span>
+</div>
+<div class="flex-1">
+<h4 class="text-label-md font-label-md text-primary">Add New Address</h4>
+<p class="text-label-sm font-label-sm text-on-surface-variant">Save a home or office location</p>
+</div>
+<span class="material-symbols-outlined text-primary group-hover:translate-x-1 transition-transform" data-icon="chevron_right">chevron_right</span>
+</div>
+<!-- Action Card 3: Referral -->
+<div class="bg-surface-container-low border border-outline-variant rounded-xl p-md group hover:bg-surface-container-highest transition-colors cursor-pointer flex items-center gap-md">
+<div class="w-12 h-12 rounded-full bg-tertiary-fixed flex items-center justify-center flex-shrink-0 text-tertiary">
+<span class="material-symbols-outlined" data-icon="card_giftcard">card_giftcard</span>
+</div>
+<div class="flex-1">
+<h4 class="text-label-md font-label-md text-primary">Refer a Friend</h4>
+<p class="text-label-sm font-label-sm text-on-surface-variant">Earn 200 Spice Points</p>
+</div>
+<span class="material-symbols-outlined text-primary group-hover:translate-x-1 transition-transform" data-icon="chevron_right">chevron_right</span>
+</div>
+</div>
+</div>
+<!-- Recent Activity Table-like section -->
+<div class="col-span-12 bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden shadow-sm">
+<div class="px-md py-sm bg-surface-container-high flex justify-between items-center">
+<h3 class="text-label-md font-label-md text-primary">Recent Orders</h3>
+<a class="text-label-sm font-label-sm text-spice-red font-bold" href="#">View History</a>
+</div>
+<div id="recent-orders-list" class="divide-y divide-outline-variant">
+<div class="p-md flex justify-between items-center">
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 rounded bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" data-icon="receipt_long">receipt_long</span>
+</div>
+<div>
+<p class="font-bold text-label-md">#AK-45920</p>
+<p class="text-label-sm text-on-surface-variant">24 Oct, 2023 • 2 Items</p>
+</div>
+</div>
+<div class="text-right">
+<p class="font-bold text-primary">₹1,250</p>
+<span class="text-[10px] uppercase font-bold px-xs py-[2px] bg-secondary-container text-on-secondary-container rounded">Delivered</span>
+</div>
+</div>
+<div class="p-md flex justify-between items-center">
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 rounded bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" data-icon="receipt_long">receipt_long</span>
+</div>
+<div>
+<p class="font-bold text-label-md">#AK-45811</p>
+<p class="text-label-sm text-on-surface-variant">18 Oct, 2023 • 5 Items</p>
+</div>
+</div>
+<div class="text-right">
+<p class="font-bold text-primary">₹3,420</p>
+<span class="text-[10px] uppercase font-bold px-xs py-[2px] bg-secondary-container text-on-secondary-container rounded">Delivered</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-xl bg-surface-container-low border-t border-outline-variant mt-xl">
+<div class="flex flex-col md:flex-row justify-between items-center gap-md px-margin-desktop max-w-screen-2xl mx-auto">
+<div class="flex flex-col items-center md:items-start gap-xs">
+<div class="flex items-center gap-base">
+<img alt="Akshaypatra Logo" class="h-8 w-auto object-contain" src="../akshaypatra_logo/brand_logo.jpg"/>
+<div class="text-headline-sm font-headline-sm text-primary">Akshaypatra</div>
+</div>
+<p class="text-body-md font-body-md text-on-surface-variant text-center md:text-left max-w-sm">
+                © 2024 Akshaypatra. Authentically Crafted Maharashtrian Cuisine.
+            </p>
+</div>
+<div class="flex flex-wrap justify-center gap-md">
+<a class="text-label-sm font-label-sm text-on-surface-variant hover:text-primary transition-all underline underline-offset-4" href="#">Privacy Policy</a>
+<a class="text-label-sm font-label-sm text-on-surface-variant hover:text-primary transition-all underline underline-offset-4" href="#">Terms of Service</a>
+<a class="text-label-sm font-label-sm text-on-surface-variant hover:text-primary transition-all underline underline-offset-4" href="#">Sustainability</a>
+<a class="text-label-sm font-label-sm text-on-surface-variant hover:text-primary transition-all underline underline-offset-4" href="#">Our Kitchens</a>
+</div>
+</div>
+</footer>
+<!-- Mobile Navigation Bar -->
+<nav class="md:hidden fixed bottom-0 left-0 right-0 h-20 bg-surface shadow-[0_-4px_10px_rgba(0,0,0,0.05)] flex justify-around items-center z-50">
+<a class="flex flex-col items-center gap-xs" href="#">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="home">home</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant">Home</span>
+</a>
+<a class="flex flex-col items-center gap-xs" href="#">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="restaurant_menu">restaurant_menu</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant">Menu</span>
+</a>
+<a class="flex flex-col items-center gap-xs relative" href="#">
+<div class="absolute -top-10 w-14 h-14 bg-primary text-on-primary rounded-full flex items-center justify-center shadow-lg border-4 border-surface overflow-hidden">
+<span class="material-symbols-outlined" data-icon="shopping_basket">shopping_basket</span>
+</div>
+</a>
+<a class="flex flex-col items-center gap-xs" href="#">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="favorite">favorite</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant">Saved</span>
+</a>
+<a class="flex flex-col items-center gap-xs" href="#">
+<div class="active-nav-pill px-4 py-1 flex items-center justify-center">
+<span class="material-symbols-outlined text-on-secondary-container" data-icon="person" style="font-variation-settings: 'FILL' 1;">person</span>
+</div>
+<span class="text-label-sm font-label-sm text-on-secondary-container font-bold">Profile</span>
+</a>
+</nav>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const lastOrderStr = localStorage.getItem('akshaypatra_last_order');
+        if (lastOrderStr) {
+            try {
+                const order = JSON.parse(lastOrderStr);
+                const ordersList = document.getElementById('recent-orders-list');
+                
+                if (ordersList && order) {
+                    const itemCount = order.items ? order.items.reduce((sum, item) => sum + item.quantity, 0) : 0;
+                    
+                    const orderHtml = `
+                    <div class="p-md flex justify-between items-center bg-surface-container-low border-l-4 border-l-spice-red">
+                        <div class="flex items-center gap-md">
+                            <div class="w-10 h-10 rounded bg-surface-container flex items-center justify-center text-primary">
+                                <span class="material-symbols-outlined" data-icon="receipt_long">receipt_long</span>
+                            </div>
+                            <div>
+                                <p class="font-bold text-label-md">${order.orderNumber || '#AP-NEW'}</p>
+                                <p class="text-label-sm text-on-surface-variant">Just now • ${itemCount} Items</p>
+                            </div>
+                        </div>
+                        <div class="text-right">
+                            <p class="font-bold text-primary">₹${order.totalAmount ? order.totalAmount.toFixed(2) : '0.00'}</p>
+                            <span class="text-[10px] uppercase font-bold px-xs py-[2px] bg-spice-red text-on-primary rounded">Processing</span>
+                        </div>
+                    </div>`;
+                    
+                    ordersList.insertAdjacentHTML('afterbegin', orderHtml);
+                }
+            } catch (e) {
+                console.error("Error parsing recent order", e);
+            }
+        }
+    });
+</script>
+</body></html>
