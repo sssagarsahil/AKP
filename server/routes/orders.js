@@ -79,6 +79,23 @@ router.post('/', optionalAuth, async (req, res) => {
             await req.user.save();
         }
 
+        // Send SMS notification via Twilio (if configured)
+        if (process.env.TWILIO_ACCOUNT_SID && process.env.TWILIO_AUTH_TOKEN && process.env.TWILIO_PHONE_NUMBER) {
+            try {
+                const twilio = require('twilio')(process.env.TWILIO_ACCOUNT_SID, process.env.TWILIO_AUTH_TOKEN);
+                await twilio.messages.create({
+                    body: `🍛 Akshaypatra: New Order Received!\nID: ${order.orderNumber}\nTotal: ₹${order.totalAmount}\nPlease start preparing now.`,
+                    from: process.env.TWILIO_PHONE_NUMBER,
+                    to: '+919226759879' // Admin phone number
+                });
+                console.log(`[Twilio] SMS successfully sent to admin for order ${order.orderNumber}`);
+            } catch (smsError) {
+                console.error(`[Twilio] Failed to send SMS for order ${order.orderNumber}:`, smsError.message);
+            }
+        } else {
+            console.log(`[Twilio] Skipping SMS notification for ${order.orderNumber} (Missing Twilio .env credentials)`);
+        }
+
         res.status(201).json({
             message: 'Order placed successfully!',
             order
