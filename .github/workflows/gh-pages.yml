@@ -1,0 +1,24 @@
+name: Deploy GitHub Pages
+
+on:
+  push:
+    branches:
+      - main       # adjust if you use a different default branch
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write   # needed to push to gh-pages
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: gh-pages          # branch that serves the site
+          publish_dir: .                    # root of the repo (contains index.html, etc.)
+          # If you prefer a sub‑folder like “web”, change the line above to: publish_dir: web
+          force_orphan: true                # creates a clean orphan branch
