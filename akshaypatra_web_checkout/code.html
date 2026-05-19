@@ -445,6 +445,18 @@
 </footer>
 <script src="../cart.js"></script>
 <script>
+// Helper to get the correct API base URL dynamically
+function getApiUrl(path) {
+    if (window.location.protocol.startsWith('http')) {
+        if (window.location.port === '8082') {
+            return `${window.location.origin}${path}`;
+        } else {
+            return `${window.location.protocol}//${window.location.hostname}:8082${path}`;
+        }
+    }
+    return `http://127.0.0.1:8082${path}`;
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     const container = document.getElementById('cart-items-container');
     const itemTotalEl = document.getElementById('bill-item-total');
@@ -821,17 +833,10 @@ async function submitModalPayment() {
     cardView.classList.add('hidden');
     processingView.classList.remove('hidden');
     modalFooter.classList.add('hidden');
-
-    // Simulate short delay then run static fallback (ensures confirmation regardless of backend)
-    setTimeout(() => {
-        // Use same cart and scheduled info as executeOrderPlacement would have
-        const cart = getCart();
-        const scheduledDateEl = document.getElementById('selected-date-text');
-        const scheduledTimeEl = document.getElementById('selected-time-text');
-        const scheduledDate = scheduledDateEl ? scheduledDateEl.innerText : '';
-        const scheduledTime = scheduledTimeEl ? scheduledTimeEl.innerText : '';
-        runStaticFallback(cart, scheduledDate, scheduledTime);
-    }, 500);
+    // Simulate payment gateway delay then place order via backend
+    setTimeout(async () => {
+        await executeOrderPlacement();
+    }, 2000);
 }
 
 async function executeOrderPlacement() {
@@ -846,7 +851,7 @@ async function executeOrderPlacement() {
     const address = document.getElementById('delivery-address').value.trim();
 
     try {
-        const response = await fetch('http://127.0.0.1:8082/api/orders', {
+        const response = await fetch(getApiUrl('/api/orders'), {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

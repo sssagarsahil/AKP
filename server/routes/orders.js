@@ -117,6 +117,25 @@ router.get('/', optionalAuth, async (req, res) => {
     }
 });
 
+// PUT /api/orders/:orderNumber/status — Update order status
+router.put('/:orderNumber/status', async (req, res) => {
+    try {
+        const { status } = req.body;
+        if (!status) {
+            return res.status(400).json({ error: 'Status is required' });
+        }
+        const order = await Order.findOneAndUpdate(
+            { orderNumber: req.params.orderNumber },
+            { status },
+            { new: true }
+        );
+        if (!order) return res.status(404).json({ error: 'Order not found' });
+        res.json({ message: 'Order status updated successfully', order });
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+});
+
 // GET /api/orders/:orderNumber — Get single order by order number
 router.get('/:orderNumber', async (req, res) => {
     try {

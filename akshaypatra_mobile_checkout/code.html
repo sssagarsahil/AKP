@@ -378,6 +378,18 @@
 </div>
 <script src="../cart.js"></script>
 <script>
+// Helper to get the correct API base URL dynamically
+function getApiUrl(path) {
+    if (window.location.protocol.startsWith('http')) {
+        if (window.location.port === '8082') {
+            return `${window.location.origin}${path}`;
+        } else {
+            return `${window.location.protocol}//${window.location.hostname}:8082${path}`;
+        }
+    }
+    return `http://127.0.0.1:8082${path}`;
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     const container = document.getElementById('cart-items-container');
     const subtotalEl = document.getElementById('bill-subtotal');
@@ -623,7 +635,7 @@ async function executeOrderPlacement() {
     const address = document.getElementById('delivery-address').value.trim();
 
     try {
-        const response = await fetch('http://127.0.0.1:8082/api/orders', {
+        const response = await fetch(getApiUrl('/api/orders'), {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

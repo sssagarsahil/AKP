@@ -86,7 +86,7 @@
                     <p class="text-xs text-on-surface-variant uppercase tracking-wider font-bold">Total Sales</p>
                 </div>
                 <div class="mt-4">
-                    <p class="text-3xl font-bold text-primary">₹2,58,450</p>
+                    <p id="total-sales-amount" class="text-3xl font-bold text-primary">₹0</p>
                     <p class="text-[10px] text-green-700 font-bold mt-1">▲ +14.2% from last week</p>
                 </div>
             </div>
@@ -108,7 +108,7 @@
                     <p class="text-xs text-on-surface-variant uppercase tracking-wider font-bold">Avg. Order Value</p>
                 </div>
                 <div class="mt-4">
-                    <p class="text-3xl font-bold text-primary">₹307</p>
+                    <p id="avg-order-value" class="text-3xl font-bold text-primary">₹0</p>
                     <p class="text-[10px] text-on-surface-variant font-medium mt-1">Balanced target values</p>
                 </div>
             </div>
@@ -216,41 +216,8 @@
                     </tr>
                 </thead>
                 <tbody id="orders-tbody" class="text-sm">
-                    <!-- Tr 1 -->
-                    <tr class="border-b border-orange-50/50 hover:bg-orange-50/10">
-                        <td class="py-4 px-4 font-bold text-primary">AKP-58291</td>
-                        <td class="py-4 px-4">2x Royal Heritage Thali</td>
-                        <td class="py-4 px-4 font-bold">₹945</td>
-                        <td class="py-4 px-4">
-                            <span id="badge-58291" class="px-2.5 py-1 text-xs font-bold rounded-full bg-green-100 text-green-800 uppercase">delivered</span>
-                        </td>
-                        <td class="py-4 px-4 uppercase font-bold text-on-surface-variant">upi</td>
-                        <td class="py-4 px-4 text-center">
-                            <select onchange="updateStatus('58291', this.value)" class="text-xs rounded-lg border-outline-variant/30 focus:border-primary focus:ring-0">
-                                <option value="delivered" selected>Delivered</option>
-                                <option value="placed">Placed</option>
-                                <option value="preparing">Preparing</option>
-                                <option value="cancelled">Cancelled</option>
-                            </select>
-                        </td>
-                    </tr>
-                    <!-- Tr 2 -->
-                    <tr class="border-b border-orange-50/50 hover:bg-orange-50/10">
-                        <td class="py-4 px-4 font-bold text-primary">AKP-19432</td>
-                        <td class="py-4 px-4">1x Mutton Rassa Thali</td>
-                        <td class="py-4 px-4 font-bold">₹546</td>
-                        <td class="py-4 px-4">
-                            <span id="badge-19432" class="px-2.5 py-1 text-xs font-bold rounded-full bg-orange-100 text-orange-800 uppercase">placed</span>
-                        </td>
-                        <td class="py-4 px-4 uppercase font-bold text-on-surface-variant">card</td>
-                        <td class="py-4 px-4 text-center">
-                            <select onchange="updateStatus('19432', this.value)" class="text-xs rounded-lg border-outline-variant/30 focus:border-primary focus:ring-0">
-                                <option value="placed" selected>Placed</option>
-                                <option value="preparing">Preparing</option>
-                                <option value="delivered">Delivered</option>
-                                <option value="cancelled">Cancelled</option>
-                            </select>
-                        </td>
+                    <tr>
+                        <td colspan="6" class="py-8 text-center text-on-surface-variant italic">Loading orders from server...</td>
                     </tr>
                 </tbody>
             </table>
@@ -258,37 +225,133 @@
     </main>
 
     <script>
-        // Track local mock states
-        const orders = [
-            { id: '58291', status: 'delivered' },
-            { id: '19432', status: 'placed' }
-        ];
-
-        function updateStatus(orderId, newStatus) {
-            const order = orders.find(o => o.id === orderId);
-            if (order) {
-                order.status = newStatus;
-                
-                // Update dynamic badge color
-                const badge = document.getElementById(`badge-${orderId}`);
-                badge.innerText = newStatus;
-                badge.className = `px-2.5 py-1 text-xs font-bold rounded-full uppercase `;
-                
-                if (newStatus === 'delivered') {
-                    badge.classList.add('bg-green-100', 'text-green-800');
-                } else if (newStatus === 'preparing') {
-                    badge.classList.add('bg-blue-100', 'text-blue-800');
-                } else if (newStatus === 'placed') {
-                    badge.classList.add('bg-orange-100', 'text-orange-800');
+        // Helper to get the correct API base URL dynamically
+        function getApiUrl(path) {
+            if (window.location.protocol.startsWith('http')) {
+                if (window.location.port === '8082') {
+                    return `${window.location.origin}${path}`;
                 } else {
-                    badge.classList.add('bg-red-100', 'text-red-800');
+                    return `${window.location.protocol}//${window.location.hostname}:8082${path}`;
                 }
+            }
+            return `http://127.0.0.1:8082${path}`;
+        }
+
+        let ordersList = [];
+
+        async function fetchOrders() {
+            try {
+                const response = await fetch(getApiUrl('/api/orders'));
+                if (response.ok) {
+                    const data = await response.json();
+                    ordersList = data.orders || [];
+                    renderOrders();
+                    updateMetrics();
+                } else {
+                    console.error('Failed to fetch orders from server');
+                }
+            } catch (error) {
+                console.error('Error fetching orders:', error);
             }
         }
 
-        function refreshData() {
-            alert('MongoDB Connection status: Healthy. All order ledgers perfectly synchronized!');
+        function renderOrders() {
+            const tbody = document.getElementById('orders-tbody');
+            if (!tbody) return;
+            
+            if (ordersList.length === 0) {
+                tbody.innerHTML = `
+                    <tr>
+                        <td colspan="6" class="py-8 text-center text-on-surface-variant italic">No orders found in the database. Place an order to see it here!</td>
+                    </tr>
+                `;
+                return;
+            }
+
+            tbody.innerHTML = ordersList.map(order => {
+                const itemsList = order.items.map(item => `${item.quantity}x ${item.name}`).join(', ');
+                const badgeColor = getBadgeClass(order.status);
+                
+                return `
+                    <tr class="border-b border-orange-50/50 hover:bg-orange-50/10">
+                        <td class="py-4 px-4 font-bold text-primary">${order.orderNumber}</td>
+                        <td class="py-4 px-4 truncate max-w-xs" title="${itemsList}">${itemsList}</td>
+                        <td class="py-4 px-4 font-bold">₹${order.totalAmount.toFixed(2)}</td>
+                        <td class="py-4 px-4">
+                            <span id="badge-${order.orderNumber}" class="px-2.5 py-1 text-xs font-bold rounded-full uppercase ${badgeColor}">${order.status}</span>
+                        </td>
+                        <td class="py-4 px-4 uppercase font-bold text-on-surface-variant">${order.paymentMethod || 'upi'}</td>
+                        <td class="py-4 px-4 text-center">
+                            <select onchange="updateStatus('${order.orderNumber}', this.value)" class="text-xs rounded-lg border-outline-variant/30 focus:border-primary focus:ring-0">
+                                <option value="placed" ${order.status === 'placed' ? 'selected' : ''}>Placed</option>
+                                <option value="preparing" ${order.status === 'preparing' ? 'selected' : ''}>Preparing</option>
+                                <option value="out-for-delivery" ${order.status === 'out-for-delivery' ? 'selected' : ''}>Out For Delivery</option>
+                                <option value="delivered" ${order.status === 'delivered' ? 'selected' : ''}>Delivered</option>
+                                <option value="cancelled" ${order.status === 'cancelled' ? 'selected' : ''}>Cancelled</option>
+                            </select>
+                        </td>
+                    </tr>
+                `;
+            }).join('');
         }
+
+        function getBadgeClass(status) {
+            switch(status) {
+                case 'delivered': return 'bg-green-100 text-green-800';
+                case 'preparing': return 'bg-blue-100 text-blue-800';
+                case 'placed': return 'bg-orange-100 text-orange-800';
+                case 'out-for-delivery': return 'bg-purple-100 text-purple-800';
+                default: return 'bg-red-100 text-red-800';
+            }
+        }
+
+        async function updateStatus(orderNumber, newStatus) {
+            try {
+                const response = await fetch(getApiUrl(`/api/orders/${orderNumber}/status`), {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ status: newStatus })
+                });
+
+                if (response.ok) {
+                    const badge = document.getElementById(`badge-${orderNumber}`);
+                    if (badge) {
+                        badge.innerText = newStatus;
+                        badge.className = `px-2.5 py-1 text-xs font-bold rounded-full uppercase ${getBadgeClass(newStatus)}`;
+                    }
+                    const o = ordersList.find(item => item.orderNumber === orderNumber);
+                    if (o) o.status = newStatus;
+                    updateMetrics();
+                } else {
+                    alert('Failed to update status on server');
+                }
+            } catch (error) {
+                console.error('Error updating order status:', error);
+                alert('Error connecting to server to update status');
+            }
+        }
+
+        function updateMetrics() {
+            const totalOrders = ordersList.length;
+            const totalSales = ordersList
+                .filter(o => o.status !== 'cancelled')
+                .reduce((sum, o) => sum + o.totalAmount, 0);
+            const avgVal = totalOrders > 0 ? Math.round(totalSales / totalOrders) : 0;
+
+            document.getElementById('total-orders-count').innerText = totalOrders;
+            document.getElementById('total-sales-amount').innerText = '₹' + totalSales.toLocaleString('en-IN');
+            document.getElementById('avg-order-value').innerText = '₹' + avgVal;
+        }
+
+        function refreshData() {
+            fetchOrders();
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            fetchOrders();
+        });
     </script>
 </body>
 </html>
